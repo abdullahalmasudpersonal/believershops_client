@@ -1,16 +1,14 @@
-import React from 'react';
-import './Header.css';
-import logo from '../../../img/mahsez.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadset } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import logo from '../../../img/mahsez.png';
+import './Header.css';
 
-const Header = () => {
+const Headers = () => {
     return (
-        <div>
-            {/* ---------Part 1 ----------- */}
-          
+        <nav class="navbar sticky-top container bg-light">
             <div style={{ padding: '20px 0px' }}>
-                <div className='container  d-flex justify-content-between align-items-center'>
+                <div className='masud'>
                     <div>
                         <img width='150px' src={logo} alt='' />
                     </div>
@@ -36,17 +34,8 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-            {/* ---------Part 2 ----------- */}
-        </div>
+        </nav>
     );
 };
 
-export default Header;
+export default Headers;

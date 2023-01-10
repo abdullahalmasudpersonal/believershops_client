@@ -1,11 +1,27 @@
-
-
 /* ---------- Header Part 1 -------------- */
 
-.header-p1-ul{
+/* .header-fixed {
+    overflow: hidden;
+    background-color: aliceblue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */
+/* .header-fixed {
+    position: sticky;
+top: 20px;
+} */
+.masud{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.header-p1-ul {
     display: flex;
 }
-.header-p1-ul li{
+
+.header-p1-ul li {
     padding: 15px;
     font-weight: bold;
+    color: gray;
 }
