@@ -1,0 +1,11 @@
+
+
+/* ---------- Header Part 1 -------------- */
+
+.header-p1-ul{
+    display: flex;
+}
+.header-p1-ul li{
+    padding: 15px;
+    font-weight: bold;
+}
