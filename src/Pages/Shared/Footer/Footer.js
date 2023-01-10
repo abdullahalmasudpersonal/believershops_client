@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import img from '../../../img/mahsez.png';
 
 const Footer = () => {
     return (
@@ -36,7 +37,7 @@ const Footer = () => {
 
                         <div class="col-md-3 col-lg-4 col-xl-3 ms-0 mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">
-                                Believer Shop
+                                <img width='140px' src={img} alt='' />
                             </h6>
                             <p>
                                 Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -93,7 +94,7 @@ const Footer = () => {
                             <p><i class="fas fa-home me-3"></i> Gulshan-2, Dhaka 1204, BD</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i>
-                                comaccwar2@gmail.com
+                                m.mahsez@gmail.com
                             </p>
                             <p><i class="fas fa-phone me-3"></i> + 880 1345678898</p>
                             <p><i class="fas fa-phone me-3"></i> + 880 1445678999</p>
@@ -106,7 +107,7 @@ const Footer = () => {
         </footer>
         <div class="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)', color:'gray' }}>
             © 2022
-            <a class="text-reset fw-bold"> Believer Shop</a>
+            <a class="text-reset fw-bold"> MAHSEZ</a>
         </div>
 
     </div>
