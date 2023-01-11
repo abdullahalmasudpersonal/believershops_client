@@ -1,9 +1,10 @@
 import React from 'react';
+import Banner from './Banner/Banner';
 
 const Home = () => {
     return (
-        <div style={{height:'700px', backgroundColor:'',/*  marginTop:'94px' */}}>
-            <h1>Home</h1>
+        <div>
+            <Banner/>
         </div>
     );
 };

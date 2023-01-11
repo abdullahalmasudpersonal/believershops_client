@@ -31,13 +31,29 @@
 
 .header2-catagories {
     background-color: black;
-    padding: 7px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     color: white;
+    padding: 12px;
     width: 270px;
+    cursor: pointer;
 }
-
+.header2-catagories:hover{
+    color: orange;
+    transition: .3s;
+}
+.caretdowncircle{
+    border: .1rem solid white;
+    border-radius: 50%;
+    padding: 1.5px 4px;
+}
+.header2-catagories .caretdowncircle:hover{
+    border: .1rem solid orange;
+}
+.header2-catagories h6{
+    margin-top: .4rem;
+}
 .search-ber {
     border-radius: 50px;
     height: 35px;

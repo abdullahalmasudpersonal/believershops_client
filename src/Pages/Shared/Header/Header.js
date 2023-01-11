@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Header.css';
-import logo from '../../../img/mahsez.png';
+import logo from '../../../img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCircleChevronDown, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCaretSquareDown, faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
@@ -56,12 +56,17 @@ const Header = () => {
                 <div className='container header-part2-dev'>
 
                     <div className='header2-catagories'>
-                        <FontAwesomeIcon icon={faAlignJustify} />
-                        <h6 className='ms-2 mt-1'>ALL CATAGORIES</h6>
+                        <div className='d-flex align-items-center'>
+                            <FontAwesomeIcon className='' icon={faAlignJustify} />
+                            <h6 className=' ps-2'>ALL CATAGORIES</h6>
+                        </div>
+                        <div>
+                            <FontAwesomeIcon className='caretdowncircle' icon={faCaretDown} />
+                        </div>
                     </div>
 
-                    <div className='search'>
-                        <input className='search-ber' placeholder='Looking your products' type='search' />
+                    <div className='search p-2'>
+                        <input className='search-ber ' placeholder='Looking your products' type='search' />
                     </div>
 
                     <div >
