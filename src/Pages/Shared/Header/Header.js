@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../img/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeadset } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
-    const changeShadow = () =>{
-        if(window.scrollY >= 50){
+    const changeShadow = () => {
+        if (window.scrollY >= 80) {
             setShadow(true)
         }
-        else{
+        else {
             setShadow(false)
         }
     }
@@ -20,9 +21,9 @@ const Header = () => {
     return (
         <>
             {/* ---------Part 1 ----------- */}
-          
-            <div className={shadow ? 'sticky-top  header-shadow': 'sticky-top'} style={{ padding: '20px 0px' }}>
-                <div className='container  d-flex justify-content-between align-items-center'>
+
+            <div className={shadow ? 'sticky-top  header-shadow' : ''} style={{ padding: '20px 0px' }}>
+                <div className='container  d-flex justify-content-between align-items-center p-0'>
                     <div>
                         <img width='150px' src={logo} alt='' />
                     </div>
@@ -49,14 +50,27 @@ const Header = () => {
                 </div>
             </div>
 
-
-
-
-
-
-
-
             {/* ---------Part 2 ----------- */}
+
+            <div className='header-part2'>
+                <div className='container header-part2-dev'>
+
+                    <div className='header2-catagories'>
+                        <FontAwesomeIcon icon={faAlignJustify} />
+                        <h6 className='ms-2 mt-1'>ALL CATAGORIES</h6>
+                    </div>
+
+                    <div className='search'>
+                        <input className='search-ber' placeholder='Looking your products' type='search' />
+                    </div>
+
+                    <div >
+                        <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
+
+                        <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

@@ -1,16 +1,12 @@
 /* ---------- Header Part 1 -------------- */
 
-.header-shadow{
+.header-shadow {
     transition: .4s;
     background-color: rgb(244, 250, 255);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    padding: 0;
 }
 
-.masud{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
 .header-p1-ul {
     display: flex;
 }
@@ -19,4 +15,54 @@
     padding: 15px;
     font-weight: bold;
     color: gray;
+}
+
+/* ----------- header part 2 ------------- */
+.header-part2 {
+    background-color: rgb(255, 145, 0);
+}
+
+.header-part2-dev {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.header2-catagories {
+    background-color: black;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 270px;
+}
+
+.search-ber {
+    border-radius: 50px;
+    height: 35px;
+    width: 70vh;
+    border: none;
+}
+
+.search input {
+    padding: 10px;
+}
+
+.search-ber:hover {}
+
+.shopping-cart {
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 17px;
+}
+
+.shopping-cart:hover {
+    cursor: pointer;
+    color: rgb(255, 136, 0);
+    -webkit-box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
+    -moz-box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
+    box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
+    transition: .4s;
 }
