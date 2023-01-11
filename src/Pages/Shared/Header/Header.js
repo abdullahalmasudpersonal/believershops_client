@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCircleChevronDown, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { faCaretSquareDown, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import HeaderCatagore from './HeaderCatagore';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
@@ -76,6 +77,9 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+
+            {/* ---------- Header part 3--------- */}
+            <HeaderCatagore/>
         </>
     );
 };
