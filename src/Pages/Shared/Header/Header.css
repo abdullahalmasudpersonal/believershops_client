@@ -84,6 +84,10 @@
 }
 
 /* ------------- Header All Catagore--------- */
+.catagore-banner-flex{
+    display: flex;
+    grid-template-columns: repeat(max-content, max-content, max-content);
+}
 .header-all-catagore{
     background-color: rgb(250, 251, 253);
     width: 270px;

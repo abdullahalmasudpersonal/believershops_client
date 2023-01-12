@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import HeaderCatagore from './HeaderCatagore';
+import Banner from '../../Home/Banner/Banner';
+import Banner2 from '../../Home/Banner/Banner2';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
@@ -79,7 +81,13 @@ const Header = () => {
             </div>
 
             {/* ---------- Header part 3--------- */}
-            <HeaderCatagore/>
+            <div className='container px-0 '>
+                <div className='catagore-banner-flex'>
+                    <HeaderCatagore />
+                    <Banner />
+                    <Banner2 />
+                </div>
+            </div>
         </>
     );
 };

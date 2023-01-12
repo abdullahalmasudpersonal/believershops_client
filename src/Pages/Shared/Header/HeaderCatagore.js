@@ -7,7 +7,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 const HeaderCatagore = () => {
     return (
         <>
-            <div className='container p-0'>
+            <div className=''>
                 <ul className='header-all-catagore px-3'>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
