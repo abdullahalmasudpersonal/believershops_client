@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './Header.css';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderCatagore = () => {
     return (
@@ -10,47 +11,58 @@ const HeaderCatagore = () => {
                 <ul className='header-all-catagore px-3'>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Fashion
+                        <span>Fashion</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Kitchen
+                        <span>Kitchen</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Computer
+                        <span>Computer</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Bages
+                        <span>Bages</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Watches
+                        <span>Watches</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        SmartPhone
+                        <span>SmartPhone</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Health & Beauty
+                        <span>Health & Beauty</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Sport Clothing
+                        <span>Sport Clothing</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Maternity
+                        <span>Maternity</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Jewelry
+                        <span>Jewelry</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        Accessories
+                        <span>Accessories</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
                     </li>
                 </ul>
             </div>
