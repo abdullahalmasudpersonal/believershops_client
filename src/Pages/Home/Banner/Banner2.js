@@ -8,7 +8,6 @@ const Banner2 = () => {
         <div className='banner2'>
             <img src={banner21} alt='' />
             <img src={banner22} alt='' />
-            <img src={banner23} alt='' />
         </div>
     );
 };

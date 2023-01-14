@@ -46,8 +46,8 @@ const Header = () => {
                             <FontAwesomeIcon style={{ height: '48px', width: '30px', marginRight: '10px', color: '#FF5733' }} icon={faHeadset} />
                         </div>
                         <div>
-                            <p className='m-0'>Call us now : (+84) 4567 421 978</p>
-                            <p className='m-0'>Email : contact@revo.com</p>
+                            <p className='m-0'>Call us now : (+88) 4567 421 978</p>
+                            <p className='m-0'>Email : m.mahsez@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -84,8 +84,8 @@ const Header = () => {
             <div className='container px-0 '>
                 <div className='catagore-banner-flex'>
                     <HeaderCatagore />
-                    <Banner />
-                    <Banner2 />
+                    {/* <Banner />
+                    <Banner2 /> */}
                 </div>
             </div>
         </>

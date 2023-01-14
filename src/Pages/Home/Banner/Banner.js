@@ -14,13 +14,13 @@ const Banner = () => {
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img style={{width:'700px',height:'496px'}} class="d-block " src={banner} alt="First slide"/>
+                    <img style={{width:'730px',height:'496px'}} class="d-block " src={banner} alt="First slide"/>
                 </div>
                 <div class="carousel-item">
-                    <img style={{width:'700px',height:'496px'}} class="d-block " src={banner2} alt="First slide"/>
+                    <img style={{width:'730px',height:'496px'}} class="d-block " src={banner2} alt="First slide"/>
                 </div>
                 <div class="carousel-item">
-                    <img style={{width:'700px',height:'496px'}} class="d-block " src={banner3} alt="First slide"/>
+                    <img style={{width:'730px',height:'496px'}} class="d-block " src={banner3} alt="First slide"/>
                 </div>
               {/*   <div class="carousel-item">
                     <img class="d-block w-100" src={banner2} alt="Second slide"/>

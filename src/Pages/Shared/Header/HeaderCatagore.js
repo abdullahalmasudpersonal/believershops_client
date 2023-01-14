@@ -9,60 +9,96 @@ const HeaderCatagore = () => {
         <>
             <div className=''>
                 <ul className='header-all-catagore px-3'>
+                    {/*  <li>
+                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                        <span>Accessories</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+                    </li> */}
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Fashion</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <span>Beauty</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
+                    {/* <li>
+                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                        <span>Books</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+                    </li> */}
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Kitchen</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
-                    </li>
-                    <li>
-                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Computer</span>
+                        <span>Bags</span>
                         <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Bages</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <span>Computers</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Watches</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <span>Dresses</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>SmartPhone</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <span>Electronic</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+                    </li>
+                    <li>
+                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                        <span>Foods</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
                         <span>Health & Beauty</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
-                    <li>
+                    <li  className='islamic'>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Sport Clothing</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <span>Islamic</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+
+                        <div className='sub-catagore px-3'>
+                            <ul className='p-0'>
+                                <li>
+                                    <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                                    <span>Cap</span>
+                                    <FontAwesomeIcon className='sub-catagore-tatagore-icon-chevronright' icon={faChevronRight} />
+                                </li>
+                                <li>
+                                    <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                                    <span>Jainamaz</span>
+                                    <FontAwesomeIcon className='sub-catagore-tatagore-icon-chevronright' icon={faChevronRight} />
+                                </li>
+                            </ul>
+                        </div>
+
                     </li>
-                    <li>
-                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Maternity</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
-                    </li>
-                    <li>
+                    {/*  <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
                         <span>Jewelry</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+                    </li> */}
+                    {/* <li>
+                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                        <span>Medicine</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+                    </li> */}
+                    <li>
+                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                        <span>Security</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                     <li>
                         <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
-                        <span>Accessories</span>
-                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight}  />
+                        <span>Software</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
+                    </li>
+                    <li>
+                        <FontAwesomeIcon className='catagore-icon' icon={faHeart} />
+                        <span>Sports</span>
+                        <FontAwesomeIcon className='tatagore-icon-chevronright' icon={faChevronRight} />
                     </li>
                 </ul>
             </div>
