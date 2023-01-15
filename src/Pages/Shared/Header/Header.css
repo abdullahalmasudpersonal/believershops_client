@@ -30,7 +30,7 @@
 }
 
 .header2-catagories {
-    background-color: black;
+    background-color: rgb(28, 28, 31);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -84,62 +84,57 @@
 }
 
 /* ------------- Header All Catagore--------- */
-.catagore-banner-flex{
-    display: flex;
-    grid-template-columns: repeat(max-content, max-content, max-content);
-}
-.header-all-catagore{
-    background-color: rgb(250, 251, 253);
-    width: 270px;
+.header-catagore ul{
     position: relative;
-    border-radius: 0 0 3px 3px ;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-}
-.header-all-catagore > li{
-    position: relative;
-    font-weight: bold;
-    color: gray;
-    cursor: pointer;
     list-style-type: none;
-    padding: 10px 0px;
-    border-top: 1px solid rgb(201, 201, 201);
+    padding: 0;
+    width: 270px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 0 0 3px 3px;
+    cursor: pointer;  
 }
-.header-all-catagore > li:hover{
-    color: rgb(255, 136, 0);
+.header-catagore ul li{
+    background-color: rgb(255, 255, 255);
+    padding: 0 15px;
+    width: 270px;
+}
+
+.header-catagore ul li a{
+    font-weight: 600;
+}
+.catagore-list-apdding{
+    width: 240px;
+    padding: 14px 0px;
+    border-bottom: 1px solid rgb(230, 229, 229);
+    color: gray;
+}
+.catagore-list-apdding:hover{
+    color: orange;
     transition: .3s;
 }
-.tatagore-icon-chevronright{
+.ul li:last-child{
+    border-bottom: 0;
+}
+.product-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+}
+.catagore-faChevronRight{
     position: absolute;
-    right: 0;
-    font-size: 12px;
-   margin-top: 5px;
+    z-index: 1;
+    right: 15px;
+    font-size: 13px;
 }
-.catagore-icon{
-    padding-right: 7px;
-}
-/* ---------------- islamic ---------------- */
-.islamic:hover .sub-catagore{
-    display: block;
-    transition: .3s;
-}
-.sub-catagore{
+
+/* .masud{
     display: none;
     position: absolute;
     top: 0;
-    left: 254px;
-    width: 220px;
-    border-radius: 0 3px 3px 0;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    left: 155px;
+    z-index: 1;
 }
-.sub-catagore li{
-    color: rgb(116, 116, 116);
-    cursor: pointer;
-    list-style-type: none;
-    padding: 10px 0px;
-}
-.sub-catagore-tatagore-icon-chevronright{
-    position: absolute;
-    right: 16px;
-    font-size: 12px;
-   margin-top: 5px;
-}
+.header-catagore ul li:hover .masud{
+    display: block;
+} */
