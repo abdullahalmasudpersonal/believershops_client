@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import HeaderCatagore from './HeaderCatagore';
 import Banner from '../../Home/Banner/Banner';
 import Banner2 from '../../Home/Banner/Banner2';
+import { faAccusoft } from '@fortawesome/free-brands-svg-icons';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
@@ -75,7 +76,9 @@ const Header = () => {
                     <div >
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
 
-                        <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
+                        <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
+
+                        <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
                     </div>
                 </div>
             </div>
