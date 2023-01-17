@@ -10,7 +10,7 @@ const HeaderCatagore = () => {
     return (
         <>
             <div className='contaniner header-catagore'>
-                <ul className='p-0'>
+                <ul className='p-0 header-catagore-ul' >
                     <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faSpa} className='pe-2 product-img ' />

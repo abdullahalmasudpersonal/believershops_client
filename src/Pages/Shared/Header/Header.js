@@ -87,8 +87,8 @@ const Header = () => {
             <div className='container px-0 '>
                 <div className='catagore-banner-flex d-flex'>
                     <HeaderCatagore />
-                    {/*  <Banner />
-                    <Banner2 />  */}
+                     <Banner />
+                    <Banner2 /> 
                 </div>
             </div>
         </>
