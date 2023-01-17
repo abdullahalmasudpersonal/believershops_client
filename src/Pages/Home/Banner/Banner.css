@@ -1,7 +1,11 @@
 
-
+.banner{
+    background-color: antiquewhite;
+    width: 100vh;
+    height: 400px;
+}
 /* ------------- Banner 2 ------------- */
 .banner2 img{
-    width: 320px;
-    height: 248px;
+    width: 40vh;
+    height: 200px;
 }

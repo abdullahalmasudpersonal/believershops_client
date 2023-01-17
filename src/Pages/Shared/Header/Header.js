@@ -26,7 +26,7 @@ const Header = () => {
         <>
             {/* ---------Part 1 ----------- */}
 
-            <div className={shadow ? 'sticky-top  header-shadow' : ''} style={{ padding: '20px 0px' }}>
+            <div className={shadow ? 'sticky-top  header-shadow' : ''} style={{ padding: '10px 0px' }}>
                 <div className='container  d-flex justify-content-between align-items-center p-0'>
                     <div>
                         <img width='150px' src={logo} alt='' />
@@ -85,10 +85,10 @@ const Header = () => {
 
             {/* ---------- Header part 3--------- */}
             <div className='container px-0 '>
-                <div className='catagore-banner-flex'>
+                <div className='catagore-banner-flex d-flex'>
                     <HeaderCatagore />
-                    {/* <Banner />
-                    <Banner2 /> */}
+                    {/*  <Banner />
+                    <Banner2 />  */}
                 </div>
             </div>
         </>

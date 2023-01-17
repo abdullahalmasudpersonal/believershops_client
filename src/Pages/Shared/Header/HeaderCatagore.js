@@ -10,7 +10,7 @@ const HeaderCatagore = () => {
     return (
         <>
             <div className='contaniner header-catagore'>
-                <ul>
+                <ul className='p-0'>
                     <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faSpa} className='pe-2 product-img ' />
@@ -53,34 +53,30 @@ const HeaderCatagore = () => {
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                         </div>
                     </li>
-                    <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faUserDoctor} className='pe-2 product-img' />
-                            <a>Health & Beauty</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
-                    </li>
-                    <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
+                    <li className='islamic'>
+                        <div className='d-flex align-items-center catagore-list-apdding '>
                             <FontAwesomeIcon icon={faMosque} className='pe-2 product-img' />
                             <a>Islamic</a>
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                         </div>
+                         <div className='islamic-child-catagore'>
+                            <ul className='p-0'>
+                                <li>Jainamaz</li>
+                                <li>Tajbeeh</li>
+                                <li>Tupi</li>
+                                <li>Attar</li>
+                                <li>Hijab</li>
+                                <li>burqa</li>
+                            </ul>
+                        </div> 
                     </li>
-                    <li className=''>
+                    {/* <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faLock} className='pe-2 product-img' />
                             <a>Security</a>
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                         </div>
-                    </li>
-                    <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faGears} className='pe-2 product-img' />
-                            <a>Software</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
-                    </li>
+                    </li> */}
                     <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faTrophy} className='pe-2 product-img' />
@@ -88,7 +84,7 @@ const HeaderCatagore = () => {
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                         </div>
                     </li>
-                   {/*  <li className=''>
+                    {/*  <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faHeart} className='p-1' />
                             <a> MASUD</a>
@@ -100,7 +96,7 @@ const HeaderCatagore = () => {
                             </ul>
                         </div>
                     </li> */}
-                
+
                 </ul>
             </div>
         </>

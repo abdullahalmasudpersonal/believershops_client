@@ -2,6 +2,7 @@ import React from 'react';
 import banner21 from '../../../img/banner/banner2/banner (1).jpg';
 import banner22 from '../../../img/banner/banner2/banner (2).jpg';
 import banner23 from '../../../img/banner/banner2/banner (3).jpg';
+import './Banner.css';
 
 const Banner2 = () => {
     return (
