@@ -8,6 +8,7 @@ import HeaderCatagore from './HeaderCatagore';
 import Banner from '../../Home/Banner/Banner';
 import Banner2 from '../../Home/Banner/Banner2';
 import { faAccusoft } from '@fortawesome/free-brands-svg-icons';
+import Slides from '../../Home/Banner/Banner2';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
@@ -84,13 +85,22 @@ const Header = () => {
             </div>
 
             {/* ---------- Header part 3--------- */}
-            <div className='container px-0 '>
-                <div className='catagore-banner-flex d-flex'>
-                    <HeaderCatagore />
-                     <Banner />
-                    <Banner2 /> 
+            {/* <div className='container'>
+                <Banner />
+            </div> */}
+             <div className='container px-0  catagore-banner-flex'>
+               
+                  <HeaderCatagore /> 
+                  <Banner />
+                  <Slides />
+                
+                {/* <div>
+                    <Banner />
                 </div>
-            </div>
+                <div>
+                    <Slides />
+                </div> */}
+            </div> 
         </>
     );
 };

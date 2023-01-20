@@ -1,0 +1,26 @@
+
+/* -----------Featured Categories-------------- */
+.featured-catagories{
+    position: relative;
+    padding-bottom: 5px;
+}
+.featured-catagories::before{
+    margin-top: 20px;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: auto;
+}
+.featured-catagories::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 7%;
+    height: 2px;
+    background: #ff7300;
+    bottom: 0;
+}

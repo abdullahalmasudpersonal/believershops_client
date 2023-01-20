@@ -4,7 +4,7 @@ import banner22 from '../../../img/banner/banner2/banner (2).jpg';
 import banner23 from '../../../img/banner/banner2/banner (3).jpg';
 import './Banner.css';
 
-const Banner2 = () => {
+const Slides = () => {
     return (
         <div className='banner2'>
             <img src={banner21} alt='' />
@@ -13,4 +13,4 @@ const Banner2 = () => {
     );
 };
 
-export default Banner2;
+export default Slides;

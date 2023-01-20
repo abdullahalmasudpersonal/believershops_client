@@ -83,8 +83,7 @@
 }
 /* ------------- header 3 ---------------------- */
 .catagore-banner-flex{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
 }
 /* ------------- Header All Catagore--------- */
 .header-catagore-ul{
@@ -166,4 +165,5 @@
 }
 .header-catagore ul li:hover .islamic-child-catagore{
     display: block;
+    z-index: 1;
 }
