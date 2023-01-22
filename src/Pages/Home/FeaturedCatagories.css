@@ -1,0 +1,9 @@
+
+.featuredCatagories{
+    background-color: aqua;
+    overflow: auto;
+    white-space: nowrap;
+}
+div.featuredCatagories div{
+    display: inline-block;
+}
