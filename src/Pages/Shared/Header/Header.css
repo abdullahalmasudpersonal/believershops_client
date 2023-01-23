@@ -4,7 +4,6 @@
     transition: .4s;
     background-color: rgb(244, 250, 255);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-    padding: 0;
 }
 
 .header-p1-ul {
@@ -15,6 +14,17 @@
     padding: 15px;
     font-weight: bold;
     color: rgb(107, 94, 94);
+}
+
+@media screen and (min-width:8px) and (max-width:930px) {
+    .responsive-header{
+        display:none !important;
+    }
+}
+@media screen and (min-width:931px) {
+    .header-small-screen{
+        display: none;
+    }
 }
 
 /* ----------- header part 2 ------------- */

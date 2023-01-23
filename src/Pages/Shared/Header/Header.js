@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsis, faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
 import HeaderCatagore from './HeaderCatagore';
 import Banner from '../../Home/Banner/Banner';
 import Banner2 from '../../Home/Banner/Banner2';
@@ -27,8 +27,8 @@ const Header = () => {
         <>
             {/* ---------Part 1 ----------- */}
 
-            <div className={shadow ? 'sticky-top  header-shadow' : ''} style={{ padding: '10px 0px' }}>
-                <div className='container  d-flex justify-content-between align-items-center p-0'>
+            <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
+                <div className='container-lg  d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
                     <div>
                         <img width='150px' src={logo} alt='' />
                     </div>
@@ -55,7 +55,27 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* ---------Part 2 ----------- */}
+            {/* -----------Mobile manu start----------- */}
+            <div className='header-small-screen'>
+                <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
+                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
+
+                        <div>
+                            <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
+                        </div>
+
+                        <div>
+                            <img width='150px' src={logo} alt='' />
+                        </div>
+                        <div>
+                            <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                            <FontAwesomeIcon className='shopping-cart' icon={faEllipsisV} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* -----------Mobile manu end------------- */}
 
             <div className='header-part2'>
                 <div className='container header-part2-dev'>
@@ -84,23 +104,45 @@ const Header = () => {
                 </div>
             </div>
 
+            {/* ---------Part 2 ----------- */}
+
+            {/*  <div className='header-part2'>
+                <div className='container header-part2-dev'>
+
+                    <div className='header2-catagories'>
+                        <div className='d-flex align-items-center'>
+                            <FontAwesomeIcon className='' icon={faAlignJustify} />
+                            <h6 className=' ps-2'>ALL CATAGORIES</h6>
+                        </div>
+                        <div>
+                            <FontAwesomeIcon className='caretdowncircle' icon={faCaretDown} />
+                        </div>
+                    </div>
+
+                    <div className='search p-2'>
+                        <input className='search-ber ' placeholder='Looking your products' type='search' />
+                    </div>
+
+                    <div >
+                        <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
+
+                        <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
+
+                        <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                    </div>
+                </div>
+            </div> */}
+
             {/* ---------- Header part 3--------- */}
             {/* <div className='container'>
                 <Banner />
             </div> */}
-             <div className='container px-0  catagore-banner-flex'>
+            {/*  <div className='container px-0  catagore-banner-flex'>
                
                   <HeaderCatagore /> 
                   <Banner />
                   <Slides />
-                
-                {/* <div>
-                    <Banner />
-                </div>
-                <div>
-                    <Slides />
-                </div> */}
-            </div> 
+            </div>  */}
         </>
     );
 };
