@@ -20,11 +20,18 @@
     .responsive-header{
         display:none !important;
     }
+    .header-part2{
+        display: none !important;
+    }
 }
 @media screen and (min-width:931px) {
     .header-small-screen{
         display: none;
     }
+    .header2-part-2{
+        display: none !important;
+    }
+    
 }
 
 /* ----------- header part 2 ------------- */
@@ -36,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
+    padding:0;
 }
 
 .header2-catagories {
@@ -45,7 +52,7 @@
     align-items: center;
     justify-content: space-between;
     color: white;
-    padding: 12px;
+    padding: 10px;
     width: 270px;
     cursor: pointer;
 }
@@ -91,6 +98,56 @@
     box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
     transition: .4s;
 }
+/* -------------header2 part2------------------- */
+.header2-part-2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: orange;
+    padding: 6.5px 20px;
+}
+.header2-part-2-search{
+    display: flex;
+
+}
+.header2-part2-search-ber{
+    border-radius: 50px 0px 0px 50px ;
+    border: none;
+    height: 40px;
+    width: 500px;
+}
+.header2-part-2-search-icon{
+    padding: 12px 25px;
+    background-color: rgba(0, 15, 66, 0.774);
+    color: rgb(219, 219, 219);
+    border-radius: 0 50px 50px 0;
+}
+@media screen and (min-width:100px) and (max-width:800px) {
+    .header2-part2-search-ber{
+        width: 400px;
+    }
+}
+@media screen and (min-width:100px) and (max-width:700px) {
+    .header2-part2-search-ber{
+        width: 300px;
+    }
+}
+@media screen and (min-width:100px) and (max-width:600px) {
+    .header2-part2-search-ber{
+        width: 250px;
+    }
+}
+@media screen and (min-width:100px) and (max-width:500px) {
+    .header2-part2-search-ber{
+        width: 200px;
+    }
+}
+@media screen and (min-width:100px) and (max-width:400px) {
+    .header2-part2-search-ber{
+        width: 150px;
+    }
+}
+
 /* ------------- header 3 ---------------------- */
 .catagore-banner-flex{
     display: flex;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsis, faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
 import HeaderCatagore from './HeaderCatagore';
 import Banner from '../../Home/Banner/Banner';
@@ -20,7 +20,7 @@ const Header = () => {
             setShadow(false)
         }
     }
-    window.addEventListener('scroll', changeShadow)
+    window.addEventListener('scroll', changeShadow);
 
 
     return (
@@ -53,11 +53,30 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className='header-small-screen'>
+                    <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
+                        <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
+
+                            <div>
+                                <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
+                            </div>
+
+                            <div>
+                                <img width='150px' src={logo} alt='' />
+                            </div>
+                            <div>
+                                <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                                <FontAwesomeIcon className='shopping-cart' icon={faEllipsisV} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* -----------Mobile manu start----------- */}
-            <div className='header-small-screen'>
-                <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
+            {/*  <div className='header-small-screen'>
+                <div className={shadow2 ? 'sticky-top  header-shadow ' : ''}>
                     <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
 
                         <div>
@@ -73,7 +92,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* -----------Mobile manu end------------- */}
 
@@ -103,6 +122,20 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+
+            <div className='header2-part-2'>
+                <div>
+                    <FontAwesomeIcon className='shopping-cart' icon={faHome} />
+                </div>
+                <div className='header2-part-2-search'>
+                    <input className='p-0 header2-part2-search-ber' />
+                    <FontAwesomeIcon className='header2-part-2-search-icon' icon={faSearch} />
+                </div>
+                <div>
+                <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
+                </div>
+            </div>
+
 
             {/* ---------Part 2 ----------- */}
 
