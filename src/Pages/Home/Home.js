@@ -11,15 +11,24 @@ const Home = () => {
     return (
         <>
 
-          
 
 
-            <div className='container px-0  catagore-banner-flex'>
 
-                <HeaderCatagore />
-                <Banner />
-                <Slides />
+            <div className='container-lg px-0  catagore-banner-flex '>
+
+                <div>
+                    <HeaderCatagore />
+                </div>
+
+                <div>
+                    <Banner />
+                </div>
+                {/*  <Slides />  */}
+
             </div>
+
+
+
             <div className='container p-0 mb-5 mt-4'>
 
                 <div className='featured-catagories mb-4'>

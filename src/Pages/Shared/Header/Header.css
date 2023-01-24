@@ -148,10 +148,6 @@
     }
 }
 
-/* ------------- header 3 ---------------------- */
-.catagore-banner-flex{
-    display: flex;
-}
 /* ------------- Header All Catagore--------- */
 .header-catagore-ul{
     position: relative;
