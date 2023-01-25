@@ -56,6 +56,23 @@
     width: 270px;
     cursor: pointer;
 }
+@media screen and (max-width:1399px) {
+    .search-ber {
+        width: 500px !important;
+    }
+}
+@media screen and (max-width:1199px) {
+    .search-ber {
+        width: 400px !important;
+    }
+    .header2-catagories{
+        width: 220px;
+    }
+    .header2-lust-part{
+        width: 180px !important;
+    }
+
+}
 .header2-catagories:hover{
     color: orange;
     transition: .3s;
@@ -72,16 +89,20 @@
     margin-top: .4rem;
 }
 .search-ber {
-    border-radius: 50px;
-    height: 35px;
-    width: 70vh;
+    border-radius: 50px 0 0 50px ;
+    height: 40px;
+    width: 600px;
     border: none;
 }
 
 .search input {
     padding: 10px;
 }
-
+.header2-lust-part{
+    width: 280px;
+    display: flex;
+    justify-content: right;
+}
 .shopping-cart {
     border-radius: 50px;
     background-color: rgb(255, 255, 255);
@@ -154,6 +175,7 @@
     list-style-type: none;
     padding: 0;
     width: 270px;
+    margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     border-radius: 0 0 5px 5px;
     z-index: 10;

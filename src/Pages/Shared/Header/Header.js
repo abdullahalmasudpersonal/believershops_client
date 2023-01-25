@@ -96,8 +96,9 @@ const Header = () => {
 
             {/* -----------Mobile manu end------------- */}
 
+            {/* ---------------- Header part 2 start ---------------- */}
             <div className='header-part2'>
-                <div className='container header-part2-dev'>
+                <div className='container-lg header-part2-dev'>
 
                     <div className='header2-catagories'>
                         <div className='d-flex align-items-center'>
@@ -109,11 +110,12 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className='search p-2'>
+                    <div className='search d-flex'>
                         <input className='search-ber ' placeholder='Looking your products' type='search' />
+                        <FontAwesomeIcon className='header2-part-2-search-icon' icon={faSearch} />
                     </div>
 
-                    <div >
+                    <div className='header2-lust-part'>
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
 
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
@@ -122,6 +124,9 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            {/* ---------------- Header part 2 end ---------------- */}
+
+            {/* ---------------- Header part 2 responsive start ---------------- */}
 
             <div className='header2-part-2'>
                 <div>
@@ -132,10 +137,10 @@ const Header = () => {
                     <FontAwesomeIcon className='header2-part-2-search-icon' icon={faSearch} />
                 </div>
                 <div>
-                <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
+                    <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
                 </div>
             </div>
-
+            {/* ---------------- Header part 2 responsive end ---------------- */}
 
             {/* ---------Part 2 ----------- */}
 
