@@ -57,6 +57,9 @@
     cursor: pointer;
 }
 @media screen and (max-width:1399px) {
+    .header2-catagories{
+        width: 240px;
+    }
     .search-ber {
         width: 500px !important;
     }
@@ -66,7 +69,7 @@
         width: 400px !important;
     }
     .header2-catagories{
-        width: 220px;
+        width: 200px;
     }
     .header2-lust-part{
         width: 180px !important;
@@ -179,13 +182,11 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     border-radius: 0 0 5px 5px;
     z-index: 10;
-  
     cursor: pointer;  
 }
 .header-catagore ul li{
     background-color: rgb(255, 255, 255);
     padding: 0 15px;
-    width: 270px;
 }
 
 .header-catagore ul li a{
@@ -213,7 +214,28 @@
     right: 15px;
     font-size: 13px;
 }
+@media screen and (max-width:1399px) {
+    .header-catagore-ul{
+        width: 240px;
+    }
+    .catagore-list-apdding {
+        width: 210px;
+    }
+}
+@media screen and (max-width:1199px) {
+    .header-catagore-ul{
+        width: 200px;
+    }
+    .catagore-list-apdding {
+        width: 170px;
+    }
+}
+@media screen and (max-width:930px) {
+    .header-catagore{
+        display: none;
+    }
 
+}
 /* .masud{
     display: none;
     position: absolute;
