@@ -29,6 +29,7 @@
 
 .banner-right-child-dev-img {
     height: 200px;
+
 }
 
 @media screen and (max-width:800px) {
@@ -41,7 +42,7 @@
         width: 50%;
     }
 
-   /*  .banner-right img {
+    /* .banner-right img {
         height: 220px;
     } */
 
