@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import './Header.css';
+import './HeaderCatagore.css';
 import { faChessKnight, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBagShopping, faBowlFood, faCarOn, faChevronRight, faComputer, faE, faFootballBall, faGears, faLock, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';

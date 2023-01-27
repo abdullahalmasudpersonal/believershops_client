@@ -4,7 +4,7 @@ import Banner from './Banner/Banner';
 import FeaturedCatagories from './FeaturedCatagories';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faCaretDown, faHeart, faShoppingCart, faUserAlt } from '@fortawesome/free-solid-svg-icons';
-import HeaderCatagore from '../Shared/Header/HeaderCatagore';
+import HeaderCatagore from '../Shared/Header/HeaderCatagore/HeaderCatagore';
 import Slides from './Banner/Banner2';
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
 
 
 
-            <div className='container-lg px-0 p-0 catagore-banner-flex d-flex'>
+            <div className='container-xxl p-0 d-flex'>
 
                 <HeaderCatagore />
                 <Banner />

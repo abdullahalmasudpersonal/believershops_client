@@ -4,7 +4,7 @@ import logo from '../../../img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
-import HeaderCatagore from './HeaderCatagore';
+import HeaderCatagore from './HeaderCatagore/HeaderCatagore';
 import Banner from '../../Home/Banner/Banner';
 import Banner2 from '../../Home/Banner/Banner2';
 import { faAccusoft } from '@fortawesome/free-brands-svg-icons';
@@ -28,7 +28,7 @@ const Header = () => {
             {/* ---------Part 1 ----------- */}
 
             <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
-                <div className='container-lg  d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
+                <div className='container-xxl  d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
                     <div>
                         <img width='150px' src={logo} alt='' />
                     </div>
@@ -73,32 +73,10 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
-            {/* -----------Mobile manu start----------- */}
-            {/*  <div className='header-small-screen'>
-                <div className={shadow2 ? 'sticky-top  header-shadow ' : ''}>
-                    <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
-
-                        <div>
-                            <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
-                        </div>
-
-                        <div>
-                            <img width='150px' src={logo} alt='' />
-                        </div>
-                        <div>
-                            <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
-                            <FontAwesomeIcon className='shopping-cart' icon={faEllipsisV} />
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
-            {/* -----------Mobile manu end------------- */}
-
+            
             {/* ---------------- Header part 2 start ---------------- */}
             <div className='header-part2'>
-                <div className='container-lg header-part2-dev'>
+                <div className='container-xxl header-part2-dev'>
 
                     <div className='header2-catagories'>
                         <div className='d-flex align-items-center'>
@@ -115,7 +93,7 @@ const Header = () => {
                         <FontAwesomeIcon className='header2-part-2-search-icon' icon={faSearch} />
                     </div>
 
-                    <div className='header2-lust-part'>
+                    <div className='header2-lust-part pe-2'>
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
 
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
@@ -141,46 +119,7 @@ const Header = () => {
                 </div>
             </div>
             {/* ---------------- Header part 2 responsive end ---------------- */}
-
-            {/* ---------Part 2 ----------- */}
-
-            {/*  <div className='header-part2'>
-                <div className='container header-part2-dev'>
-
-                    <div className='header2-catagories'>
-                        <div className='d-flex align-items-center'>
-                            <FontAwesomeIcon className='' icon={faAlignJustify} />
-                            <h6 className=' ps-2'>ALL CATAGORIES</h6>
-                        </div>
-                        <div>
-                            <FontAwesomeIcon className='caretdowncircle' icon={faCaretDown} />
-                        </div>
-                    </div>
-
-                    <div className='search p-2'>
-                        <input className='search-ber ' placeholder='Looking your products' type='search' />
-                    </div>
-
-                    <div >
-                        <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
-
-                        <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
-
-                        <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
-                    </div>
-                </div>
-            </div> */}
-
-            {/* ---------- Header part 3--------- */}
-            {/* <div className='container'>
-                <Banner />
-            </div> */}
-            {/*  <div className='container px-0  catagore-banner-flex'>
-               
-                  <HeaderCatagore /> 
-                  <Banner />
-                  <Slides />
-            </div>  */}
+           
         </>
     );
 };

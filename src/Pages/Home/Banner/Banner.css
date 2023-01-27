@@ -2,12 +2,15 @@
 .banner{
     display: flex;
 }
-.banner-slide img{
+.banner-slide {
+    background-color: antiquewhite;
+    width: 70%;
     height: 400px;
 }
-.banner-right-img img{
-    height: 200px;
-    width: 250px;
+.banner-right{
+    height: 400px;
+    width: 30%;
+    background-color: aquamarine;
 }
 @media screen and (max-width:1399px) {
     .banner-slide img{
