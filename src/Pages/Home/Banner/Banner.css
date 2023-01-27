@@ -4,12 +4,12 @@
 }
 .banner-slide {
     background-color: antiquewhite;
-    width: 70%;
+    width: 75%;
     height: 400px;
 }
 .banner-right{
     height: 400px;
-    width: 30%;
+    width: 25%;
     background-color: aquamarine;
 }
 @media screen and (max-width:1399px) {
