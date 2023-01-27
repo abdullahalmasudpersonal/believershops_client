@@ -1,17 +1,92 @@
-
-.banner{
+.banner {
     display: flex;
 }
+
 .banner-slide {
-    background-color: antiquewhite;
     width: 75%;
     height: 400px;
 }
-.banner-right{
+
+@media screen and (max-width:800px) {
+    .banner-slide {
+        width: 100%;
+    }
+}
+
+.banner-right {
     height: 400px;
     width: 25%;
-    background-color: aquamarine;
 }
+
+.carousel-item-size {
+    height: 400px;
+}
+
+.carousel-item-size-img {
+    height: 400px;
+    width: 100%;
+}
+
+.banner-right-child-dev-img {
+    height: 200px;
+}
+
+@media screen and (max-width:800px) {
+    .banner {
+        display: block;
+    }
+
+    .banner-right {
+        height: auto;
+        width: 50%;
+    }
+
+   /*  .banner-right img {
+        height: 220px;
+    } */
+
+    .banner-right-child-dev {
+        display: flex;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .banner-slide {
+        height: 300px;
+    }
+
+    .carousel-item-size {
+        height: 300px;
+    }
+
+    .carousel-item-size-img {
+        height: 300px;
+        width: 100%;
+    }
+    .banner-right-child-dev-img{
+        height:150px;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    .banner-slide {
+        height: 230px;
+    }
+
+    .carousel-item-size {
+        height: 230px;
+    }
+
+    .carousel-item-size-img {
+        height: 230px;
+        width: 100%;
+    }
+}
+
+
+
+/* 
 @media screen and (max-width:1399px) {
     .banner-slide img{
         height: 400px;
@@ -82,3 +157,6 @@
         width: 260px;
     }
 }
+
+
+*/

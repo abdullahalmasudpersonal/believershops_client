@@ -21,57 +21,65 @@ const Banner = () => {
             />
           </div> */}
 
-           <Carousel fade >
-              <Carousel.Item style={{height:'400px'}}>
-                <img style={{height:'400px', width:'100%'}}
-                  className="d-block h-100 d-inline-block"
-                  src={banner}
-                  alt="First slide"
-                />
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item  style={{height:'400px'}}>
-                <img style={{height:'400px', width:'100%'}}
-                  className="d-block h-100 d-inline-block"
-                  src={banner2}
-                  alt="Second slide"
-                />
-        
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item  style={{height:'400px'}}>
-                <img style={{height:'400px', width:'100%'}}
-                  className="d-block h-100 d-inline-block"
-                  src={banner3}
-                  alt="Third slide"
-                />
-        
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>  
+          <Carousel fade >
+            <Carousel.Item className='carousel-item-size'>
+              <img 
+                className="d-block h-100 d-inline-block carousel-item-size-img"
+                src={banner}
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className='carousel-item-size'>
+              <img 
+                className="d-block h-100 d-inline-block carousel-item-size-img"
+                src={banner2}
+                alt="Second slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className='carousel-item-size'>
+              <img 
+                className="d-block h-100 d-inline-block carousel-item-size-img"
+                src={banner3}
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>
+                  Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
         </div>
+
         <div className='banner-right'>
-          <img
-            className="d-block w-100 h-50"
-            src={banner3}
-            alt="Third slide"
-          />
-          <img
-            className="d-block w-100 h-50"
-            src={banner3}
-            alt="Third slide"
-          />
+          <div className='banner-right-child-dev'>
+            {/* <img style={{height:'200px'}}
+              className="d-block w-100 "
+              src={banner2}
+              alt="Third slide"
+            /> */}
+            <img 
+              className="d-block w-100  banner-right-child-dev-img"
+              src={banner2}
+              alt="Third slide"
+            />
+            <img 
+              className="d-block w-100 banner-right-child-dev-img"
+              src={banner3}
+              alt="Third slide"
+            />
+          </div>
         </div>
       </div>
 
