@@ -5,16 +5,18 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import Home from './Pages/Home/Home';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
+import MHeaderCatagore from './Pages/Shared/Header/MHeaderCatagore/MHeaderCatagore';
 
 function App() {
   return (
     <div>
-      <Header />
+      <MHeaderCatagore/>
+     {/*  <Header />
       <Routes>
         <Route path='/' element={<Home />} />
 
       </Routes>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }

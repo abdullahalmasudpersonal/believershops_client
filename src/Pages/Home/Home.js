@@ -17,6 +17,7 @@ const Home = () => {
             <div className='container-xxl p-0 d-flex'>
 
                 <HeaderCatagore />
+                
                 <Banner />
                 {/* <Slides /> */}
 

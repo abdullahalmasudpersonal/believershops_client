@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './HeaderCatagore.css';
 import { faChessKnight, faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faBagShopping, faBowlFood, faCarOn, faChevronRight, faComputer, faE, faFootballBall, faGears, faLock, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { faGrunt } from '@fortawesome/free-brands-svg-icons';
 
@@ -21,7 +21,7 @@ const HeaderCatagore = () => {
                     <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faShoppingBag} className='pe-2 product-img ' />
-                            <a> Bangs</a>
+                            <a> Bags</a>
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                         </div>
                     </li>

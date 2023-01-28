@@ -65,6 +65,7 @@ const Header = () => {
                             <div>
                                 <img width='150px' src={logo} alt='' />
                             </div>
+
                             <div>
                                 <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
                                 <FontAwesomeIcon className='shopping-cart' icon={faEllipsisV} />
