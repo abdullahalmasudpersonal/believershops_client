@@ -65,7 +65,7 @@
         width: 100%;
     }
     .banner-right-child-dev-img{
-        height:150px;
+        height:130px;
     }
 
 }
@@ -82,6 +82,9 @@
     .carousel-item-size-img {
         height: 230px;
         width: 100%;
+    }
+    .banner-right-child-dev-img{
+        height:110px;
     }
 }
 
