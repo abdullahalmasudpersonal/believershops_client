@@ -5,7 +5,6 @@ import FeaturedCatagories from './FeaturedCatagories';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faCaretDown, faHeart, faShoppingCart, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import HeaderCatagore from '../Shared/Header/HeaderCatagore/HeaderCatagore';
-import Slides from './Banner/Banner2';
 
 const Home = () => {
     return (

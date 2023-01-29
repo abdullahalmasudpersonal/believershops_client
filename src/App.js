@@ -10,13 +10,13 @@ import MHeaderCatagore from './Pages/Shared/Header/MHeaderCatagore/MHeaderCatago
 function App() {
   return (
     <div>
-      <MHeaderCatagore/>
-     {/*  <Header />
+     {/*  <MHeaderCatagore/> */}
+       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
 
       </Routes>
-      <Footer /> */}
+      <Footer /> 
     </div>
   );
 }
