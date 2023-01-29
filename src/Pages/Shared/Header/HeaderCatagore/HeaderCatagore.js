@@ -78,7 +78,7 @@ const HeaderCatagore = () => {
                         </div>
                     </li> */}
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
+                        <div className='d-flex align-items-center catagore-list-apdding underCatagoreSports'>
                             <FontAwesomeIcon icon={faTrophy} className='pe-2 product-img' />
                             <a>Sports</a>
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />

@@ -22,8 +22,10 @@
 .catagore-list-apdding {
     width: 240px;
     padding: 12.5px 0px;
-    border-bottom: 1px solid rgb(230, 229, 229);
     color: gray;
+}
+.catagore-list-apdding:not(.underCatagoreSports){
+    border-bottom: 1px solid rgb(230, 229, 229);
 }
 
 .catagore-list-apdding:hover {
