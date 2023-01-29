@@ -54,12 +54,15 @@ const HeaderCatagore = () => {
                         </div>
                     </li>
                     <li className='islamic'>
-                        <div className='d-flex align-items-center catagore-list-apdding '>
-                            <FontAwesomeIcon icon={faMosque} className='pe-2 product-img' />
-                            <a>Islamic</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
-                         <div className='islamic-child-catagore'>
+                        <Link className='text-decoration-none' to='/islamic '
+                        >
+                            <div className='d-flex align-items-center catagore-list-apdding '>
+                                <FontAwesomeIcon icon={faMosque} className='pe-2 product-img' />
+                                <a>Islamic</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
+                        <div className='islamic-child-catagore'>
                             <ul className='p-0'>
                                 <li>Jainamaz</li>
                                 <li>Tajbeeh</li>
@@ -68,7 +71,7 @@ const HeaderCatagore = () => {
                                 <li>Hijab</li>
                                 <li>burqa</li>
                             </ul>
-                        </div> 
+                        </div>
                     </li>
                     {/* <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
