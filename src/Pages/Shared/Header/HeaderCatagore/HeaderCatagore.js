@@ -54,7 +54,7 @@ const HeaderCatagore = () => {
                         </div>
                     </li>
                     <li className='islamic'>
-                        <Link className='text-decoration-none' to='/islamic '
+                        <Link className='text-decoration-none' to='/categore/islamic '
                         >
                             <div className='d-flex align-items-center catagore-list-apdding '>
                                 <FontAwesomeIcon icon={faMosque} className='pe-2 product-img' />
@@ -64,7 +64,7 @@ const HeaderCatagore = () => {
                         </Link>
                         <div className='islamic-child-catagore'>
                             <ul className='p-0'>
-                                <Link to='attar'><li>Jainamaz</li></Link>
+                                <Link to='/categore/islamic/attar'><li>Jainamaz</li></Link>
                                 <li>Tajbeeh</li>
                                 <li>Tupi</li>
                                 <li>Attar</li>

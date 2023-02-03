@@ -1,15 +1,15 @@
 import { faBowlFood, faChevronDown, faComputer, faHeart, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './MainCategore.css';
 
 const MainCategore = () => {
     return (
         <>
-            <div className='container-xxl p-0 d-flex' style={{ marginTop: '60px', marginBottom:'40px' }}>
+            <div className='container-xxl p-0 d-flex' style={{ marginTop: '60px', marginBottom: '40px'}}>
 
-                <div className='maincategore-dev'>
+                <div className='maincategore-dev' style={{marginRight:'10px'}}>
 
                     <ul className='maincategore-dev-ul'>
                         <div className='maincategore-title'>
@@ -57,13 +57,15 @@ const MainCategore = () => {
                                 <FontAwesomeIcon icon={faChevronDown} className='maincatagore-faChevrondown' />
                             </div>
                         </li>
-                        <li className='maincategore-dev-ul-li'>
-                            <div className='maincategore-dev-ul-li-dev'>
-                                <FontAwesomeIcon icon={faMosque} className='pe-2 maincategore-img ' />
-                                <a>Islamic</a>
-                                <FontAwesomeIcon icon={faChevronDown} className='maincatagore-faChevrondown' />
-                            </div>
-                        </li>
+                        <Link to='/categore/islamic' style={{textDecoration:'none'}}>
+                            <li className='maincategore-dev-ul-li'>
+                                <div className='maincategore-dev-ul-li-dev'>
+                                    <FontAwesomeIcon icon={faMosque} className='pe-2 maincategore-img ' />
+                                    <a>Islamic</a>
+                                    <FontAwesomeIcon icon={faChevronDown} className='maincatagore-faChevrondown' />
+                                </div>
+                            </li>
+                        </Link>
                         {/* <li className='maincategore-dev-ul-li'>
                             <div className='maincategore-dev-ul-li-dev'>
                                 <FontAwesomeIcon icon={faTrophy} className='pe-2 maincategore-img ' />
@@ -81,7 +83,7 @@ const MainCategore = () => {
                     </ul>
                 </div>
                 <Outlet />
-          
+
             </div>
         </>
     );

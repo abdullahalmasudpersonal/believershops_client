@@ -12,9 +12,9 @@ import Sanfwan from './Pages/Masud/Sanfwan';
 import Masud from './Masud';
 import Mahmud from './Pages/Masud/Mahmud';
 import Hoomes from './Pages/Masud/Hoomes';
-import Islamic from './Pages/Categore/Islamic/Islamic';
 import Attars from './Pages/Categore/Islamic/Attar/Attars';
 import MainCategore from './Pages/Categore/MainCategore/MainCategore';
+import MainIslamic from './Pages/Categore/Islamic/Mainlslamic/MainIslamic';
 
 function App() {
   return (
@@ -36,9 +36,9 @@ function App() {
        <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-
         <Route path='/categore' element={<MainCategore />}>
-          <Route path='attar' element={<Attars/>} />
+          <Route path='islamic' element={<MainIslamic/>} />
+          <Route path='islamic/attar' element={<Attars/>} />
         </Route>
 
       </Routes>
