@@ -7,6 +7,8 @@ import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
 import HeaderCatagore from './HeaderCatagore/HeaderCatagore';
 import Banner from '../../Home/Banner/Banner';
 import { faAccusoft } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
+import MHeaderCatagore from './MHeaderCatagore/MHeaderCatagore';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)
@@ -28,7 +30,9 @@ const Header = () => {
             <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
                 <div className='container-xxl  d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
                     <div>
-                        <img width='150px' src={logo} alt='' />
+                        <Link to='/'>
+                            <img width='150px' src={logo} alt='' />
+                        </Link>
                     </div>
 
                     <div>
@@ -57,7 +61,11 @@ const Header = () => {
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
 
                             <div>
-                                <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
+                                <button style={{border:'none', background:'none'}} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                    <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
+                                </button>
+                                <MHeaderCatagore/>
+                                {/* <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} /> */}
                             </div>
 
                             <div>
@@ -72,7 +80,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* ---------------- Header part 2 start ---------------- */}
             <div className='header-part2'>
                 <div className='container-xxl header-part2-dev'>
@@ -118,7 +126,7 @@ const Header = () => {
                 </div>
             </div>
             {/* ---------------- Header part 2 responsive end ---------------- */}
-           
+
         </>
     );
 };

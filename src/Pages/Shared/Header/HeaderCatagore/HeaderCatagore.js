@@ -3,7 +3,7 @@ import React from 'react';
 import './HeaderCatagore.css';
 import { faChessKnight, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { faGrunt } from '@fortawesome/free-brands-svg-icons';
 
 const HeaderCatagore = () => {
@@ -64,7 +64,7 @@ const HeaderCatagore = () => {
                         </Link>
                         <div className='islamic-child-catagore'>
                             <ul className='p-0'>
-                                <li>Jainamaz</li>
+                                <Link to='attar'><li>Jainamaz</li></Link>
                                 <li>Tajbeeh</li>
                                 <li>Tupi</li>
                                 <li>Attar</li>
@@ -102,6 +102,7 @@ const HeaderCatagore = () => {
 
                 </ul>
             </div>
+            <Outlet/>
         </>
     );
 };
