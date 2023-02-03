@@ -3,13 +3,13 @@ import React from 'react';
 import './HeaderCatagore.css';
 import { faChessKnight, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { faGrunt } from '@fortawesome/free-brands-svg-icons';
 
 const HeaderCatagore = () => {
     return (
         <>
-            <div className='contaniner header-catagore'>
+            <div className='header-catagore'>
                 <ul className='p-0 header-catagore-ul' >
                     <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
@@ -102,7 +102,6 @@ const HeaderCatagore = () => {
 
                 </ul>
             </div>
-            <Outlet/>
         </>
     );
 };

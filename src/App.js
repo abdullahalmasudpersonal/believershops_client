@@ -4,8 +4,6 @@ import Navber from './Pages/Masud/Navber';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import Home from './Pages/Home/Home';
-import Attar from './Pages/Islamic/Attar/Attar';
-import Islamic from './Pages/Islamic/Islamic';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import MHeaderCatagore from './Pages/Shared/Header/MHeaderCatagore/MHeaderCatagore';
@@ -14,6 +12,9 @@ import Sanfwan from './Pages/Masud/Sanfwan';
 import Masud from './Masud';
 import Mahmud from './Pages/Masud/Mahmud';
 import Hoomes from './Pages/Masud/Hoomes';
+import Islamic from './Pages/Categore/Islamic/Islamic';
+import Attars from './Pages/Categore/Islamic/Attar/Attars';
+import MainCategore from './Pages/Categore/MainCategore/MainCategore';
 
 function App() {
   return (
@@ -35,8 +36,9 @@ function App() {
        <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/islamic' element={<Islamic />}>
-          <Route path='attar' element={<Attar/>} />
+
+        <Route path='/categore' element={<MainCategore />}>
+          <Route path='attar' element={<Attars/>} />
         </Route>
 
       </Routes>
