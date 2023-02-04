@@ -98,6 +98,7 @@
     width: 230px;
     list-style-type: none;
     padding: 10px 10px 10px 20px;
+    color: gray;
 }
 
 .islamic-child-catagore ul li:hover {

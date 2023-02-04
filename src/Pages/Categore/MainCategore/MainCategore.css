@@ -18,10 +18,10 @@
     border-bottom: 1px solid rgb(230, 229, 229);
 }
 .maincategore-dev-ul-li {
-    padding: 0 15px;
+    /* padding: 0 15px; */
     color: gray;
 }
-.maincategore-dev-ul-li:hover {
+.maincategore-dev-ul-li-dev:hover {
     background: rgb(243, 243, 243);
     color: orange;
     cursor: pointer;
@@ -34,8 +34,8 @@
     display: flex;
     align-items: center;
     width: 240px;
-    padding-top: 12.5px;
-    padding-bottom: 12.5px;
+    /* padding-top: 12.5px;
+    padding-bottom: 12.5px; */
 }
 .maincategore-dev-ul-li a {
     font-weight: 600;

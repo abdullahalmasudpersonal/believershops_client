@@ -61,15 +61,17 @@ const Header = () => {
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
 
                             <div>
-                                <button style={{border:'none', background:'none'}} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                <button style={{ border: 'none', background: 'none' }} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                                     <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
                                 </button>
-                                <MHeaderCatagore/>
+                                <MHeaderCatagore />
                                 {/* <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} /> */}
                             </div>
 
                             <div>
-                                <img width='150px' src={logo} alt='' />
+                                <Link to='/'>
+                                    <img width='150px' src={logo} alt='' />
+                                </Link>
                             </div>
 
                             <div>

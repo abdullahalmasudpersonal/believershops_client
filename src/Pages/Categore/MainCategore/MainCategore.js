@@ -7,9 +7,9 @@ import './MainCategore.css';
 const MainCategore = () => {
     return (
         <>
-            <div className='container-xxl p-0 d-flex' style={{ marginTop: '60px', marginBottom: '40px'}}>
+            <div className='container-xxl p-0 d-flex' style={{ marginTop: '60px', marginBottom: '40px' }}>
 
-                <div className='maincategore-dev' style={{marginRight:'10px'}}>
+                <div className='maincategore-dev' style={{ marginRight: '10px' }}>
 
                     <ul className='maincategore-dev-ul'>
                         <div className='maincategore-title'>
@@ -53,19 +53,33 @@ const MainCategore = () => {
                         <li className='maincategore-dev-ul-li'>
                             <div className='maincategore-dev-ul-li-dev'>
                                 <FontAwesomeIcon icon={faBowlFood} className='pe-2 maincategore-img ' />
-                                <a>Foods</a>
+                                <Link to='/categore/food'>
+                                    <a>Foods</a>
+                                </Link>
                                 <FontAwesomeIcon icon={faChevronDown} className='maincatagore-faChevrondown' />
                             </div>
                         </li>
-                        <Link to='/categore/islamic' style={{textDecoration:'none'}}>
-                            <li className='maincategore-dev-ul-li'>
-                                <div className='maincategore-dev-ul-li-dev'>
-                                    <FontAwesomeIcon icon={faMosque} className='pe-2 maincategore-img ' />
+                        <li className='maincategore-dev-ul-li'>
+                            <div className='maincategore-dev-ul-li-dev'>
+                                <FontAwesomeIcon icon={faMosque} className='pe-2 maincategore-img ' />
+                                <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
                                     <a>Islamic</a>
-                                    <FontAwesomeIcon icon={faChevronDown} className='maincatagore-faChevrondown' />
-                                </div>
-                            </li>
-                        </Link>
+                                </Link>
+                                <FontAwesomeIcon icon={faChevronDown} className='maincatagore-faChevrondown' />
+                            </div>
+                            <div>
+                                <li>
+                                    <a>Attar</a>
+                                </li>
+                                <li>
+                                    <a>Attar</a>
+                                </li>
+                                <li>
+                                    <a>Attar</a>
+                                </li>
+                            </div>
+                        </li>
+
                         {/* <li className='maincategore-dev-ul-li'>
                             <div className='maincategore-dev-ul-li-dev'>
                                 <FontAwesomeIcon icon={faTrophy} className='pe-2 maincategore-img ' />

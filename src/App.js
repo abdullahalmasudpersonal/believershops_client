@@ -15,6 +15,7 @@ import Hoomes from './Pages/Masud/Hoomes';
 import Attars from './Pages/Categore/Islamic/Attar/Attars';
 import MainCategore from './Pages/Categore/MainCategore/MainCategore';
 import MainIslamic from './Pages/Categore/Islamic/Mainlslamic/MainIslamic';
+import Attar from './Pages/Categore/Islamic/Attar/Attar';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path='/categore' element={<MainCategore />}>
           <Route path='islamic' element={<MainIslamic/>} />
           <Route path='islamic/attar' element={<Attars/>} />
+          <Route path='food' element={<Attar/>} />
         </Route>
 
       </Routes>

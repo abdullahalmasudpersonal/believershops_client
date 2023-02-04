@@ -49,7 +49,9 @@ const HeaderCatagore = () => {
                     <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>
                             <FontAwesomeIcon icon={faBowlFood} className='pe-2 product-img' />
-                            <a>Foods</a>
+                            <Link to='categore/food'>
+                                <a>Foods</a>
+                            </Link>
                             <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                         </div>
                     </li>
@@ -64,10 +66,10 @@ const HeaderCatagore = () => {
                         </Link>
                         <div className='islamic-child-catagore'>
                             <ul className='p-0'>
-                                <Link to='/categore/islamic/attar'><li>Jainamaz</li></Link>
+                                <li>Jainamaz</li>
                                 <li>Tajbeeh</li>
                                 <li>Tupi</li>
-                                <li>Attar</li>
+                                <Link to='/categore/islamic/attar' style={{ textDecoration: 'none' }}><li>Attar</li></Link>
                                 <li>Hijab</li>
                                 <li>burqa</li>
                             </ul>
