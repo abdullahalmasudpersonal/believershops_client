@@ -4,7 +4,7 @@
     background-color: rgb(236, 0, 0);
     border-radius: 4px;
     border: none;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255) !important;
 }
 
 .mheadercatagore-dev {
@@ -18,27 +18,32 @@
 }
 
 .mheadercatagore-dev-ul-li {
-    border-bottom: 1px solid rgb(122, 15, 15);
+    border-bottom: 1px solid rgb(180, 180, 180);
+    
 }
 
 .mheadercatagore-dev-ul-li-dev {
-    padding: 5px 2px;
-    background-color: antiquewhite;
+    width: 190px;
+    padding-left: 7px;
     display: flex;
     align-items: center;
     font-weight: 600;
-    color: rgb(110, 110, 110);
+    color: gray;
 }
-
+.mheadercatagore-dev-ul-li-dev:hover{
+    color: orange;
+}
 .mheadercatagore-dev.mHChevrondown .mheadercatagore-dev-ul .mheadercatagore-dev-ul-li .mheadercatagore-chevrondown {
     transform: rotate(180deg);
 }
 
 .mheadercatagore-chevrondown {
     position: absolute;
+    display: flex;
+    align-items: center;
     right: 10px;
     font-size: 12px;
-    padding: 10px;
+    padding: 7px;
     cursor: pointer;
     transition: transform .3s;
 }
