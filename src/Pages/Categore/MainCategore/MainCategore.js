@@ -1,4 +1,4 @@
-import { faBagShopping, faBowlFood, faChevronDown, faChevronRight, faComputer, faHeart, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faAlignCenter, faAlignJustify, faAlignLeft, faBagShopping, faBowlFood, faChevronDown, faChevronRight, faComputer, faHeart, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
@@ -10,14 +10,16 @@ const MainCategore = () => {
             <div className='container-xxl mainCategore p-0 py-5 d-flex' >
 
                 <div className='mainCategore-dev1'>
-                <div className='maincategore-title'>
-                            <p className='m-0'>ALL CATEGORIES</p>
-                        </div>
+                    <div className='maincategore-title'>
+                        <p className='m-0'>
+                            <FontAwesomeIcon icon={faAlignJustify} className='me-3' />
+                            ALL CATEGORIES</p>
+                    </div>
                     <ul>
                         <li>
                             <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
                                 <div className='mainCategore-dev1-li-dev1'>
-                                    <FontAwesomeIcon icon={faSpa} style={{ padding: '0 5px 0 0' }} />
+                                    <FontAwesomeIcon icon={faSpa} className='me-2 mainCategore-dev1-li-dev1-product-img' />
                                     Beauty
                                 </div>
                             </Link>
@@ -27,18 +29,62 @@ const MainCategore = () => {
                         <li>
                             <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
                                 <div className='mainCategore-dev1-li-dev1'>
-                                    <FontAwesomeIcon icon={faBagShopping} style={{ padding: '0 5px 0 0' }} />
+                                    <FontAwesomeIcon icon={faBagShopping} className='me-2 mainCategore-dev1-li-dev1-product-img' />
                                     Bags
                                 </div>
                             </Link>
                             <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
                         </li>
-
+                        <li>
+                            <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
+                                <div className='mainCategore-dev1-li-dev1'>
+                                    <FontAwesomeIcon icon={faComputer} className='me-2 mainCategore-dev1-li-dev1-product-img' />
+                                    Computer
+                                </div>
+                            </Link>
+                            <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                        </li>
+                        <li>
+                            <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
+                                <div className='mainCategore-dev1-li-dev1'>
+                                    <FontAwesomeIcon icon={faPersonDress} className='me-2 mainCategore-dev1-li-dev1-product-img' />
+                                    Dresses
+                                </div>
+                            </Link>
+                            <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                        </li>
+                        <li>
+                            <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
+                                <div className='mainCategore-dev1-li-dev1'>
+                                    <FontAwesomeIcon icon={faMicrochip} className='me-2 mainCategore-dev1-li-dev1-product-img' />
+                                    Electronic
+                                </div>
+                            </Link>
+                            <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                        </li>
+                        <li>
+                            <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
+                                <div className='mainCategore-dev1-li-dev1'>
+                                    <FontAwesomeIcon icon={faBowlFood} className='me-2 mainCategore-dev1-li-dev1-product-img' />
+                                    Foods
+                                </div>
+                            </Link>
+                            <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                        </li>
+                        <li>
+                            <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
+                                <div className='mainCategore-dev1-li-dev1'>
+                                    <FontAwesomeIcon icon={faMosque} className='me-2 mainCategore-dev1-li-dev1-product-img' />
+                                    Islamic
+                                </div>
+                            </Link>
+                            <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                        </li>
                         <li className='mainCategore-dev1-li-lust'>
                             <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
                                 <div className='mainCategore-dev1-li-dev1'>
-                                    <FontAwesomeIcon icon={faMosque} style={{ padding: '0 5px 0 0' }} />
-                                    Islamic
+                                    <FontAwesomeIcon icon={faTrophy} className='me-2 mainCategore-dev1-li-dev1-product-img' />
+                                    Sports
                                 </div>
                             </Link>
                             <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
