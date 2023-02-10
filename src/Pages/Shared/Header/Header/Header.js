@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Header.css';
-import logo from '../../../Assets/img/logo/mahsez.png';
+import logo from '../../../../Assets/img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
-import HeaderCatagore from './HeaderCatagore/HeaderCatagore';
-import Banner from '../../Home/Banner/Banner';
+import HeaderCatagore from '../HomeHeader/HomeHeader';
+import Banner from '../../../Home/Banner/Banner';
 import { faAccusoft } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
-import MHeaderCatagore from './MHeaderCatagore/MHeaderCatagore';
+import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
 
 const Header = () => {
     const [shadow, setShadow] = useState(false)

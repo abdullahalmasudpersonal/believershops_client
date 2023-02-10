@@ -1,0 +1,55 @@
+[
+    {
+        "title": "Beauty",
+        "icon":"fa-sharp fa-solid fa-spa",
+        "path":""
+    },
+    {
+        "title": "Bags",
+        "icon":"fa-sharp fa-solid fa-bag-shopping",
+        "path":""
+    },
+    {
+        "title": "Computer",
+        "icon":"fa-sharp fa-solid fa-computer",
+        "path":""
+    },
+    {
+        "title": "Dresses",
+        "icon":"a-sharp fa-solid fa-person-dress",
+        "path":""
+    },
+    {
+        "title": "Electronic",
+        "icon":"fa-sharp fa-solid fa-microchip",
+        "path":"/fd"
+    },
+    {
+        "title": "Foods",
+        "icon":"fa-sharp fa-solid fa-bowl-food",
+        "path":"/",
+        "childrens":[
+            
+        ]
+    },
+    {
+        "title": "Islamic",
+        "icon":"fa-sharp fa-solid fa-mosque",
+        "path":"/categore/islamic",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            },
+            {
+                "title": "Tajbeeh",
+                "path":"/"
+            }
+        ]
+    },
+    {
+        "title": "Sports",
+        "icon":"fa-sharp fa-solid fa-trophy",
+        "path":"/sports"
+    }
+]

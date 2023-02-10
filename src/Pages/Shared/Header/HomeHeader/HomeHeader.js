@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import './HeaderCatagore.css';
+import './HomeHeader.css';
 import { faChessKnight, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { faGrunt } from '@fortawesome/free-brands-svg-icons';
 
-const HeaderCatagore = () => {
+const HomeHeader = () => {
     return (
         <>
             <div className='header-catagore'>
@@ -56,7 +56,7 @@ const HeaderCatagore = () => {
                         </div>
                     </li>
                     <li className='islamic'>
-                        <Link className='text-decoration-none' to='/categore/islamic '
+                        <Link className='text-decoration-none' to='/categore/islamic'
                         >
                             <div className='d-flex align-items-center catagore-list-apdding '>
                                 <FontAwesomeIcon icon={faMosque} className='pe-2 product-img' />
@@ -108,4 +108,4 @@ const HeaderCatagore = () => {
     );
 };
 
-export default HeaderCatagore;
+export default HomeHeader;

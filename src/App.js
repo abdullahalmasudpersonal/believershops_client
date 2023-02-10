@@ -1,21 +1,27 @@
 
-import { Outlet, Route, Routes } from 'react-router-dom';
-import Navber from './Pages/Masud/Navber';
+import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import Home from './Pages/Home/Home';
 import Footer from './Pages/Shared/Footer/Footer';
-import Header from './Pages/Shared/Header/Header';
-import MHeaderCatagore from './Pages/Shared/Header/MHeaderCatagore/MHeaderCatagore';
-import Munira from './Pages/Masud/Munira';
-import Sanfwan from './Pages/Masud/Sanfwan';
-import Masud from './Masud';
-import Mahmud from './Pages/Masud/Mahmud';
-import Hoomes from './Pages/Masud/Hoomes';
 import Attars from './Pages/Categore/Islamic/Attar/Attars';
 import MainCategore from './Pages/Categore/MainCategore/MainCategore';
 import MainIslamic from './Pages/Categore/Islamic/Mainlslamic/MainIslamic';
 import Attar from './Pages/Categore/Islamic/Attar/Attar';
+import Header from './Pages/Shared/Header/Header/Header';
+
+
+/* import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+import { faHatCowboy } from '@fortawesome/pro-thin-svg-icons'
+import { faHatChef } from '@fortawesome/sharp-solid-svg-icons'
+import { faPlateUtensils } from '@fortawesome/sharp-regular-svg-icons'
+
+library.add(fas, faTwitter, faFontAwesome, faHatCowboy, faHatChef, faPlateUtensils) */
+
+
 
 function App() {
   return (

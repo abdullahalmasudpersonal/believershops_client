@@ -1,15 +1,20 @@
 import { faAlignCenter, faAlignJustify, faAlignLeft, faBagShopping, faBowlFood, faChevronDown, faChevronRight, faComputer, faHeart, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './MainCategore.css';
+import MainCategoreChild from './MainCategoreChild';
 
 const MainCategore = () => {
+    const [openChild1, setOpenChild1] = useState(false);
+
     return (
         <>
             <div className='container-xxl mainCategore p-0 py-5 d-flex' >
 
-                <div className='mainCategore-dev1'>
+                <MainCategoreChild/>
+
+               {/*  <div className={openChild1 ? 'mainCategore-dev1 mainCategoreOpen': 'mainCategore-dev1'}>
                     <div className='maincategore-title'>
                         <p className='m-0'>
                             <FontAwesomeIcon icon={faAlignJustify} className='me-3' />
@@ -23,7 +28,8 @@ const MainCategore = () => {
                                     Beauty
                                 </div>
                             </Link>
-                            <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                            <FontAwesomeIcon onClick={() => setOpenChild1(!openChild1)}
+                                icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
                         </li>
 
                         <li>
@@ -78,7 +84,15 @@ const MainCategore = () => {
                                     Islamic
                                 </div>
                             </Link>
+
                             <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
+                           <div className='islamic'>
+                                    <a>Jainamaz
+                                    </a>
+                                    <a>Tajbeeh</a>
+                                    <a>Tupi</a>
+                            </div> 
+
                         </li>
                         <li className='mainCategore-dev1-li-lust'>
                             <Link to='/categore/islamic' style={{ textDecoration: 'none' }}>
@@ -90,7 +104,7 @@ const MainCategore = () => {
                             <FontAwesomeIcon icon={faChevronRight} className='mainCategore-dev1-li-chevrondown' />
                         </li>
                     </ul>
-                </div>
+                </div> */}
 
                 {/* <div className='maincategore-dev' style={{ marginRight: '10px' }}>
 
@@ -171,7 +185,10 @@ const MainCategore = () => {
                         </li>
                     </ul>
                 </div> */}
-                <Outlet />
+
+                <div className='ms-3'>
+                    <Outlet />
+                </div>
 
             </div>
         </>
