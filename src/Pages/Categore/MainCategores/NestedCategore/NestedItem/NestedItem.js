@@ -9,13 +9,13 @@ const NestedItem = ({item}) => {
         return (
             <div className={open ? "sidebar-item open" : "sidebar-item"}>
                 <div className="sidebar-title">
-                    <Link className='text-decoration-none fw-bold' to={item.path || ""}  style={{width:'200px'}}>
-                        <span>
+                    <Link className='text-decoration-none ' to={item.path || ""}  /* style={{width:'200px'}} */>
+                        <div>
                             {/* {item.icon && <i className={item.icon}></i>} */}
                             {item.title}
-                        </span>
+                        </div>
                     </Link>
-                    <i className="bi-chevron-down toggle-btn" onClick={() => setOpen(!open)}></i>
+                    <i className="bi-chevron-right toggle-btn" onClick={() => setOpen(!open)}></i>
                 </div>
                 <div className="sidebar-content">
                     {item.childrens.map((child, index) => <NestedItem key={index} item={child} />)}
@@ -24,7 +24,7 @@ const NestedItem = ({item}) => {
         )
     } else {
         return (
-            <Link className='text-decoration-none fw-bold' to={item.path || ""}>
+            <Link className='text-decoration-none text-secondary' to={item.path || ""}>
                 <a className="sidebar-item plain t">
                     {/* {item.icon && <i className={item.icon}></i>} */}
                     {item.title}

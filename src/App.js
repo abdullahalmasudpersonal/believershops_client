@@ -19,7 +19,7 @@ function App() {
         <Route path='/categore' element={<MainCategore />}>
           <Route path='islamic' element={<MainIslamic/>} />
           <Route path='islamic/attar' element={<Attars/>} />
-          <Route path='food' element={<Attar/>} />
+          <Route path='foods' element={<Attar/>} />
         </Route>
       </Routes>
       <Footer /> 

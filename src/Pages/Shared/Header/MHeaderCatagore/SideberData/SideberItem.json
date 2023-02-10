@@ -46,43 +46,19 @@
                 "path":"/"
             },
             {
-                "title": "Jainamaz",
+                "title": "Tupi",
                 "path":""
             },
             {
-                "title": "Tajbeeh",
-                "path":"/"
+                "title": "Attar",
+                "path":"/categore/islamic/attar"
             },
             {
-                "title": "Jainamaz",
+                "title": "Hijab",
                 "path":""
             },
             {
-                "title": "Tajbeeh",
-                "path":"/"
-            },
-            {
-                "title": "Jainamaz",
-                "path":""
-            },
-            {
-                "title": "Tajbeeh",
-                "path":"/"
-            },
-            {
-                "title": "Jainamaz",
-                "path":""
-            },
-            {
-                "title": "Tajbeeh",
-                "path":"/"
-            },
-            {
-                "title": "Jainamaz",
-                "path":""
-            },
-            {
-                "title": "Tajbeeh",
+                "title": "burqa",
                 "path":"/"
             }
         ]

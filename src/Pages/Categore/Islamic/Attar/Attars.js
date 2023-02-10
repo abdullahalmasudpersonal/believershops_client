@@ -4,7 +4,7 @@ import './Attars.css';
 const Attars = () => {
     return (
         <div>
-            Attars
+            <h5>Attar</h5>
         </div>
     );
 };

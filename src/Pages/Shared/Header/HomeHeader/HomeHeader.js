@@ -47,13 +47,13 @@ const HomeHeader = () => {
                         </div>
                     </li>
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faBowlFood} className='pe-2 product-img' />
-                            <Link to='categore/food'>
+                        <Link to='categore/foods' className='text-decoration-none'>
+                            <div className='d-flex align-items-center catagore-list-apdding'>
+                                <FontAwesomeIcon icon={faBowlFood} className='pe-2 product-img' />
                                 <a>Foods</a>
-                            </Link>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     <li className='islamic'>
                         <Link className='text-decoration-none' to='/categore/islamic'
