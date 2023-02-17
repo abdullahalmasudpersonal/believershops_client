@@ -47,7 +47,7 @@ const HomeHeader = () => {
                         </div>
                     </li>
                     <li className=''>
-                        <Link to='categore/foods' className='text-decoration-none'>
+                        <Link to='/categore/foods' className='text-decoration-none'>
                             <div className='d-flex align-items-center catagore-list-apdding'>
                                 <FontAwesomeIcon icon={faBowlFood} className='pe-2 product-img' />
                                 <a>Foods</a>
@@ -69,7 +69,7 @@ const HomeHeader = () => {
                                 <li>Jainamaz</li>
                                 <li>Tajbeeh</li>
                                 <li>Tupi</li>
-                                <Link to='/categore/islamic/attar' style={{ textDecoration: 'none' }}><li>Attar</li></Link>
+                                <Link to='/categore/islamic/attars' style={{ textDecoration: 'none' }}><li>Attar</li></Link>
                                 <li>Hijab</li>
                                 <li>burqa</li>
                             </ul>

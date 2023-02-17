@@ -1,6 +1,6 @@
 import React from 'react';
-import NestedItem from './NestedItem/NestedItem';
-import item from '../../../Shared/Header/MHeaderCatagore/SideberData/SideberItem.json';
+import NestedItem from '../NestedItem/NestedItem';
+import item from '../SideberData/SideberItem.json';
 import './NestedCategore.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify } from '@fortawesome/free-solid-svg-icons';
