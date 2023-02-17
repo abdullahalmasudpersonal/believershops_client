@@ -7,10 +7,12 @@ const Attars = () => {
     const [products, setProducts] = useAttars([]);
 
     return (
-        <div className='attars-dev'>
-            {
-                products.map(attar => <Attar key={attar._id} attar={attar}></Attar>)
-            }
+        <div className='attars'>
+            <div className='attars-dev'>
+                {
+                    products.map(attar => <Attar key={attar._id} attar={attar} />)
+                }
+            </div>
         </div>
     );
 };

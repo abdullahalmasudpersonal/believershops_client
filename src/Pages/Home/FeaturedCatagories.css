@@ -1,5 +1,21 @@
 
 .featuredCatagories{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.featuredCatagories{
     background-color: aqua;
     overflow: auto;
     white-space: nowrap;

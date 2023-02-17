@@ -1,3 +1,8 @@
+
+.attars{
+    width: 100%;
+    margin-left: 25px;
+}
 .attars-dev {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -10,10 +15,23 @@
         grid-gap: auto;
     }
 }
-@media screen and (max-width:800px){
+@media screen and (max-width:650px){
     .attars-dev {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: auto;
     }
+}
+@media screen and (max-width:400px){
+    .attars-dev {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: auto;
+    }
+}
+@media screen and (max-width:930px) {
+    .attars {
+        margin-left: 0;
+    }
+
 }
