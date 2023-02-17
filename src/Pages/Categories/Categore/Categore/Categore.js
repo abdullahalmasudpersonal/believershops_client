@@ -6,11 +6,11 @@ const Categore = () => {
 
     return (
         <>
-            <div className='container-xxl p-0 py-5 d-flex' >
+            <div className='container-xxl p-0 py-5 px-3 d-flex' >
 
                 <NestedCategore />
 
-                <div className='ms-3'>
+                <div className='ms-4'>
                     <Outlet />
                 </div>
 

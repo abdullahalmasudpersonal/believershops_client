@@ -9,9 +9,8 @@ const NestedItem = ({item}) => {
         return (
             <div className={open ? "sidebar-item open" : "sidebar-item"}>
                 <div className="sidebar-title">
-                    <Link className='text-decoration-none ' to={item.path || ""}  /* style={{width:'200px'}} */>
+                    <Link className='text-decoration-none ' to={item.path || ""}  >
                         <div>
-                            {/* {item.icon && <i className={item.icon}></i>} */}
                             {item.title}
                         </div>
                     </Link>
@@ -26,7 +25,6 @@ const NestedItem = ({item}) => {
         return (
             <Link className='text-decoration-none text-secondary' to={item.path || ""}>
                 <a className="sidebar-item plain t">
-                    {/* {item.icon && <i className={item.icon}></i>} */}
                     {item.title}
                 </a>
             </Link>

@@ -55,11 +55,11 @@
 
   @media screen and (max-width:1399px) {
     .sidebar-title div{
-      width: 178px;
+      width: 178px !important;
     }
   }
   @media screen and (max-width:1199px) {
     .sidebar-title div{
-      width: 138px;
+      width: 138px !important;
     }
   }

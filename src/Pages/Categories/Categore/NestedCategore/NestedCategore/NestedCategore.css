@@ -1,5 +1,5 @@
 .sidebar{
-  width: 270px;
+  width: 270px !important;
   flex-shrink: 0;
   height: 100%;
   overflow: auto;
@@ -20,12 +20,12 @@
 
 @media screen and (max-width:1399px){
   .sidebar{
-    width: 240px;
+    width: 240px !important;
   }
 }
 @media screen and (max-width:1199px) {
   .sidebar{
-    width: 200px;
+    width: 200px !important;
   }
 }
 @media screen and (max-width:930px) {

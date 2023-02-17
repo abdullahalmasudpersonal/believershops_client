@@ -7,7 +7,7 @@ const Attars = () => {
     const [products, setProducts] = useAttars([]);
 
     return (
-        <div>
+        <div className='attars-dev'>
             {
                 products.map(attar => <Attar key={attar._id} attar={attar}></Attar>)
             }
