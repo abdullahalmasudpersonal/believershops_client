@@ -65,7 +65,6 @@ const Header = () => {
                                     <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
                                 </button>
                                 <MHeaderCatagore />
-                                {/* <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} /> */}
                             </div>
 
                             <div>
@@ -75,7 +74,9 @@ const Header = () => {
                             </div>
 
                             <div>
-                                <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                                <Link to='/register'>
+                                    <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                                </Link>
                                 <FontAwesomeIcon className='shopping-cart' icon={faEllipsisV} />
                             </div>
                         </div>
@@ -107,7 +108,9 @@ const Header = () => {
 
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
 
-                        <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                        <Link to='/register'>
+                            <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                        </Link>
                     </div>
                 </div>
             </div>
