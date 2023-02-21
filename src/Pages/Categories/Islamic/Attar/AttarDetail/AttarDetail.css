@@ -1,0 +1,130 @@
+/*----------------- attar detail start---------- */
+
+/*----------------- attar detail end---------- */
+
+
+
+/*--------------- attar-detail  first-part start ---------------- */
+
+
+/* ------------- attar-detail  first-part dev1 start */
+.attar-detail-first-part-dev1 {
+    border: 1px solid blue;
+}
+
+.attar-detail-first-part {
+    margin-bottom: 30px;
+    border: 1px solid purple;
+    display: flex;
+}
+
+/* ------------------------------------------------- */
+.attar-detail-first-part-dev1-p {
+    display: block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(184, 184, 184);
+    margin: 25px 0;
+    transition: .4s;
+    font-size: 15px;
+}
+
+.attar-detail-first-part-dev1-p:hover {
+    color: white;
+    background-color: rgb(110, 111, 112);
+}
+
+/* ------------------------------------------------- */
+.attar-detail-first-part-dev1-img {
+    display: flex;
+    justify-content: center;
+    grid-gap: 15px;
+}
+
+.attar-detail-first-part-dev1-img img {
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 3px;
+}
+
+/* ------------- attar-detail  first-part dev1 end---------- */
+
+
+/* ------------- attar-detail  first-part dev-2 start ------------*/
+.attar-detail-first-part-dev2 {
+    margin-left: 25px;
+    border: 1px solid rgb(117, 31, 10);
+}
+
+.attar-detail-table {
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.attar-detail-table td {
+    padding: 2px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.attar-detail-quantity-counter{
+    display: flex;
+}
+.attar-detail-quantity-counter-p{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 7px;
+    width: 60px;
+    border: 1px solid rgb(207, 207, 207);
+    margin: 0;
+}
+.attar-detail-quantity-counter-dev{
+    font-size: 12px;
+    border-style: solid;
+    color: rgb(173, 173, 173);
+    border-color: rgb(207, 207, 207);
+    border-width: 1px 1px 1px 0px;
+}
+.attar-detail-quantity-counter-dev button{
+    border: none;
+    background: none;
+}
+
+
+
+
+.attar-detail-quantity-counter input:active {
+    border: 1px solid rgb(177, 0, 0);
+}
+
+/* ------------- attar-detail  first-part dev-2 end ---------- */
+
+/*--------------- attar-detail  first-part end ---------------- */
+
+
+
+
+/*--------------- attar-detail  second-part start ---------------- */
+.attar-detail-d-w-r {
+    max-width: 1200px;
+    border: 1px solid rgb(184, 184, 184);
+}
+
+.attar-detail-d-w-r-head {
+    background-color: aliceblue;
+}
+
+.attar-detail-d-w-r-head button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: rgb(77, 77, 77);
+}
+
+.attar-detail-d-w-r-head button:hover {
+    background: rgba(255, 128, 23, 0.863);
+}
+
+/*--------------- attar-detail  second-part end ---------------- */

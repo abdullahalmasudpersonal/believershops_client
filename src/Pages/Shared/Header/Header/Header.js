@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
-import logo from '../../../../Assets/img/logo/mahsez_3.png';
+import logo from '../../../../Assets/img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
