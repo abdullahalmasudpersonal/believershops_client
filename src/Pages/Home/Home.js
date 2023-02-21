@@ -5,10 +5,8 @@ import FeaturedCatagories from './FeaturedCatagories';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faCaretDown, faHeart, faShoppingCart, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import HeaderCatagore from '../Shared/Header/HomeHeader/HomeHeader';
-import useAttar from '../../Hooks/UseAttars';
 
 const Home = () => {
-    const [attars, setAttars] = useAttar([]);
     return (
         <>
             <div className='container-xxl px-3 d-flex '>
@@ -26,9 +24,6 @@ const Home = () => {
                 </div>           
             </div>
 
-            <div className='d-flex'>
-             
-            </div>
         </>
     );
 };

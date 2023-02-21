@@ -12,23 +12,15 @@ import Header from './Pages/Shared/Header/Header/Header';
 function App() {
   return (
     <div>
-      <Header />
+   <Header/>
       <Routes>
         <Route path='/' element={<Home />} />
-       <Route path='/categore' element={<Categore/>}>
-       <Route path='islamic' element={<IslamicCategore/>}/>
-       <Route path='islamic/attars' element={<Attars/>}/>
-
-       </Route>
-
-
-        {/*   <Route path='/categore' element={<MainCategore />}>
-
-          <Route index element={<MainCategore/>} />
-          <Route path='islamic' element={<MainIslamic/>} />
-        </Route> */}
-      </Routes>
-      <Footer />
+        <Route path='/categore' element={<Categore />}>
+          <Route path='islamic' element={<IslamicCategore />} />
+          <Route path='islamic/attars' element={<Attars />} />
+        </Route>
+      </Routes> 
+      <Footer/>
     </div>
   );
 }

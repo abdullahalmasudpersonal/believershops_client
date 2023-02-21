@@ -1,5 +1,5 @@
 import React from 'react';
-import useAttar from '../../../../Hooks/UseAttars';
+import useAttar from '../../../../Hooks/UseAttars/UseAttars';
 import Attar from '../Attar/Attar';
 import './IslamicCategore.css';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
-import logo from '../../../../Assets/img/logo/mahsez.png';
+import logo from '../../../../Assets/img/logo/mahsez_3.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -31,7 +31,7 @@ const Header = () => {
                 <div className='container-xxl px-3 d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
                     <div>
                         <Link to='/'>
-                            <img width='150px' src={logo} alt='' />
+                            <img width='130px' src={logo} alt='' />
                         </Link>
                     </div>
 

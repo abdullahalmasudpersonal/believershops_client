@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import useAttars from '../../../../Hooks/UseAttars';
+import React from 'react';
+import useAttar from '../../../../Hooks/UseAttars/UseAttars';
 import Attar from './Attar';
 import './Attars.css';
 
 const Attars = () => {
-    const [products, setProducts] = useAttars([]);
+    const [attars, setAttars] = useAttar([]);
 
     return (
         <div className='attars'>
             <div className='attars-dev'>
                 {
-                    products.map(attar => <Attar key={attar._id} attar={attar} />)
+                    attars.map(attar => <Attar key={attar._id} attar={attar} />)
                 }
             </div>
         </div>
