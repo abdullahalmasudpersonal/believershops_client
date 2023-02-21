@@ -12,24 +12,6 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header/Header';
 
 function App() {
-  const [count, setCount] = useState(1); // useState returns a pair. 'count' is the current state. 'setCount' is a function we can use to update the state.
-
-  function increment() {
-    //setCount(prevCount => prevCount+=1);
-    setCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-
-  function decrement() {
-    setCount(function (prevCount) {
-      if (prevCount > 1) {
-        return (prevCount -= 1); 
-      } else {
-        return (prevCount = 1);
-      }
-    });
-  }
   return (
     <div>
 
@@ -42,11 +24,6 @@ function App() {
           <Route path='islamic/attar/:attarId' element={<AttarDetail />} />
         </Route>
       </Routes> 
-      <div className="App">
-      <h1>{count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </div>
       <Footer/>
     </div>
   );

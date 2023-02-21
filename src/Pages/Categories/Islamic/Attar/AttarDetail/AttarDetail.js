@@ -36,7 +36,7 @@ const AttarDetail = () => {
                 <div className='attar-detail-first-part-dev1'>
 
                     <div>
-                        <img width='500px' src={attar.img} alt='' />
+                        <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
                     </div>
 
                     <div className='d-flex justify-content-center'>
@@ -47,16 +47,16 @@ const AttarDetail = () => {
                     </div>
 
                     <div className='attar-detail-first-part-dev1-img'>
-                        <img width='110px' src={attar.img} alt='' />
-                        <img width='110px' src={attar.img} alt='' />
-                        <img width='110px' src={attar.img} alt='' />
+                        <img width='100px' src={attar.img} alt='' />
+                        <img width='100px' src={attar.img} alt='' />
+                        <img width='100px' src={attar.img} alt='' />
                     </div>
 
                 </div>
 
                 <div className='attar-detail-first-part-dev2'>
-                    <h4>{attar.name}</h4>
-                    <p className='text-center m-0'>
+                    <h4 className='mb-3'>{attar.name}</h4>
+                    <p className=' mb-1'>
                         <small>4.5 </small>
                         <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                         <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
@@ -64,7 +64,7 @@ const AttarDetail = () => {
                         <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                         <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                         <small> (27) </small>
-                        <small> Write a review</small>
+                        <small>&nbsp; Write a review</small>
                     </p>
                     <p className=' product-dev-p pt-2'>
                         {
@@ -80,42 +80,46 @@ const AttarDetail = () => {
                         }
                     </p>
 
-                    <table class="table table-borderless attar-detail-table">
-                        <tbody>
-                            <tr>
-                                <td>Brand:</td>
-                                <td>{attar.brand}</td>
-                            </tr>
+                    <div className='attar-detail-dev-table'>
+                        <table class="table table-borderless attar-detail-table mb-2">
+                            <tbody>
+                                <tr>
+                                    <td>Brand:</td>
+                                    <td>{attar.brand}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Weight:</td>
-                                <td>{attar.weight1} ML</td>
-                            </tr>
-                            <tr>
-                                <td>Availability:</td>
-                                <td>{attar.availability} Pcs</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div>
-                        <p>Quantity</p>
+                                <tr>
+                                    <td>Weight:</td>
+                                    <td>{attar.weight1} ML</td>
+                                </tr>
+                                <tr>
+                                    <td>Availability:</td>
+                                    <td>{attar.availability} Pcs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
+                    <div className='mt-3'>
+                        <p className='mb-2'>Quantity:</p>
                         <div className='attar-detail-quantity-counter'>
-
                             <dev className='attar-detail-quantity-counter-p'>
-                                <p style={{color:'gray'}} className='m-0 fw-bold'>{count}</p>
+                                <p style={{ color: 'gray' }} className='m-0 fw-bold'>{count}</p>
                             </dev>
-
                             <div className='d-grid attar-detail-quantity-counter-dev'>
                                 <button onClick={increment} className='p-0'>
-                                    <i style={{color:'gray'}} class="fa fa-angle-up px-2 "></i>
+                                    <i style={{ color: 'gray' }} class="fa fa-angle-up px-2 "></i>
                                 </button>
                                 <button onClick={decrement} classNamep='p-0'>
-                                    <i style={{color:'gray'}} class="fa fa-angle-down px-2"></i>
+                                    <i style={{ color: 'gray' }} class="fa fa-angle-down px-2"></i>
                                 </button>
                             </div>
-
                         </div>
+                    </div>
+
+                    <div className='mt-4'>
+                        <button className='add-to-cart'>Add to Cart</button>
+                        {/* <button>Add to Wishlist</button> */}
                     </div>
                 </div>
 

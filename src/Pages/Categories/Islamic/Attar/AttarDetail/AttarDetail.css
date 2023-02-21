@@ -8,14 +8,15 @@
 
 
 /* ------------- attar-detail  first-part dev1 start */
-.attar-detail-first-part-dev1 {
-    border: 1px solid blue;
-}
-
 .attar-detail-first-part {
     margin-bottom: 30px;
-    border: 1px solid purple;
     display: flex;
+}
+.attar-detail-first-part-dev1 {
+}
+.attar-detail-first-part-dev1-big-img{
+    max-width: 450px;
+    border: 1px solid rgb(214, 214, 214);
 }
 
 /* ------------------------------------------------- */
@@ -28,7 +29,7 @@
     border: 1px solid rgb(184, 184, 184);
     margin: 25px 0;
     transition: .4s;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .attar-detail-first-part-dev1-p:hover {
@@ -54,11 +55,10 @@
 /* ------------- attar-detail  first-part dev-2 start ------------*/
 .attar-detail-first-part-dev2 {
     margin-left: 25px;
-    border: 1px solid rgb(117, 31, 10);
 }
 
-.attar-detail-table {
-    border-bottom: 1px solid rgb(211, 211, 211);
+.attar-detail-dev-table{
+    border-bottom: 1px solid rgb(224, 224, 224);
 }
 
 .attar-detail-table td {
@@ -90,12 +90,18 @@
     border: none;
     background: none;
 }
-
-
-
-
-.attar-detail-quantity-counter input:active {
-    border: 1px solid rgb(177, 0, 0);
+.add-to-cart{
+    background: none;
+    border: none;
+    padding: 7px 28px;
+    border-radius: 3px;
+    color: white;
+    background-color: rgb(255, 129, 26);
+    transition: .4s;
+}
+.add-to-cart:hover{
+    color: white;
+    background-color: rgb(255, 94, 0);
 }
 
 /* ------------- attar-detail  first-part dev-2 end ---------- */
