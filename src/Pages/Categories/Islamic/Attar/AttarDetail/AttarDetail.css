@@ -1,5 +1,8 @@
 /*----------------- attar detail start---------- */
-
+.attar-detail{
+    width: 100vw;
+    overflow: hidden;
+}
 /*----------------- attar detail end---------- */
 
 
@@ -9,6 +12,8 @@
 
 /* ------------- attar-detail  first-part dev1 start */
 .attar-detail-first-part {
+    width: 100vw;
+    overflow: hidden;
     margin-bottom: 30px;
     display: flex;
 }
@@ -113,7 +118,8 @@
 
 /*--------------- attar-detail  second-part start ---------------- */
 .attar-detail-d-w-r {
-    max-width: 1200px;
+    display: block;
+    max-width: 100% !important;
     border: 1px solid rgb(184, 184, 184);
 }
 
@@ -121,7 +127,7 @@
     background-color: aliceblue;
 }
 
-.attar-detail-d-w-r-head button {
+.attar-detail-d-w-r-head li {
     padding: 10px 20px;
     border: none;
     background: none;
@@ -129,8 +135,51 @@
     color: rgb(77, 77, 77);
 }
 
-.attar-detail-d-w-r-head button:hover {
+.attar-detail-d-w-r-head li:hover {
     background: rgba(255, 128, 23, 0.863);
 }
 
 /*--------------- attar-detail  second-part end ---------------- */
+
+
+
+/*   body {
+    padding : 10px ;
+    
+  } */
+  
+/*   #exTab1 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  } */
+  
+/*   #exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  } */
+  
+  /* remove border radius for the tab */
+  
+  #exTab1 .nav-pills > li > a {
+    border-radius: 0;
+  }
+  
+  /* change border radius for the tab , apply corners on top*/
+  
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+  }
+  
+  #exTab3 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+
+
+
+
+  
+  

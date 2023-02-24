@@ -2,8 +2,9 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import UseAttarDetail from '../../../../../Hooks/UseAttars/UseAttarDetail';
+import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
 
 
@@ -35,11 +36,11 @@ const AttarDetail = () => {
 
                 <div className='attar-detail-first-part-dev1'>
 
-                    <div>
+                     <div>
                         <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
-                    </div>
+                    </div> 
 
-                    <div className='d-flex justify-content-center'>
+                     <div className='d-flex justify-content-center'>
                         <p className='attar-detail-first-part-dev1-p'>
                             <FontAwesomeIcon icon={faSearch} />
                             <span> Click to zoom in</span>
@@ -50,7 +51,7 @@ const AttarDetail = () => {
                         <img width='100px' src={attar.img} alt='' />
                         <img width='100px' src={attar.img} alt='' />
                         <img width='100px' src={attar.img} alt='' />
-                    </div>
+                    </div> 
 
                 </div>
 
@@ -125,14 +126,19 @@ const AttarDetail = () => {
 
             </div>
 
-            <div className='attar-detail-d-w-r'>
+            <AttarDesWR/>
+
+            {/* <div className='attar-detail-d-w-r'>
                 <div className='attar-detail-d-w-r-head'>
                     <button>DESCRIPTION</button>
                     <button>WARRANTY INFORMATION</button>
                     <button>REVIEWS</button>
                 </div>
-                <Outlet />
-            </div>
+            </div> */}
+
+
+            
+
         </div>
     );
 };
