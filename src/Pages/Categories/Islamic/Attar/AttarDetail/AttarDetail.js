@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import UseAttarDetail from '../../../../../Hooks/UseAttars/UseAttarDetail';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
+import ReactImageMagnify from 'react-image-magnify';
 
 
 const AttarDetail = () => {
@@ -27,20 +28,43 @@ const AttarDetail = () => {
                 return (prevCount = 1);
             }
         });
-    }
+    };
+    const [img, setImg] = useState(true);
+    
+
+
 
 
     return (
         <div className='attar-detail'>
+
             <div className='attar-detail-first-part'>
 
                 <div className='attar-detail-first-part-dev1'>
 
-                     <div>
+                    {/*  <div>
                         <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
-                    </div> 
+                    </div> */}
 
-                     <div className='d-flex justify-content-center'>
+                    <div className='attar-detail-first-part-dev1-big-img'>
+                        <ReactImageMagnify {...{
+                            smallImage: {
+                                alt: 'Wristwatch by Ted Baker London',
+                                isFluidWidth: true,
+                                src: attar.img
+                            },
+                            largeImage: {
+                                src: attar.img,
+                                width: 1000,
+                                height: 1500
+                            },
+                            lensStyle: {
+
+                            }
+                        }} />
+                    </div>
+
+                    <div className='d-flex justify-content-center'>
                         <p className='attar-detail-first-part-dev1-p'>
                             <FontAwesomeIcon icon={faSearch} />
                             <span> Click to zoom in</span>
@@ -51,7 +75,7 @@ const AttarDetail = () => {
                         <img width='100px' src={attar.img} alt='' />
                         <img width='100px' src={attar.img} alt='' />
                         <img width='100px' src={attar.img} alt='' />
-                    </div> 
+                    </div>
 
                 </div>
 
@@ -88,7 +112,6 @@ const AttarDetail = () => {
                                     <td>Brand:</td>
                                     <td>{attar.brand}</td>
                                 </tr>
-
                                 <tr>
                                     <td>Weight:</td>
                                     <td>{attar.weight1} ML</td>
@@ -119,26 +142,13 @@ const AttarDetail = () => {
                     </div>
 
                     <div className='mt-4'>
+                        <button className='add-to-cart mb-3'>Buy Now</button> &nbsp; &nbsp; &nbsp;
                         <button className='add-to-cart'>Add to Cart</button>
                         {/* <button>Add to Wishlist</button> */}
                     </div>
                 </div>
-
             </div>
-
-            <AttarDesWR/>
-
-            {/* <div className='attar-detail-d-w-r'>
-                <div className='attar-detail-d-w-r-head'>
-                    <button>DESCRIPTION</button>
-                    <button>WARRANTY INFORMATION</button>
-                    <button>REVIEWS</button>
-                </div>
-            </div> */}
-
-
-            
-
+            <AttarDesWR />
         </div>
     );
 };

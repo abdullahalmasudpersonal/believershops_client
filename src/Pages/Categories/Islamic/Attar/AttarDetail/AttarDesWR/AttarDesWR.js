@@ -5,7 +5,7 @@ const AttarDesWR = () => {
     return (
         <div id="exTab2" className='attar-detail-desWR'>
 
-            <ul class="attar-detail-desWR-head">
+            <ul class="attar-detail-desWR-head nav nav-tabs">
                 <li class="active">
                     <a href="#1" data-toggle="tab">DESCRIPTION</a>
                 </li>
@@ -30,10 +30,17 @@ const AttarDesWR = () => {
                 <div class="tab-pane" id="3">
                     <h3>add clearfix to tab-content (see the css)</h3>
                 </div>
-                
+
             </div>
         </div>
     );
 };
 
 export default AttarDesWR;
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"/>
+
+</script>

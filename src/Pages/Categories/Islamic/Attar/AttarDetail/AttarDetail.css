@@ -1,7 +1,7 @@
 /*----------------- attar detail start---------- */
 .attar-detail{
     width: 100vw;
-    overflow: hidden;
+    overflow:hidden;
 }
 /*----------------- attar detail end---------- */
 
@@ -9,15 +9,14 @@
 
 /*--------------- attar-detail  first-part start ---------------- */
 
-
 /* ------------- attar-detail  first-part dev1 start */
 .attar-detail-first-part {
-    width: 100vw;
-    overflow: hidden;
     margin-bottom: 30px;
     display: flex;
+    grid-gap: 25px;
 }
 .attar-detail-first-part-dev1 {
+    
 }
 .attar-detail-first-part-dev1-big-img{
     max-width: 450px;
@@ -59,7 +58,7 @@
 
 /* ------------- attar-detail  first-part dev-2 start ------------*/
 .attar-detail-first-part-dev2 {
-    margin-left: 25px;
+    
 }
 
 .attar-detail-dev-table{
