@@ -4,13 +4,16 @@ import logo from '../../../../Assets/img/logo/mahsez.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
-import HeaderCatagore from '../HomeHeader/HomeHeader';
-import Banner from '../../../Home/Banner/Banner';
-import { faAccusoft } from '@fortawesome/free-brands-svg-icons';
+import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link } from 'react-router-dom';
 import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
+    /* header scrolling */
     const [shadow, setShadow] = useState(false)
     const changeShadow = () => {
         if (window.scrollY >= 80) {
@@ -109,7 +112,9 @@ const Header = () => {
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
 
                         <Link to='/register'>
-                            <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                            {
+                                user ? <img width='35px' src={profileImg} alt='' /> : <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                            }
                         </Link>
                     </div>
                 </div>

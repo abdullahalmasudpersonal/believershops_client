@@ -1,0 +1,10 @@
+
+
+.pass-reset-btn{
+    margin: 10px;
+    color: gray;
+}
+.pass-reset-btn:hover{
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}

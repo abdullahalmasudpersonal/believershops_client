@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import UseAttarDetail from '../../../../../Hooks/UseAttars/UseAttarDetail';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
@@ -9,17 +9,26 @@ import './AttarDetail.css';
 import ReactImageMagnify from 'react-image-magnify';
 
 
+const images = [
+    '../../../../../Assets/img/images/img1.jpg',
+    '../../../../../Assets/img/images/img2.jpg',
+    '../../../../../Assets/img/images/img3.jpg',
+    '../../../../../Assets/img/images/img4.jpg',
+    '../../../../../Assets/img/images/img5.jpg',
+];
+
+
 const AttarDetail = () => {
     const { attarId } = useParams()
     const [attar] = UseAttarDetail(attarId);
     const [count, setCount] = useState(1);
+
     function increment() {
         //setCount(prevCount => prevCount+=1);
         setCount(function (prevCount) {
             return (prevCount += 1);
         });
     }
-
     function decrement() {
         setCount(function (prevCount) {
             if (prevCount > 1) {
@@ -29,11 +38,6 @@ const AttarDetail = () => {
             }
         });
     };
-    const [img, setImg] = useState(true);
-    
-
-
-
 
     return (
         <div className='attar-detail'>
@@ -42,11 +46,15 @@ const AttarDetail = () => {
 
                 <div className='attar-detail-first-part-dev1'>
 
-                    {/*  <div>
-                        <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
-                    </div> */}
 
-                    <div className='attar-detail-first-part-dev1-big-img'>
+                  {/* <div>
+                        <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
+                    </div> 
+ */}
+
+
+
+                   <div className='attar-detail-first-part-dev1-big-img'>
                         <ReactImageMagnify {...{
                             smallImage: {
                                 alt: 'Wristwatch by Ted Baker London',
@@ -62,7 +70,7 @@ const AttarDetail = () => {
 
                             }
                         }} />
-                    </div>
+                    </div> 
 
                     <div className='d-flex justify-content-center'>
                         <p className='attar-detail-first-part-dev1-p'>
