@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Login.css'
 
@@ -14,6 +14,13 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
     const handleLogin = async event => {
         event.preventDefault();
@@ -39,7 +46,7 @@ const Login = () => {
                             </div>
                             <div className='pb-2'> <small className='pass-reset-btn'>Reset Password</small></div>
                             <div>
-                                <input className='reg-submit-input' type='submit' value='Create Account' required />
+                                <input className='reg-submit-input' type='submit' value='Login' required />
                             </div>
                         </form>
                     </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Header.css';
-import logo from '../../../../Assets/img/logo/mahsez.png';
+import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faDotCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link } from 'react-router-dom';
 import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
@@ -111,9 +111,16 @@ const Header = () => {
 
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
 
-                            {
-                                user ? <img width='35px' src={profileImg} alt='' /> : <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
-                            }
+                        {
+                            user ?
+                                <Link to='/dashboard'>
+                                    <img width='35px' src={profileImg} alt='' />
+                                </Link>
+                                :
+                                <Link to='/register'>
+                                    <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                                </Link>
+                        }
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import auth from '../../../firebase.init';
 import './Register.css';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [
@@ -12,6 +12,15 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || '/';
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
     const handleRegister = async (event) => {
         event.preventDefault();
