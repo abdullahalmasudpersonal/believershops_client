@@ -111,11 +111,9 @@ const Header = () => {
 
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
 
-                        <Link to='/register'>
                             {
                                 user ? <img width='35px' src={profileImg} alt='' /> : <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
                             }
-                        </Link>
                     </div>
                 </div>
             </div>
