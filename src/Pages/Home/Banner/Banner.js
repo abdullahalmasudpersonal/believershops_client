@@ -20,6 +20,7 @@ const Banner = () => {
           </div> */}
 
           <Carousel fade >
+
             <Carousel.Item className='carousel-item-size'>
               <img 
                 className="d-block h-100 d-inline-block carousel-item-size-img"
@@ -31,6 +32,7 @@ const Banner = () => {
                 <p></p>
               </Carousel.Caption>
             </Carousel.Item>
+
             <Carousel.Item className='carousel-item-size'>
               <img 
                 className="d-block h-100 d-inline-block carousel-item-size-img"
@@ -43,6 +45,7 @@ const Banner = () => {
                 <p></p>
               </Carousel.Caption>
             </Carousel.Item>
+
             <Carousel.Item className='carousel-item-size'>
               <img 
                 className="d-block h-100 d-inline-block carousel-item-size-img"
@@ -56,6 +59,7 @@ const Banner = () => {
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
+
           </Carousel>
         </div>
 
@@ -78,6 +82,7 @@ const Banner = () => {
             />
           </div>
         </div>
+        
       </div>
 
     </>

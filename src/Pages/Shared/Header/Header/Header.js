@@ -31,7 +31,7 @@ const Header = () => {
             {/* ---------Part 1 ----------- */}
 
             <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
-                <div className='container-xxl px-3 d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
+                <div className='container-xxl d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
                     <div>
                         <Link to='/'>
                             <img width='130px' src={logo} alt='' />
@@ -65,7 +65,7 @@ const Header = () => {
 
                             <div>
                                 <button style={{ border: 'none', background: 'none' }} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                                    <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733', padding: '10px' }} icon={faAlignJustify} />
+                                    <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733'}} icon={faAlignJustify} />
                                 </button>
                                 <MHeaderCatagore />
                             </div>
@@ -89,7 +89,7 @@ const Header = () => {
 
             {/* ---------------- Header part 2 start ---------------- */}
             <div className='header-part2'>
-                <div className='container-xxl header-part2-dev px-3'>
+                <div className='container-xxl header-part2-dev'>
 
                     <div className='header2-catagories'>
                         <div className='d-flex align-items-center'>

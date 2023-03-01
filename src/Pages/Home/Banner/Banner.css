@@ -70,23 +70,23 @@
 
 }
 
-@media screen and (max-width:400px) {
+/* @media screen and (max-width:400px) {
     .banner-slide {
-        height: 230px;
+        height: 270px;
     }
 
     .carousel-item-size {
-        height: 230px;
+        height: 270px;
     }
 
     .carousel-item-size-img {
-        height: 230px;
+        height: 270px;
         width: 100%;
     }
     .banner-right-child-dev-img{
         height:110px;
     }
-}
+} */
 
 
 

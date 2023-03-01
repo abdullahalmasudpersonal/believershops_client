@@ -1,10 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './HomeHeader.css';
-import { faChessKnight, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { faGrunt } from '@fortawesome/free-brands-svg-icons';
 
 const HomeHeader = () => {
     return (

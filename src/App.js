@@ -7,7 +7,7 @@ import AttarDetail from './Pages/Categories/Islamic/Attar/AttarDetail/AttarDetai
 import Attars from './Pages/Categories/Islamic/Attar/Attars';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
-import Home from './Pages/Home/Home';
+import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Logins/Login/Login';
 import Register from './Pages/Logins/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
