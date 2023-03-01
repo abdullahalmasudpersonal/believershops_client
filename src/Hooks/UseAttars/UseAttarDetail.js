@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const UseAttarDetail = attarId =>{
     const [attar, setAttar] = useState([]);
     useEffect( () =>{
-        const url = `https://mahsez-server.onrender.com/attar/${attarId}`;
+        const url = `http://localhost:5000/attar/${attarId}`;
 
         fetch(url)
         .then(res => res.json())
