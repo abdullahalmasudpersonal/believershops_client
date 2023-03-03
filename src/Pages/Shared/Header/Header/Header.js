@@ -65,7 +65,7 @@ const Header = () => {
 
                             <div>
                                 <button style={{ border: 'none', background: 'none' }} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                                    <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733'}} icon={faAlignJustify} />
+                                    <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733' }} icon={faAlignJustify} />
                                 </button>
                                 <MHeaderCatagore />
                             </div>
@@ -109,7 +109,9 @@ const Header = () => {
                     <div className='header2-lust-part pe-2'>
                         <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
 
-                        <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
+                        <Link to='/cart'>
+                            <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
+                        </Link>
 
                         {
                             user ?

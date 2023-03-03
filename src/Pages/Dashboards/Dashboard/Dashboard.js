@@ -2,7 +2,7 @@ import React from 'react';
 import './Dashboard.css';
 import profileImg from '../../../Assets/img/profile/profile.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHistory, faListCheck, faSave, faSignOut, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faHistory, faListCheck, faSave, faShoppingCart, faSignOut, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { Link } from 'react-router-dom';
@@ -50,6 +50,14 @@ const Dashboard = () => {
             </div>
           </div>
   
+          <div className='dashboard-item '>
+            <div className='dashboard-item-dev'>
+              <FontAwesomeIcon icon={faShoppingCart} className='dashboard-item-font' />
+            </div>
+            <div>
+              <h6 className='text-center pt-1'>View Cart</h6>
+            </div>
+          </div>
           <div className='dashboard-item '>
             <div className='dashboard-item-dev'>
               <FontAwesomeIcon icon={faListCheck} className='dashboard-item-font' />
