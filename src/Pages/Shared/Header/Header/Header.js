@@ -10,7 +10,7 @@ import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 
-const Header = () => {
+const Header = (cart) => {
     const [user] = useAuthState(auth);
 
     /* header scrolling */
@@ -26,6 +26,8 @@ const Header = () => {
     window.addEventListener('scroll', changeShadow);
 
 
+    
+
     return (
         <>
             {/* ---------Part 1 ----------- */}
@@ -40,7 +42,9 @@ const Header = () => {
 
                     <div>
                         <ul className='header-p1-ul m-0 p-0' style={{ listStyleType: 'none' }}>
-                            <li>HOME</li>
+                            <Link to='/orders'>
+                                <li>HOME</li>
+                            </Link>
                             <li>LAYOUT</li>
                             <li>FEATURES</li>
                             <li>BLOGS</li>
@@ -111,7 +115,9 @@ const Header = () => {
 
                         <Link to='/cart'>
                             <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
+                            {cart.length}
                         </Link>
+                        <span class="badge badge-dark">{/* {quantity} */}</span>
 
                         {
                             user ?

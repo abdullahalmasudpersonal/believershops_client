@@ -1,27 +1,22 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import UseAttarDetail from '../../../../../Hooks/UseAttars/UseAttarDetail';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
 import ReactImageMagnify from 'react-image-magnify';
+import { addToDb, getStoredCart } from '../../../../../utilities/fakedb';
+import useAttar from '../../../../../Hooks/UseAttars/UseAttars';
 
 
-const images = [
-    '../../../../../Assets/img/images/img1.jpg',
-    '../../../../../Assets/img/images/img2.jpg',
-    '../../../../../Assets/img/images/img3.jpg',
-    '../../../../../Assets/img/images/img4.jpg',
-    '../../../../../Assets/img/images/img5.jpg',
-];
 
-
-const AttarDetail = () => {
+const AttarDetail = (props) => {
     const { attarId } = useParams()
     const [attar] = UseAttarDetail(attarId);
     const [count, setCount] = useState(1);
+    const [attars, setAttars] = useAttar([]);
 
     function increment() {
         //setCount(prevCount => prevCount+=1);
@@ -39,6 +34,41 @@ const AttarDetail = () => {
         });
     };
 
+
+
+  /*   const [cart, setCart] = useState([]);
+    const handleAddToCard = (attar) => {
+       console.log(attar);
+        const newCart = [...cart, attar];
+        setCart(newCart);
+        addToDb(attar._id);
+    } */
+
+/*     useEffect(() => {
+        const storedCart = getStoredCart();
+        const savedCart = [];
+        for (const id in storedCart) {
+            const addedPorduct = attars.find(attar => attar._id === id);
+            if (addedPorduct) {
+                const quantity = storedCart[id];
+                addedPorduct.quantity = quantity;
+                savedCart.push(addedPorduct);
+            }
+        }
+        setCart(savedCart);
+
+    }, [attars]); */
+
+
+   /*  let total = 0;
+    let shipping = 0;
+    let quantity = 0;
+    for (const product of cart) {
+        quantity = quantity + product.quantity;
+        total = total + product.price * product.quantity;
+        shipping = shipping + product.shipping;
+    } */
+
     return (
         <div className='attar-detail'>
 
@@ -52,7 +82,7 @@ const AttarDetail = () => {
                     </div> 
  */}
 
-
+  {/* <p>{quantity}</p> */}
 
                    <div className='attar-detail-first-part-dev1-big-img'>
                         <ReactImageMagnify {...{
@@ -148,10 +178,10 @@ const AttarDetail = () => {
                             </div>
                         </div>
                     </div>
-
+                  {/*   onClick={()=>props.handleAddToCard(props.attar)} */}
                     <div className='mt-4'>
                         <button className='add-to-cart mb-3'>Buy Now</button> &nbsp; &nbsp; &nbsp;
-                        <button className='add-to-cart'>Add to Cart</button>
+                      {/*   <button  className='add-to-cart'  onClick={()=>handleAddToCard(attar)}>Add to Cart</button> */}
                         {/* <button>Add to Wishlist</button> */}
                     </div>
                 </div>

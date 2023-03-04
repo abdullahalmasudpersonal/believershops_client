@@ -5,11 +5,9 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './Attar.css';
 
-const Attar = ({ attar }) => {
-    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = attar;
+const Attar = ( props) => {
+    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = props.attar;
     const navigate = useNavigate();
-    const userid = useParams();
-   
 
     const navigateToProductDetails = _id =>{
         navigate(`/categore/islamic/attar/${_id}`); 
@@ -21,7 +19,10 @@ const Attar = ({ attar }) => {
             <div className='product-dev'>
                 <img src={img} alt='' className='img-fluid mb-1' />
                 <h6 className='text-center product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
-                <p className='text-center m-0'>
+                <button onClick={()=>props.handleAddToCard(props.attar)} >
+                    At To Cart
+                </button>
+                {/* <p className='text-center m-0'>
                     <small>4.5 </small>
                     <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                     <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
@@ -42,7 +43,7 @@ const Attar = ({ attar }) => {
                             :
                             <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{ragularPrice}.00</span>
                     }
-                </p>
+                </p> */}
             </div>
         </div>
 
