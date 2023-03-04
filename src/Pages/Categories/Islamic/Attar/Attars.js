@@ -7,7 +7,6 @@ import './Attars.css';
 const Attars = () => {
     const [attars, setAttars] = useAttar([]);
     const [cart, setCart] = useState([]);
-     //console.log(cart)
     useEffect(() => {
         const storedCart = getStoredCart();
        const savedCart = [];

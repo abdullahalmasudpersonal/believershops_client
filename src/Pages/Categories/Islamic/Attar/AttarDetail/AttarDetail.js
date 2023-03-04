@@ -34,40 +34,53 @@ const AttarDetail = (props) => {
         });
     };
 
-
-
-  /*   const [cart, setCart] = useState([]);
-    const handleAddToCard = (attar) => {
-       console.log(attar);
-        const newCart = [...cart, attar];
-        setCart(newCart);
-        addToDb(attar._id);
-    } */
-
-/*     useEffect(() => {
+    const [cart, setCart] = useState([]);
+    
+  /*   useEffect(() => {
         const storedCart = getStoredCart();
-        const savedCart = [];
-        for (const id in storedCart) {
-            const addedPorduct = attars.find(attar => attar._id === id);
-            if (addedPorduct) {
-                const quantity = storedCart[id];
+       const savedCart = [];
+        for (const _id in storedCart) {
+            const addedPorduct = attars.find(attar => attar._id === _id);
+
+           if (addedPorduct) {
+                const quantity = storedCart[_id];
                 addedPorduct.quantity = quantity;
                 savedCart.push(addedPorduct);
-            }
+            } 
         }
         setCart(savedCart);
 
-    }, [attars]); */
+    }, [attars]);
+
+    const handleAddToCard = (selectedAttar) => {
+         console.log(selectedAttar);
+         let newCart = [];
+         const exists = cart.find(attar => attar._id === selectedAttar._id);
+         if(!exists){
+            selectedAttar.quantity = 1;
+            newCart = [...cart, selectedAttar];
+         }
+         else{
+            const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+         }
+
+        setCart(newCart);
+        addToDb(selectedAttar._id);
+    }
+ */
+ 
 
 
-   /*  let total = 0;
+/*     let total = 0;
     let shipping = 0;
     let quantity = 0;
     for (const product of cart) {
         quantity = quantity + product.quantity;
         total = total + product.price * product.quantity;
         shipping = shipping + product.shipping;
-    } */
+    }  */
 
     return (
         <div className='attar-detail'>
@@ -82,7 +95,7 @@ const AttarDetail = (props) => {
                     </div> 
  */}
 
-  {/* <p>{quantity}</p> */}
+{/* <p>{quantity}</p>  */}
 
                    <div className='attar-detail-first-part-dev1-big-img'>
                         <ReactImageMagnify {...{
@@ -181,7 +194,7 @@ const AttarDetail = (props) => {
                   {/*   onClick={()=>props.handleAddToCard(props.attar)} */}
                     <div className='mt-4'>
                         <button className='add-to-cart mb-3'>Buy Now</button> &nbsp; &nbsp; &nbsp;
-                      {/*   <button  className='add-to-cart'  onClick={()=>handleAddToCard(attar)}>Add to Cart</button> */}
+                     <button  className='add-to-cart' /*  onClick={()=>handleAddToCard(attar)}  */>Add to Cart</button> 
                         {/* <button>Add to Wishlist</button> */}
                     </div>
                 </div>
