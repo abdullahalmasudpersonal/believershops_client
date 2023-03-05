@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,9 +9,12 @@ import { Link } from 'react-router-dom';
 import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
+import { getStoredCart } from '../../../../utilities/fakedb';
+import useAttar from '../../../../Hooks/UseAttars/UseAttars';
 
-const Header = (cart) => {
+const Header = () => {
     const [user] = useAuthState(auth);
+    const [attars, setAttars] = useAttar([]);
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
@@ -24,8 +27,6 @@ const Header = (cart) => {
         }
     }
     window.addEventListener('scroll', changeShadow);
-
-
     
 
     return (
@@ -115,9 +116,7 @@ const Header = (cart) => {
 
                         <Link to='/cart'>
                             <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
-                            {cart.length}
                         </Link>
-                        <span class="badge badge-dark">{/* {quantity} */}</span>
 
                         {
                             user ?

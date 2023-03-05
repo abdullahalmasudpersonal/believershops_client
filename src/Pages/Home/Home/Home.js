@@ -1,10 +1,8 @@
 import React from 'react';
 import './Home.css';
 import Banner from '../Banner/Banner';
-import FeaturedCatagories from '../FeaturedCatagories';
 import HeaderCatagore from '../../Shared/Header/HomeHeader/HomeHeader';
 import HomeIslamic from '../HomeIslamic/HomeIslamic';
-import Test from '../../Test/Test';
 
 const Home = () => {
     return (
@@ -24,7 +22,6 @@ const Home = () => {
                 </div> */}
             </div>
 
-            <Test />
 
             {/*       <HomeIslamic/> */}
 

@@ -11,12 +11,12 @@ const Attars = () => {
         const storedCart = getStoredCart();
        const savedCart = [];
         for (const _id in storedCart) {
-            const addedPorduct = attars.find(attar => attar._id === _id);
+            const addedAttar = attars.find(attar => attar._id === _id);
 
-           if (addedPorduct) {
+           if (addedAttar) {
                 const quantity = storedCart[_id];
-                addedPorduct.quantity = quantity;
-                savedCart.push(addedPorduct);
+                addedAttar.quantity = quantity;
+                savedCart.push(addedAttar);
             } 
         }
         setCart(savedCart);
@@ -52,6 +52,7 @@ const Attars = () => {
     return (
         <div className='attars'>
              <p>{quantity}</p> 
+             <p>{cart.length}</p> 
             <div className='attars-dev'>
                 {
                     attars.map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)

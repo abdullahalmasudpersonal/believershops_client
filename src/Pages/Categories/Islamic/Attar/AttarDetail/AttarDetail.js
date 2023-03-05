@@ -170,6 +170,7 @@ const AttarDetail = (props) => {
                                 <tr>
                                     <td>Availability:</td>
                                     <td>{attar.availability} Pcs</td>
+                                    <td>{attar.quantity} Pcs</td>
                                 </tr>
                             </tbody>
                         </table>
