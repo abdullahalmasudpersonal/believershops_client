@@ -33,7 +33,14 @@ const HomeIslamic = () => {
                 </ul>
                 <div class="tab-content hoemIslamic-part2-content">
                     <div class="tab-pane active" id="1">
-                        <h3>Standard tab panel created on bootstrap using nav-tabs</h3>
+                    <div className='attars'>
+                    <div className='attars-dev'>
+                        {
+                            attars.map(attar => <Attar key={attar._id} attar={attar} />)
+                        }
+                    </div>
+                </div>
+                        {/* <h3>Standard tab panel created on bootstrap using nav-tabs</h3> */}
                     </div>
 
                     <div class="tab-pane" id="2">

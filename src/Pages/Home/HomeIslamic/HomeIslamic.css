@@ -3,6 +3,9 @@
     grid-template-columns: 206px auto;
 } 
 /* -------- start home islamic part 1 ------ */
+.hoemIslamic-part1{
+    margin-left: 10px;
+}
 
 .hoemIslamic-title-dev {
     background: rgb(255, 94, 0);
@@ -11,9 +14,12 @@
     width: 206px;
     padding: 12px;
     margin-bottom: 0;
-    margin-left: -10px;
+    margin-left: -10px; 
     border-radius: 0 10px 0 0;
     /* position: relative; */
+}
+.hoemIslamic-title-dev img{
+    
 }
 /* .hoemIslamic-title::before{
     content: '';
@@ -33,7 +39,7 @@
     border: .5px solid rgb(233, 233, 233);
     border-radius: 0 3px 3px 0;
     background-clip: border-box; 
-    margin-left: -10px;
+  /*   margin-left: -10px; */
     margin-top: 11px;
 }
 .hoemIslamic-part2-head {
