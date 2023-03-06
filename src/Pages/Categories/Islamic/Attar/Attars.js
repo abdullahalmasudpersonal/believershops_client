@@ -49,6 +49,8 @@ const Attars = () => {
         total = total + product.price * product.quantity;
         shipping = shipping + product.shipping;
     } 
+
+    
     return (
         <div className='attars'>
              <p>{quantity}</p> 

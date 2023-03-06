@@ -9,8 +9,9 @@ import { Link } from 'react-router-dom';
 import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
-import { getStoredCart } from '../../../../utilities/fakedb';
 import useAttar from '../../../../Hooks/UseAttars/UseAttars';
+import UseCart from '../../../../Hooks/UseCart/UseCart';
+import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -27,7 +28,53 @@ const Header = () => {
         }
     }
     window.addEventListener('scroll', changeShadow);
-    
+
+
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+        const storedCart = getStoredCart();
+       const savedCart = [];
+        for (const _id in storedCart) {
+            const addedAttar = attars.find(attar => attar._id === _id);
+
+           if (addedAttar) {
+                const quantity = storedCart[_id];
+                addedAttar.quantity = quantity;
+                savedCart.push(addedAttar);
+            } 
+        }
+        setCart(savedCart);
+
+    }, [attars]);
+
+    const handleAddToCard = (selectedAttar) => {
+        console.log(selectedAttar);
+        let newCart = [];
+        const exists = cart.find(attar => attar._id === selectedAttar._id);
+        if(!exists){
+           selectedAttar.quantity = 1;
+           newCart = [...cart, selectedAttar];
+        }
+        else{
+           const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+           exists.quantity = exists.quantity + 1;
+           newCart = [...rest, exists];
+        }
+
+       setCart(newCart);
+       addToDb(selectedAttar._id);
+   }
+
+    let total = 0;
+    let shipping = 0;
+    let quantity = 0;
+    for (const product of cart) {
+        quantity = quantity + product.quantity;
+        total = total + product.price * product.quantity;
+        shipping = shipping + product.shipping;
+    } 
+
+
 
     return (
         <>
@@ -116,7 +163,17 @@ const Header = () => {
 
                         <Link to='/cart'>
                             <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
+                            <span style={{marginRight:'-10px'}} class="position-absolute translate-middle badge rounded-pill bg-dark">
+                                {quantity}
+                            </span>
                         </Link>
+                        {/* <button type="button" class="btn btn-primary position-relative">
+                            Inbox
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                99+
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button> */}
 
                         {
                             user ?

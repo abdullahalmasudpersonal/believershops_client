@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import UseCart from '../../Hooks/UseCart/UseCart';
 import { removeFromDb } from '../../utilities/fakedb';
 import './Cart.css';
+import ViewCart from './ViewCart';
 
 const Cart = () => {
     const [attars, setAttars] = useState([]);
     const [cart, setCart] = UseCart(attars);
 
-   /*  const handleRemoveProduct = product => {
+     const handleRemoveProduct = product => {
         const rest = cart.filter(pd =>pd.id !== product.id);
         setCart(rest);
         removeFromDb(product.id);
-    } */
+    } 
 
     let total = 0;
     let shipping = 0;
@@ -30,13 +31,13 @@ const Cart = () => {
             <p>{quantity}</p> 
              <p>{cart.length}</p> 
                 
-                {/* {
+                {
                     cart.map(product => <ViewCart
                         key={product.id}
                         product={product}
                         handleRemoveProduct={handleRemoveProduct}
                     ></ViewCart>)
-                } */}
+                } 
             </div>
         </div>
     );

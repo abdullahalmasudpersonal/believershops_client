@@ -23,8 +23,7 @@ const Home = () => {
             </div>
 
 
-            {/*       <HomeIslamic/> */}
-
+                   <HomeIslamic/> 
             <div>
             </div>
 
