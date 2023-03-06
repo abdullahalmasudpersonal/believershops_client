@@ -74,11 +74,3 @@
   border-radius: 50px;
   font-size: 20px;
 }
-
-.dashboard-logout {
-  color: black;
-}
-
-.dashboard-logout:hover {
-  color: rgb(255, 166, 1);
-}

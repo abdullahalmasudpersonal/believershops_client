@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
+import Admin from './Pages/AdminPanel/Admin/Admin';
 import Cart from './Pages/Cart/Cart';
 
 import Categore from './Pages/Categories/Categore/Categore/Categore';
@@ -33,6 +34,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='*' element={<Notfound/>} />
         
       </Routes>
