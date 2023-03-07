@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAttar from '../../../../Hooks/UseAttars/UseAttars';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 import Attar from './Attar';
-import '../AllIslamics.css';
+import '../AllIslamicsCss/AllIslamics.css';
 
 const Attars = () => {
     const [attars, setAttars] = useAttar([]);

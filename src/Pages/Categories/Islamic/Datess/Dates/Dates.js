@@ -4,8 +4,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../AllIslamicsCss/AllIslamic.css';
 
-const Cap = ({cap}) => {
-    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = cap;
+const Dates = ({dates}) => {
+    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = dates;
     const navigate = useNavigate();
 
     const navigateToProductDetails = _id => {
@@ -14,7 +14,7 @@ const Cap = ({cap}) => {
 
     return (
         <div className='islamic-product-dev'>
-        <img src={img} height='237px' alt='' className=' mb-1' />
+        <img src={img} alt='' className='img-fluid mb-1' />
         <h6 className='text-center islamic-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
         {/* <button onClick={() => props.handleAddToCard(props.attar)} >
             At To Cart
@@ -45,4 +45,4 @@ const Cap = ({cap}) => {
     );
 };
 
-export default Cap;
+export default Dates;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import UseCaps from '../../../../../Hooks/UseCaps/UseCaps';
-import '../../AllIslamics.css';
+import '../../AllIslamicsCss/AllIslamics.css';
 import Cap from '../Cap/Cap';
 
 const Caps = () => {

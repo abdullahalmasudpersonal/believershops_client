@@ -3,7 +3,7 @@ import { } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../AllIslamic.css';
+import '../AllIslamicsCss/AllIslamic.css';
 
 const Attar = ({attar}) => {
     const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = attar;
