@@ -7,17 +7,17 @@ export default function AdminSideberItem({ item }) {
 
     if (item.childrens) {
         return (
-            <div className={open ? "sidebar-item open" : "sidebar-item"}>
-                <div className="sidebar-title">
+            <div className={open ? "admin-sidebar-item open" : "admin-sidebar-item"}>
+                <div className="admin-sidebar-title">
                     <Link to={item.path || ""}  style={{width:'200px'}}>
                         <span>
                             {item.icon && <i className={item.icon}></i>}
                             {item.title}
                         </span>
                     </Link>
-                    <i className="bi-chevron-down toggle-btn" onClick={() => setOpen(!open)}></i>
+                    <i className="bi-chevron-down admin-toggle-btn" onClick={() => setOpen(!open)}></i>
                 </div>
-                <div className="sidebar-content">
+                <div className="admin-sidebar-content">
                     {item.childrens.map((child, index) => <AdminSideberItem key={index} item={child} />)}
                 </div>
             </div>
@@ -25,7 +25,7 @@ export default function AdminSideberItem({ item }) {
     } else {
         return (
             <Link to={item.path || ""}>
-                <a className="sidebar-item plain">
+                <a className="admin-sidebar-item plain">
                     {item.icon && <i className={item.icon}></i>}
                     {item.title}
                 </a>
