@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAttar from '../../../../Hooks/UseAttars/UseAttars';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 import Attar from './Attar';
-import './Attars.css';
+import '../AllIslamics.css';
 
 const Attars = () => {
     const [attars, setAttars] = useAttar([]);
@@ -52,10 +52,10 @@ const Attars = () => {
 
     
     return (
-        <div className='attars'>
+        <div className='islamics-attars'>
              <p>{quantity}</p> 
              <p>{cart.length}</p> 
-            <div className='attars-dev'>
+            <div className='islamics-attars-dev'>
                 {
                     attars.map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)
                 }

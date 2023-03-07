@@ -8,6 +8,7 @@ import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
 import AttarDetail from './Pages/Categories/Islamic/Attar/AttarDetail/AttarDetail';
 import Attars from './Pages/Categories/Islamic/Attar/Attars';
+import Caps from './Pages/Categories/Islamic/Caps/Caps/Caps';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
 import Home from './Pages/Home/Home/Home';
@@ -27,6 +28,7 @@ function App() {
         <Route path='/categore' element={<Categore />}>
           <Route path='islamic' element={<IslamicCategore />} />
           <Route path='islamic/attars' element={<Attars />} />
+          <Route path='islamic/caps' element={<Caps />} />
           <Route path='islamic/attar/:attarId' element={<AttarDetail />} />
         </Route>
         <Route path='/login' element={<Login />} />

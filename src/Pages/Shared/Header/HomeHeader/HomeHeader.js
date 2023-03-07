@@ -66,8 +66,10 @@ const HomeHeader = () => {
                             <ul className='p-0'>
                                 <li>Jainamaz</li>
                                 <li>Tajbeeh</li>
-                                <li>Tupi</li>
-                                <Link to='/categore/islamic/attars' style={{ textDecoration: 'none' }}><li>Attar</li></Link>
+                                <Link to='/categore/islamic/caps' style={{ textDecoration: 'none' }}><li>Tupi</li>
+                                </Link>
+                                <Link to='/categore/islamic/attars' style={{ textDecoration: 'none' }}><li>Attar</li>
+                                </Link>
                                 <li>Hijab</li>
                                 <li>burqa</li>
                             </ul>
