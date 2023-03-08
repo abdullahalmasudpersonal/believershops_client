@@ -1,36 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import UseCart from '../../Hooks/UseCart/UseCart';
+import React, { useState } from 'react';
+import UseAttars from '../../Hooks/UseAttars/UseAttars';
 import { getStoredCart, removeFromDb } from '../../utilities/fakedb';
 import './Cart.css';
+import UseCart from './UseCart';
 import ViewCart from './ViewCart';
 
 const Cart = () => {
-    const [attars, setAttars] = useState([]);
-    //const [cart, setCart] = UseCart(attars);
+    const [attars, setAttars] = UseAttars([]);
+    const [cart, setCart] = UseCart(attars);
 
-    const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-        const storedCart = getStoredCart();
-        const savedCart = [];
-        for (const _id in storedCart) {
-            const addedAttar = attars.find(attar => attar._id === _id);
-
-            if (addedAttar) {
-                const quantity = storedCart[_id];
-                addedAttar.quantity = quantity;
-                savedCart.push(addedAttar);
-            }
-        }
-        setCart(savedCart);
-    }, [attars]);
-
-
-  /*   const handleRemoveProduct = product => {
-        const rest = cart.filter(pd => pd._id !== product._id);
-        setCart(rest);
-        removeFromDb(product._id);
-    } */
 
     let total = 0;
     let shipping = 0;

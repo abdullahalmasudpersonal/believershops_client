@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const UseCaps = () => {
     const [caps, setCaps] = useState([]);
     useEffect(() => {
-        fetch('https://mahsez-server.onrender.com/caps')
+        fetch('http://localhost:5000/caps')
             .then(res => res.json())
             .then(data => setCaps(data));
     }, []);

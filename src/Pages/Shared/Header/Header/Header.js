@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom';
 import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
-import useAttar from '../../../../Hooks/UseAttars/UseAttars';
-import UseCart from '../../../../Hooks/UseCart/UseCart';
-import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
+import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
+import UseCart from '../../../Cart/UseCart';
 
 const Header = () => {
     const [user] = useAuthState(auth);
-    const [attars, setAttars] = useAttar([]);
+    const [attars, setAttars] = UseAttars([]);
+    const [cart, setCart] = UseCart(attars);
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
@@ -29,42 +29,6 @@ const Header = () => {
     }
     window.addEventListener('scroll', changeShadow);
 
-
-    const [cart, setCart] = useState([]);
-    useEffect(() => {
-        const storedCart = getStoredCart();
-       const savedCart = [];
-        for (const _id in storedCart) {
-            const addedAttar = attars.find(attar => attar._id === _id);
-
-           if (addedAttar) {
-                const quantity = storedCart[_id];
-                addedAttar.quantity = quantity;
-                savedCart.push(addedAttar);
-            } 
-        }
-        setCart(savedCart);
-
-    }, [attars]);
-
-    const handleAddToCard = (selectedAttar) => {
-        console.log(selectedAttar);
-        let newCart = [];
-        const exists = cart.find(attar => attar._id === selectedAttar._id);
-        if(!exists){
-           selectedAttar.quantity = 1;
-           newCart = [...cart, selectedAttar];
-        }
-        else{
-           const rest = cart.filter(attar => attar._id !== selectedAttar._id);
-           exists.quantity = exists.quantity + 1;
-           newCart = [...rest, exists];
-        }
-
-       setCart(newCart);
-       addToDb(selectedAttar._id);
-   }
-
     let total = 0;
     let shipping = 0;
     let quantity = 0;
@@ -72,9 +36,7 @@ const Header = () => {
         quantity = quantity + product.quantity;
         total = total + product.price * product.quantity;
         shipping = shipping + product.shipping;
-    } 
-
-
+    }
 
     return (
         <>
