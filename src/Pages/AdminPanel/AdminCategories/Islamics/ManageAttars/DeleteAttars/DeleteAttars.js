@@ -8,7 +8,7 @@ const DeleteAttars = () => {
     const handleDelete = _id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/attars/${_id}`;
+            const url = `https://mahsez-server.onrender.com/attars/${_id}`;
             console.log('url', url);
             fetch(url, {
                 method: 'DELETE'

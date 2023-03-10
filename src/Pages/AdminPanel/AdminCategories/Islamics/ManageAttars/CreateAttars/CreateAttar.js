@@ -30,7 +30,7 @@ const CreateAttar = () => {
                         description: data.description,
                         img: imgData.data.url
                     }
-                    fetch('http://localhost:5000/attars', {
+                    fetch('https://mahsez-server.onrender.com/attars', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'
@@ -50,7 +50,7 @@ const CreateAttar = () => {
                 }
             })
 
-        /*         const url = `http://localhost:5000/attars`;
+        /*         const url = `https://mahsez-server.onrender.com/attars`;
                 fetch(url, {
                     method: "POST",
                     headers: {
