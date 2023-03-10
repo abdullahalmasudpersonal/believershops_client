@@ -133,7 +133,7 @@
             },
             {
                 "title": "Create Attar",
-                "path": "/history"   
+                "path": "/admin/islamic/create_attar"   
             },
             {
                 "title": "Delete Attar",

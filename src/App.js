@@ -1,7 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import Admin from './Pages/AdminPanel/Admin/Admin';
+import CreateAttar from './Pages/AdminPanel/AdminCategories/Islamics/ManageAttars/CreateAttars/CreateAttar';
 import DeleteAttars from './Pages/AdminPanel/AdminCategories/Islamics/ManageAttars/DeleteAttars/DeleteAttars';
 import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
@@ -45,6 +48,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
 
         <Route path='/admin' element={<Admin />}>
+          <Route path='islamic/create_attar' element={<CreateAttar />} />
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
 
@@ -52,6 +56,7 @@ function App() {
 
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

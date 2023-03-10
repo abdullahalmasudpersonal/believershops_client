@@ -1,0 +1,20 @@
+.create-product{
+    width: 100%;
+}
+
+.create-product-dev{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    width: 400px;
+    min-height: 500px;
+    margin: auto;
+    border-radius: 4px;
+}
+.create-product-dev input{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-width: 300px;
+    height: 35px;
+    margin: 20px auto;
+
+}
