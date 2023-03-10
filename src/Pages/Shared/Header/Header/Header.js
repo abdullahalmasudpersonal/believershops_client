@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import UseCart from '../../../Cart/UseCart';
+import CartQuantity from './CartQuantity';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -28,15 +29,6 @@ const Header = () => {
         }
     }
     window.addEventListener('scroll', changeShadow);
-
-    let total = 0;
-    let shipping = 0;
-    let quantity = 0;
-    for (const product of cart) {
-        quantity = quantity + product.quantity;
-        total = total + product.price * product.quantity;
-        shipping = shipping + product.shipping;
-    }
 
     return (
         <>
@@ -59,6 +51,7 @@ const Header = () => {
                             <li>FEATURES</li>
                             <li>BLOGS</li>
                             <li>BLOG PAGE</li>
+                            <CartQuantity cart={cart} />
                         </ul>
                     </div>
 
@@ -125,8 +118,9 @@ const Header = () => {
 
                         <Link to='/cart'>
                             <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
-                            <span style={{marginRight:'-10px'}} class="position-absolute translate-middle badge rounded-pill bg-dark">
-                                {quantity}
+                            <span style={{ marginRight: '-10px' }} class="position-absolute translate-middle badge rounded-pill bg-dark">
+                                {/* {quantity} */}
+                                <CartQuantity cart={cart} />
                             </span>
                         </Link>
                         {/* <button type="button" class="btn btn-primary position-relative">

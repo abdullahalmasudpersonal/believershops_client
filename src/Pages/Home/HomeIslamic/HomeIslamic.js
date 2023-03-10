@@ -1,8 +1,9 @@
 import React from 'react';
 import './HomeIslamic.css';
+import '../../Home/Home/Home.css';
 import homeIslamicimg from '../../../Assets/img/home/Islamic.jpg';
-import Attar from '../../Categories/Islamic/Attar/Attar';
 import useAttar from '../../../Hooks/UseAttars/UseAttars';
+import HomeAttar from '../../Categories/Islamic/Attar/HomeAttar';
 
 const HomeIslamic = () => {
     const [attars, setAttars] = useAttar([]);
@@ -33,14 +34,13 @@ const HomeIslamic = () => {
                 </ul>
                 <div class="tab-content hoemIslamic-part2-content">
                     <div class="tab-pane active" id="1">
-                        <div className='islamics-attars'>
-                            <div className='islamics-attars-dev'>
-                                {
-                                    attars.map(attar => <Attar key={attar._id} attar={attar} />)
-                                }
-                            </div>
+                        {/* use css only home products home.css file */}
+                        <div className='home-products-dev'>
+                            {
+                                attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
+                            }
+                            {/* homeattar use home.css file */}
                         </div>
-                        {/* <h3>Standard tab panel created on bootstrap using nav-tabs</h3> */}
                     </div>
 
                     <div class="tab-pane" id="2">

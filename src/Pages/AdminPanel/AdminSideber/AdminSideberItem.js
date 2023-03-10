@@ -9,7 +9,7 @@ export default function AdminSideberItem({ item }) {
         return (
             <div className={open ? "admin-sidebar-item open" : "admin-sidebar-item"}>
                 <div className="admin-sidebar-title">
-                    <Link to={item.path || ""}  style={{width:'200px'}}>
+                    <Link to={item.path || ""}  style={{width:'200px', textDecoration:"none"}}>
                         <span>
                             {item.icon && <i className={item.icon}></i>}
                             {item.title}
@@ -24,7 +24,7 @@ export default function AdminSideberItem({ item }) {
         )
     } else {
         return (
-            <Link to={item.path || ""}>
+            <Link style={{ textDecoration:"none"}} to={item.path || ""}>
                 <a className="admin-sidebar-item plain">
                     {item.icon && <i className={item.icon}></i>}
                     {item.title}

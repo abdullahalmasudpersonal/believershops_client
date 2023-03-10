@@ -3,25 +3,12 @@ import useAttar from '../../../../Hooks/UseAttars/UseAttars';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 import Attar from './Attar';
 import '../AllIslamicsCss/AllIslamics.css';
+import UseCart from '../../../Cart/UseCart';
+import CartQuantity from '../../../Shared/Header/Header/CartQuantity';
 
 const Attars = () => {
     const [attars, setAttars] = useAttar([]);
-    const [cart, setCart] = useState([]);
-    useEffect(() => {
-        const storedCart = getStoredCart();
-       const savedCart = [];
-        for (const _id in storedCart) {
-            const addedAttar = attars.find(attar => attar._id === _id);
-
-           if (addedAttar) {
-                const quantity = storedCart[_id];
-                addedAttar.quantity = quantity;
-                savedCart.push(addedAttar);
-            } 
-        }
-        setCart(savedCart);
-
-    }, [attars]);
+    const [cart, setCart] = UseCart(attars);
 
     const handleAddToCard = (selectedAttar) => {
          console.log(selectedAttar);
@@ -40,21 +27,10 @@ const Attars = () => {
         setCart(newCart);
         addToDb(selectedAttar._id);
     }
-
-    let total = 0;
-    let shipping = 0;
-    let quantity = 0;
-    for (const product of cart) {
-        quantity = quantity + product.quantity;
-        total = total + product.price * product.quantity;
-        shipping = shipping + product.shipping;
-    } 
-
     
     return (
         <div className='islamics-attars'>
-             <p>{quantity}</p> 
-             <p>{cart.length}</p> 
+            <CartQuantity cart={cart}/>
             <div className='islamics-attars-dev'>
                 {
                     attars.map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)

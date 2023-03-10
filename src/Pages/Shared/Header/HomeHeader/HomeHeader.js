@@ -52,6 +52,22 @@ const HomeHeader = () => {
                                 <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                             </div>
                         </Link>
+                        <div className='islamic-child-catagore'>
+                            <ul className='p-0'>
+                                <Link to='/categore/foods/datess' style={{ textDecoration: 'none' }}><li>Dates</li>
+                                </Link>
+                                <Link to='/categore/islamic/jainamazs' style={{ textDecoration: 'none' }}><li>Jainamaz</li>
+                                </Link>
+                                <Link to='/categore/islamic/tazbeehs' style={{ textDecoration: 'none' }}><li>Tajbeeh</li>
+                                </Link>
+                                <Link to='/categore/islamic/caps' style={{ textDecoration: 'none' }}><li>Tupi</li>
+                                </Link>
+                                <Link to='/categore/islamic/attars' style={{ textDecoration: 'none' }}><li>Attar</li>
+                                </Link>
+                                <li>Hijab</li>
+                                <li>burqa</li>
+                            </ul>
+                        </div>
                     </li>
                     <li className='islamic'>
                         <Link className='text-decoration-none' to='/categore/islamic'

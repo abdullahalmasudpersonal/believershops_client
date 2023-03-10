@@ -1,49 +1,40 @@
 [
     {
-        "title": "General",
-        "icon": "bi-gear-fill",
+        "title": "Beauty",
         "path": "/general",
         "childrens": [
             {
                 "title": "Home",
-                "icon": "bi-house-fill",
                 "path": "/home"
             },
             {
                 "title": "About",
-                "icon": "bi-info-circle-fill",
                 "path": "/about"
             },
             {
                 "title": "Contact",
-                "icon": "bi-phone-fill",
                 "path":"/contect",
                 "childrens": [
                     {
                         "title": "Facebook",
-                        "icon": "bi-facebook",
                         "path":"/contect/facebook"
                     },
                     {
-                        "title": "Twitter",
-                        "icon": "bi-twitter"
+                        "title": "Twitter"
                     },
                     {
-                        "title": "Instagram",
-                        "icon": "bi-instagram"
+                        "title": "Instagram"
                     }
                 ]
             },
             {
                 "title": "FAQ",
-                "icon": "bi-question-circle-fill",
                 "path":"/faq"
             }
         ]
     },
     {
-        "title": "Account",
-        "icon": "bi-info-circle-fill",
+        "title": "Bags",
         "childrens": [
             {
                 "title": "Login",
@@ -64,8 +55,7 @@
         ]
     },
     {
-        "title": "Profile",
-        "icon": "bi-person-fill",
+        "title": "Computer",
         "childrens": [
             {
                 "title": "Profile",
@@ -104,8 +94,7 @@
         ]
     },
     {
-        "title": "Advance",
-        "icon": "bi-view-list",
+        "title": "Dresses",
         "path":"/Advance",
         "childrens": [
             {
@@ -119,13 +108,54 @@
         ]
     },
     {
-        "title": "Support",
-        "icon": "bi-question-circle-fill",
+        "title": "Electronic",
         "path": "/support"
     },
     {
-        "title": "Report Bug",
-        "icon": "bi-bug",
+        "title": "Foods",
+        "path": "/report-bug"
+    },
+    {
+        "title": "Islamic",
+        "path": "/report-bug",
+        "childrens": [
+            {
+                "title": "Jainamaz",
+                "path": "/search"
+            },
+            {
+                "title": "Tajbeeh",
+                "path": "/history"   
+            },
+            {
+                "title": "Tupi",
+                "path": "/history"   
+            },
+            {
+                "title": "Create Attar",
+                "path": "/history"   
+            },
+            {
+                "title": "Delete Attar",
+                "path": "/admin/islamic/delete_attar"   
+            },
+            {
+                "title": "Hijab",
+                "path": "/history"   
+            },
+            {
+                "title": "burqa",
+                "path": "/history"   
+            }
+        ]
+    },
+    {
+        "title": "Sports",
         "path": "/report-bug"
     }
 ]
+
+
+
+
+

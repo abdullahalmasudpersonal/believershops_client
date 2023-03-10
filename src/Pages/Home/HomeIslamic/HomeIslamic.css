@@ -1,27 +1,28 @@
  .hoemIslamic {
-    display: grid;
-    grid-template-columns: 206px auto;
-} 
-/* -------- start home islamic part 1 ------ */
-.hoemIslamic-part1{
-    margin-left: 10px;
-}
+     display: grid;
+     grid-template-columns: 206px auto;
+ }
 
-.hoemIslamic-title-dev {
-    background: rgb(255, 94, 0);
-    color: white;
-    display: inline-block;
-    width: 206px;
-    padding: 12px;
-    margin-bottom: 0;
-    margin-left: -10px; 
-    border-radius: 0 10px 0 0;
-    /* position: relative; */
-}
-.hoemIslamic-title-dev img{
-    
-}
-/* .hoemIslamic-title::before{
+ /* -------- start home islamic part 1 ------ */
+ .hoemIslamic-part1 {
+     margin-left: 10px;
+ }
+
+ .hoemIslamic-title-dev {
+     background: rgb(255, 94, 0);
+     color: white;
+     display: inline-block;
+     width: 206px;
+     padding: 12px;
+     margin-bottom: 0;
+     margin-left: -10px;
+     border-radius: 0 10px 0 0;
+     /* position: relative; */
+ }
+
+ .hoemIslamic-title-dev img {}
+
+ /* .hoemIslamic-title::before{
     content: '';
     width: 106px;
     height: 0;
@@ -32,43 +33,48 @@
     left: 1px;
 } */
 
-/* -------- end home islamic part 1 ------ */
+ /* -------- end home islamic part 1 ------ */
 
-/* -------- start home islamic part 2 ------ */
-.hoemIslamic-part2{
-    border: .5px solid rgb(233, 233, 233);
-    border-radius: 0 3px 3px 0;
-    background-clip: border-box; 
-  /*   margin-left: -10px; */
-    margin-top: 11px;
-}
-.hoemIslamic-part2-head {
-    background-color: rgb(235, 235, 235);
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding-left: 0;
-    border-bottom: .5px solid rgb(233, 233, 233);
-    border-radius: 3px 3px 0 0;
-    background-clip: border-box; 
-}
-.hoemIslamic-part2-head li {
-    padding: 5px 0px;
-    font-weight: 600;
-    text-decoration: none;
-    border-right: .5px solid rgb(223, 222, 222);
-}
-.hoemIslamic-part2-head li a{
-    padding: 12px 30px;
-    text-decoration: none;
-    color: rgb(87, 87, 87);
-}
-.nav-tabs li.active {
-    background: none;
-    border-bottom: 2px solid orangered;
-}
-.hoemIslamic-part2-content{
-    padding: 20px;
-}
-/* ------------ end home islamic part 2 ---------- */
+ /* -------- start home islamic part 2 ------ */
+ .hoemIslamic-part2 {
+     border: .5px solid rgb(233, 233, 233);
+     border-radius: 0 3px 3px 0;
+     background-clip: border-box;
+     /*   margin-left: -10px; */
+     margin-top: 11px;
+ }
 
+ .hoemIslamic-part2-head {
+     background-color: rgb(235, 235, 235);
+     display: flex;
+     list-style-type: none;
+     margin: 0;
+     padding-left: 0;
+     border-bottom: .5px solid rgb(233, 233, 233);
+     border-radius: 3px 3px 0 0;
+     background-clip: border-box;
+ }
+
+ .hoemIslamic-part2-head li {
+     padding: 5px 0px;
+     font-weight: 600;
+     text-decoration: none;
+     border-right: .5px solid rgb(223, 222, 222);
+ }
+
+ .hoemIslamic-part2-head li a {
+     padding: 12px 30px;
+     text-decoration: none;
+     color: rgb(87, 87, 87);
+ }
+
+ .nav-tabs li.active {
+     background: none;
+     border-bottom: 2px solid orangered;
+ }
+
+ .hoemIslamic-part2-content {
+    padding: 3px;
+     /* padding: 20px; */
+ }
+ /* ------------ end home islamic part 2 ---------- */
