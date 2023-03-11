@@ -22,7 +22,9 @@ import Login from './Pages/Logins/Login/Login';
 import Register from './Pages/Logins/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header/Header';
+import Loading from './Pages/Shared/Loading/Loading';
 import Notfound from './Pages/Shared/Notfound/Notfound';
+import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -44,7 +46,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>} />
         <Route path='/cart' element={<Cart />} />
 
         <Route path='/admin' element={<Admin />}>
