@@ -91,12 +91,12 @@ const Footer = () => {
                         <div class="col-md-4 col-lg-3 col-xl-3 me-0 mb-md-0 mb-4">
 
                             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                            <p><i class="fas fa-home me-3"></i> Gulshan-2, Dhaka 1204, BD</p>
+                            <p><i class="fas fa-home me-3"></i>South Jatrabari, Dhaka-1204</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i>
                                 m.mahsez@gmail.com
                             </p>
-                            <p><i class="fas fa-phone me-3"></i> + 880 1345678898</p>
+                            <p><i class="fas fa-phone me-3"></i> + 880 1737906772</p>
                             <p><i class="fas fa-phone me-3"></i> + 880 1445678999</p>
                         </div>
 
@@ -106,7 +106,7 @@ const Footer = () => {
             </section>
         </footer>
         <div class="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)', color:'gray' }}>
-            © 2022
+            © 2023
             <a class="text-reset fw-bold"> MAHSEZ</a>
         </div>
 
