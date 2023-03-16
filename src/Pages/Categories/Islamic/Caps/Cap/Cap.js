@@ -4,7 +4,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../AllIslamicsCss/AllIslamic.css';
 
-const Cap = ({cap}) => {
+const Cap = ({handleAddToCard, cap}) => {
     const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = cap;
     const navigate = useNavigate();
 
@@ -19,6 +19,9 @@ const Cap = ({cap}) => {
         {/* <button onClick={() => props.handleAddToCard(props.attar)} >
             At To Cart
         </button> */}
+        <a href='' >  <button onClick={() => handleAddToCard(cap)} >
+                At To Cart
+            </button> </a> 
          <p className='text-center m-0'>
                 <small>4.5 </small>
                 <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />

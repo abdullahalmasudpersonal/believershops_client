@@ -13,14 +13,20 @@ const Attar = ({handleAddToCard, attar}) => {
         navigate(`/categore/islamic/attar/${_id}`);
     }
 
+
     return (
 
         <div className='islamic-product-dev'>
             <img src={img} alt='' className='img-fluid mb-1' />
             <h6 className='text-center islamic-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
-             <button onClick={() => handleAddToCard(attar)} >
+
+            <a href='' >  <button onClick={() => handleAddToCard(attar)} >
                 At To Cart
-            </button> 
+            </button> </a> 
+
+            {/*  <button onClick={()=>addItem(attar)}>
+                At To Cart
+            </button>   */}
              <p className='text-center m-0'>
                     <small>4.5 </small>
                     <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />

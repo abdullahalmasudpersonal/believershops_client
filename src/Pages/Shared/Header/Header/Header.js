@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,11 +12,27 @@ import auth from '../../../../firebase.init';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import UseCart from '../../../Cart/UseCart';
 import CartQuantity from './CartQuantity';
+import { useCart } from 'react-use-cart';
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const [attars, setAttars] = UseAttars([]);
     const [cart, setCart] = UseCart(attars);
+
+    localStorage.getItem('shopping-cart')
+
+  /*   const { theme, setThemeMode } = useContext(ThemeContext); 
+    const [darkMode, setDarkMode] = useState(theme);
+
+    useEffect(()=>{
+        setThemeMode(darkMode);
+        console.log(darkMode)
+    },[darkMode]); */
+
+    const {
+        isEmpty,
+        totalItems,
+    } = useCart();
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
@@ -51,7 +67,6 @@ const Header = () => {
                             <li>FEATURES</li>
                             <li>BLOGS</li>
                             <li>BLOG PAGE</li>
-                            <CartQuantity cart={cart} />
                         </ul>
                     </div>
 
@@ -120,7 +135,8 @@ const Header = () => {
                             <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
                             <span style={{ marginRight: '-10px' }} class="position-absolute translate-middle badge rounded-pill bg-dark">
                                 {/* {quantity} */}
-                                <CartQuantity cart={cart} />
+                              {/*   {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px'}}>{totalItems}</span>} */}
+                                <CartQuantity cart={cart} /> 
                             </span>
                         </Link>
                         {/* <button type="button" class="btn btn-primary position-relative">

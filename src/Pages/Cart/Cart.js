@@ -2,13 +2,15 @@ import React from 'react';
 import UseAttars from '../../Hooks/UseAttars/UseAttars';
 import CartQuantity from '../Shared/Header/Header/CartQuantity';
 import './Cart.css';
-import UseCart from './UseCart';
 import ViewCart from '../Cart/ViewCart';
 import { removeFromDb } from '../../utilities/fakedb';
+import UseCart from './UseCart';
+import UseCaps from '../../Hooks/UseCaps/UseCaps';
 
 const Cart = () => {
     const [attars, setAttars] = UseAttars([]);
-    const [cart, setCart] = UseCart(attars);
+    const [caps, setCaps] = UseCaps([]);
+    const [cart, setCart] = UseCart(caps, attars);
 
     const handleRemoveProduct = product => {
         const rest = cart.filter(pd =>pd._id !== product._id);

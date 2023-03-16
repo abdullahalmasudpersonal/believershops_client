@@ -1,3 +1,9 @@
+.cartlength{
+    position:fixed;
+    right: 20px;
+    padding: 20px;
+    background-color: pink;
+}
 .islamics-attars {
     width: 100%;
 }
