@@ -12,13 +12,11 @@ const DeleteAttars = () => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
             const url = `http://localhost:5000/attars/${_id}`;
-            console.log('url', url);
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     const remaining = attars.filter(attar => attar._id !== _id)
                     setAttars(remaining);
                 })

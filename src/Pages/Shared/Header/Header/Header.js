@@ -12,12 +12,13 @@ import auth from '../../../../firebase.init';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import UseCart from '../../../Cart/UseCart';
 import CartQuantity from './CartQuantity';
-import { useCart } from 'react-use-cart';
+import UseCaps from '../../../../Hooks/UseCaps/UseCaps';
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const [attars, setAttars] = UseAttars([]);
-    const [cart, setCart] = UseCart(attars);
+    const [caps, setCaps] = UseCaps([])
+    const [cart, setCart] = UseCart(caps);
 
     localStorage.getItem('shopping-cart')
 
@@ -29,10 +30,6 @@ const Header = () => {
         console.log(darkMode)
     },[darkMode]); */
 
-    const {
-        isEmpty,
-        totalItems,
-    } = useCart();
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
