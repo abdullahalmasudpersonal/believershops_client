@@ -10,7 +10,7 @@ import UseCaps from '../../Hooks/UseCaps/UseCaps';
 const Cart = () => {
     const [attars, setAttars] = UseAttars([]);
     const [caps, setCaps] = UseCaps([]);
-    const [cart, setCart] = UseCart( caps);
+    const [cart, setCart] = UseCart();
 
     const handleRemoveProduct = product => {
         const rest = cart.filter(pd =>pd._id !== product._id);

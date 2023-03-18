@@ -32,7 +32,7 @@ function App() {
   return (
     <div>
 
-      <Header />
+      <Header  />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categore' element={<Categore />}>
