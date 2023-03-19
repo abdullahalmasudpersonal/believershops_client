@@ -48,7 +48,7 @@ const Header = () => {
             {/* ---------Part 1 ----------- */}
 
             <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
-                <div className='container-xxl d-flex justify-content-between align-items-center responsive-header' style={{ padding: '10px ' }}>
+                <div className='container-xxl d-flex justify-content-between align-items-center responsive-header' style={{ padding: '5px ' }}>
                     <div>
                         <Link to='/'>
                             <img width='130px' src={logo} alt='' />
@@ -80,7 +80,7 @@ const Header = () => {
 
                 <div className='header-small-screen'>
                     <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
-                        <div className='d-flex justify-content-between align-items-center' style={{ padding: '11px' }}>
+                        <div className='d-flex justify-content-between align-items-center' style={{ padding: '2px' }}>
 
                             <div>
                                 <button style={{ border: 'none', background: 'none' }} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -91,15 +91,15 @@ const Header = () => {
 
                             <div>
                                 <Link to='/'>
-                                    <img width='150px' src={logo} alt='' />
+                                    <img width='105px' src={logo} alt='' />
                                 </Link>
                             </div>
 
                             <div>
                                 <Link to='/register'>
-                                    <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                                    <FontAwesomeIcon className='top-right-btn' icon={faUserAlt} />
                                 </Link>
-                                <FontAwesomeIcon className='shopping-cart' icon={faEllipsisV} />
+                                <FontAwesomeIcon className='top-right-btn' icon={faEllipsisV} />
                             </div>
                         </div>
                     </div>

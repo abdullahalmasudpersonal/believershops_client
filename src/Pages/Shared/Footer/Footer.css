@@ -1,3 +1,45 @@
 .footer2-bg{
-    background-color: rgb(231, 244, 255);
+    color: white;
+    /* background-color: rgb(0, 0, 48); */
+    background-image: linear-gradient(90deg,rgb(1, 0, 71),rgb(1, 0, 56), rgb(31, 21, 54));
+   /*  background-image:linear-gradient(rgb(0, 6, 92), rgb(0, 1, 20)); */
+}
+
+.footer-bottem-part{
+    color: white;
+    background-color: rgba(30, 33, 88, 0.918);
+   /* background-image: linear-gradient(rgb(28, 28, 143)); */
+}
+.footer-socila-media a{
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+}
+.instagram-footer-bd-color{
+        background: #f09433; 
+      background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+      background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+        
+}
+.footer-bottem-part-dev{
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+}
+@media screen and (max-width:900px){
+    .footer-bottem-part-dev{
+        display: flex;
+        grid-gap: 7px;
+        justify-content: center;
+        flex-wrap: wrap-reverse;
+    }
+}
+.footer-payment-cart img{
+    width: 60px;
+    height: 28px;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
 }
