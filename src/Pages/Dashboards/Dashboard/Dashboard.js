@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook, faHistory, faListCheck, faSave, faShoppingCart, faSignOut, faUserAlt, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 
 const Dashboard = () => {
@@ -22,18 +22,23 @@ const Dashboard = () => {
         <div className='dashboard-dev1'>
           <img width='60px' src={profileImg} alt='' />
           <h5 className='text-center mt-2'>{user.displayName}</h5>
-          <button>My Profile</button>
+          <Link to='/dashboard'>
+            <button>My Profile</button>
+          </Link>
+          <Link to='/dashboard/address'>
+            <button>My Profile</button>
+          </Link>
           <button>Address</button>
           <button>Admin Panel</button>
           <button>View Cart</button>
           <button>My Orders</button>
+          <button>My Reviews</button>
           <button>Transactions</button>
-          <button>My Profile</button>
         </div>
+        <Outlet />
+        {/* <div className='dashboard-dev2'>
 
-        <div className='dashboard-dev2'>
-          dsfz
-        </div>
+        </div> */}
       </div>
 
       {/*   <div className=' pt-5'>

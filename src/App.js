@@ -17,7 +17,9 @@ import Caps from './Pages/Categories/Islamic/Caps/Caps/Caps';
 import Jainamazs from './Pages/Categories/Islamic/Jainamazs/Jainamazs/Jainamazs';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
+import Address from './Pages/Dashboards/Address/Address';
 import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
+import Profile from './Pages/Dashboards/Profile/Profile';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Logins/Login/Login';
 import Register from './Pages/Logins/Register/Register';
@@ -50,7 +52,10 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>} />
+        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<Profile />} />
+          <Route path='address' element={<Address />} />
+        </Route>
         <Route path='/cart' element={<Cart />} />
         <Route path='/orders' element={<Orders />} />
 
