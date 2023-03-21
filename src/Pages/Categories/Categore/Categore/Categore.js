@@ -7,7 +7,7 @@ const Categore = () => {
 
     return (
         <>
-            <div className='container-xxl p-0 py-5 px-3 d-flex' >
+            <div className='container-xxl p-0 py-5 d-flex' >
                 <NestedCategore />
                 <Outlet />
             </div>

@@ -1,55 +1,59 @@
-import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngellist } from '@fortawesome/free-brands-svg-icons';
+import { faAnglesUp, faAngleUp, faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ScrollingBtn = () => {
-    const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-    const goToBtn = () => {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    };
-  
-    const listenToScroll = () => {
-      let heightToHidden = 20;
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-  
-      if (winScroll > heightToHidden) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-  
-    useEffect(() => {
-      window.addEventListener("scroll", listenToScroll);
-      return () => window.removeEventListener("scroll", listenToScroll);
-    }, []);
-  
-    return (
-      <Wrapper>
-        {isVisible && (
-          <div className="top-btn" onClick={goToBtn}>
-            <FontAwesomeIcon icon={faArrowCircleUp} />
-          </div>
-        )}
-      </Wrapper>
-    );
+  const goToBtn = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
-  
-  const Wrapper = styled.section`
+
+  const listenToScroll = () => {
+    let heightToHidden = 20;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > heightToHidden) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
+
+  return (
+    <Wrapper>
+      {isVisible && (
+        <div className="top-btn" onClick={goToBtn}>
+          <FontAwesomeIcon icon={faAngleUp} />
+        </div>
+      )}
+    </Wrapper>
+  );
+};
+
+const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    .top-btn:hover{
+      background-color:orange;
+    }
     .top-btn {
-      font-size: 2rem;
-      /* width: 3rem;
-      height: 3rem; */
-      color: #fff;
-      padding:5px;
-      background-color: orange;
+      font-size: 20px;
+       width: 40px;
+       height: 40px;
+      color: white;
+      padding:10px;
+      background-color: gray;
       box-shadow: gray;
       border-radius: 50%;
       position: fixed;
@@ -60,6 +64,7 @@ const ScrollingBtn = () => {
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      transition:.4s;
       &--icon {
         animation: gototop 1.2s linear infinite alternate-reverse;
       }
