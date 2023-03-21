@@ -15,8 +15,28 @@ const Dashboard = () => {
   }
 
   return (
-    <div className='container-xxl'>
-      <div className=' pt-5'>
+    <div className='container-xxl my-5 p-0'>
+
+      <div className='dashboard'>
+
+        <div className='dashboard-dev1'>
+          <img width='60px' src={profileImg} alt='' />
+          <h5 className='text-center mt-2'>{user.displayName}</h5>
+          <button>My Profile</button>
+          <button>Address</button>
+          <button>Admin Panel</button>
+          <button>View Cart</button>
+          <button>My Orders</button>
+          <button>Transactions</button>
+          <button>My Profile</button>
+        </div>
+
+        <div className='dashboard-dev2'>
+          dsfz
+        </div>
+      </div>
+
+      {/*   <div className=' pt-5'>
         <div className='d-flex justify-content-center'>
           <FontAwesomeIcon icon={faUserAlt} className='main-pro-pic' />
         </div>
@@ -27,7 +47,7 @@ const Dashboard = () => {
           <h5>Abdullah al masud</h5>
         </div>
         <div className='d-flex justify-content-center'>
-          {/* <h5>{user.phoneNumber}</h5> */}
+          <h5>{user.phoneNumber}</h5> 
         </div>
       </div>
       <div className='py-5 dashboard'>
@@ -41,7 +61,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <Link to='/admin' style={{textDecoration:'none', color:'black'}}>
+        <Link to='/admin' style={{ textDecoration: 'none', color: 'black' }}>
           <div className='dashboard-item '>
             <div className='dashboard-item-dev'>
               <FontAwesomeIcon icon={faUserAstronaut} className='dashboard-item-font' />
@@ -69,14 +89,17 @@ const Dashboard = () => {
             <h6 className='text-center pt-1'>View Cart</h6>
           </div>
         </div>
-        <div className='dashboard-item '>
-          <div className='dashboard-item-dev'>
-            <FontAwesomeIcon icon={faListCheck} className='dashboard-item-font' />
+
+        <Link to='/orders' style={{ textDecoration: 'none', color: 'black' }}>
+          <div className='dashboard-item '>
+            <div className='dashboard-item-dev'>
+              <FontAwesomeIcon icon={faListCheck} className='dashboard-item-font' />
+            </div>
+            <div>
+              <h6 className='text-center pt-1'>Order Histoty</h6>
+            </div>
           </div>
-          <div>
-            <h6 className='text-center pt-1'>Order Histoty</h6>
-          </div>
-        </div>
+        </Link>
 
         <div className='dashboard-item '>
           <div className='dashboard-item-dev'>
@@ -96,7 +119,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <Link to='/' style={{textDecoration:'none', color:'black'}}>
+        <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
           <div onClick={logout} className='dashboard-item '>
             <div className='dashboard-item-dev'>
               <FontAwesomeIcon icon={faSignOut} className='dashboard-item-font' />
@@ -107,7 +130,8 @@ const Dashboard = () => {
           </div>
         </Link>
 
-      </div>
+      </div> */}
+
     </div>
   );
 };

@@ -44,9 +44,9 @@ const Attars = () => {
 
     return (
         <div className='islamics-attars'>
-             <div className='cartlength'>
+            {/*  <div className='cartlength'>
                 <CartQuantity cart={cart} />
-            </div>  
+            </div>   */}
             <div className='islamics-attars-dev'>
                 {
                     attars.map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)

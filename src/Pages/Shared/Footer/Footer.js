@@ -19,19 +19,19 @@ const Footer = () => {
                         <a href="https://www.facebook.com/profile.php?id=100090494528018" target='noopener' class="me-4 text-reset" style={{ padding: '6px 13px', backgroundColor:'	#4267B2' }}>
                             <i class="fab fa-facebook-f" ></i>
                         </a>
-                        <a href="" target='noopener' class="me-4 text-reset" style={{ padding: '6px 9px', backgroundColor:'	#FF0000'  }}>
+                        <a href="youtube.com" target='noopener' class="me-4 text-reset" style={{ padding: '6px 9px', backgroundColor:'	#FF0000'  }}>
                             <i class="fa-brands fa-youtube"></i>
                         </a>
-                        <a href="" class="me-4 text-reset" style={{ padding: '6px 10px', backgroundColor:'#1DA1F2'  }}>
+                        <a href="https://twitter.com/m_mahsez" target='noopener' class="me-4 text-reset" style={{ padding: '6px 10px', backgroundColor:'#1DA1F2'  }}>
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="" class="me-4 text-reset" style={{ padding: '6px 8px', backgroundColor:'	#db4a39 '  }}>
+                        <a href="googleplus.com" target='noopener' class="me-4 text-reset" style={{ padding: '6px 8px', backgroundColor:'	#db4a39 '  }}>
                             <i class="fa-brands fa-google-plus-g"></i>
                         </a>
-                        <a href="" class="me-4 text-reset instagram-footer-bd-color" style={{ padding: '6px 11px', backgroundColor:'	#feda75 '  }}>
+                        <a href="instagram.com" target='noopener' class="me-4 text-reset instagram-footer-bd-color" style={{ padding: '6px 11px', backgroundColor:'	#feda75 '  }}>
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="" class="me-4 text-reset" style={{ padding: '6px 11px', backgroundColor:'	#0072b1 '  }}>
+                        <a href="linkedIn.com" class="me-4 text-reset" target='noopener' style={{ padding: '6px 11px', backgroundColor:'	#0072b1 '  }}>
                             <i class="fab fa-linkedin"></i>
                         </a>
                         {/* <a href="" class=" text-reset">

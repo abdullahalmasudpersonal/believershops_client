@@ -21,18 +21,20 @@ import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Logins/Login/Login';
 import Register from './Pages/Logins/Register/Register';
+import Orders from './Pages/Orders/Orders';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header/Header';
 import Loading from './Pages/Shared/Loading/Loading';
 import Notfound from './Pages/Shared/Notfound/Notfound';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
+import ScrollingBtn from './Pages/Shared/ScrollingBtn/ScrollingBtn';
 
 function App() {
 
   return (
     <div>
-
-      <Header  />
+      <ScrollingBtn />
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categore' element={<Categore />}>
@@ -50,6 +52,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/orders' element={<Orders />} />
 
         <Route path='/admin' element={<Admin />}>
           <Route path='islamic/create_attar' element={<CreateAttar />} />
