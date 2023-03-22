@@ -1,17 +1,17 @@
 import React from 'react';
 import './Dashboard.css';
 import profileImg from '../../../Assets/img/profile/profile.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHistory, faListCheck, faSave, faShoppingCart, faSignOut, faUserAlt, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   const logout = () => {
     signOut(auth);
+    navigate('/');
   }
 
   return (
@@ -22,18 +22,21 @@ const Dashboard = () => {
         <div className='dashboard-dev1'>
           <img width='60px' src={profileImg} alt='' />
           <h5 className='text-center mt-2'>{user.displayName}</h5>
-          <Link to='/dashboard'>
+          <Link to='/dashboard' >
             <button>My Profile</button>
           </Link>
           <Link to='/dashboard/address'>
-            <button>My Profile</button>
+            <button>Address</button>
           </Link>
-          <button>Address</button>
+          <Link to='/dashboard/orders'>
+          <button>My Orders</button>
+          </Link>
           <button>Admin Panel</button>
           <button>View Cart</button>
-          <button>My Orders</button>
+          
           <button>My Reviews</button>
           <button>Transactions</button>
+          <button  onClick={logout}>Logout</button>
         </div>
         <Outlet />
         {/* <div className='dashboard-dev2'>

@@ -19,11 +19,11 @@ import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/Islami
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
 import Address from './Pages/Dashboards/Address/Address';
 import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
+import Orders from './Pages/Dashboards/Orders/Orders';
 import Profile from './Pages/Dashboards/Profile/Profile';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Logins/Login/Login';
 import Register from './Pages/Logins/Register/Register';
-import Orders from './Pages/Orders/Orders';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header/Header';
 import Loading from './Pages/Shared/Loading/Loading';
@@ -55,6 +55,7 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
           <Route path='address' element={<Address />} />
+          <Route path='orders' element={<Orders />} />
         </Route>
         <Route path='/cart' element={<Cart />} />
         <Route path='/orders' element={<Orders />} />
