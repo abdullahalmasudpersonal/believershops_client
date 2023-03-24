@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import UseAttarDetail from '../../../../../Hooks/UseAttars/UseAttarDetail';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
-import ReactImageMagnify from 'react-image-magnify';
 import { addToDb, getStoredCart } from '../../../../../utilities/fakedb';
 import useAttar from '../../../../../Hooks/UseAttars/UseAttars';
 
@@ -92,30 +91,16 @@ const AttarDetail = (props) => {
                 <div className='attar-detail-first-part-dev1'>
 
 
-                    {/* <div>
+                     <div>
                         <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
                     </div> 
- */}
+ 
 
                     {/* <p>{quantity}</p>  */}
 
-                    <div className='attar-detail-first-part-dev1-big-img'>
-                        <ReactImageMagnify {...{
-                            smallImage: {
-                                alt: 'Wristwatch by Ted Baker London',
-                                isFluidWidth: true,
-                                src: attar.img
-                            },
-                            largeImage: {
-                                src: attar.img,
-                                width: 1000,
-                                height: 1500
-                            },
-                            lensStyle: {
-
-                            }
-                        }} />
-                    </div> 
+                    {/* <div className='attar-detail-first-part-dev1-big-img'>
+                      
+                    </div>  */}
 
                     <div className='d-flex justify-content-center'>
                         <p className='attar-detail-first-part-dev1-p'>
