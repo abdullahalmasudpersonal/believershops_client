@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../../Home/Home/Home.css';
 
 const HomeAttar = ({ handleAddToCard, attar }) => {
-    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = attar;
+    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1, category } = attar;
     const navigate = useNavigate();
 
     const navigateToProductDetails = _id => {
@@ -15,6 +15,7 @@ const HomeAttar = ({ handleAddToCard, attar }) => {
     return (
         <div className='home-product-dev'>
             <img src={img} alt='' className='img-fluid mb-1' />
+            <span>{category}</span>
             <h6 className='text-center home-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
             <p className='text-center m-0'>
                 <small>4.5 </small>

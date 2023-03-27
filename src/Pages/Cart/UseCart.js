@@ -31,10 +31,10 @@ const UseCart = () => {
             console.log(values)
         });
  */
-        const url = [
+      /*   const url = [
             'http://localhost:5000/attarsByKeys',
             'http://localhost:5000/capsByKeys',
-        ];
+        ]; */
         
         fetch('http://localhost:5000/capsByKeys', {
             method: 'POST',

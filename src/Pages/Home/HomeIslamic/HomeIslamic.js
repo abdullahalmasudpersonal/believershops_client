@@ -37,8 +37,12 @@ const HomeIslamic = () => {
                         {/* use css only home products home.css file */}
                         <div className='home-products-dev'>
                             {
-                                attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
+                                attars.filter(categore => categore.category === 'attars').map(attar => <HomeAttar key={attar._id} attar={attar} />)
                             }
+
+                            {/*  {
+                                attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
+                            } */}
                             {/* homeattar use home.css file */}
                         </div>
                     </div>

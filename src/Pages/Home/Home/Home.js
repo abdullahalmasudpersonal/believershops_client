@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import HeaderCatagore from '../../Shared/Header/HomeHeader/HomeHeader';
 import HomeIslamic from '../HomeIslamic/HomeIslamic';
 import Banner2 from '../Banner/Banner2';
+import Brands from '../Brands/Brands';
 
 const Home = () => {
     return (
@@ -24,8 +25,9 @@ const Home = () => {
             </div>
 
 
-                {/*    <HomeIslamic/>  */}
+                   <HomeIslamic/>  
                    <Banner2/>
+                   <Brands/>
             <div>
             </div>
 

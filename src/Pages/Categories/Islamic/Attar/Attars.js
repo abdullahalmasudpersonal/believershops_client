@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 import Attar from './Attar';
 import '../AllIslamicsCss/AllIslamics.css';
-import CartQuantity from '../../../Shared/Header/Header/CartQuantity';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import UseCart from '../../../Cart/UseCart';
 
@@ -25,7 +24,6 @@ const Attars = () => {
      }, [attars])   */
 
     const handleAddToCard = (selectedAttar) => {
-        console.log(selectedAttar);
         let newCart = [];
         const exists = cart.find(attar => attar._id === selectedAttar._id);
         if (!exists) {
@@ -47,6 +45,7 @@ const Attars = () => {
             {/*  <div className='cartlength'>
                 <CartQuantity cart={cart} />
             </div>   */}
+            <>{cart.length}</>
             <div className='islamics-attars-dev'>
                 {
                     attars.map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)

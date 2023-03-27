@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
+/* slick-carousel */
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Admin from './Pages/AdminPanel/Admin/Admin';
 import CreateAttar from './Pages/AdminPanel/AdminCategories/Islamics/ManageAttars/CreateAttars/CreateAttar';
 import DeleteAttars from './Pages/AdminPanel/AdminCategories/Islamics/ManageAttars/DeleteAttars/DeleteAttars';
@@ -26,16 +29,50 @@ import Login from './Pages/Logins/Login/Login';
 import Register from './Pages/Logins/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header/Header';
-import Loading from './Pages/Shared/Loading/Loading';
 import Notfound from './Pages/Shared/Notfound/Notfound';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import ScrollingBtn from './Pages/Shared/ScrollingBtn/ScrollingBtn';
 
 function App() {
 
+  /*   const url = 'http://localhost:5000/attars';
+  
+    const [CartItem, setCartItem] = useState([]);
+  
+    const addToCart = (product) => {
+      const productExit = CartItem.find((item) => item._id === product._id)
+      if (productExit) {
+        setCartItem(CartItem.map((item) => (item._id === product._id ? { ...productExit, qty: productExit.qty + 1 } : item)))
+      } else {
+        setCartItem([...CartItem, { ...product, qty: 1 }])
+      }
+    }
+  
+    const decreaseQty = (product) => {
+      const productExit = CartItem.find((item) => item.id === product.id)
+      if (productExit.qty === 1) {
+        setCartItem(CartItem.filter((item) => item.id !== product.id))
+      } else {
+        setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty - 1 } : item)))
+      }
+    } */
+
+  /* const [products, setProducts] = useState([url]);
+  const url = 'http://localhost:5000/attars';
+  const [cart, setCart] = useState([])
+  const [showCart, setShowCart] = useState(false)
+  
+  const addToCart = (data) => {
+    setCart([...cart, { ...data, quantity: 1 }])
+  }
+  
+  const handleShow = (value) => {
+    setShowCart(value)
+  } */
+
   return (
     <div>
-      <ScrollingBtn />
+    <ScrollingBtn />
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -64,12 +101,11 @@ function App() {
           <Route path='islamic/create_attar' element={<CreateAttar />} />
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
-
         <Route path='*' element={<Notfound />} />
-
       </Routes>
       <Footer />
-      <ToastContainer />
+      <ToastContainer /> 
+
     </div>
   );
 }

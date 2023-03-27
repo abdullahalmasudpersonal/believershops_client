@@ -1,15 +1,11 @@
 import React from 'react';
-import UseAttars from '../../Hooks/UseAttars/UseAttars';
-import CartQuantity from '../Shared/Header/Header/CartQuantity';
 import './Cart.css';
 import ViewCart from '../Cart/ViewCart';
 import { removeFromDb } from '../../utilities/fakedb';
+import CartQuantity from './CartQuantity';
 import UseCart from './UseCart';
-import UseCaps from '../../Hooks/UseCaps/UseCaps';
 
 const Cart = () => {
-    const [attars, setAttars] = UseAttars([]);
-    const [caps, setCaps] = UseCaps([]);
     const [cart, setCart] = UseCart();
 
     const handleRemoveProduct = product => {

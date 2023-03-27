@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UseCaps from '../../../../../Hooks/UseCaps/UseCaps';
 import { addToDb, getStoredCart } from '../../../../../utilities/fakedb';
-import UseCart from '../../../../Cart/UseCart';
-import CartQuantity from '../../../../Shared/Header/Header/CartQuantity';
+import CartQuantity from '../../../../Cart/CartQuantity';
 import '../../AllIslamicsCss/AllIslamics.css';
 import Cap from '../Cap/Cap';
 
