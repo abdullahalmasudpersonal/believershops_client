@@ -1,0 +1,85 @@
+/* checkout-user-info */
+.checkout-user-info {
+    max-width: 400px;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.checkout-user-info h5 span {
+    background-color: rgb(166, 177, 192);
+    padding: 3px 12px;
+    border-radius: 50px;
+    color: white;
+}
+
+.checkout-user-info div {
+    margin-bottom: 10px;
+}
+
+.checkout-user-info p {}
+
+.checkout-user-info input {
+    width: 100%;
+    height: 35px;
+    margin-top: 2px;
+    border: .5px solid gray;
+    border-radius: 4px;
+}
+
+.checkout-user-info textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 2px;
+    border: .5px solid gray;
+    border-radius: 4px;
+}
+
+/* checkout-payment-method */
+.checkout-payment-method {
+    max-width: 500px;
+    min-height: 250px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.checkout-payment-method h5 span {
+    background-color: rgb(166, 177, 192);
+    padding: 4px 12px;
+    border-radius: 50px;
+    color: white;
+}
+
+/* checkout-order-info */
+.checkout-order-info{
+    max-width: 1200px;
+    min-height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+.checkout-order-info h5 span{
+    background-color: rgb(166, 177, 192);
+    padding: 4px 12px;
+    border-radius: 50px;
+    color: white;
+}
+
+/* place order btn */
+
+.place-order-btn{
+    display: flex;
+    justify-content: end;
+}
+.place-order-btn button{
+    background-color: rgb(255, 135, 22);
+    padding: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 3px;
+    color: white;
+    width: 200px;
+    border: none;
+    transition: .3s;
+}
+.place-order-btn button:hover{
+    background-color: rgb(255, 123, 0);
+}

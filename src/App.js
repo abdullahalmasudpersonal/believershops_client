@@ -32,6 +32,8 @@ import Header from './Pages/Shared/Header/Header/Header';
 import Notfound from './Pages/Shared/Notfound/Notfound';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import ScrollingBtn from './Pages/Shared/ScrollingBtn/ScrollingBtn';
+import Checkout from './Pages/Checkout/Checkout';
+import Allorder from './Pages/AdminPanel/AllOrders/Allorder/Allorder';
 
 function App() {
 
@@ -72,7 +74,7 @@ function App() {
 
   return (
     <div>
-    <ScrollingBtn />
+      <ScrollingBtn />
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -95,16 +97,29 @@ function App() {
           <Route path='orders' element={<Orders />} />
         </Route>
         <Route path='/cart' element={<Cart />} />
-        <Route path='/orders' element={<Orders />} />
+        <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
 
         <Route path='/admin' element={<Admin />}>
+          <Route index element={<Allorder />} />
           <Route path='islamic/create_attar' element={<CreateAttar />} />
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
         <Route path='*' element={<Notfound />} />
       </Routes>
       <Footer />
-      <ToastContainer /> 
+      {/* <ToastContainer />  */}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
     </div>
   );

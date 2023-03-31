@@ -3,14 +3,15 @@
    
 }
 
-div.home-products-dev {
+.home-products-dev {
+    
+} 
+
+/* div.home-products-dev {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 5px;
-    
-    
-    
-}
+} */
 
 /* --------------- end home products ------------- */
 /* ----------------- start home product ------------ */

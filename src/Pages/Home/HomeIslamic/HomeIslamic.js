@@ -4,9 +4,21 @@ import '../../Home/Home/Home.css';
 import homeIslamicimg from '../../../Assets/img/home/Islamic.jpg';
 import useAttar from '../../../Hooks/UseAttars/UseAttars';
 import HomeAttar from '../../Categories/Islamic/Attar/HomeAttar';
+import IslamicBest from './IslamicSlicks/IslamicBest';
+import Slider from 'react-slick';
+import Attar from '../../Categories/Islamic/Attar/Attar';
 
 const HomeIslamic = () => {
     const [attars, setAttars] = useAttar([]);
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        
+        slidesToShow: 6,
+        slidesToScroll: 1
+        
+    };
 
     return (
         <div className='container-xxl px-0 my-5 hoemIslamic'>
@@ -35,16 +47,31 @@ const HomeIslamic = () => {
                 <div class="tab-content hoemIslamic-part2-content">
                     <div class="tab-pane active" id="1">
                         {/* use css only home products home.css file */}
-                        <div className='home-products-dev'>
+                      
+                            <Slider {...settings}>
                             {
-                                attars.filter(categore => categore.category === 'attars').map(attar => <HomeAttar key={attar._id} attar={attar} />)
-                            }
-
-                            {/*  {
                                 attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
-                            } */}
-                            {/* homeattar use home.css file */}
-                        </div>
+                            }
+                               {/*  <div>
+                                    <h3>1</h3>
+                                </div>
+                                <div>
+                                    <h3>2</h3>
+                                </div>
+                                <div>
+                                    <h3>3</h3>
+                                </div>
+                                <div>
+                                    <h3>4</h3>
+                                </div> */}
+                            </Slider>
+                       
+                        {/* .filter(categore => categore.category === 'attars') */}
+                        {/* <div className='home-products-dev'>
+                            {
+                                attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
+                            }
+                        </div> */}
                     </div>
 
                     <div class="tab-pane" id="2">
@@ -58,10 +85,10 @@ const HomeIslamic = () => {
                         <h3>Top reviewd clearfix to tab-content (see the css)</h3>
                     </div>
                 </div>
-            </div>
+            </div >
 
 
-        </div>
+        </div >
     );
 };
 

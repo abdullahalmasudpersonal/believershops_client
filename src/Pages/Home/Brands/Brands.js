@@ -1,4 +1,4 @@
-import { faArrowCircleLeft, faChevronCircleLeft, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component } from "react";
 import Slider from "react-slick";
@@ -17,7 +17,6 @@ function SampleNextArrow(props) {
 
 function SamplePrevArrow(props) {
     const { className, style, onClick, currentSlide } = props;
-    console.log(props)
     return (
         <>
 
@@ -91,7 +90,7 @@ export default class Responsive extends Component {
             ]
         };
         return (
-            <div className="container-xxl p-0 masud my-5 " >
+            <div className="container-xxl p-0 my-5 " >
                 {/*  <button className="button" onClick={this.next}>
                     Next
                 </button> */}

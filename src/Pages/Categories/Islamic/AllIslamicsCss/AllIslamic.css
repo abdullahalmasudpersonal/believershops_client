@@ -1,4 +1,4 @@
-.islamic-product-dev{
+.islamic-product-dev {
     max-width: 250px;
     height: 350px;
     padding: 10px;
@@ -9,37 +9,85 @@
     transition: .4s;
     position: relative;
 }
-.islamic-product-dev img{
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+.cart1 {
+    transition: all 0.3s ease-out;
+}
+
+
+.cart1 {
+    display: block;
+    position: relative;
+    max-width: 262px;
+    background-color: #f2f8f9;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.cart1::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #ffd06a;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+}
+.cart1:hover::before {
+    transform: scale(21);
+}
+
+
+
+.islamic-product-dev img {
     transition: .6s;
 }
-.islamic-product-dev:hover{
+
+.islamic-product-dev:hover {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    transform: scale(1.01); 
+    transform: scale(1.01);
 }
-.islamic-product-dev:hover img{
-    transform: scale(1.1); 
+
+.islamic-product-dev:hover img {
+    transform: scale(1.1);
 }
-.islamic-product-dev-h6{
+
+.islamic-product-dev-h6 {
     cursor: pointer;
     color: rgb(97, 97, 97);
     font-weight: 600;
     font-family: "Times New Roman";
 }
-.islamic-product-dev-p{
+
+.islamic-product-dev-p {
     color: rgb(255, 102, 0);
     font-weight: bold;
 }
-.islamic-product-dev:hover .islamic-product-dev-p{
+
+.islamic-product-dev:hover .islamic-product-dev-p {
     display: none;
 }
-.islamic-product-add-to-cart{
+
+.islamic-product-add-to-cart {
     display: none;
-   /*  position: absolute; */
-   /*  right: 26.5%; */
-   /*  bottom:10px; */
+    /*  position: absolute; */
+    /*  right: 26.5%; */
+    /*  bottom:10px; */
     transition: .4s;
 }
-.islamic-product-add-to-cart button{
+
+.islamic-product-add-to-cart button {
     border: none;
     border-radius: 50px;
     padding: 2px 15px;
@@ -47,6 +95,7 @@
     background-color: rgb(255, 94, 0);
     transition: .4s;
 }
+
 .islamic-product-dev:hover .islamic-product-add-to-cart {
     display: block;
     transition: .4s;

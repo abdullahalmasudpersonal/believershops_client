@@ -1,6 +1,8 @@
 
   .admin-sideber-main{
     display: flex;
+    grid-template-columns: 350px auto;
+    grid-gap: 20px;
   }
   .admin-sideber-container{
     flex-grow: 1;

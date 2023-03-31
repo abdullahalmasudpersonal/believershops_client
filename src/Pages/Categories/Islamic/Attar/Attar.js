@@ -8,7 +8,7 @@ import UseCart from '../../../Cart/UseCart';
 import '../AllIslamicsCss/AllIslamic.css';
 
 const Attar = ({ handleAddToCard, attar }) => {
-    const [cart, setCart] = UseCart();
+    const [cart, setCart, dispatch] = UseCart();
     const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = attar;
     const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const Attar = ({ handleAddToCard, attar }) => {
 
     return (
 
-        <div className='islamic-product-dev'>
+        <div className='islamic-product-dev cart1'>
             <img src={img} alt='' className='img-fluid mb-1' />
             <h6 className='text-center islamic-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
 
@@ -65,13 +65,13 @@ const Attar = ({ handleAddToCard, attar }) => {
                              <FontAwesomeIcon className='delete-icon' icon={_id}></FontAwesomeIcon>
                          </button> */
 
-                        <div className='islamic-product-add-to-cart'>  <button  onClick={() => handleRemoveProduct(_id)} >
+                       <div className='islamic-product-add-to-cart'>  <button  onClick={() => handleRemoveProduct(_id)} >
                             Revove
-                        </button> </div>
+                        </button> </div> 
                         :
-                        <div className='islamic-product-add-to-cart'>  <button onClick={() => handleAddToCard(attar)} >
+                         <div className='islamic-product-add-to-cart'>  <button onClick={() => handleAddToCard(attar)} >
                             Add to Cart
-                        </button> </div>
+                        </button> </div> 
                 }
             </div>
         </div>

@@ -1,5 +1,9 @@
 [
     {
+        "title": "All Orders",
+        "path": "/admin/allOrder"  
+    },
+    {
         "title": "Beauty",
         "path": "/general",
         "childrens": [
@@ -13,11 +17,11 @@
             },
             {
                 "title": "Contact",
-                "path":"/contect",
+                "path": "/contect",
                 "childrens": [
                     {
                         "title": "Facebook",
-                        "path":"/contect/facebook"
+                        "path": "/contect/facebook"
                     },
                     {
                         "title": "Twitter"
@@ -29,7 +33,7 @@
             },
             {
                 "title": "FAQ",
-                "path":"/faq"
+                "path": "/faq"
             }
         ]
     },
@@ -95,7 +99,7 @@
     },
     {
         "title": "Dresses",
-        "path":"/Advance",
+        "path": "/Advance",
         "childrens": [
             {
                 "title": "Search",
@@ -103,7 +107,7 @@
             },
             {
                 "title": "History",
-                "path": "/history"   
+                "path": "/history"
             }
         ]
     },
@@ -125,27 +129,27 @@
             },
             {
                 "title": "Tajbeeh",
-                "path": "/history"   
+                "path": "/history"
             },
             {
                 "title": "Tupi",
-                "path": "/history"   
+                "path": "/history"
             },
             {
                 "title": "Create Attar",
-                "path": "/admin/islamic/create_attar"   
+                "path": "/admin/islamic/create_attar"
             },
             {
                 "title": "Delete Attar",
-                "path": "/admin/islamic/delete_attar"   
+                "path": "/admin/islamic/delete_attar"
             },
             {
                 "title": "Hijab",
-                "path": "/history"   
+                "path": "/history"
             },
             {
                 "title": "burqa",
-                "path": "/history"   
+                "path": "/history"
             }
         ]
     },
@@ -154,8 +158,3 @@
         "path": "/report-bug"
     }
 ]
-
-
-
-
-

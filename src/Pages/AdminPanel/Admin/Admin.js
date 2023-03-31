@@ -5,7 +5,7 @@ import '../AdminSideber/AdminSideber.css'
 
 const Admin = () => {
     return (
-        <div className="admin-sideber-main">
+        <div className="admin-sideber-main container-xxl p-0 my-5">
             <AdminSideber />
             <Outlet />
       {/*       <div className="admin-sideber-container">

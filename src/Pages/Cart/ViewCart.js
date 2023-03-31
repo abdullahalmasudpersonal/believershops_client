@@ -5,7 +5,8 @@ import './ViewCart.css';
 
 const ViewCart = (props) => {
     const { product, handleRemoveProduct } = props;
-    const { name, img, price, shipping, quantity } = props.product;
+    const { name, img, price, shipping, quantity, offerPrice } = props.product;
+    console.log(props)
 
     return (
         <div className='review-item'>
@@ -17,7 +18,7 @@ const ViewCart = (props) => {
                     <p className='product-name' title={name}>
                         {name.length > 20 ? name.slice(0, 20) + '...' : name}
                     </p>
-                    <p>Price:<span className='orange-color'> ${price}</span></p>
+                    <p>Price:<span className='orange-color'> ${offerPrice}</span></p>
                     <p><small>Shipping: ${shipping}</small></p>
                     <p><small>Quantity:{quantity}</small></p>
                 </div>

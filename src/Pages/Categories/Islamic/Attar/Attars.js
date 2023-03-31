@@ -4,6 +4,7 @@ import Attar from './Attar';
 import '../AllIslamicsCss/AllIslamics.css';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import UseCart from '../../../Cart/UseCart';
+import { toast } from 'react-toastify';
 
 const Attars = () => {
     const [attars, setAttars] = UseAttars([]);
@@ -29,11 +30,13 @@ const Attars = () => {
         if (!exists) {
             selectedAttar.quantity = 1;
             newCart = [...cart, selectedAttar];
+            toast.success('Added To Cart');
         }
         else {
             const rest = cart.filter(attar => attar._id !== selectedAttar._id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
+            toast.success('Added To Cart');
         }
 
         setCart(newCart);
