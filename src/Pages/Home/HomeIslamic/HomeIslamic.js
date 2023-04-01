@@ -49,9 +49,9 @@ const HomeIslamic = () => {
                         {/* use css only home products home.css file */}
                       
                             <Slider {...settings}>
-                            {
+                            {/* {
                                 attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
-                            }
+                            } */}
                                {/*  <div>
                                     <h3>1</h3>
                                 </div>

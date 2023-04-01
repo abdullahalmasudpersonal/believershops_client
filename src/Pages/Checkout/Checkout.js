@@ -1,20 +1,42 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Checkout.css';
 import bkash from '../../Assets/img/payment/bkash.png';
 import nagod from '../../Assets/img/payment/nagod.png';
 import rocket from '../../Assets/img/payment/rocket.png';
 import sureCash from '../../Assets/img/payment/sureCash.png';
 import UseCart from '../Cart/UseCart';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
 
 const Checkout = () => {
     const [cart, setCart] = UseCart();
+ //   const { productsId } = useParams();
+  //  const [products] = UseProductDetails(productsId);
+    const [user] = useAuthState(auth);
+  //  console.log(cart.map(product => product._id ))
+
+    const handlePlaceOrder = event => {
+        event.preventDefault();
+        const order = {
+            name: user.displayName,
+            email: user.email,
+            phoneNumber: event.target.phoneNumber.value,
+            address: event.target.address.value,
+            comment: event.target.comment.value,
+           /*  productsId:(cart.map(porduct=> porduct._id)), */
+            minOrder: event.target.minOrder.value,
+        }
+       // console.log('order',order)
+    }
+
+    /* load cart */
     let quantity = 0;
     let subTotal = 0;
-
     for (const product of cart) {
         quantity = quantity + product.quantity;
-        subTotal = subTotal + product.regular_price * product.quantity;
+        subTotal = subTotal + product.regularPrice * product.quantity;
     }
     const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
     const grandTotal = subTotal + conditionCharge;
@@ -39,34 +61,28 @@ const Checkout = () => {
     return (
         <div className='container-xxl my-5'>
             <h3 className='mb-4'>Checkout</h3>
-            <form>
+            <form onSubmit={handlePlaceOrder}>
 
                 <div className='d-flex gap-4 aligin-items-center justify-content-center'>
 
                     <div className='checkout-user-info p-3'>
                         <h5><span>1</span> Coustomer info</h5>
                         <hr />
-                        <div className='d-flex gap-3'>
-                            <div>
-                                <p className='mb-0'><small>First Name*</small></p>
-                                <input />
-                            </div>
-                            <div>
-                                <p className='mb-0'><small>Lust Name*</small></p>
-                                <input />
-                            </div>
+                        <div>
+                            <p className='mb-0'><small>Full Name</small></p>
+                            <input type='text' name='firstName' value={user.displayName} disabled />
                         </div>
                         <div>
-                            <p className='mb-0'><small>Email Address*</small></p>
-                            <input />
+                            <p className='mb-0'><small>Email Address</small></p>
+                            <input value={user.email} disabled required />
                         </div>
                         <div>
                             <p className='mb-0'><small>Phone Number*</small></p>
-                            <input />
+                            <input type='number' name='phoneNumber' required />
                         </div>
                         <div>
                             <p className='mb-0'><small>Full  Address*</small></p>
-                            <input />
+                            <input type='text' name='address' required />
                         </div>
                         <div>
                             <p className='mb-0'><small>Commects</small></p>
@@ -87,11 +103,8 @@ const Checkout = () => {
                                     <input type='radio' name='payType' value='masud3' onChange={e => setPayType(e.target.value)} />
                                     {payType}
                                     <p>বিকাশে টাকা প্রদান করার জন্য বিকাশ App এর মাধ্যমে অথবা সরাসরি *247# ডায়াল করে "Send Money (সেন্ড মানি)" অপশনটি সিলেক্ট করুন।
-
                                         আমাদের বিকাশ নাম্বার "01620327692" এ আপনার মোট বিল প্রদান করুন।
-
                                         বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে
-
                                         bKash Personal Number : 01620327692</p>
                                 </div>
                             </div>
@@ -141,8 +154,8 @@ const Checkout = () => {
                                                 <td className='text-center'>
                                                     {product.quantity}
                                                 </td>
-                                                <td className='text-end'>{product.regular_price}</td>
-                                                <td className='text-end'>{product.quantity * product.regular_price}</td>
+                                                <td className='text-end'>{product.regularPrice}</td>
+                                                <td className='text-end'>{product.quantity * product.regularPrice}</td>
                                             </tr>
                                         )
                                     }

@@ -8,8 +8,8 @@ import UseCart from '../../../Cart/UseCart';
 import '../AllIslamicsCss/AllIslamic.css';
 
 const Attar = ({ handleAddToCard, attar }) => {
-    const [cart, setCart, dispatch] = UseCart();
-    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = attar;
+    const [cart, setCart] = UseCart();
+    const { _id, brand, name, image, regularPrice, offerPrice } = attar;
     const navigate = useNavigate();
 
     const handleRemoveProduct = product => {
@@ -26,7 +26,7 @@ const Attar = ({ handleAddToCard, attar }) => {
     return (
 
         <div className='islamic-product-dev cart1'>
-            <img src={img} alt='' className='img-fluid mb-1' />
+            <img src={image} alt='' className='img-fluid mb-1' />
             <h6 className='text-center islamic-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
 
             {/*  <a href='' >  <button onClick={() => handleAddToCard(attar)} >
@@ -52,10 +52,10 @@ const Attar = ({ handleAddToCard, attar }) => {
                             <span style={{ fontSize: '14px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>
                             <span>{offerPrice}.00 &nbsp;</span>
 
-                            <span style={{ fontSize: '13px', fontFamily: "Optima", fontWeight: 'bold', color: 'gray', textDecoration: 'line-through 1px' }}>৳ {ragularPrice}.00</span>
+                            <span style={{ fontSize: '13px', fontFamily: "Optima", fontWeight: 'bold', color: 'gray', textDecoration: 'line-through 1px' }}>৳ {regularPrice}.00</span>
                         </p>
                         :
-                        <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{ragularPrice}.00</span>
+                        <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{regularPrice}.00</span>
                 }
             </p>
             <div className='d-flex justify-content-center'>

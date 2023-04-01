@@ -1,21 +1,19 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import UseAttarDetail from '../../../../../Hooks/UseAttars/UseAttarDetail';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
-import { addToDb, getStoredCart } from '../../../../../utilities/fakedb';
-import useAttar from '../../../../../Hooks/UseAttars/UseAttars';
+import UseProductDetails from '../../../../../Hooks/UseProductDetails/UseProductDetails';
 
 
 
-const AttarDetail = (props) => {
-    const { attarId } = useParams()
-    const [attar] = UseAttarDetail(attarId);
+const AttarDetail = () => {
+    const { productId } = useParams()
+    const [attar] = UseProductDetails(productId);
     const [count, setCount] = useState(1);
-    const [attars, setAttars] = useAttar([]);
+ 
 
     function increment() {
         //setCount(prevCount => prevCount+=1);
@@ -92,7 +90,7 @@ const AttarDetail = (props) => {
 
 
                      <div>
-                        <img className='attar-detail-first-part-dev1-big-img' src={attar.img} alt='' />
+                        <img className='attar-detail-first-part-dev1-big-img' src={attar.image} alt='' />
                     </div> 
  
 

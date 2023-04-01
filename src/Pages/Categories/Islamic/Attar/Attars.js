@@ -5,10 +5,13 @@ import '../AllIslamicsCss/AllIslamics.css';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import UseCart from '../../../Cart/UseCart';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
+import UseAttarDetail from '../../../../Hooks/UseAttars/UseAttarDetail';
 
 const Attars = () => {
     const [attars, setAttars] = UseAttars([]);
      const [cart, setCart] = UseCart();
+    
 
  /*      useEffect( () =>{
          const storedCart = getStoredCart();
@@ -51,7 +54,7 @@ const Attars = () => {
             <>{cart.length}</>
             <div className='islamics-attars-dev'>
                 {
-                    attars.map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)
+                    attars.filter(categore => categore.category === 'attar').map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)
                 }
             </div>
         </div>

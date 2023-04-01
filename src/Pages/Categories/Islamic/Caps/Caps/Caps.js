@@ -49,7 +49,7 @@ const Caps = () => {
              <CartQuantity cart={cart} />
        <div className='islamics-attars-dev'>
            {
-               caps.map(cap => <Cap key={cap._id} cap={cap}  handleAddToCard={handleAddToCard} />)
+               caps.filter(categore => categore.category === 'cap').map(cap => <Cap key={cap._id} cap={cap}  handleAddToCard={handleAddToCard} />)
            }
        </div>
    </div>

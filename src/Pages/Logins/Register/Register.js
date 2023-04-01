@@ -15,7 +15,6 @@ const Register = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-
     let from = location.state?.from?.pathname || '/';
 
     if (user) {
@@ -24,13 +23,14 @@ const Register = () => {
 
     const handleRegister = async (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
+        const fullName = event.target.firstName.value;
+      //  const lustName = event.target.lustName.value;
         const email = event.target.email.value;
-        //  const phone = event.target.phone.value;
         const password = event.target.password.value;
         await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: name });
-        console.log(user)
+        await updateProfile({ displayName: fullName });
+
+        console.log(updateProfile)
     }
 
     return (
@@ -41,13 +41,14 @@ const Register = () => {
                     <div className='register-form-dev'>
                         <form onSubmit={handleRegister}>
                             <div>
-                                <input type='text' placeholder='Full Name' name='name' required />
+                                <input type='text' placeholder='Full Name' name='firstName' required />
                             </div>
+                            {/* <div>
+                                <input type='text' placeholder='Lust Name' name='lustName' required />
+                            </div> */}
                             <div>
                                 <input type='email' placeholder='Email' name='email' required />
                             </div>
-
-                            {/*   <input type='number' placeholder='Phone Number' name='phone' required />  */}
 
                             <div>
                                 <input type='password' placeholder='Password' name='password' required />

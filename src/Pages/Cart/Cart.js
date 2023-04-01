@@ -8,8 +8,7 @@ import Loading from '../Shared/Loading/Loading';
 import UseAttars from '../../Hooks/UseAttars/UseAttars';
 import { Link } from 'react-router-dom';
 
-const Cart = (props) => {
-    const [attars, setAttars] = UseAttars();
+const Cart = () => {
     const [cart, setCart] = UseCart();
 
     const handleRemoveProduct = product => {
@@ -23,7 +22,7 @@ const Cart = (props) => {
 
     for (const product of cart) {
         quantity = quantity + product.quantity;
-        subTotal = subTotal + product.regular_price * product.quantity;
+        subTotal = subTotal + product.regularPrice * product.quantity;
     }
     const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
     const grandTotal = subTotal + conditionCharge;
@@ -50,7 +49,7 @@ const Cart = (props) => {
                             <tr>
 
                                 <th scope="row">
-                                    <img src={product.img} alt='' width='80px' height='70px' />
+                                    <img src={product.image} alt='' width='80px' height='70px' />
                                 </th>
                                 <td>{product.name}</td>
                                 <td>{product.model}</td>
@@ -58,8 +57,8 @@ const Cart = (props) => {
                                     <input style={{ width: '60px', height: '35px' }} type='number' pattern="{3}" maxLength="4" defaultValue={product.quantity} name="title" />
                                     <span onClick={() => handleRemoveProduct(product)} > X</span>
                                 </td>
-                                <td className='text-right'>{product.regular_price}</td>
-                                <td className='text-right'>{product.quantity * product.regular_price}</td>
+                                <td className='text-right'>{product.regularPrice}</td>
+                                <td className='text-right'>{product.quantity * product.regularPrice}</td>
                             </tr>
                         )
                     }

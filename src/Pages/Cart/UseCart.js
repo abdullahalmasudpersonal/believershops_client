@@ -36,7 +36,7 @@ const UseCart = () => {
               'http://localhost:5000/capsByKeys',
           ]; */
 
-        fetch('http://localhost:5000/capsByKeys', {
+        fetch('http://localhost:5000/productsByKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

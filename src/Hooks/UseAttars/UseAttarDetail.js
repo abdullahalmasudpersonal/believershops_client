@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 const UseAttarDetail = attarId =>{
     const [attar, setAttar] = useState([]);
     useEffect( () =>{
-        const url = `http://localhost:5000/attar/${attarId}`;
-
+        const url = `http://localhost:5000/product/${attarId}`;
+        console.log(url)
         fetch(url)
         .then(res => res.json())
         .then(data => setAttar(data));

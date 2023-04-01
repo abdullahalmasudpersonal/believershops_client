@@ -86,7 +86,7 @@ function App() {
           <Route path='islamic/tazbeehs' element={<Tazbeehs />} />
           <Route path='islamic/caps' element={<Caps />} />
           <Route path='islamic/attars' element={<Attars />} />
-          <Route path='islamic/attar/:attarId' element={<AttarDetail />} />
+          <Route path='islamic/attar/:productId' element={<AttarDetail />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
