@@ -94,7 +94,7 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
           <Route path='address' element={<Address />} />
-          <Route path='orders' element={<Orders />} />
+          <Route path='myOrders' element={<Orders />} />
         </Route>
         <Route path='/cart' element={<Cart />} />
         <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />

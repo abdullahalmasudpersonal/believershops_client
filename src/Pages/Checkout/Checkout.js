@@ -9,26 +9,41 @@ import UseCart from '../Cart/UseCart';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
     const [cart, setCart] = UseCart();
- //   const { productsId } = useParams();
-  //  const [products] = UseProductDetails(productsId);
+    //   const { productsId } = useParams();
+    //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
-  //  console.log(cart.map(product => product._id ))
+    //  console.log(cart.map(product => product.quantity * product.regularPrice ))
 
     const handlePlaceOrder = event => {
         event.preventDefault();
-        const order = {
-            name: user.displayName,
-            email: user.email,
+        const allOrder = {
+            coustomerName: user.displayName,
+            coustomerEmail: user.email,
             phoneNumber: event.target.phoneNumber.value,
             address: event.target.address.value,
             comment: event.target.comment.value,
-           /*  productsId:(cart.map(porduct=> porduct._id)), */
-            minOrder: event.target.minOrder.value,
+            productsId: (cart.map(porduct => porduct._id)),
+            productsName: (cart.map(porduct => porduct.name)),
+            productsImage: (cart.map(porduct => porduct.image)),
+            productsQuantity: (cart.map(porduct => porduct.quantity)),
+            productsPrice: (cart.map(porduct => porduct.offerPrice)),
+            productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity))
         }
-       // console.log('order',order)
+        console.log('order', allOrder)
+        axios.post('http://localhost:5000/allOrder', allOrder)
+            .then(response => {
+                console.log(response)
+                const { data } = response;
+                if (data.insertedId) {
+                    toast.success('Your order is placed !!!');
+                    event.target.reset();
+                }
+            })
     }
 
     /* load cart */
@@ -86,7 +101,7 @@ const Checkout = () => {
                         </div>
                         <div>
                             <p className='mb-0'><small>Commects</small></p>
-                            <textarea />
+                            <textarea type='text' name='comment' />
                         </div>
                     </div>
 

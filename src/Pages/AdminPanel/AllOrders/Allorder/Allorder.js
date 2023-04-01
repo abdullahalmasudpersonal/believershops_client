@@ -39,9 +39,11 @@ const Allorder = () => {
                         {allOrders.map((allOrder, index) =>
                             <tr key={allOrder._id}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{allOrder.name}</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td>{allOrder.CoustomerName}</td>
+                                <td>{allOrder.email}</td>
+                                <td><img src={allOrder.productsImage} width='60px' alt='' /></td>
+                                <td>{allOrder.productsName}</td>
+                                <td>{allOrder.productsQuantity}</td>
                             </tr>
                         )}
                     </tbody>

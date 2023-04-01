@@ -28,7 +28,7 @@ const Dashboard = () => {
           <Link to='/dashboard/address'>
             <button>Address</button>
           </Link>
-          <Link to='/dashboard/orders'>
+          <Link to='/dashboard/myOrders'>
           <button>My Orders</button>
           </Link>
           <Link to='/admin'>

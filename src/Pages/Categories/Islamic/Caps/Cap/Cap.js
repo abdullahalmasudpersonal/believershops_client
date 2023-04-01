@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../AllIslamicsCss/AllIslamic.css';
 
 const Cap = ({handleAddToCard, cap}) => {
-    const { _id, brand, name, img, availability, ragularPrice, offerPrice, weight1 } = cap;
+    const { _id, brand, name, image, availability, ragularPrice, offerPrice, weight1 } = cap;
     const navigate = useNavigate();
 
     const navigateToProductDetails = _id => {
@@ -14,7 +14,7 @@ const Cap = ({handleAddToCard, cap}) => {
 
     return (
         <div className='islamic-product-dev'>
-        <img src={img} height='237px' alt='' className=' mb-1' />
+        <img src={image} height='237px' alt='' className=' mb-1' />
         <h6 className='text-center islamic-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
         {/* <button onClick={() => props.handleAddToCard(props.attar)} >
             At To Cart
