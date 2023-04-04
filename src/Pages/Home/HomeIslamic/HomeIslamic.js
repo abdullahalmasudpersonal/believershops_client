@@ -1,4 +1,127 @@
 import React from 'react';
+import UseAttars from '../../../Hooks/UseAttars/UseAttars';
+import '../Home/HomeProduct.css';
+import Attar from '../../Categories/Islamic/Attar/Attar';
+
+const HomeIslamic = () => {
+    const [attars, setAttars] = UseAttars([]);
+
+    return (
+        <div className='homeProcuts'>
+            {
+                attars.filter(categore => categore.category === 'attar').map(attar => <Attar key={attar._id} attar={attar} />)
+            }
+        </div>
+    );
+};
+
+export default HomeIslamic;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import React from 'react';
 import './HomeIslamic.css';
 import '../../Home/Home/Home.css';
 import homeIslamicimg from '../../../Assets/img/home/Islamic.jpg';
@@ -46,32 +169,14 @@ const HomeIslamic = () => {
                 </ul>
                 <div class="tab-content hoemIslamic-part2-content">
                     <div class="tab-pane active" id="1">
-                        {/* use css only home products home.css file */}
-                      
-                            <Slider {...settings}>
-                            {/* {
-                                attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
-                            } */}
-                               {/*  <div>
-                                    <h3>1</h3>
-                                </div>
-                                <div>
-                                    <h3>2</h3>
-                                </div>
-                                <div>
-                                    <h3>3</h3>
-                                </div>
-                                <div>
-                                    <h3>4</h3>
-                                </div> */}
-                            </Slider>
+                         use css only home products home.css file 
                        
-                        {/* .filter(categore => categore.category === 'attars') */}
-                        {/* <div className='home-products-dev'>
+                         .filter(categore => categore.category === 'attars') 
+                        <div className='home-products-dev'>
                             {
                                 attars.map(attar => <HomeAttar key={attar._id} attar={attar} />)
                             }
-                        </div> */}
+                        </div> 
                     </div>
 
                     <div class="tab-pane" id="2">
@@ -104,4 +209,4 @@ export default HomeIslamic;
                         }
                     </div>
                 </div>
-            </div> */}
+            </div> */

@@ -8,11 +8,21 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
-
+/* checkout  */
+.checkout{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+.checkout h5{
+    font-size: large;
+}
 /* checkout-user-info */
 .checkout-user-info {
     width: 400px;
+    min-width: 280px;
     height: 100%;
+    margin: 0 auto;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
@@ -27,8 +37,6 @@ input[type=number] {
 .checkout-user-info div {
     margin-bottom: 10px;
 }
-
-.checkout-user-info p {}
 
 .checkout-user-info input {
     width: 100%;
@@ -46,17 +54,24 @@ input[type=number] {
     border-radius: 4px;
 }
 
+/* cehckout-payment-delivery */
+.cehckout-payment-delivery{
+    display: flex;
+}
+
 /* checkout-payment-method */
 .checkout-payment-method {
     max-width: 500px;
+    min-width: 300px;
     min-height: 250px;
+    margin: auto;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
 .checkout-payment-method h5 span {
     background-color: rgb(166, 177, 192);
-    padding: 4px 12px;
+    padding: 4px 11.5px;
     border-radius: 50px;
     color: white;
 }
@@ -64,12 +79,14 @@ input[type=number] {
 /* checkout-order-info */
 .checkout-order-info{
     max-width: 1200px;
+    margin: auto;
     min-height: 250px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
+
 .checkout-order-info h5 span{
     background-color: rgb(166, 177, 192);
-    padding: 4px 12px;
+    padding: 4px 11px;
     border-radius: 50px;
     color: white;
 }
@@ -93,4 +110,26 @@ input[type=number] {
 }
 .place-order-btn button:hover{
     background-color: rgb(255, 123, 0);
+}
+@media screen and (max-width:990px) {
+    .cehckout-payment-delivery{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (max-width:640px) {
+    .checkout{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (max-width:430px) {
+    .checkout-user-info {
+        width: 350px;
+    }
+}
+@media screen and (max-width:380px) {
+    .checkout-user-info {
+        max-width: 320px;
+    }
 }

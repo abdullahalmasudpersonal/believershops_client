@@ -26,8 +26,8 @@ const Attar = ({ handleAddToCard, attar }) => {
     return (
 
         <div className='islamic-product-dev cart1'>
-            <img src={image} alt='' className='img-fluid mb-1' />
-            <h6 className='text-center islamic-product-dev-h6 mb-1 mt-2' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
+           <div className='p-3 pb-2'> <img src={image} alt='' className='img-fluid' /></div>
+            <h6 className='text-center islamic-product-dev-h6 mb-1' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
 
             {/*  <a href='' >  <button onClick={() => handleAddToCard(attar)} >
                 At To Cart
@@ -58,13 +58,9 @@ const Attar = ({ handleAddToCard, attar }) => {
                         <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{regularPrice}.00</span>
                 }
             </p>
-            <div className='d-flex justify-content-center'>
+           {/*  <div className='d-flex justify-content-center'>
                 {
                      cart.some((p) => p._id === attar._id) ?
-                        /*  <button onClick={() => handleRemoveProduct(_id)} className='delete-btn'>dfs
-                             <FontAwesomeIcon className='delete-icon' icon={_id}></FontAwesomeIcon>
-                         </button> */
-
                        <div className='islamic-product-add-to-cart'>  <button  onClick={() => handleRemoveProduct(_id)} >
                             Revove
                         </button> </div> 
@@ -73,7 +69,7 @@ const Attar = ({ handleAddToCard, attar }) => {
                             Add to Cart
                         </button> </div> 
                 }
-            </div>
+            </div> */}
         </div>
     );
 };

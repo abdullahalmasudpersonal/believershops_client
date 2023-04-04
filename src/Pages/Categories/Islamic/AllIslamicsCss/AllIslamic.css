@@ -1,6 +1,6 @@
 .islamic-product-dev {
-    max-width: 250px;
-    height: 350px;
+    max-width: 200px;
+    height: 310px;
     padding: 10px;
     margin: auto !important;
     position: relative;
@@ -12,7 +12,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
-.cart1 {
+/* .cart1 {
     transition: all 0.3s ease-out;
 }
 
@@ -46,7 +46,7 @@
 }
 .cart1:hover::before {
     transform: scale(21);
-}
+} */
 
 
 
@@ -56,7 +56,7 @@
 
 .islamic-product-dev:hover {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    transform: scale(1.01);
+    transform: scale(1.001);
 }
 
 .islamic-product-dev:hover img {
@@ -75,9 +75,7 @@
     font-weight: bold;
 }
 
-.islamic-product-dev:hover .islamic-product-dev-p {
-    display: none;
-}
+
 
 .islamic-product-add-to-cart {
     display: none;
@@ -99,6 +97,19 @@
 .islamic-product-dev:hover .islamic-product-add-to-cart {
     display: block;
     transition: .4s;
+}
+@media screen and (max-width:500px) {
+    .islamic-product-dev{
+        max-width: 177px;
+        height: 295px;
+        padding: 10px;
+        margin: auto !important;
+        position: relative;
+        border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        transition: .4s;
+        position: relative;
+    }
 }
 
 /* @media screen and (max-width:1399px) {

@@ -12,6 +12,23 @@ const Allorder = () => {
             .then(data => setAllOrders(data))
     }, []);
 
+    const map = (allOrders.map(allorder=> allorder.productsName)) 
+    
+    console.log(map)
+
+    var array = [["A1", "B1", "C1"],
+    ["A2", "B2", "C2"],
+    ["A3", "B3", "C3"],
+    ["A4", "B4", "C4"],
+    ["A5", "B5", "C5"],
+    ["A1", "B1", "C1"],
+    ["A2", "B2", "C2"],
+    ["A3", "B3", "C3"],
+    ["A4", "B4", "C4"],
+    ["A5", "B5", "C5"]],
+        table = document.getElementById("table");
+
+    
 
     return (
         <div className='allorders'>
@@ -20,6 +37,48 @@ const Allorder = () => {
             </div>
             <hr />
             <div className='px-3'>
+
+                <table id="table" border="1">
+
+
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+
                 <table class="table table-responsive">
                     <thead>
                         <tr>
@@ -43,6 +102,8 @@ const Allorder = () => {
                                 <td>{allOrder.email}</td>
                                 <td><img src={allOrder.productsImage} width='60px' alt='' /></td>
                                 <td>{allOrder.productsName}</td>
+                                {/* <td>{allOrder.productsName.toString()} 
+                                {console.log( allOrder.productsName.toString())}</td> */}
                                 <td>{allOrder.productsQuantity}</td>
                             </tr>
                         )}

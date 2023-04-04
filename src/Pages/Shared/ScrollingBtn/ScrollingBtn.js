@@ -3,6 +3,7 @@ import { faAnglesUp, faAngleUp, faArrowCircleUp } from '@fortawesome/free-solid-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import './ScrollingBtn.css';
 
 const ScrollingBtn = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,27 +45,7 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
     position: relative;
-    .top-btn:hover{
-      background-color:orange;
-    }
     .top-btn {
-      font-size: 20px;
-       width: 40px;
-       height: 40px;
-      color: white;
-      padding:10px;
-      background-color: gray;
-      box-shadow: gray;
-      border-radius: 50%;
-      position: fixed;
-      bottom: 5rem;
-      right: 5rem;
-      z-index: 999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition:.4s;
       &--icon {
         animation: gototop 1.2s linear infinite alternate-reverse;
       }
@@ -77,7 +58,7 @@ const Wrapper = styled.section`
         }
       }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 200px) {
       .top-btn {
         right: 0;
         left: 40%;

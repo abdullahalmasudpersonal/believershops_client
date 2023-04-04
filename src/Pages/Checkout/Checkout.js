@@ -17,7 +17,12 @@ const Checkout = () => {
     //   const { productsId } = useParams();
     //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
-    //  console.log(cart.map(product => product.quantity * product.regularPrice ))
+    const name = (cart.map(porduct => porduct.name))
+    console.log('email', user.email)
+    console.log('name', name)
+    // console.log(cart.map(product=>product.assign({},product.name)))
+    //  console.log('order', {cart.map(porduct => <td>{product.name}</td>)})
+    // console.log(cart.map(product => product.quantity * product.regularPrice ))
 
     const handlePlaceOrder = event => {
         event.preventDefault();
@@ -34,7 +39,7 @@ const Checkout = () => {
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
             productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity))
         }
-        console.log('order', allOrder)
+        //   console.log('order', (cart.map(porduct => porduct.image)))
         axios.post('http://localhost:5000/allOrder', allOrder)
             .then(response => {
                 console.log(response)
@@ -78,7 +83,7 @@ const Checkout = () => {
             <h3 className='mb-4'>Checkout</h3>
             <form onSubmit={handlePlaceOrder}>
 
-                <div className='d-flex gap-4 aligin-items-center justify-content-center'>
+                <div className='checkout'>
 
                     <div className='checkout-user-info p-3'>
                         <h5><span>1</span> Coustomer info</h5>
@@ -106,13 +111,13 @@ const Checkout = () => {
                     </div>
 
                     <div>
-                        <div className='d-flex gap-4'>
+                        <div className='gap-4 cehckout-payment-delivery'>
                             <div className='checkout-payment-method p-3'>
                                 <h5><span>2</span> Payment Method</h5>
                                 <hr />
                                 <h6>Select one payment method</h6>
                                 <div>
-                                    <input type='radio' name='payType' value='masud' onChange={e => setPayType(e.target.value)} Checkout />
+                                    <input type='radio' name='payType' value='masud' onChange={e => setPayType(e.target.value)} checked />
 
                                     <input type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
                                     <input type='radio' name='payType' value='masud3' onChange={e => setPayType(e.target.value)} />
@@ -125,7 +130,7 @@ const Checkout = () => {
                             </div>
 
                             <div className='checkout-payment-method p-3'>
-                                <h5><span>2</span> Payment Method</h5>
+                                <h5><span>3</span> Delivery Method</h5>
                                 <hr />
                                 <h6>Select one payment method</h6>
                                 <div>
@@ -149,9 +154,9 @@ const Checkout = () => {
                         </div>
 
                         <div className='mt-4 p-3 checkout-order-info'>
-                            <h5><span>4</span> Coustomer info</h5>
+                            <h5><span>4</span> Order Overview</h5>
                             <hr />
-                            <table class="table table-responsive-sm">
+                            <table class="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col">Product Name</th>

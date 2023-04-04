@@ -19,9 +19,9 @@ const Cap = ({handleAddToCard, cap}) => {
         {/* <button onClick={() => props.handleAddToCard(props.attar)} >
             At To Cart
         </button> */}
-          <button onClick={() => handleAddToCard(cap)} >
+        {/*   <button onClick={() => handleAddToCard(cap)} >
                 At To Cart
-            </button> 
+            </button>  */}
          <p className='text-center m-0'>
                 <small>4.5 </small>
                 <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />

@@ -1,7 +1,7 @@
 [
     {
         "title": "All Orders",
-        "path": "/admin/allOrder"  
+        "path": "/admin"  
     },
     {
         "title": "Beauty",

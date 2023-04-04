@@ -42,13 +42,13 @@ const Orders = () => {
                 <h4 className='fw-bold side-header'>My Orders</h4>
             </div>
             <hr />
-            <div>
+            <div className='px-3'>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
+                            <th scope="col">Sl</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Quantity  </th>
                             <th scope="col">Handle</th>
                         </tr>
                     </thead>
