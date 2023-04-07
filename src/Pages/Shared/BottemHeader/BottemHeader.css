@@ -1,0 +1,32 @@
+
+@media screen and (min-width:501px) {
+    .bottemHeader{
+        display: none;
+    }
+}
+@media screen and  (max-width:500px) {
+    .bottemHeader{
+        overflow: hidden;
+        height: 45px;
+        width: 100%;
+        background-color: rgba(41, 41, 41, 0.993);
+        color: rgb(255, 145, 0);
+        bottom: 0;
+    }
+    .bottemHeader-dev{
+        margin-top: 2px;
+        height: 45px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 13px;
+    }
+    .bottemHeader-dev div{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    .bottemHeader-dev div p {
+        font-size: 12px;
+    }
+}

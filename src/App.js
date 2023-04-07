@@ -34,6 +34,7 @@ import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import ScrollingBtn from './Pages/Shared/ScrollingBtn/ScrollingBtn';
 import Checkout from './Pages/Checkout/Checkout';
 import Allorder from './Pages/AdminPanel/AllOrders/Allorder/Allorder';
+import BottemHeader from './Pages/Shared/BottemHeader/BottemHeader';
 
 function App() {
 
@@ -76,6 +77,7 @@ function App() {
     <div>
       <ScrollingBtn />
       <Header />
+      
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categore' element={<Categore />}>
@@ -106,7 +108,8 @@ function App() {
         </Route>
         <Route path='*' element={<Notfound />} />
       </Routes>
-      <Footer />
+      <Footer/>
+      <BottemHeader/>
       {/* <ToastContainer />  */}
       <ToastContainer
         position="top-center"
@@ -120,7 +123,6 @@ function App() {
         pauseOnHover
         theme="light"
       />
-
     </div>
   );
 }
