@@ -2,10 +2,14 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
+import ReactImageZoom from 'react-image-zoom';
 import './AttarDetail.css';
 import UseProductDetails from '../../../../../Hooks/UseProductDetails/UseProductDetails';
+import { toast } from 'react-toastify';
+import { addToDb } from '../../../../../utilities/fakedb';
+import UseCart from '../../../../Cart/UseCart';
 
 
 
@@ -13,12 +17,19 @@ const AttarDetail = () => {
     const { productId } = useParams()
     const [attar] = UseProductDetails(productId);
     const [count, setCount] = useState(1);
- 
+    const [imgSlide, setImgSlide] = useState();
+
+    
 
     function increment() {
         //setCount(prevCount => prevCount+=1);
         setCount(function (prevCount) {
-            return (prevCount += 1);
+            if(prevCount < 10){
+                return (prevCount += 1);
+            }
+            else{
+                return (prevCount = 10);
+            }
         });
     }
     function decrement() {
@@ -31,7 +42,7 @@ const AttarDetail = () => {
         });
     };
 
-    const [cart, setCart] = useState([]);
+  //  const [cart, setCart] = useState([]);
 
     /*   useEffect(() => {
           const storedCart = getStoredCart();
@@ -67,8 +78,26 @@ const AttarDetail = () => {
           addToDb(selectedAttar._id);
       }
    */
+      const [cart, setCart] = UseCart();
 
+      const handleAddToCard = (selectedAttar) => {
+        let newCart = [];
+        const exists = cart.find(attar => attar._id === selectedAttar._id);
+        if (!exists) {
+            selectedAttar.quantity = count;
+            newCart = [...cart, selectedAttar];
+            toast.success(`Added To Cart ${count}`);
+        }
+        else {
+            const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+            exists.quantity = exists.quantity + count;
+            newCart = [...rest, exists];
+            toast.success(`Added To Cart ${count}`);
+        }
 
+        setCart(newCart);
+        addToDb(selectedAttar._id);
+    }
 
     /*     let total = 0;
         let shipping = 0;
@@ -79,27 +108,13 @@ const AttarDetail = () => {
             shipping = shipping + product.shipping;
         }  */
 
-
-
     return (
-        <div className='attar-detail'>
-
+        <div className='attar-detail px-2'>
             <div className='attar-detail-first-part'>
-
                 <div className='attar-detail-first-part-dev1'>
-
-
-                     <div>
-                        <img className='attar-detail-first-part-dev1-big-img' src={attar.image} alt='' />
-                    </div> 
- 
-
-                    {/* <p>{quantity}</p>  */}
-
-                    {/* <div className='attar-detail-first-part-dev1-big-img'>
-                      
-                    </div>  */}
-
+                    <div className='attar-detail-first-part-dev1-big-img-dev'>
+                        <img className='attar-detail-first-part-dev1-big-img' src={attar.image1} alt='' />
+                    </div>
                     <div className='d-flex justify-content-center'>
                         <p className='attar-detail-first-part-dev1-p'>
                             <FontAwesomeIcon icon={faSearch} />
@@ -108,11 +123,10 @@ const AttarDetail = () => {
                     </div>
 
                     <div className='attar-detail-first-part-dev1-img'>
-                        <img width='100px' src={attar.img} alt='' />
-                        <img width='100px' src={attar.img} alt='' />
-                        <img width='100px' src={attar.img} alt='' />
+                        <img height='100px' name='imgSlide' width='100px' src={attar.image1} alt='' onChange={e => setImgSlide(e.target.value)} />
+                        <img height='100px' width='100px' src={attar.image2} alt='' name='imgSlide' onChange={e => setImgSlide(e.target.value)} />
+                        <img height='100px' width='100px' src={attar.image3} alt='' name='imgSlide' onChange={e => setImgSlide(e.target.value)} />
                     </div>
-
                 </div>
 
                 <div className='attar-detail-first-part-dev2'>
@@ -155,7 +169,6 @@ const AttarDetail = () => {
                                 <tr>
                                     <td>Availability:</td>
                                     <td>{attar.availability} Pcs</td>
-                                    <td>{attar.quantity} Pcs</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -179,15 +192,65 @@ const AttarDetail = () => {
                     </div>
                     {/*   onClick={()=>props.handleAddToCard(props.attar)} */}
                     <div className='mt-4'>
-                        <button className='add-to-cart mb-3'>Buy Now</button> &nbsp; &nbsp; &nbsp;
-                        <button className='add-to-cart' /*  onClick={()=>handleAddToCard(attar)}  */>Add to Cart</button>
+                        <Link to='/cart'><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
+                        <button className='add-to-cart'  onClick={()=>handleAddToCard(attar)}  >Add to Cart</button>
                         {/* <button>Add to Wishlist</button> */}
                     </div>
                 </div>
             </div>
             <AttarDesWR />
+
         </div>
     );
 };
 
+
 export default AttarDetail;
+
+
+/* 
+import React, { Component } from "react";
+import Slider from "react-slick";
+import { baseUrl } from "./config";
+
+export default class CenterMode extends Component {
+  render() {
+    const settings = {
+      customPaging: function(i) {
+        return (
+          <a>
+            <img src={`${baseUrl}/abstract0${i + 1}.jpg`} />
+          </a>
+        );
+      },
+      dots: true,
+      dotsClass: "slick-dots slick-thumb",
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    return (
+      <div>
+        <h2>Custom Paging</h2>
+        <Slider {...settings}>
+          <div>
+            <img src={baseUrl + "/abstract01.jpg"} />
+          </div>
+          <div>
+            <img src={baseUrl + "/abstract02.jpg"} />
+          </div>
+          <div>
+            <img src={baseUrl + "/abstract03.jpg"} />
+          </div>
+          <div>
+            <img src={baseUrl + "/abstract04.jpg"} />
+          </div>
+        </Slider>
+      </div>
+    );
+  }
+}
+
+
+*/

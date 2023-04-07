@@ -1,32 +1,23 @@
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { removeFromDb } from '../../../../utilities/fakedb';
-import UseCart from '../../../Cart/UseCart';
-import '../AllIslamicsCss/AllIslamic.css';
+import './UsePorduct.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
-const Attar = ({ handleAddToCard, attar }) => {
-    const [cart, setCart] = UseCart();
-    const { _id, brand, name, image1, regularPrice, offerPrice } = attar;
+const UseProduct = ({attar}) => {
+    
+    const { _id, brand, name, image, regularPrice, offerPrice } = attar;
+    
     const navigate = useNavigate();
-
-    const handleRemoveProduct = product => {
-        const rest = cart.filter(pd => pd._id !== product._id);
-        setCart(rest);
-        removeFromDb(product._id);
-    }
 
     const navigateToProductDetails = _id => {
         navigate(`/categore/islamic/attar/${_id}`);
     }
 
-
     return (
-
-        <div className='islamic-product-dev cart1'>
-           <div className='p-3 pb-2'> <img src={image1} alt='' className='img-fluid' /></div>
+        <div>
+            <div className='islamic-product-dev cart1'>
+           <div className='p-3 pb-2'> <img src={image} alt='' className='img-fluid' /></div>
             <h6 className='text-center islamic-product-dev-h6 mb-1' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
 
             {/*  <a href='' >  <button onClick={() => handleAddToCard(attar)} >
@@ -71,8 +62,8 @@ const Attar = ({ handleAddToCard, attar }) => {
                 }
             </div> */}
         </div>
+        </div>
     );
 };
 
-export default Attar;
-
+export default UseProduct;

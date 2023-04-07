@@ -36,6 +36,12 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
     }
 
+    let errorElement;
+    if (error) {
+        errorElement =
+            <p className='text-danger m-0 text-center'>{error.message}</p>
+    }
+
     return (
         <div className='container-xxl my-5 '>
             <div className='register'>
@@ -56,6 +62,7 @@ const Login = () => {
                             </div>
                         </form>
                     </div>
+                    {errorElement}
                     <p className='text-center'><small>Alrady have an account?
                         <Link to='/register' style={{ textDecoration: 'none' }}>
                             <span style={{ color: 'purple' }}> Register</span>

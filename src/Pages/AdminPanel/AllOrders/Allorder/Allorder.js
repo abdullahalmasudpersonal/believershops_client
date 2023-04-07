@@ -12,9 +12,9 @@ const Allorder = () => {
             .then(data => setAllOrders(data))
     }, []);
 
-    const map = (allOrders.map(allorder=> allorder.productsName)) 
-    
-    console.log(map)
+    const map = (allOrders.map(allorder => allorder.productsName))
+
+   // console.log(map)
 
     var array = [["A1", "B1", "C1"],
     ["A2", "B2", "C2"],
@@ -25,10 +25,16 @@ const Allorder = () => {
     ["A2", "B2", "C2"],
     ["A3", "B3", "C3"],
     ["A4", "B4", "C4"],
-    ["A5", "B5", "C5"]],
-        table = document.getElementById("table");
+    ["A5", "B5", "C5"]];
+      //  table = document.getElementById("table");
 
-    
+    const myArray = ['apple', 'banana', 'orange'];
+
+    const myList = myArray.map((item) => <p>*{item}</p>)
+    console.log(myList)
+
+
+
 
     return (
         <div className='allorders'>
@@ -98,10 +104,12 @@ const Allorder = () => {
                         {allOrders.map((allOrder, index) =>
                             <tr key={allOrder._id}>
                                 <th scope="row">{index + 1}</th>
-                                <td>{allOrder.CoustomerName}</td>
-                                <td>{allOrder.email}</td>
-                                <td><img src={allOrder.productsImage} width='60px' alt='' /></td>
-                                <td>{allOrder.productsName}</td>
+                                <td>{allOrder.coustomerName}</td>
+                                <td>{allOrder.coustomerEmail}</td>
+                                <td><img src={allOrder.productsImage} width='100px' alt='' /></td>
+                                <td>{myList}</td>
+
+                                {/* const myList = myArray.map((item) => <p>{item}</p>) */}
                                 {/* <td>{allOrder.productsName.toString()} 
                                 {console.log( allOrder.productsName.toString())}</td> */}
                                 <td>{allOrder.productsQuantity}</td>

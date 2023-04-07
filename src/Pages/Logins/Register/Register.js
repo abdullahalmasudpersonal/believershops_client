@@ -24,13 +24,20 @@ const Register = () => {
     const handleRegister = async (event) => {
         event.preventDefault();
         const fullName = event.target.firstName.value;
-      //  const lustName = event.target.lustName.value;
+        //  const lustName = event.target.lustName.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: fullName });
 
         console.log(updateProfile)
+    }
+
+    let errorElement;
+    if (error) {
+        errorElement =
+            <p className='text-danger m-0'>{error?.message} </p>
+            console.log('masud',errorElement)
     }
 
     return (
@@ -58,8 +65,9 @@ const Register = () => {
                             </div>
                         </form>
                     </div>
+                    <p className='text-center m-0 p-0'><small>{errorElement}</small></p>
                     <p className='text-center'><small>Alrady have an account?
-                        <Link to='/login' style={{textDecoration:'none'}}>
+                        <Link to='/login' style={{ textDecoration: 'none' }}>
                             <span style={{ color: 'purple' }}> Login</span>
                         </Link></small></p>
                 </div>

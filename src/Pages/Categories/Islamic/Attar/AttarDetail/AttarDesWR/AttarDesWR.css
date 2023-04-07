@@ -34,3 +34,15 @@
     padding: 20px;
 }
 /*--------------- attar-detail  second-part end ---------------- */
+@media screen and (max-width:500px) {
+    .attar-detail-desWR-head{
+        display: block;
+        text-align: center;
+    }
+    .attar-detail-desWR-head li:not(:last-child){
+        border-bottom: .5px solid rgb(233, 233, 233);
+    }
+    .attar-detail-desWR-head li a{
+        padding: 12px 90px;
+    }
+}

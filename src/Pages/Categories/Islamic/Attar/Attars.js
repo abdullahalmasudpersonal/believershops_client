@@ -7,6 +7,7 @@ import UseCart from '../../../Cart/UseCart';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import UseAttarDetail from '../../../../Hooks/UseAttars/UseAttarDetail';
+import UseProduct from '../../../../Hooks/UseProduct/UseProduct';
 
 const Attars = () => {
     const [attars, setAttars] = UseAttars([]);

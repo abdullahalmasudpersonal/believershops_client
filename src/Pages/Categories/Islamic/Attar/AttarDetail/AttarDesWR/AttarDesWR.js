@@ -6,7 +6,7 @@ const AttarDesWR = () => {
         <div id="exTab2" className='attar-detail-desWR'>
 
             <ul class="attar-detail-desWR-head nav nav-tabs">
-                <li class="active">
+                <li class="active"  >
                     <a href="#1" data-toggle="tab">DESCRIPTION</a>
                 </li>
 

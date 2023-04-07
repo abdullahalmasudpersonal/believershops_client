@@ -31,7 +31,7 @@ const Cart = () => {
         <div className='container-xxl py-5'>
             <h4>Shopping Cart</h4>
 
-            <table class="table table-responsive-sm table-striped">
+              <table class="table table-sm table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
@@ -63,7 +63,29 @@ const Cart = () => {
                         )
                     }
                 </tbody>
-            </table>
+            </table> 
+
+          {/*   <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col" className='text-right'>Unit Price</th>
+                        <th scope="col" className='text-right'>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table> */}
+
             <div>
                 <h6 className='text-end'>Sub Total: {subTotal}</h6>
                 <h6 className='text-end'>Condition Charge: {conditionCharge}</h6>

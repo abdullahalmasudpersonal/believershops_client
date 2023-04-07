@@ -18,11 +18,12 @@ const Checkout = () => {
     //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
     const name = (cart.map(porduct => porduct.name))
-    console.log('email', user.email)
-    console.log('name', name)
+   // console.log('email', user.email)
+   // console.log('name', name.toString())
     // console.log(cart.map(product=>product.assign({},product.name)))
     //  console.log('order', {cart.map(porduct => <td>{product.name}</td>)})
     // console.log(cart.map(product => product.quantity * product.regularPrice ))
+    const myArray = ['apple', 'banana', 'orange'];
 
     const handlePlaceOrder = event => {
         event.preventDefault();
@@ -33,13 +34,15 @@ const Checkout = () => {
             address: event.target.address.value,
             comment: event.target.comment.value,
             productsId: (cart.map(porduct => porduct._id)),
-            productsName: (cart.map(porduct => porduct.name)),
+            productsName: (myArray.map(porduct => porduct.name)),
+            
             productsImage: (cart.map(porduct => porduct.image)),
             productsQuantity: (cart.map(porduct => porduct.quantity)),
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
             productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity))
         }
-        //   console.log('order', (cart.map(porduct => porduct.image)))
+        console.log('productsName', (myArray.map(porduct => porduct.name)) )
+
         axios.post('http://localhost:5000/allOrder', allOrder)
             .then(response => {
                 console.log(response)
