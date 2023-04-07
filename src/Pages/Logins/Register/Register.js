@@ -3,6 +3,7 @@ import auth from '../../../firebase.init';
 import './Register.css';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import UseToken from '../../../Hooks/UseToken/UseToken';
 
 const Register = () => {
     const [
@@ -13,13 +14,15 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
 
+    const [token] = UseToken(user);
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
-    }
+    } 
 
     const handleRegister = async (event) => {
         event.preventDefault();
@@ -30,14 +33,14 @@ const Register = () => {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: fullName });
 
-        console.log(updateProfile)
+       // console.log(updateProfile)
     }
 
     let errorElement;
     if (error) {
         errorElement =
             <p className='text-danger m-0'>{error?.message} </p>
-            console.log('masud',errorElement)
+           // console.log('masud',errorElement)
     }
 
     return (
