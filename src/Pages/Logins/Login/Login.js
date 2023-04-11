@@ -4,10 +4,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import './Login.css'
+import UseToken from '../../../Hooks/UseToken/UseToken';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwrodRef = useRef('');
+    
 
     const [
         signInWithEmailAndPassword,
@@ -15,6 +17,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [token] = UseToken(user);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,7 +27,7 @@ const Login = () => {
         return <Loading />
     }
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 

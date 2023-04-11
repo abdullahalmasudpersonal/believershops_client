@@ -140,7 +140,7 @@ const Header = () => {
                                     <img width='35px' src={profileImg} alt='' />
                                 </Link>
                                 :
-                                <Link to='/register'>
+                                <Link to='/login'>
                                     <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
                                 </Link>
                         }

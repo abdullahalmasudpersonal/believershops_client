@@ -7,6 +7,8 @@ import UseCart from './UseCart';
 import Loading from '../Shared/Loading/Loading';
 import UseAttars from '../../Hooks/UseAttars/UseAttars';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThermometer } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
     const [cart, setCart] = UseCart();
@@ -31,41 +33,49 @@ const Cart = () => {
         <div className='container-xxl py-5'>
             <h4>Shopping Cart</h4>
 
-              <table class="table table-sm table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col" className='text-right'>Unit Price</th>
-                        <th scope="col" className='text-right'>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        cart.map(product =>
+            <div className='table-responsive-sm'>
+                <table class="table  table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" className='mobile-cart'>Image</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col" className='mobile-cart'>Model</th>
+                            <th scope="col" className='text-center'>Quantity</th>
+                            <th scope="col" className='text-center'>Remove</th>
+                            <th scope="col" className='text-end mobile-cart'>Unit</th>
+                            <th scope="col" className='text-end'>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            cart.map(product =>
 
-                            <tr>
+                                <tr>
 
-                                <th scope="row">
-                                    <img src={product.image} alt='' width='80px' height='70px' />
-                                </th>
-                                <td>{product.name}</td>
-                                <td>{product.model}</td>
-                                <td>
-                                    <input style={{ width: '60px', height: '35px' }} type='number' pattern="{3}" maxLength="4" defaultValue={product.quantity} name="title" />
-                                    <span onClick={() => handleRemoveProduct(product)} > X</span>
-                                </td>
-                                <td className='text-right'>{product.regularPrice}</td>
-                                <td className='text-right'>{product.quantity * product.regularPrice}</td>
-                            </tr>
-                        )
-                    }
-                </tbody>
-            </table> 
+                                    <th scope="row" className='mobile-cart'>
+                                        <img src={product.image1} alt='' width='80px' height='70px' />
+                                    </th>
+                                    <td>{product.name}</td>
+                                    <td className='mobile-cart'>{product.model}</td>
+                                    <td className='text-center'>
+                                        <input style={{ width: '60px', height: '35px' }} type='number' pattern="{3}" maxLength="4" defaultValue={product.quantity} name="title" />
+                                        {/* <span onClick={() => handleRemoveProduct(product)} > X</span> */}
+                                    </td>
+                                    <td className=''>
+                                        <button>
+                                            <FontAwesomeIcon icon={faThermometer} />
+                                        </button>
+                                    </td>
+                                    <td className='text-end mobile-cart'>{product.regularPrice}</td>
+                                    <td className='text-end'>{product.quantity * product.regularPrice}</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div>
 
-          {/*   <table class="table">
+            {/*   <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>

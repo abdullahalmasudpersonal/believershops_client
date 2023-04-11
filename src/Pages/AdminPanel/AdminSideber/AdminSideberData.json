@@ -1,7 +1,15 @@
 [
     {
-        "title": "All Orders",
+        "title": "All Order",
         "path": "/admin"  
+    },
+    {
+        "title": "All Admin",
+        "path": "/admin/allAdmin"  
+    },
+    {
+        "title": "All User",
+        "path": "/admin/allUser"  
     },
     {
         "title": "Beauty",

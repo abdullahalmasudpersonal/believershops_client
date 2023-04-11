@@ -18,8 +18,8 @@ const Checkout = () => {
     //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
     const name = (cart.map(porduct => porduct.name))
-   // console.log('email', user.email)
-   // console.log('name', name.toString())
+    // console.log('email', user.email)
+    // console.log('name', name.toString())
     // console.log(cart.map(product=>product.assign({},product.name)))
     //  console.log('order', {cart.map(porduct => <td>{product.name}</td>)})
     // console.log(cart.map(product => product.quantity * product.regularPrice ))
@@ -35,13 +35,12 @@ const Checkout = () => {
             comment: event.target.comment.value,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (myArray.map(porduct => porduct.name)),
-            
             productsImage: (cart.map(porduct => porduct.image)),
             productsQuantity: (cart.map(porduct => porduct.quantity)),
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
             productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity))
         }
-        console.log('productsName', (myArray.map(porduct => porduct.name)) )
+        console.log('productsName', (myArray.map(porduct => porduct.name)))
 
         axios.post('http://localhost:5000/allOrder', allOrder)
             .then(response => {
@@ -120,11 +119,49 @@ const Checkout = () => {
                                 <hr />
                                 <h6>Select one payment method</h6>
                                 <div>
-                                    <input type='radio' name='payType' value='masud' onChange={e => setPayType(e.target.value)} checked />
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                {/* <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true"  aria-controls="collapseOne" >
+                                                </button> */}
+                                                <input class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true"  aria-controls="collapseOne" type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the c It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Accordion Item #2
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Accordion Item #3
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, untiHTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* <input type='radio' name='payType' value='masud' onChange={e => setPayType(e.target.value)} checked />
 
                                     <input type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
-                                    <input type='radio' name='payType' value='masud3' onChange={e => setPayType(e.target.value)} />
-                                    {payType}
+                                    <input type='radio' name='payType' value='masud3' onChange={e => setPayType(e.target.value)} /> */}
+
                                     <p>বিকাশে টাকা প্রদান করার জন্য বিকাশ App এর মাধ্যমে অথবা সরাসরি *247# ডায়াল করে "Send Money (সেন্ড মানি)" অপশনটি সিলেক্ট করুন।
                                         আমাদের বিকাশ নাম্বার "01620327692" এ আপনার মোট বিল প্রদান করুন।
                                         বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে
