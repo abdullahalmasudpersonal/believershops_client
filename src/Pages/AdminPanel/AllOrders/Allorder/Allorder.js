@@ -12,7 +12,8 @@ const Allorder = () => {
             .then(data => setAllOrders(data))
     }, []);
 
-    const map = (allOrders.map(allorder => allorder.productsName))
+    const productsName = (allOrders.map(allorder => allorder.productsName))
+    console.log('productsName', productsName)
 
    // console.log(map)
 
@@ -44,7 +45,7 @@ const Allorder = () => {
             <hr />
             <div className='px-3'>
 
-                <table id="table" border="1">
+                {/* <table id="table" border="1">
 
 
                     <tr>
@@ -83,7 +84,7 @@ const Allorder = () => {
                         <td></td>
                     </tr>
 
-                </table>
+                </table> */}
 
                 <table class="table table-responsive">
                     <thead>
@@ -106,8 +107,8 @@ const Allorder = () => {
                                 <th scope="row">{index + 1}</th>
                                 <td>{allOrder.coustomerName}</td>
                                 <td>{allOrder.coustomerEmail}</td>
-                                <td><img src={allOrder.productsImage} width='100px' alt='' /></td>
-                                <td>{myList}</td>
+                                {/* <td><img src={allOrder.productsImage} width='100px' alt='' /></td> */}
+                                <td>{productsName.toString()}</td>
 
                                 {/* const myList = myArray.map((item) => <p>{item}</p>) */}
                                 {/* <td>{allOrder.productsName.toString()} 

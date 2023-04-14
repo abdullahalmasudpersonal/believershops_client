@@ -18,6 +18,7 @@ const Checkout = () => {
     //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
     const name = (cart.map(porduct => porduct.name))
+    console.log(name)
     // console.log('email', user.email)
     // console.log('name', name.toString())
     // console.log(cart.map(product=>product.assign({},product.name)))
@@ -29,22 +30,21 @@ const Checkout = () => {
         event.preventDefault();
         const allOrder = {
             coustomerName: user.displayName,
-            coustomerEmail: user.email,
+            email: user.email,
             phoneNumber: event.target.phoneNumber.value,
             address: event.target.address.value,
             comment: event.target.comment.value,
             productsId: (cart.map(porduct => porduct._id)),
-            productsName: (myArray.map(porduct => porduct.name)),
+            productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image)),
             productsQuantity: (cart.map(porduct => porduct.quantity)),
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
             productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity))
         }
-        console.log('productsName', (myArray.map(porduct => porduct.name)))
 
         axios.post('http://localhost:5000/allOrder', allOrder)
             .then(response => {
-                console.log(response)
+              //  console.log(response)
                 const { data } = response;
                 if (data.insertedId) {
                     toast.success('Your order is placed !!!');

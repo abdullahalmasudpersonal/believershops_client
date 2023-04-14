@@ -9,7 +9,7 @@ import UseToken from '../../../Hooks/UseToken/UseToken';
 const Login = () => {
     const emailRef = useRef('');
     const passwrodRef = useRef('');
-    
+
 
     const [
         signInWithEmailAndPassword,
@@ -23,7 +23,7 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
 
-    if(loading){
+    if (loading) {
         return <Loading />
     }
 
@@ -42,8 +42,10 @@ const Login = () => {
     let errorElement;
     if (error) {
         errorElement =
-            <p className='text-danger m-0 text-center'>{error.message}</p>
+            <p className='text-danger m-0 text-center'> Error: {error.message}</p>
     }
+
+    const masud = 'abdulla al masud hellow'
 
     return (
         <div className='container-xxl my-5 '>
@@ -57,7 +59,7 @@ const Login = () => {
                             </div>
 
                             <div>
-                                <input type='password' placeholder='Password' ref={passwrodRef}  required />
+                                <input type='password' placeholder='Password' ref={passwrodRef} required />
                             </div>
                             <div className='pb-2'> <small className='pass-reset-btn'>Reset Password</small></div>
                             <div>
@@ -72,6 +74,7 @@ const Login = () => {
                         </Link></small></p>
                 </div>
             </div>
+            {masud.substr(masud.indexOf(" ") + 1)}
         </div>
     );
 };

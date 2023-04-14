@@ -12,6 +12,7 @@ const Dashboard = () => {
   const logout = () => {
     signOut(auth);
     navigate('/');
+    localStorage.removeItem('accessToken');
   }
 
   return (

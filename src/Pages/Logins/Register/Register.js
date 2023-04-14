@@ -39,7 +39,7 @@ const Register = () => {
     let errorElement;
     if (error) {
         errorElement =
-            <p className='text-danger m-0'>{error?.message} </p>
+            <p className='text-danger m-0'>Error: {error?.message.split(' ')[123]} </p>
            // console.log('masud',errorElement)
     }
 

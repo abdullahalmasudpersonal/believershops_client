@@ -11,9 +11,24 @@ const Orders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder?coustomerEmail=${user.email}`)
-        .then(res=> res.json())
-        .then(data => setOrders(data))
+        fetch(`http://localhost:5000/myOrder?email=${user.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                console.log('res', res);
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    navigate('/');
+                    localStorage.removeItem('accessToken');
+                }
+                return res.json()
+            })
+            .then(data => {
+                setOrders(data);
+            });
         /* if (user) {
             fetch(`http://localhost:5000/myOrder?email=${user.email}`,  {
                 method: 'GET',
@@ -39,7 +54,7 @@ const Orders = () => {
     return (
         <div className='dashboard-dev2'>
             <div className='pt-4 ps-4'>
-                <h4 className='fw-bold side-header'>My Orders</h4>
+                <h4 className='fw-bold side-header'>My Orders ({orders.length})</h4>
             </div>
             <hr />
             <div className='px-3'>
@@ -57,9 +72,9 @@ const Orders = () => {
                             orders.map((order, index) =>
                                 <tr key={order._id}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>{order.productsName}</td>
+                                    <td>{order.productsQuantity} Ps</td>
+                                    <td>{order.productPrice} $</td>
                                 </tr>
                             )
                         }
