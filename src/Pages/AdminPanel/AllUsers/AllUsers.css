@@ -6,3 +6,26 @@
     border-radius: 5px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+
+/* userRows  */
+.create-admin-btn{
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(236, 178, 68);
+    transition: .4s;
+}
+.create-admin-btn:hover{
+    color: rgb(239, 252, 255);
+    background-color: rgb(255, 166, 0);
+}
+.delete-user-btn{
+    border: none;
+    background-color: rgb(202, 101, 101);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    transition: .4s;
+}
+.delete-user-btn:hover{
+    background-color: rgb(255, 56, 7);
+}

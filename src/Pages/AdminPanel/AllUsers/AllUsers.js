@@ -8,7 +8,7 @@ const AllUsers = () => {
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
         method: 'GET',
         headers: {
-            'content-type': 'application/json'
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));
     if (isLoading) {
@@ -28,8 +28,8 @@ const AllUsers = () => {
                             <th scope="col">SL</th>
                             <th scope="col">Email</th>
                             <th scope="col">Make Admin</th>
-                            <th scope="col">Admin</th>
-                            <th scope="col">Remove</th>
+                            <th scope="col">Create Date</th>
+                            <th scope="col" className='text-end'>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
