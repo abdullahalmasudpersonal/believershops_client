@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Cart.css';
-import ViewCart from '../Cart/ViewCart';
-import { removeFromDb } from '../../utilities/fakedb';
-import CartQuantity from './CartQuantity';
+import { addToDb, removeFromDb } from '../../utilities/fakedb';
 import UseCart from './UseCart';
-import Loading from '../Shared/Loading/Loading';
-import UseAttars from '../../Hooks/UseAttars/UseAttars';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThermometer } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
 
 const Cart = () => {
     const [cart, setCart] = UseCart();
@@ -19,9 +16,11 @@ const Cart = () => {
         removeFromDb(product._id);
     }
 
+
+
+
     let quantity = 0;
     let subTotal = 0;
-
     for (const product of cart) {
         quantity = quantity + product.quantity;
         subTotal = subTotal + product.regularPrice * product.quantity;
@@ -58,13 +57,13 @@ const Cart = () => {
                                     <td>{product.name}</td>
                                     <td className='mobile-cart'>{product.model}</td>
                                     <td className='text-center'>
-                                        <input style={{ width: '60px', height: '35px' }} type='number' pattern="{3}" maxLength="4" defaultValue={product.quantity} name="title" />
+                                    <><FontAwesomeIcon icon={faMinus} /></>
+                                        <input style={{ width: '60px', height: '35px' }} type='number' pattern="{3}" maxLength="4" defaultValue={product.quantity} name="productQuantity" />
+                                        <><FontAwesomeIcon icon={faPlus} /></>
                                         {/* <span onClick={() => handleRemoveProduct(product)} > X</span> */}
                                     </td>
-                                    <td className=''>
-                                        <button>
-                                            <FontAwesomeIcon icon={faThermometer} />
-                                        </button>
+                                    <td className='text-center'>
+                                           <button style={{border:'none', background:'none'}} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
                                     </td>
                                     <td className='text-end mobile-cart'>{product.regularPrice}</td>
                                     <td className='text-end'>{product.quantity * product.regularPrice}</td>

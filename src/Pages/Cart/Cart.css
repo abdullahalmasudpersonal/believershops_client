@@ -1,4 +1,18 @@
 
+.cart-product-remove{
+    padding: 8px;
+    border-radius: 4px;
+    color: rgb(255, 78, 78);
+    background-color: rgb(255, 202, 202);
+    cursor: pointer;
+}
+.cart-product-remove:active{
+    color: red;
+    background-color: rgb(255, 158, 158);
+}
+
+
+
 @media screen and (max-width:1000px) {
     .mobile-cart{
         display: none;
