@@ -36,15 +36,16 @@ const Checkout = () => {
             comment: event.target.comment.value,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
-            productsImage: (cart.map(porduct => porduct.image)),
+            productsImage: (cart.map(porduct => porduct.image1)),
             productsQuantity: (cart.map(porduct => porduct.quantity)),
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
-            productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity))
+            productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity)),
+            grandTotal: grandTotal
         }
 
         axios.post('http://localhost:5000/allOrder', allOrder)
             .then(response => {
-              //  console.log(response)
+                //  console.log(response)
                 const { data } = response;
                 if (data.insertedId) {
                     toast.success('Your order is placed !!!');
@@ -54,6 +55,7 @@ const Checkout = () => {
     }
 
     /* load cart */
+    let deliveryCharge = 60;
     let quantity = 0;
     let subTotal = 0;
     for (const product of cart) {
@@ -61,7 +63,7 @@ const Checkout = () => {
         subTotal = subTotal + product.regularPrice * product.quantity;
     }
     const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
-    const grandTotal = subTotal + conditionCharge;
+    const grandTotal = subTotal + conditionCharge + deliveryCharge;
 
     /*     let radioBtns = document.querySelectorAll("input[name='payType']");
     
@@ -124,7 +126,7 @@ const Checkout = () => {
                                             <h2 class="accordion-header" id="headingOne">
                                                 {/* <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true"  aria-controls="collapseOne" >
                                                 </button> */}
-                                                <input class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true"  aria-controls="collapseOne" type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
+                                                <input class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
                                             </h2>
                                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
@@ -211,6 +213,7 @@ const Checkout = () => {
 
                                             <tr>
                                                 <td>{product.name}</td>
+                                                <td><img src={product.image1} width='100px' alt='' /></td>
                                                 <td className='text-center'>
                                                     {product.quantity}
                                                 </td>
@@ -222,9 +225,10 @@ const Checkout = () => {
                                 </tbody>
                             </table>
                             <div>
-                                <h6 className='text-end'>Sub Total: {subTotal}</h6>
-                                <h6 className='text-end'>Condition Charge: {conditionCharge}</h6>
-                                <h5 className='text-end'> Grand Total: {grandTotal}</h5>
+                                <h6 className='text-end'>Sub Total: {subTotal} <span>Tk</span></h6>
+                                <h6 className='text-end'>Condition Charge: {conditionCharge} <span>Tk</span></h6>
+                                <h6 className='text-end'>Home Delivery: {deliveryCharge} <span>Tk</span></h6>
+                                <h5 className='text-end'> Grand Total: {grandTotal} Tk</h5>
                             </div>
                         </div>
                     </div>

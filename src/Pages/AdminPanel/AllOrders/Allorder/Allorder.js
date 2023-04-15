@@ -43,7 +43,7 @@ const Allorder = () => {
                 <h4 className='fw-bold side-header'>All Orders {allOrders.length}</h4>
             </div>
             <hr />
-            <div className='px-3'>
+            <div className='px-3 table-responsive' >
 
                 {/* <table id="table" border="1">
 
@@ -86,7 +86,7 @@ const Allorder = () => {
 
                 </table> */}
 
-                <table class="table table-responsive">
+                <table class="table ">
                     <thead>
                         <tr>
                             <th scope="col">Sl</th>
@@ -94,11 +94,13 @@ const Allorder = () => {
                             <th scope="col">Email</th>
                             <th scope="col">Image</th>
                             <th scope="col">Porduct Name</th>
-                            <th scope="col">Model</th>
+                            {/* <th scope="col">Model</th> */}
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
-                            <th scope="col">SubTotal</th>
-                            <th scope="col">Order Type</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">{/* &nbsp; */}Payment</th>
+                            <th scope="col">{/* &nbsp; */}Delivery</th>
+                            <th scope="col">{/* &nbsp; */}Info</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,14 +108,19 @@ const Allorder = () => {
                             <tr key={allOrder._id}>
                                 <th scope="row">{index + 1}</th>
                                 <td>{allOrder.coustomerName}</td>
-                                <td>{allOrder.coustomerEmail}</td>
-                                {/* <td><img src={allOrder.productsImage} width='100px' alt='' /></td> */}
-                                <td>{productsName.toString()}</td>
+                                <td>{allOrder.email}</td>
+                                <td><img src={allOrder.productsImage} width='100px' height='100px' alt='img' style={{border:'1px solid gray', borderRadius:'3px'}} /></td> 
+                                <td>{allOrder.productsName.toString()}</td>
 
                                 {/* const myList = myArray.map((item) => <p>{item}</p>) */}
                                 {/* <td>{allOrder.productsName.toString()} 
                                 {console.log( allOrder.productsName.toString())}</td> */}
-                                <td>{allOrder.productsQuantity}</td>
+                                <td>{allOrder.productsQuantity.toString()}</td>
+                                <td>{allOrder.productsPrice.toString()}</td>
+                                <td>{allOrder.grandTotal}</td>
+                                <td className='text-end'>Cash</td>
+                                <td className='text-end'>Home</td>
+                                <td className='text-end'><button>View</button></td>
                             </tr>
                         )}
                     </tbody>

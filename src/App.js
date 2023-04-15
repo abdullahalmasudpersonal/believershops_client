@@ -38,6 +38,7 @@ import BottemHeader from './Pages/Shared/BottemHeader/BottemHeader';
 import AllUsers from './Pages/AdminPanel/AllUsers/AllUsers';
 import AllAdmins from './Pages/AdminPanel/AllAdmins/AllAdmins';
 import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
+import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
 
 function App() {
 
@@ -105,7 +106,8 @@ function App() {
         <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
 
         <Route path='/admin' element={<Admin />}>
-          <Route index element={<Allorder />} />
+          <Route index element={<HomeAdmin />} />
+          <Route path='allOrder' element={<Allorder />} />
           <Route path='allAdmin' element={<AllAdmins />} />
           <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
           <Route path='islamic/create_attar' element={<CreateAttar />} />
