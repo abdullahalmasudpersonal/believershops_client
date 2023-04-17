@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import auth from '../../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Allorder.css'
+import { useNavigate } from 'react-router-dom';
 
 const Allorder = () => {
     const [user] = useAuthState(auth);
     const [allOrders, setAllOrders] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         fetch(`http://localhost:5000/allOrder`)
             .then(res => res.json())
@@ -15,7 +17,7 @@ const Allorder = () => {
     const productsName = (allOrders.map(allorder => allorder.productsName))
     console.log('productsName', productsName)
 
-   // console.log(map)
+    // console.log(map)
 
     var array = [["A1", "B1", "C1"],
     ["A2", "B2", "C2"],
@@ -27,72 +29,32 @@ const Allorder = () => {
     ["A3", "B3", "C3"],
     ["A4", "B4", "C4"],
     ["A5", "B5", "C5"]];
-      //  table = document.getElementById("table");
+    //  table = document.getElementById("table");
 
     const myArray = ['apple', 'banana', 'orange'];
 
     const myList = myArray.map((item) => <p>*{item}</p>)
     console.log(myList)
 
-
+    const navigateToOrderDetail = _id => {
+        navigate(`/admin/allOrder/${_id}`);
+    }
 
 
     return (
-        <div className='allorders'>
+        <div className='allorders mx-3'>
             <div className='pt-4 ps-4'>
                 <h4 className='fw-bold side-header'>All Orders {allOrders.length}</h4>
             </div>
             <hr />
             <div className='px-3 table-responsive' >
-
-                {/* <table id="table" border="1">
-
-
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Age</th>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </table> */}
-
-                <table class="table ">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Sl</th>
                             <th scope="col">Coustomer</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Image</th>
+                            <th scope="col">Time</th>
                             <th scope="col">Porduct Name</th>
                             {/* <th scope="col">Model</th> */}
                             <th scope="col">Quantity</th>
@@ -109,7 +71,7 @@ const Allorder = () => {
                                 <th scope="row">{index + 1}</th>
                                 <td>{allOrder.coustomerName}</td>
                                 <td>{allOrder.email}</td>
-                                <td><img src={allOrder.productsImage} width='100px' height='100px' alt='img' style={{border:'1px solid gray', borderRadius:'3px'}} /></td> 
+                                <td><img src={allOrder.productsImage} width='100px' height='100px' alt='img' style={{ border: '1px solid gray', borderRadius: '3px' }} /></td>
                                 <td>{allOrder.productsName.toString()}</td>
 
                                 {/* const myList = myArray.map((item) => <p>{item}</p>) */}
@@ -120,7 +82,11 @@ const Allorder = () => {
                                 <td>{allOrder.grandTotal}</td>
                                 <td className='text-end'>Cash</td>
                                 <td className='text-end'>Home</td>
-                                <td className='text-end'><button>View</button></td>
+                                <td className='text-end'>
+                                    <button onClick={() => navigateToOrderDetail(allOrder._id)}>
+                                        View
+                                    </button>
+                                </td>
                             </tr>
                         )}
                     </tbody>

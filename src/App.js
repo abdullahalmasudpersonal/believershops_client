@@ -39,6 +39,7 @@ import AllUsers from './Pages/AdminPanel/AllUsers/AllUsers';
 import AllAdmins from './Pages/AdminPanel/AllAdmins/AllAdmins';
 import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
+import AllOrderDetail from './Pages/AdminPanel/AllOrders/AllOrderDetail/AllOrderDetail';
 
 function App() {
 
@@ -108,6 +109,7 @@ function App() {
         <Route path='/admin' element={<Admin />}>
           <Route index element={<HomeAdmin />} />
           <Route path='allOrder' element={<Allorder />} />
+          <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
           <Route path='allAdmin' element={<AllAdmins />} />
           <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
           <Route path='islamic/create_attar' element={<CreateAttar />} />
