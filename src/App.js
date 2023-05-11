@@ -79,10 +79,9 @@ function App() {
   } */
 
   return (
-    <div>
+    <div style={{backgroundColor:''}}>
       <ScrollingBtn />
       <Header />
-      
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categore' element={<Categore />}>
