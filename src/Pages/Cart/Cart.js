@@ -1,23 +1,18 @@
 import React from 'react';
 import './Cart.css';
-import { addToDb, removeFromDb } from '../../utilities/fakedb';
+import { removeFromDb } from '../../utilities/fakedb';
 import UseCart from './UseCart';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
-
 const Cart = () => {
     const [cart, setCart] = UseCart();
 
-    const handleRemoveProduct = product => {
-        const rest = cart.filter(pd => pd._id !== product._id);
-        setCart(rest);
-        removeFromDb(product._id);
-    }
-
-
-
+        const handleRemoveProduct = product => {
+            const rest = cart.filter(pd => pd._id !== product._id);
+            setCart(rest);
+            removeFromDb(product._id);
+        }
 
     let quantity = 0;
     let subTotal = 0;
@@ -57,13 +52,12 @@ const Cart = () => {
                                     <td>{product.name}</td>
                                     <td className='mobile-cart'>{product.model}</td>
                                     <td className='text-center'>
-                                    <><FontAwesomeIcon icon={faMinus} /></>
+                                        <><FontAwesomeIcon icon={faMinus} /></>
                                         <input style={{ width: '60px', height: '35px' }} type='number' pattern="{3}" maxLength="4" defaultValue={product.quantity} name="productQuantity" />
                                         <><FontAwesomeIcon icon={faPlus} /></>
-                                        {/* <span onClick={() => handleRemoveProduct(product)} > X</span> */}
                                     </td>
                                     <td className='text-center'>
-                                           <button style={{border:'none', background:'none'}} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
+                                        <button style={{ border: 'none', background: 'none' }} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
                                     </td>
                                     <td className='text-end mobile-cart'>{product.regularPrice}</td>
                                     <td className='text-end'>{product.quantity * product.regularPrice}</td>
@@ -73,27 +67,6 @@ const Cart = () => {
                     </tbody>
                 </table>
             </div>
-
-            {/*   <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col" className='text-right'>Unit Price</th>
-                        <th scope="col" className='text-right'>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
-            </table> */}
 
             <div>
                 <h6 className='text-end'>Sub Total: {subTotal}</h6>
@@ -106,16 +79,6 @@ const Cart = () => {
                     <button>Checkout</button>
                 </Link>
             </div>
-            {/*  <div className=''>
-                <CartQuantity cart={cart} />
-                {
-                    cart.map(product => <ViewCart
-                        key={product._id}
-                        product={product}
-                        handleRemoveProduct={handleRemoveProduct}
-                    ></ViewCart>)
-                }
-            </div> */}
         </div>
     );
 };

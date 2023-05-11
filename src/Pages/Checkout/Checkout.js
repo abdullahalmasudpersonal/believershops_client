@@ -11,6 +11,7 @@ import auth from '../../firebase.init';
 import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { deleteShoppingCart } from '../../utilities/fakedb';
 
 const Checkout = () => {
     const [cart, setCart] = UseCart();
@@ -43,15 +44,20 @@ const Checkout = () => {
             grandTotal: grandTotal
         }
 
-        axios.post('http://localhost:5000/allOrder', allOrder)
-            .then(response => {
-                //  console.log(response)
-                const { data } = response;
-                if (data.insertedId) {
-                    toast.success('Your order is placed !!!');
-                    event.target.reset();
-                }
-            })
+        const proceed = window.confirm('Are you sure?')
+        if (proceed) {
+            axios.post('http://localhost:5000/allOrder', allOrder)
+                .then(response => {
+                    //  console.log(response)
+                    const { data } = response;
+                    if (data.insertedId) {
+                        toast.success('Your order is placed !!!');
+                        event.target.reset();
+                        deleteShoppingCart();
+                    }
+                    
+                })
+        }
     }
 
     /* load cart */

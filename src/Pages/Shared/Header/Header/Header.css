@@ -17,21 +17,24 @@
 }
 
 @media screen and (min-width:8px) and (max-width:930px) {
-    .responsive-header{
-        display:none !important;
+    .responsive-header {
+        display: none !important;
     }
-    .header-part2{
+
+    .header-part2 {
         display: none !important;
     }
 }
+
 @media screen and (min-width:931px) {
-    .header-small-screen{
+    .header-small-screen {
         display: none;
     }
-    .header2-part-2{
+
+    .header2-part-2 {
         display: none !important;
     }
-    
+
 }
 
 /* ----------- header part 2 ------------- */
@@ -56,43 +59,53 @@
     width: 270px;
     cursor: pointer;
 }
+
 @media screen and (max-width:1399px) {
-    .header2-catagories{
+    .header2-catagories {
         width: 240px;
     }
+
     .search-ber {
         width: 500px !important;
     }
 }
+
 @media screen and (max-width:1199px) {
     .search-ber {
         width: 400px !important;
     }
-    .header2-catagories{
+
+    .header2-catagories {
         width: 200px;
     }
-    .header2-lust-part{
+
+    .header2-lust-part {
         width: 180px !important;
     }
 
 }
-.header2-catagories:hover{
+
+.header2-catagories:hover {
     color: orange;
     transition: .3s;
 }
-.caretdowncircle{
+
+.caretdowncircle {
     border: .1rem solid white;
     border-radius: 50%;
     padding: 1.5px 4px;
 }
-.header2-catagories .caretdowncircle:hover{
+
+.header2-catagories .caretdowncircle:hover {
     border: .1rem solid orange;
 }
-.header2-catagories h6{
+
+.header2-catagories h6 {
     margin-top: .4rem;
 }
+
 .search-ber {
-    border-radius: 50px 0 0 50px ;
+    border-radius: 50px 0 0 50px;
     height: 40px;
     width: 600px;
     border: none;
@@ -101,22 +114,42 @@
 .search input {
     padding: 10px;
 }
-.header2-lust-part{
+
+.header2-lust-part {
     width: 280px;
     display: flex;
     justify-content: right;
 }
-.top-right-btn{
+
+.top-right-btn {
     border-radius: 50px;
     padding: 10px;
     font-size: 17px;
     color: gray;
 }
+
+.heart-cart {
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    padding: 9px;
+    font-size: 17px;
+    color: gray;
+}
+
+.heart-cart:hover {
+    cursor: pointer;
+    color: rgb(255, 136, 0);
+    -webkit-box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
+    -moz-box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
+    box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
+    transition: .4s;
+}
+
 .shopping-cart {
     border-radius: 50px;
     background-color: rgb(255, 255, 255);
-    padding: 10px;
-    font-size: 17px;
+    padding: 9px;
+    font-size: 15px;
     color: gray;
 }
 
@@ -128,53 +161,66 @@
     box-shadow: 0px 1px 11px 3px rgba(255, 252, 255, 1);
     transition: .4s;
 }
+
+.cart-quantity-badge{
+    background-color: rgb(85, 41, 0);
+    color: rgb(255, 255, 255);
+}
+
 /* -------------header2 part2------------------- */
-.header2-part-2{
+.header2-part-2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: orange;
     padding: 6.5px 20px;
 }
-.header2-part-2-search{
+
+.header2-part-2-search {
     display: flex;
 
 }
-.header2-part2-search-ber{
-    border-radius: 50px 0px 0px 50px ;
+
+.header2-part2-search-ber {
+    border-radius: 50px 0px 0px 50px;
     border: none;
     height: 40px;
     width: 500px;
 }
-.header2-part-2-search-icon{
+
+.header2-part-2-search-icon {
     padding: 12px 25px;
     background-color: rgba(0, 15, 66, 0.774);
     color: rgb(219, 219, 219);
     border-radius: 0 50px 50px 0;
 }
+
 @media screen and (min-width:100px) and (max-width:800px) {
-    .header2-part2-search-ber{
+    .header2-part2-search-ber {
         width: 400px;
     }
 }
+
 @media screen and (min-width:100px) and (max-width:700px) {
-    .header2-part2-search-ber{
+    .header2-part2-search-ber {
         width: 300px;
     }
 }
+
 @media screen and (min-width:100px) and (max-width:600px) {
-    .header2-part2-search-ber{
+    .header2-part2-search-ber {
         width: 250px;
     }
 }
+
 @media screen and (min-width:100px) and (max-width:500px) {
-    .header2-part2-search-ber{
+    .header2-part2-search-ber {
         width: 200px;
     }
 }
+
 @media screen and (min-width:100px) and (max-width:400px) {
-    .header2-part2-search-ber{
+    .header2-part2-search-ber {
         width: 150px;
     }
 }
-

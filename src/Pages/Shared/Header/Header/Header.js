@@ -116,15 +116,17 @@ const Header = () => {
                     </div>
 
                     <div className='header2-lust-part pe-2'>
-                        <FontAwesomeIcon className='shopping-cart me-2' icon={faHeart} />
+                        <FontAwesomeIcon className='heart-cart' icon={faHeart} />
 
                         <Link to='/cart'>
-                            <FontAwesomeIcon className='shopping-cart me-2' icon={faShoppingCart} />
-                            <span style={{ marginRight: '-10px' }} class="position-absolute translate-middle badge rounded-pill bg-dark">
-                               s {cart.length} 
-                              {/*   {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px'}}>{totalItems}</span>} */}
-                                {/* <CartQuantity cart={cart} />  */}
+                            <FontAwesomeIcon className='shopping-cart ms-3' icon={faShoppingCart} />
+                            <span class="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
+                            {cart.length} 
                             </span>
+
+                            {/* <span style={{ marginRight: '10px' }} class="position-absolute translate-middle badge rounded-pill bg-dark">
+                                {cart.length} 
+                            </span> */}
                         </Link>
                         {/* <button type="button" class="btn btn-primary position-relative">
                             Inbox
@@ -137,11 +139,11 @@ const Header = () => {
                         {
                             user ?
                                 <Link to='/dashboard'>
-                                    <img width='35px' src={profileImg} alt='' />
+                                    <img width='32px' src={profileImg} alt='' className='ms-3' />
                                 </Link>
                                 :
                                 <Link to='/login'>
-                                    <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
+                                    <FontAwesomeIcon className='shopping-cart ms-3' icon={faUserAlt} />
                                 </Link>
                         }
                     </div>
