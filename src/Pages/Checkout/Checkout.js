@@ -15,11 +15,17 @@ import { deleteShoppingCart } from '../../utilities/fakedb';
 
 const Checkout = () => {
     const [cart, setCart] = UseCart();
+    const [shipping, setShipping] = useState();
+    const [paymentType, setPaymentType] = useState('cashOnDelivery');
+    const [selected, setSelected] = useState("males");
+    const changeHandler = e => {
+        setSelected(e.target.value);
+    };
+    console.log(selected)
     //   const { productsId } = useParams();
     //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
     const name = (cart.map(porduct => porduct.name))
-    console.log(name)
     // console.log('email', user.email)
     // console.log('name', name.toString())
     // console.log(cart.map(product=>product.assign({},product.name)))
@@ -35,6 +41,7 @@ const Checkout = () => {
             phoneNumber: event.target.phoneNumber.value,
             address: event.target.address.value,
             comment: event.target.comment.value,
+            shippingCharge: shipping,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),
@@ -55,7 +62,6 @@ const Checkout = () => {
                         event.target.reset();
                         deleteShoppingCart();
                     }
-                    
                 })
         }
     }
@@ -71,21 +77,6 @@ const Checkout = () => {
     const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
     const grandTotal = subTotal + conditionCharge + deliveryCharge;
 
-    /*     let radioBtns = document.querySelectorAll("input[name='payType']");
-    
-        let payResult = document.getElementById('payResult');
-    
-        let findSelected = () => {
-            let selected = document.querySelector("input[name='payType']:checked").value;
-            payResult.textContent = `Value:${selected}`;
-        }
-    
-        radioBtns.forEach(radioBtn => {
-            radioBtn.addEventListener("change", findSelected);
-        });
-        findSelected(); */
-
-    const [payType, setPayType] = useState();
 
 
     return (
@@ -127,79 +118,146 @@ const Checkout = () => {
                                 <hr />
                                 <h6>Select one payment method</h6>
                                 <div>
-                                    <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingOne">
-                                                {/* <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true"  aria-controls="collapseOne" >
-                                                </button> */}
-                                                <input class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the c It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingTwo">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    Accordion Item #2
-                                                </button>
-                                            </h2>
-                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingThree">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    Accordion Item #3
-                                                </button>
-                                            </h2>
-                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, untiHTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value="males"
+                                        id="males"
+                                        checked={selected === "males"}
+                                        onChange={changeHandler}
+                                    />
+                                    <label htmlFor="males">Males</label><br />
+
+                                    <div tabindex="0" aria-hidden={selected !== "males" ? true : false}>
+                                        This is males Div
+                                        <input />
                                     </div>
-                                    {/* <input type='radio' name='payType' value='masud' onChange={e => setPayType(e.target.value)} checked />
 
-                                    <input type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
-                                    <input type='radio' name='payType' value='masud3' onChange={e => setPayType(e.target.value)} /> */}
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value="male"
+                                        id="male"
+                                        checked={selected === "male"}
+                                        onChange={changeHandler}
+                                    />
+                                    <label htmlFor="male">Male</label><br />
 
-                                    <p>বিকাশে টাকা প্রদান করার জন্য বিকাশ App এর মাধ্যমে অথবা সরাসরি *247# ডায়াল করে "Send Money (সেন্ড মানি)" অপশনটি সিলেক্ট করুন।
-                                        আমাদের বিকাশ নাম্বার "01620327692" এ আপনার মোট বিল প্রদান করুন।
-                                        বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে
-                                        bKash Personal Number : 01620327692</p>
+                                    <div tabindex="0" aria-hidden={selected !== "male" ? true : false}>
+                                        This is male Div
+                                        <input />
+                                    </div>
+
+
+
+                                    <input
+                                        type="radio"
+                                        value="female"
+                                        id="female"
+                                        checked={selected === "female"}
+                                        name="gender"
+                                        onChange={changeHandler}
+                                    />
+                                    <label htmlFor="female">Female</label>
+
+                                    <div tabindex="0" aria-hidden={selected !== "female" ? true : false}>
+                                        This is female Div
+                                    </div>
+
+
+                                    <ul style={{ listStyleType: 'none' }} class="  mb-3" id="pills-tab" role="tablist">
+
+                                        {/*   <li class="nav-item" role="presentation">
+                                            <input style={{display:'inline'}} class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="radio" role="tab" aria-controls="pills-home" aria-selected="true" />
+                                            <label>Cash on Delivery</label>
+                                        </li> */}
+
+                                        <li class="nav-item" role="presentation">
+                                            {/* <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button> */}
+
+                                            <input style={{ display: 'inline' }} type='radio' name='paymentType' class="nav-link active" id="cashOnDelivery" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" checked={paymentType === 'cashOnDelivery'} value='cashOnDelivery' />
+                                            <label>&nbsp;Cash on Delivery</label>
+                                        </li>
+
+                                        <li class="nav-item" role="presentation">
+                                            {/*    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button> */}
+
+                                            <input style={{ display: 'inline-block' }} type='radio' name='paymentType' class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" value='Bkash' />
+                                            <label>&nbsp;Bkash</label>
+                                        </li>
+
+                                        <li class="nav-item" role="presentation">
+                                            {/* <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button> */}
+
+                                            <input style={{ display: 'inline-block' }} type='radio' name='paymentType' class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" value='Nagod' />
+                                            <label>&nbsp;Nagod</label>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="cashOnDelivery">aaaa</div>
+                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">bbb</div>
+                                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ccc</div>
+                                    </div>
+
+                                    {/*  <div>
+                                        <input type='radio' name='paymentType' value='পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করতে হবে।' onChange={e => setPaymentType(e.target.value)} required />
+                                        <label>&nbsp;Cash on Delivery</label>
+                                    </div>
+
+                                    <div>
+                                        <input type='radio' name='paymentType' value="  বিকাশে টাকা প্রদান করার জন্য বিকাশ App এর মাধ্যমে অথবা সরাসরি *247# ডায়াল করে 'Send Money (সেন্ড মানি)' অপশনটি সিলেক্ট করুন। আমাদের বিকাশ নাম্বার '01737906772' এ আপনার মোট বিল প্রদান করুন। বিঃদ্রঃ শুধুমাত্র 'সেন্ড মানি' অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে। <br /> bKash Personal Number : 01737906772" onChange={e => setPaymentType(e.target.value)} required />
+                                        <label>&nbsp;Bkash</label>
+                                        <label>Bkash Number </label>
+                                        <input type='number' placeholder='' />
+                                    </div>
+
+                                    <div>
+                                        <input type='radio' name='paymentType' value='নগদে টাকা প্রদান করার জন্য নগদ App এর মাধ্যমে অথবা সরাসরি *167# ডায়াল করে "Send Money (সেন্ড মানি)" অপশনটি সিলেক্ট করুন।
+                                        আমাদের নগদ নাম্বার "01737906772" এ আপনার মোট বিল প্রদান করুন।
+                                        বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে। 
+                                        Nagad Personal Number : 01737906772' onChange={e => setPaymentType(e.target.value)} required />
+                                        <label>&nbsp;Nagod</label>
+                                    </div>
+
+                                    {paymentType} */}
                                 </div>
                             </div>
 
                             <div className='checkout-payment-method p-3'>
-                                <h5><span>3</span> Delivery Method</h5>
+                                <h5><span>3</span> Shipping Charge</h5>
                                 <hr />
-                                <h6>Select one payment method</h6>
+                                <h6>Select shipping area</h6>
+
                                 <div>
-                                    <input type='radio' name='payType' value='masud' onChange={e => setPayType(e.target.value)} Checkout />
+                                    <div>
+                                        <input type='radio' name='shipping' value='Outside of Dhaka 100৳' onChange={e => setShipping(e.target.value)} required />
+                                        <label>&nbsp;Outside of Dhaka 100৳</label>
+                                    </div>
+                                    <div>
+                                        <input type='radio' name='shipping' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
+                                        <label>&nbsp;OInside of Dhaka 60৳</label>
+                                    </div>
+                                    {shipping}
 
-                                    <input type='radio' name='payType' value='masud2' onChange={e => setPayType(e.target.value)} />
-                                    <input type='radio' name='payType' value='masud3' onChange={e => setPayType(e.target.value)} />
-
-                                    {payType}
-                                    <p>বিকাশে টাকা প্রদান করার জন্য বিকাশ App এর মাধ্যমে অথবা সরাসরি *247# ডায়াল করে "Send Money (সেন্ড মানি)" অপশনটি সিলেক্ট করুন।
-
-                                        আমাদের বিকাশ নাম্বার "01620327692" এ আপনার মোট বিল প্রদান করুন।
-
-                                        বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে
-
-                                        bKash Personal Number : 01620327692</p>
-
+                                    {/* <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shipping" id="flexRadioDefault1" defaultValue='checked' onChange={e=>setShipping(e.target.value)} value='Outside of Dhaka 100৳' />
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Outside of Dhaka 100৳
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shipping" id="flexRadioDefault2" onChange={e=>setShipping(e.target.value)} value='Inside of Dhaka 60৳' />
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Inside of Dhaka 60৳
+                                        </label>
+                                    </div> */}
                                 </div>
 
                             </div>
                         </div>
+
 
                         <div className='mt-4 p-3 checkout-order-info'>
                             <h5><span>4</span> Order Overview</h5>
@@ -219,7 +277,7 @@ const Checkout = () => {
 
                                             <tr>
                                                 <td>{product.name}</td>
-                                                <td><img src={product.image1} width='100px' alt='' /></td>
+                                                {/*  <td><img src={product.image1} width='100px' alt='' /></td> */}
                                                 <td className='text-center'>
                                                     {product.quantity}
                                                 </td>

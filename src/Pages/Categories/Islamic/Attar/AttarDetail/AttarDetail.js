@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import ReactImageZoom from 'react-image-zoom';
@@ -10,9 +10,7 @@ import UseProductDetails from '../../../../../Hooks/UseProductDetails/UseProduct
 import { toast } from 'react-toastify';
 import { addToDb } from '../../../../../utilities/fakedb';
 import UseCart from '../../../../Cart/UseCart';
-import ImageSlick from './ImageSlick/ImageSlick';
 import Slider from 'react-slick';
-
 
 
 const AttarDetail = () => {
@@ -80,6 +78,8 @@ const AttarDetail = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
+
+   // console.log(value.count)
 
     return (
         <div className='attar-detail px-2'>
