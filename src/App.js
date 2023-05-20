@@ -40,6 +40,7 @@ import AllAdmins from './Pages/AdminPanel/AllAdmins/AllAdmins';
 import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
 import AllOrderDetail from './Pages/AdminPanel/AllOrders/AllOrderDetail/AllOrderDetail';
+import Offers from './Offers/Offers';
 
 function App() {
 
@@ -114,6 +115,7 @@ function App() {
           <Route path='islamic/create_attar' element={<CreateAttar />} />
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
+        <Route path='/offers' element={<Offers />} />
         <Route path='*' element={<Notfound />} />
       </Routes>
       <Footer/>
