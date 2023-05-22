@@ -9,7 +9,7 @@ const Allorder = () => {
     const [allOrders, setAllOrders] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/allOrder`)
+        fetch(`https://mahsez-server.onrender.com/allOrder`)
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, []);

@@ -22,6 +22,10 @@
         align-items: center;
         font-size: 13px;
     }
+    .header-buttom-btn{
+        color: rgb(255, 136, 0);
+        text-decoration: none;
+    }
     .bottemHeader-dev div{
         display: grid;
         justify-content: center;
@@ -29,5 +33,9 @@
     }
     .bottemHeader-dev div p {
         font-size: 12px;
+    }
+    .header-buttom-cart-quantity{
+        color: rgb(230, 230, 230);
+        font-size: 16px;
     }
 }

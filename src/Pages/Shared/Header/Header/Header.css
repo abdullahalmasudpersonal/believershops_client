@@ -162,7 +162,7 @@
     transition: .4s;
 }
 
-.cart-quantity-badge{
+.cart-quantity-badge {
     background-color: rgb(85, 41, 0);
     color: rgb(255, 255, 255);
 }
@@ -222,5 +222,31 @@
 @media screen and (min-width:100px) and (max-width:400px) {
     .header2-part2-search-ber {
         width: 150px;
+    }
+}
+
+/* ------------------- mobile screen ------------------------ */
+/* @media screen and (max-width:501px) {
+    .mobile-screen-top-part{
+        display: none;
+    }
+} */
+
+/* -----------websiteservicenotyet--------------- */
+@media screen and (min-width:501px) {
+    .websiteservicenotyet{
+        display: none;
+    }
+}
+@media screen and (max-width:500px) {
+    .websiteservicenotyet {
+        padding: 0 60px;
+        background-color: red;
+        color: white;
+        font-weight:900;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .websiteservicenotyet p{
+        margin: 0;
     }
 }

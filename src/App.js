@@ -41,10 +41,11 @@ import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
 import AllOrderDetail from './Pages/AdminPanel/AllOrders/AllOrderDetail/AllOrderDetail';
 import Offers from './Offers/Offers';
+import Blogs from './Blogs/Blogs';
 
 function App() {
 
-  /*   const url = 'http://localhost:5000/attars';
+  /*   const url = 'https://mahsez-server.onrender.com/attars';
   
     const [CartItem, setCartItem] = useState([]);
   
@@ -67,7 +68,7 @@ function App() {
     } */
 
   /* const [products, setProducts] = useState([url]);
-  const url = 'http://localhost:5000/attars';
+  const url = 'https://mahsez-server.onrender.com/attars';
   const [cart, setCart] = useState([])
   const [showCart, setShowCart] = useState(false)
   
@@ -115,6 +116,7 @@ function App() {
           <Route path='islamic/create_attar' element={<CreateAttar />} />
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
+        <Route path='/blogs' element={<Blogs />} />
         <Route path='/offers' element={<Offers />} />
         <Route path='*' element={<Notfound />} />
       </Routes>

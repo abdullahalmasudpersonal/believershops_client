@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link } from 'react-router-dom';
@@ -30,9 +30,6 @@ const Header = () => {
     window.addEventListener('scroll', changeShadow);
 
 
-
-  
-
     return (
         <>
             {/* ---------Part 1 ----------- */}
@@ -47,13 +44,19 @@ const Header = () => {
 
                     <div>
                         <ul className='header-p1-ul m-0 p-0' style={{ listStyleType: 'none' }}>
-                            <Link to='/orders'>
+                            <Link to='/' style={{ textDecoration: 'none' }}>
                                 <li>HOME</li>
                             </Link>
-                            <li>LAYOUT</li>
+                            <Link to='/offers' style={{ textDecoration: 'none' }}>
+                                <li>OFFERS</li>
+                            </Link>
                             <li>FEATURES</li>
-                            <li>BLOGS</li>
-                            <li>BLOG PAGE</li>
+                            <Link to='/blogs' style={{ textDecoration: 'none' }}>
+                                <li>BLOGS</li>
+                            </Link>
+                            <Link to='/login' style={{ textDecoration: 'none' }}>
+                                <li>SIGN IN</li>
+                            </Link>
                         </ul>
                     </div>
 
@@ -62,7 +65,7 @@ const Header = () => {
                             <FontAwesomeIcon style={{ height: '48px', width: '30px', marginRight: '10px', color: '#FF5733' }} icon={faHeadset} />
                         </div>
                         <div>
-                            <p className='m-0'>Call us now : (+88) 4567 421 978</p>
+                            <p className='m-0'>Call us now : (+88) 01737-906772</p>
                             <p className='m-0'>Email : m.mahsez@gmail.com</p>
                         </div>
                     </div>
@@ -85,12 +88,17 @@ const Header = () => {
                                 </Link>
                             </div>
 
-                            <div>
-                                <Link to='/register'>
-                                    <FontAwesomeIcon className='top-right-btn' icon={faUserAlt} />
+                            <div className='mobile-screen-top-part'>
+                                <Link to='/login'>
+                                    <small className=''>SIGN IN</small>
+                                    {/*   <FontAwesomeIcon className='top-right-btn' icon={faUserAlt} />  */}
                                 </Link>
                                 <FontAwesomeIcon className='top-right-btn' icon={faEllipsisV} />
                             </div>
+                            {/* <div>
+                                <div><FontAwesomeIcon icon={faUser} /></div>
+                                <p className='m-0 p-0'>SIGN IN</p>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -121,7 +129,7 @@ const Header = () => {
                         <Link to='/cart'>
                             <FontAwesomeIcon className='shopping-cart ms-3' icon={faShoppingCart} />
                             <span class="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
-                            {cart.length} 
+                                {cart.length}
                             </span>
 
                             {/* <span style={{ marginRight: '10px' }} class="position-absolute translate-middle badge rounded-pill bg-dark">
@@ -166,7 +174,9 @@ const Header = () => {
                 </div>
             </div>
             {/* ---------------- Header part 2 responsive end ---------------- */}
-
+            <div className='websiteservicenotyet'>
+                <p>The website is a work in progress. It is not in service yet.</p>
+            </div>
         </>
     );
 };

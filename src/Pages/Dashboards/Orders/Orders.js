@@ -11,7 +11,7 @@ const Orders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder?email=${user.email}`, {
+        fetch(`https://mahsez-server.onrender.com/myOrder?email=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -30,7 +30,7 @@ const Orders = () => {
                 setOrders(data);
             });
         /* if (user) {
-            fetch(`http://localhost:5000/myOrder?email=${user.email}`,  {
+            fetch(`https://mahsez-server.onrender.com/myOrder?email=${user.email}`,  {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

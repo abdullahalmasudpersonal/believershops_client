@@ -53,7 +53,7 @@ const Checkout = () => {
 
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            axios.post('http://localhost:5000/allOrder', allOrder)
+            axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
                 .then(response => {
                     //  console.log(response)
                     const { data } = response;
