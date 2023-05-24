@@ -4,7 +4,9 @@ import './Notfound.css';
 const Notfound = () => {
     return (
         <div className='notfound'>
-            <img src='https://www.designbolts.com/wp-content/uploads/2015/12/Cute-404-page-not-found-design.jpg' alt='notfound' />
+            <div>
+                <h4>Page not found 404 !!!</h4>
+            </div>
         </div>
     );
 };

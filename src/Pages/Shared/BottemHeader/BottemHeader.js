@@ -34,9 +34,9 @@ const BottemHeader = () => {
             </Link>
             <Link to='/cart' className='header-buttom-btn'>
                 <div className='position-relative'>
-                <span class="position-absolute translate-middle badge rounded-pill  py-1 top-0 start-100 pe-3 header-buttom-cart-quantity">
+                {/* <span className="position-absolute translate-middle badge rounded-pill  py-1 top-0 start-100 pe-3 header-buttom-cart-quantity">
                         {cart.length}
-                    </span>
+                    </span> */}
                     <div><FontAwesomeIcon icon={faShoppingCart} /></div>
 
                     <p className='m-0 p-0'><small>Cart</small>

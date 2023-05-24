@@ -11,7 +11,7 @@ const AllAdmins = () => {
             </div>
             <hr />
             <div className='px-3 table-responsive-lg'>
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">SL</th>

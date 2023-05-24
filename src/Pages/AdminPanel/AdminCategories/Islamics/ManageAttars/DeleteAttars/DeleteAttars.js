@@ -26,7 +26,7 @@ const DeleteAttars = () => {
 
     return (
         <div className='m-4 col'>
-            <table class="table table-hover">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">SL</th>

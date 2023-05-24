@@ -5,8 +5,8 @@ const AttarDesWR = () => {
     return (
         <div id="exTab2" className='attar-detail-desWR'>
 
-            <ul class="attar-detail-desWR-head nav nav-tabs">
-                <li class="active"  >
+            <ul className="attar-detail-desWR-head nav nav-tabs">
+                <li className="active"  >
                     <a href="#1" data-toggle="tab">DESCRIPTION</a>
                 </li>
 
@@ -17,17 +17,17 @@ const AttarDesWR = () => {
                 </li>
             </ul>
 
-            <div class="tab-content attar-detail-desWR-content">
+            <div className="tab-content attar-detail-desWR-content">
 
-                <div class="tab-pane active" id="1">
+                <div className="tab-pane active" id="1">
                     <h3>Standard tab panel created on bootstrap using nav-tabs</h3>
                 </div>
 
-                <div class="tab-pane" id="2">
+                <div className="tab-pane" id="2">
                     <h3>Notice the gap between the content and tab after applying a background color</h3>
                 </div>
 
-                <div class="tab-pane" id="3">
+                <div className="tab-pane" id="3">
                     <h3>add clearfix to tab-content (see the css)</h3>
                 </div>
 

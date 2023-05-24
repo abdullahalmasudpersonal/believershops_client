@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 
-export default class ImageSlick extends Component {
+export default className ImageSlick extends Component {
   render() {
     const settings = {
       dots: true,

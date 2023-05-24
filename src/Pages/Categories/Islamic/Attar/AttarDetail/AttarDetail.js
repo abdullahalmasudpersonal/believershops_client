@@ -129,7 +129,7 @@ const AttarDetail = () => {
                     </p>
 
                     <div className='attar-detail-dev-table'>
-                        <table class="table table-borderless attar-detail-table mb-2">
+                        <table className="table table-borderless attar-detail-table mb-2">
                             <tbody>
                                 <tr>
                                     <td>Brand:</td>
@@ -155,10 +155,10 @@ const AttarDetail = () => {
                             </dev>
                             <div className='d-grid attar-detail-quantity-counter-dev'>
                                 <button onClick={increment} className='p-0'>
-                                    <i style={{ color: 'gray' }} class="fa fa-angle-up px-2 "></i>
+                                    <i style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
                                 </button>
-                                <button onClick={decrement} classNamep='p-0'>
-                                    <i style={{ color: 'gray' }} class="fa fa-angle-down px-2"></i>
+                                <button onClick={decrement} classnamep='p-0'>
+                                    <i style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
                                 </button>
                             </div>
                         </div>
@@ -198,7 +198,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { baseUrl } from "./config";
 
-export default class CenterMode extends Component {
+export default className CenterMode extends Component {
   render() {
     const settings = {
       customPaging: function(i) {
@@ -209,7 +209,7 @@ export default class CenterMode extends Component {
         );
       },
       dots: true,
-      dotsClass: "slick-dots slick-thumb",
+      dotsclassName: "slick-dots slick-thumb",
       infinite: true,
       speed: 500,
       slidesToShow: 1,

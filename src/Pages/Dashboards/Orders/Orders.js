@@ -58,7 +58,7 @@ const Orders = () => {
             </div>
             <hr />
             <div className='px-3'>
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Sl</th>

@@ -73,7 +73,7 @@ const Profile = () => {
             </div>
             <hr />
             <form onSubmit={handleUserProfileSubmit} >
-                <div class="my-profile px-4 py-2">
+                <div className="my-profile px-4 py-2">
                     <div className='my-profile-img'>
                         {userInfo.filepreview !== null ? <img width='170px' height='170px' src={userInfo.filepreview} alt='' /> : <img width='170px' height='170px' src={profile} alt='' />}
 

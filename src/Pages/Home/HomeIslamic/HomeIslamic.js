@@ -154,8 +154,8 @@ const HomeIslamic = () => {
             </div>
 
             <div id="exTab2" className='hoemIslamic-part2'>
-                <ul class="hoemIslamic-part2-head nav nav-tabs">
-                    <li class="active">
+                <ul className="hoemIslamic-part2-head nav nav-tabs">
+                    <li className="active">
                         <a href="#1" data-toggle="tab">BESTSELLING</a>
                     </li>
 
@@ -167,8 +167,8 @@ const HomeIslamic = () => {
                     <li><a href="#4" data-toggle="tab">TOP REVIEWED</a>
                     </li>
                 </ul>
-                <div class="tab-content hoemIslamic-part2-content">
-                    <div class="tab-pane active" id="1">
+                <div className="tab-content hoemIslamic-part2-content">
+                    <div className="tab-pane active" id="1">
                          use css only home products home.css file 
                        
                          .filter(categore => categore.category === 'attars') 
@@ -179,14 +179,14 @@ const HomeIslamic = () => {
                         </div> 
                     </div>
 
-                    <div class="tab-pane" id="2">
+                    <div className="tab-pane" id="2">
                         <h3>Notice the gap between the content and tab after applying a background color</h3>
                     </div>
 
-                    <div class="tab-pane" id="3">
+                    <div className="tab-pane" id="3">
                         <h3>add clearfix to tab-content (see the css)</h3>
                     </div>
-                    <div class="tab-pane" id="4">
+                    <div className="tab-pane" id="4">
                         <h3>Top reviewd clearfix to tab-content (see the css)</h3>
                     </div>
                 </div>

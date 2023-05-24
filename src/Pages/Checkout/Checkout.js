@@ -129,7 +129,7 @@ const Checkout = () => {
                                     />
                                     <label htmlFor="males">Males</label><br />
 
-                                    <div tabindex="0" aria-hidden={selected !== "males" ? true : false}>
+                                    <div tabIndex="0" aria-hidden={selected !== "males" ? true : false}>
                                         This is males Div
                                         <input />
                                     </div>
@@ -144,7 +144,7 @@ const Checkout = () => {
                                     />
                                     <label htmlFor="male">Male</label><br />
 
-                                    <div tabindex="0" aria-hidden={selected !== "male" ? true : false}>
+                                    <div tabIndex="0" aria-hidden={selected !== "male" ? true : false}>
                                         This is male Div
                                         <input />
                                     </div>
@@ -161,44 +161,44 @@ const Checkout = () => {
                                     />
                                     <label htmlFor="female">Female</label>
 
-                                    <div tabindex="0" aria-hidden={selected !== "female" ? true : false}>
+                                    <div tabIndex="0" aria-hidden={selected !== "female" ? true : false}>
                                         This is female Div
                                     </div>
 
 
-                                    <ul style={{ listStyleType: 'none' }} class="  mb-3" id="pills-tab" role="tablist">
+                                    <ul style={{ listStyleType: 'none' }} className="  mb-3" id="pills-tab" role="tablist">
 
-                                        {/*   <li class="nav-item" role="presentation">
-                                            <input style={{display:'inline'}} class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="radio" role="tab" aria-controls="pills-home" aria-selected="true" />
+                                        {/*   <li className="nav-item" role="presentation">
+                                            <input style={{display:'inline'}} className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="radio" role="tab" aria-controls="pills-home" aria-selected="true" />
                                             <label>Cash on Delivery</label>
                                         </li> */}
 
-                                        <li class="nav-item" role="presentation">
-                                            {/* <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button> */}
+                                        <li className="nav-item" role="presentation">
+                                            {/* <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button> */}
 
-                                            <input style={{ display: 'inline' }} type='radio' name='paymentType' class="nav-link active" id="cashOnDelivery" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" checked={paymentType === 'cashOnDelivery'} value='cashOnDelivery' />
+                                            <input style={{ display: 'inline' }} type='radio' name='paymentType' className="nav-link active" id="cashOnDelivery" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" checked={paymentType === 'cashOnDelivery'} value='cashOnDelivery' />
                                             <label>&nbsp;Cash on Delivery</label>
                                         </li>
 
-                                        <li class="nav-item" role="presentation">
-                                            {/*    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button> */}
+                                        <li className="nav-item" role="presentation">
+                                            {/*    <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button> */}
 
-                                            <input style={{ display: 'inline-block' }} type='radio' name='paymentType' class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" value='Bkash' />
+                                            <input style={{ display: 'inline-block' }} type='radio' name='paymentType' className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" value='Bkash' />
                                             <label>&nbsp;Bkash</label>
                                         </li>
 
-                                        <li class="nav-item" role="presentation">
-                                            {/* <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button> */}
+                                        <li className="nav-item" role="presentation">
+                                            {/* <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button> */}
 
-                                            <input style={{ display: 'inline-block' }} type='radio' name='paymentType' class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" value='Nagod' />
+                                            <input style={{ display: 'inline-block' }} type='radio' name='paymentType' className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" value='Nagod' />
                                             <label>&nbsp;Nagod</label>
                                         </li>
                                     </ul>
 
-                                    <div class="tab-content" id="pills-tabContent">
-                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="cashOnDelivery">aaaa</div>
-                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">bbb</div>
-                                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ccc</div>
+                                    <div className="tab-content" id="pills-tabContent">
+                                        <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="cashOnDelivery">aaaa</div>
+                                        <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">bbb</div>
+                                        <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ccc</div>
                                     </div>
 
                                     {/*  <div>
@@ -241,15 +241,15 @@ const Checkout = () => {
                                     </div>
                                     {shipping}
 
-                                    {/* <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="shipping" id="flexRadioDefault1" defaultValue='checked' onChange={e=>setShipping(e.target.value)} value='Outside of Dhaka 100৳' />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                    {/* <div className="form-check">
+                                        <input className="form-check-input" type="radio" name="shipping" id="flexRadioDefault1" defaultValue='checked' onChange={e=>setShipping(e.target.value)} value='Outside of Dhaka 100৳' />
+                                        <label className="form-check-label" for="flexRadioDefault1">
                                             Outside of Dhaka 100৳
                                         </label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="shipping" id="flexRadioDefault2" onChange={e=>setShipping(e.target.value)} value='Inside of Dhaka 60৳' />
-                                        <label class="form-check-label" for="flexRadioDefault2">
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" name="shipping" id="flexRadioDefault2" onChange={e=>setShipping(e.target.value)} value='Inside of Dhaka 60৳' />
+                                        <label className="form-check-label" for="flexRadioDefault2">
                                             Inside of Dhaka 60৳
                                         </label>
                                     </div> */}
@@ -262,7 +262,7 @@ const Checkout = () => {
                         <div className='mt-4 p-3 checkout-order-info'>
                             <h5><span>4</span> Order Overview</h5>
                             <hr />
-                            <table class="table table-responsive">
+                            <table className="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col">Product Name</th>

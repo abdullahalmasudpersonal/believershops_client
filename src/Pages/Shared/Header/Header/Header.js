@@ -6,7 +6,6 @@ import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEl
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link } from 'react-router-dom';
-import MHeaderCatagore from '../MHeaderCatagore/MHeader/MHeader';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import { getStoredCart } from '../../../../utilities/fakedb';
@@ -76,10 +75,19 @@ const Header = () => {
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
 
                             <div>
-                                <button style={{ border: 'none', background: 'none' }} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                                    <FontAwesomeIcon style={{ height: '22px', width: '22px', color: '#FF5733' }} icon={faAlignJustify} />
-                                </button>
-                                <MHeaderCatagore />
+                                <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+
+                                <div className="offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                    <div className="offcanvas-header">
+                                        <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+                                        <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div className="offcanvas-body">
+                                        ...
+                                    </div>
+                                </div>
+
+
                             </div>
 
                             <div>
@@ -92,7 +100,7 @@ const Header = () => {
                                 <FontAwesomeIcon className='top-right-btn ' icon={faSearch} />
 
                                 <Link to='/cart'>
-                                    <button className='position-relative p-0 pe-3' style={{border:'none', background:'none' }}>
+                                    <button className='position-relative p-0 pe-3' style={{ border: 'none', background: 'none' }}>
 
                                         <FontAwesomeIcon className='top-right-btn' icon={faShoppingCart} />
 
@@ -134,19 +142,19 @@ const Header = () => {
 
                         <Link to='/cart'>
                             <FontAwesomeIcon className='shopping-cart ms-3' icon={faShoppingCart} />
-                            <span class="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
+                            <span className="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
                                 {cart.length}
                             </span>
 
-                            {/* <span style={{ marginRight: '10px' }} class="position-absolute translate-middle badge rounded-pill bg-dark">
+                            {/* <span style={{ marginRight: '10px' }} className="position-absolute translate-middle badge rounded-pill bg-dark">
                                 {cart.length} 
                             </span> */}
                         </Link>
-                        {/* <button type="button" class="btn btn-primary position-relative">
+                        {/* <button type="button" className="btn btn-primary position-relative">
                             Inbox
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 99+
-                                <span class="visually-hidden">unread messages</span>
+                                <span className="visually-hidden">unread messages</span>
                             </span>
                         </button> */}
 

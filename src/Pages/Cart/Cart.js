@@ -28,7 +28,7 @@ const Cart = () => {
             <h4>Shopping Cart</h4>
 
             <div className='table-responsive-sm'>
-                <table class="table  table-striped">
+                <table className="table  table-striped">
                     <thead>
                         <tr>
                             <th scope="col" className='mobile-cart'>Image</th>
@@ -42,9 +42,9 @@ const Cart = () => {
                     </thead>
                     <tbody>
                         {
-                            cart.map(product =>
+                            cart.map(product => 
 
-                                <tr>
+                                <tr key={product._id}>
 
                                     <th scope="row" className='mobile-cart'>
                                         <img src={product.image1} alt='' width='80px' height='70px' />
