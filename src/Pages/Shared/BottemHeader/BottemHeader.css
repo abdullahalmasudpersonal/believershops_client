@@ -9,10 +9,10 @@
         overflow: hidden;
         height: 45px;
         width: 100%;
-        background-color: rgba(2, 5, 27, 0.993);
+        background-color: rgb(224, 238, 255);
         color: rgb(212, 230, 255);
         bottom: 0;
-        box-shadow: rgb(5, 0, 0) 0px 1px 0px, rgba(133, 133, 133, 0.726) 10px 2px 8px;
+        box-shadow: rgb(5, 0, 0) 0px 1px 0px, rgba(117, 117, 117, 0.726) 10px 2px 8px;
     }
     .bottemHeader-dev{
         margin-top: 2px;
@@ -23,9 +23,13 @@
         font-size: 13px;
     }
     .header-buttom-btn{
-        color: rgb(255, 136, 0);
+        color: rgb(255, 151, 55) !important;
         text-decoration: none;
     }
+    .header-buttom-btn:active{
+        color: aliceblue !important;
+    }
+    
     .bottemHeader-dev div{
         display: grid;
         justify-content: center;

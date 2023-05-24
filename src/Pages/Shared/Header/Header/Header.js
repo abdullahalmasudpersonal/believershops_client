@@ -34,7 +34,7 @@ const Header = () => {
         <>
             {/* ---------Part 1 ----------- */}
 
-            <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
+            <div className={shadow ? 'sticky-top  header-shadow ' : 'header-bg-color'}>
                 <div className='container-xxl d-flex justify-content-between align-items-center responsive-header' style={{ padding: '5px ' }}>
                     <div>
                         <Link to='/'>
@@ -73,7 +73,7 @@ const Header = () => {
 
                 <div className='header-small-screen'>
                     <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
-                        <div className='d-flex justify-content-between align-items-center' style={{ padding: '2px' }}>
+                        <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
 
                             <div>
                                 <button style={{ border: 'none', background: 'none' }} class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -88,17 +88,23 @@ const Header = () => {
                                 </Link>
                             </div>
 
-                            <div className='mobile-screen-top-part'>
-                                <Link to='/login'>
-                                    <small className=''>SIGN IN</small>
-                                    {/*   <FontAwesomeIcon className='top-right-btn' icon={faUserAlt} />  */}
+                            <div className='mobile-screen-top-part pt-1'>
+                                <FontAwesomeIcon className='top-right-btn ' icon={faSearch} />
+
+                                <Link to='/cart'>
+                                    <button className='position-relative p-0 pe-3' style={{border:'none', background:'none' }}>
+
+                                        <FontAwesomeIcon className='top-right-btn' icon={faShoppingCart} />
+
+                                        <span className="position-absolute translate-middle badge rounded-pill" style={{ color: '', backgroundColor: 'orangered' }}>
+                                            {cart.length}
+                                        </span>
+
+                                    </button>
+
                                 </Link>
-                                <FontAwesomeIcon className='top-right-btn' icon={faEllipsisV} />
                             </div>
-                            {/* <div>
-                                <div><FontAwesomeIcon icon={faUser} /></div>
-                                <p className='m-0 p-0'>SIGN IN</p>
-                            </div> */}
+
                         </div>
                     </div>
                 </div>
@@ -161,7 +167,7 @@ const Header = () => {
 
             {/* ---------------- Header part 2 responsive start ---------------- */}
 
-            <div className='header2-part-2'>
+            {/*   <div className='header2-part-2'>
                 <div>
                     <FontAwesomeIcon className='shopping-cart' icon={faHome} />
                 </div>
@@ -172,11 +178,11 @@ const Header = () => {
                 <div>
                     <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
                 </div>
-            </div>
+            </div> */}
             {/* ---------------- Header part 2 responsive end ---------------- */}
-            <div className='websiteservicenotyet'>
+            {/* <div className='websiteservicenotyet'>
                 <p>The website is a work in progress. It is not in service yet.</p>
-            </div>
+            </div> */}
         </>
     );
 };
