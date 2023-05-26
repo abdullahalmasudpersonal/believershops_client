@@ -150,9 +150,9 @@ const AttarDetail = () => {
                     <div className='mt-3'>
                         <p className='mb-2'>Quantity:</p>
                         <div className='attar-detail-quantity-counter'>
-                            <dev className='attar-detail-quantity-counter-p'>
+                            <div className='attar-detail-quantity-counter-p'>
                                 <p style={{ color: 'gray' }} className='m-0 fw-bold'>{count}</p>
-                            </dev>
+                            </div>
                             <div className='d-grid attar-detail-quantity-counter-dev'>
                                 <button onClick={increment} className='p-0'>
                                     <i style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
