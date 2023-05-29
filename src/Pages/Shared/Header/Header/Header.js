@@ -31,6 +31,9 @@ const Header = () => {
 
     return (
         <>
+            <div className='text-center fw-bold' style={{background:'red', color:'white'}}>
+                <p className='m-0 p-0'>The website is a work in progress. It is not in service yet.</p>
+            </div>
             {/* ---------Part 1 ----------- */}
 
             <div className={shadow ? 'sticky-top  header-shadow ' : 'header-bg-color'}>
@@ -74,7 +77,7 @@ const Header = () => {
                     <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
 
-                            
+
 
                             <div>
                                 <Link to='/'>
@@ -174,9 +177,9 @@ const Header = () => {
                 </div>
             </div> */}
             {/* ---------------- Header part 2 responsive end ---------------- */}
-            {/* <div className='websiteservicenotyet'>
+            <div className='websiteservicenotyet'>
                 <p>The website is a work in progress. It is not in service yet.</p>
-            </div> */}
+            </div>
         </>
     );
 };

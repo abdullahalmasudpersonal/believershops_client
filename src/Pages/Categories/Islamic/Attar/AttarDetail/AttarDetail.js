@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
-import ReactImageZoom from 'react-image-zoom';
 import './AttarDetail.css';
 import UseProductDetails from '../../../../../Hooks/UseProductDetails/UseProductDetails';
 import { toast } from 'react-toastify';
