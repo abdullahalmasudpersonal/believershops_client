@@ -110,9 +110,10 @@
 
 .search-ber {
     border-radius: 50px 0 0 50px;
-    height: 40px;
+    height: 36px;
     width: 600px;
     border: none;
+    outline: none;
 }
 
 .search input {
@@ -172,62 +173,74 @@
 }
 
 /* -------------header2 part2------------------- */
-.header2-part-2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: orange;
-    padding: 6.5px 20px;
-}
 
 .header2-part-2-search {
     display: flex;
-
+    justify-content: center;
+    background-color: rgb(240, 247, 255);
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .header2-part2-search-ber {
-    border-radius: 50px 0px 0px 50px;
+    /* border-radius: 50px 0px 0px 50px; */
+    border-radius: 5px 0px 0px 5px;
     border: none;
-    height: 40px;
-    width: 500px;
+    height: 35px;
+    width: 100%;
+    padding-left: 10px;
+    outline: none;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /*   background-image: linear-gradient(rgb(255, 251, 248), rgb(255, 251, 234)); */
+
 }
 
-.header2-part-2-search-icon {
-    padding: 12px 25px;
+.header2-part-2-search-icon-pc{
+    padding: 10px 25px;
     background-color: rgba(0, 15, 66, 0.774);
     color: rgb(219, 219, 219);
     border-radius: 0 50px 50px 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.header2-part-2-search-icon-mobile{
+    padding: 9.5px 25px;
+    background-color: rgba(0, 15, 66, 0.774);
+    color: rgb(219, 219, 219);
+    border-radius: 0 5px 5px 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-@media screen and (min-width:100px) and (max-width:800px) {
+/* @media screen and (min-width:100px) and (max-width:800px) {
     .header2-part2-search-ber {
-        width: 400px;
+        width: 600px;
     }
 }
 
 @media screen and (min-width:100px) and (max-width:700px) {
     .header2-part2-search-ber {
-        width: 300px;
+        width: 500px;
     }
 }
 
 @media screen and (min-width:100px) and (max-width:600px) {
     .header2-part2-search-ber {
-        width: 250px;
+        width: 400px;
     }
 }
 
 @media screen and (min-width:100px) and (max-width:500px) {
     .header2-part2-search-ber {
-        width: 200px;
+        width: 300px;
     }
 }
 
 @media screen and (min-width:100px) and (max-width:400px) {
     .header2-part2-search-ber {
-        width: 150px;
+        width: 250px;
     }
-}
+} */
 
 /* ------------------- mobile screen ------------------------ */
 /* @media screen and (max-width:501px) {

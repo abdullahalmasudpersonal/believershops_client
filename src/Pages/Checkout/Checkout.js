@@ -59,6 +59,7 @@ const Checkout = () => {
                     const { data } = response;
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
+
                         event.target.reset();
                         deleteShoppingCart();
                     }

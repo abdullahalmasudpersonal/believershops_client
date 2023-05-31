@@ -164,7 +164,7 @@ const AttarDetail = () => {
                     </div>
                     {/*   onClick={()=>props.handleAddToCard(props.attar)} */}
                     <div className='mt-4'>
-                        <Link to='/cart'><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
+                        <Link to='/cart'  onClick={() => handleAddToCard(attar)}  ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
                         <button className='add-to-cart' onClick={() => handleAddToCard(attar)}  >Add to Cart</button>
                         {/* <button>Add to Wishlist</button> */}
                     </div>

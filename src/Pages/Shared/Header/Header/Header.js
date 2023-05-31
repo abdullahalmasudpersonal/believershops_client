@@ -10,6 +10,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import { getStoredCart } from '../../../../utilities/fakedb';
 import UseCart from '../../../Cart/UseCart';
+import { Button, Offcanvas } from 'react-bootstrap';
 
 
 const Header = () => {
@@ -28,12 +29,17 @@ const Header = () => {
     }
     window.addEventListener('scroll', changeShadow);
 
+    /* ----------- mobile catagore ------------- */
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
     return (
         <>
-            <div className='text-center fw-bold' style={{background:'red', color:'white'}}>
+            {/* <div className='text-center fw-bold' style={{ background: 'red', color: 'white' }}>
                 <p className='m-0 p-0'>The website is a work in progress. It is not in service yet.</p>
-            </div>
+            </div> */}
             {/* ---------Part 1 ----------- */}
 
             <div className={shadow ? 'sticky-top  header-shadow ' : 'header-bg-color'}>
@@ -77,7 +83,21 @@ const Header = () => {
                     <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
 
+                            <div>
+                                <Button style={{background:'none', color:'black', border:'none', outline:'none'}}  onClick={handleShow}>
+                                    <FontAwesomeIcon icon={faAlignJustify} fontSize="20px" />
+                                </Button>
 
+                                <Offcanvas show={show} onHide={handleClose} style={{width:'280px'}}>
+                                    <Offcanvas.Header closeButton>
+                                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                                    </Offcanvas.Header>
+                                    <Offcanvas.Body>
+                                        Some text as placeholder. In real life you can have the elements you
+                                        have chosen. Like, text, images, lists, etc.
+                                    </Offcanvas.Body>
+                                </Offcanvas>
+                            </div>
 
                             <div>
                                 <Link to='/'>
@@ -86,7 +106,7 @@ const Header = () => {
                             </div>
 
                             <div className='mobile-screen-top-part pt-1'>
-                                <FontAwesomeIcon className='top-right-btn ' icon={faSearch} />
+                                {/*   <FontAwesomeIcon className='top-right-btn ' icon={faSearch} /> */}
 
                                 <Link to='/cart'>
                                     <button className='position-relative p-0 pe-3' style={{ border: 'none', background: 'none' }}>
@@ -122,8 +142,8 @@ const Header = () => {
                     </div>
 
                     <div className='search d-flex'>
-                        <input className='search-ber ' placeholder='Looking your products' type='search' />
-                        <FontAwesomeIcon className='header2-part-2-search-icon' icon={faSearch} />
+                        <input className='search-ber' placeholder='Looking your products' type='search' />
+                        <FontAwesomeIcon className='header2-part-2-search-icon-pc' icon={faSearch} />
                     </div>
 
                     <div className='header2-lust-part pe-2'>
@@ -163,23 +183,13 @@ const Header = () => {
             {/* ---------------- Header part 2 end ---------------- */}
 
             {/* ---------------- Header part 2 responsive start ---------------- */}
-
-            {/*   <div className='header2-part-2'>
-                <div>
-                    <FontAwesomeIcon className='shopping-cart' icon={faHome} />
-                </div>
+            <div className='header2-part-2'>
                 <div className='header2-part-2-search'>
-                    <input className='p-0 header2-part2-search-ber' />
-                    <FontAwesomeIcon className='header2-part-2-search-icon' icon={faSearch} />
+                    <input className='header2-part2-search-ber' placeholder='Looking your products' />
+                    <FontAwesomeIcon className='header2-part-2-search-icon-mobile' icon={faSearch} />
                 </div>
-                <div>
-                    <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
-                </div>
-            </div> */}
-            {/* ---------------- Header part 2 responsive end ---------------- */}
-            <div className='websiteservicenotyet'>
-                <p>The website is a work in progress. It is not in service yet.</p>
             </div>
+            {/* ---------------- Header part 2 responsive end ---------------- */}
         </>
     );
 };

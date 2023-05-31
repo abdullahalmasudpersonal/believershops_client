@@ -76,7 +76,7 @@ const Cart = () => {
 
             <div className='d-flex flex-row-reverse'>
                 <Link to='/checkout'>
-                    <button>Checkout</button>
+                    <button disabled={quantity < 1 }>Checkout</button>
                 </Link>
             </div>
         </div>
