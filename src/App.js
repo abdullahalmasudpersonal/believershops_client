@@ -40,8 +40,10 @@ import AllAdmins from './Pages/AdminPanel/AllAdmins/AllAdmins';
 import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
 import AllOrderDetail from './Pages/AdminPanel/AllOrders/AllOrderDetail/AllOrderDetail';
-import Offers from './Offers/Offers';
-import Blogs from './Blogs/Blogs';
+import Blogs from './Pages/Blogs/Blogs';
+import Offers from './Pages/Offers/Offers';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
+import TermsCondition from './Pages/Terms&Condition/Terms&Condition';
 
 function App() {
 
@@ -117,7 +119,8 @@ function App() {
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
         <Route path='/blogs' element={<Blogs />} />
-        <Route path='/offers' element={<Offers />} />
+        <Route path='/privacy_policy' element={<PrivacyPolicy />} />
+        <Route path='/terms_condition' element={<TermsCondition />} />
         <Route path='*' element={<Notfound />} />
       </Routes>
       <Footer/>

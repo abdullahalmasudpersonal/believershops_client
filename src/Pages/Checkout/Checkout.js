@@ -55,7 +55,7 @@ const Checkout = () => {
         if (proceed) {
             axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
                 .then(response => {
-                    //  console.log(response)
+                      console.log('response',response)
                     const { data } = response;
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
@@ -276,7 +276,7 @@ const Checkout = () => {
                                     {
                                         cart.map(product =>
 
-                                            <tr>
+                                            <tr key={product._id}>
                                                 <td>{product.name}</td>
                                                 {/*  <td><img src={product.image1} width='100px' alt='' /></td> */}
                                                 <td className='text-center'>
@@ -290,17 +290,17 @@ const Checkout = () => {
                                 </tbody>
                             </table>
                             <div>
-                                <h6 className='text-end'>Sub Total: {subTotal} <span>Tk</span></h6>
-                                <h6 className='text-end'>Condition Charge: {conditionCharge} <span>Tk</span></h6>
-                                <h6 className='text-end'>Home Delivery: {deliveryCharge} <span>Tk</span></h6>
-                                <h5 className='text-end'> Grand Total: {grandTotal} Tk</h5>
+                                <h6 className='text-end h5'>Sub Total: {subTotal} <span>Tk</span></h6>
+                                <h6 className='text-end h5'>Condition Charge: {conditionCharge} <span>Tk</span></h6>
+                                <h6 className='text-end h5'>Home Delivery: {deliveryCharge} <span>Tk</span></h6>
+                                <h6 className='text-end h5 fw-bold'> Grand Total: {grandTotal} Tk</h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 <hr className='my-4'></hr>
                 <div className='place-order-btn'>
-                    <button>Place Order</button>
+                    <button type='submit'>Place Order</button>
                 </div>
             </form>
         </div >

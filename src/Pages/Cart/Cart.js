@@ -8,11 +8,12 @@ import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 const Cart = () => {
     const [cart, setCart] = UseCart();
 
-        const handleRemoveProduct = product => {
-            const rest = cart.filter(pd => pd._id !== product._id);
-            setCart(rest);
-            removeFromDb(product._id);
-        }
+
+    const handleRemoveProduct = product => {
+        const rest = cart.filter(pd => pd._id !== product._id);
+        setCart(rest);
+        removeFromDb(product._id);
+    }
 
     let quantity = 0;
     let subTotal = 0;
@@ -22,6 +23,8 @@ const Cart = () => {
     }
     const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
     const grandTotal = subTotal + conditionCharge;
+
+    const disabled = quantity < 1;
 
     return (
         <div className='container-xxl py-5'>
@@ -42,7 +45,7 @@ const Cart = () => {
                     </thead>
                     <tbody>
                         {
-                            cart.map(product => 
+                            cart.map(product =>
 
                                 <tr key={product._id}>
 
@@ -68,15 +71,15 @@ const Cart = () => {
                 </table>
             </div>
 
-            <div>
-                <h6 className='text-end'>Sub Total: {subTotal}</h6>
-                <h6 className='text-end'>Condition Charge: {conditionCharge}</h6>
-                <h5 className='text-end'> Grand Total: {grandTotal}</h5>
+            <div className=''>
+                <h6 className='justify-content-end h5 d-flex'> Sub Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{subTotal}৳</article></h6>
+                <h6 className='justify-content-end h5 d-flex'> Condition Charge: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{conditionCharge}৳</article></h6>
+                <h6 className='justify-content-end h5 d-flex'>  Grand Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{grandTotal}৳</article></h6>
             </div>
 
             <div className='d-flex flex-row-reverse'>
                 <Link to='/checkout'>
-                    <button disabled={quantity < 1 }>Checkout</button>
+                    <button className={disabled ? 'checkout-btn-disabled' : 'checkout-btn'} disabled={quantity < 1}>Checkout</button>
                 </Link>
             </div>
         </div>

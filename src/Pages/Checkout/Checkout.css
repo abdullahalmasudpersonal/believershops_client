@@ -103,6 +103,7 @@ input[type=number] {
     justify-content: end;
 }
 .place-order-btn button{
+    color: rgb(244, 240, 255);
     background-color: rgb(255, 135, 22);
     padding: 8px;
     font-size: 17px;

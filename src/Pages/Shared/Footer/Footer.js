@@ -77,10 +77,14 @@ const Footer = () => {
                                     Useful links
                                 </h6>
                                 <p>
-                                    <a className="text-reset">Pirvate Policy</a>
+                                  <Link to='/privacy_policy' style={{textDecoration:'none', color:'white'}} target='_black'>
+                                  <a>Pirvate Policy</a>
+                                  </Link>
                                 </p>
                                 <p>
-                                    <a className="text-reset">Terms & Conditions</a>
+                                <Link to='/terms_condition' style={{textDecoration:'none', color:'white'}} target='_blank'>
+                                <a>Terms & Conditions</a>
+                                </Link>
                                 </p>
                                 <p>
                                     <a className="text-reset">About Us</a>
