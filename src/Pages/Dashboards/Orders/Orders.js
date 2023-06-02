@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 const Orders = () => {
     const [user] = useAuthState(auth);
@@ -57,8 +59,60 @@ const Orders = () => {
                 <h4 className='fw-bold side-header'>My Orders ({orders.length})</h4>
             </div>
             <hr />
-            <div className='px-3'>
-                <table className="table">
+            <div className='p-3'>
+
+                {
+                    orders.map((order, index) =>
+                        <div className='my-single-order mb-3'>
+                            <div className='px-3 pt-3 d-flex justify-content-between'>
+                                <div>
+                                    <h6></h6>
+                                    <p className='m-0'>Date: {order.orderDate}</p>
+                                </div>
+                                <h6 className='m-0'>
+                                    <FontAwesomeIcon icon={faClock} style={{ color: 'orange' }} /> &nbsp;
+                                    <span className='' style={{ color: 'purple' }}>Pneding</span>
+                                </h6>
+                            </div>
+
+                            <hr />
+                          {/*   <div className='px-3 pb-3 d-flex justify-content-between'>
+                                <div>
+                                    <td>{order.productsName}</td>
+                                </div>
+
+                                <div className='d-flex justify-content-between'>
+                                    <p className='m-0'>{order.grandTotal} <span style={{ fontSize: '20px' }}>৳</span></p>
+                                    <button type="button" className="btn btn-info">
+                                        View
+                                    </button>
+                                </div>
+                            </div> */}
+
+                            <div className='px-3 pb-3'>
+                                <table className='table m-0'>
+                                    <tbody>
+                                        <tr>
+                                            <td className='p-0 ' style={{border:'0'}}>{order.productsName}</td>
+                                            <td className=' text-end fw-bold h5' style={{border:'0'}}>{order.grandTotal}<span style={{ fontSize: '22px',  }}>৳</span></td>
+                                            <td className='text-end p-0' style={{border:'0'}}>
+                                                <button type="button" className="btn btn-info">View</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {/*    <tr key={order._id}>
+                                    <td>{order.productsName}</td>
+                                    <td>{order.grandTotal} $</td>
+                                </tr>  */}
+                        </div>
+                    )
+                }
+
+
+                {/* <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Sl</th>
@@ -79,9 +133,9 @@ const Orders = () => {
                             )
                         }
                     </tbody>
-                </table>
+                </table> */}
             </div>
-        </div>
+        </div >
     );
 };
 

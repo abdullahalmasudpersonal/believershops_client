@@ -77,7 +77,7 @@ const Cart = () => {
                 <h6 className='justify-content-end h5 d-flex'>  Grand Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{grandTotal}৳</article></h6>
             </div>
 
-            <div className='d-flex flex-row-reverse'>
+            <div className='d-flex flex-row-reverse mt-4'>
                 <Link to='/checkout'>
                     <button className={disabled ? 'checkout-btn-disabled' : 'checkout-btn'} disabled={quantity < 1}>Checkout</button>
                 </Link>

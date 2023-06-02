@@ -21,7 +21,7 @@ const Checkout = () => {
     const changeHandler = e => {
         setSelected(e.target.value);
     };
-    console.log(selected)
+    // console.log(selected)
     //   const { productsId } = useParams();
     //  const [products] = UseProductDetails(productsId);
     const [user] = useAuthState(auth);
@@ -42,6 +42,8 @@ const Checkout = () => {
             address: event.target.address.value,
             comment: event.target.comment.value,
             shippingCharge: shipping,
+            orderTime: cTime,
+            orderDate: cDate,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),
@@ -55,7 +57,7 @@ const Checkout = () => {
         if (proceed) {
             axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
                 .then(response => {
-                      console.log('response',response)
+                    console.log('response', response)
                     const { data } = response;
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
@@ -78,6 +80,29 @@ const Checkout = () => {
     const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
     const grandTotal = subTotal + conditionCharge + deliveryCharge;
 
+    /* get time & date */
+    let date = new Date().toLocaleDateString();
+    let time = new Date().toLocaleTimeString();
+    //  const [cDate, setCDate] = useState(date);
+    const [cTime, setCTime] = useState(time);
+    const updateTime = () => {
+        time = new Date().toLocaleTimeString();
+        setCTime(time);
+    };
+    setInterval(updateTime, 1000);
+    /* date width month */
+    var today = new Date();
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    var cDate = today.toLocaleString('en-US', options);
+
+    /*  Importent --- week name with date
+    var today = new Date();
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    options.timeZone = 'UTC';
+    options.timeZoneName = 'short';
+    var now = today.toLocaleString('en-US', options);
+    console.log(now);
+    */
 
 
     return (
@@ -241,6 +266,13 @@ const Checkout = () => {
                                         <label>&nbsp;OInside of Dhaka 60৳</label>
                                     </div>
                                     {shipping}
+
+                                    <p>
+
+                                        {cTime}__
+                                        {cDate}
+
+                                    </p>
 
                                     {/* <div className="form-check">
                                         <input className="form-check-input" type="radio" name="shipping" id="flexRadioDefault1" defaultValue='checked' onChange={e=>setShipping(e.target.value)} value='Outside of Dhaka 100৳' />

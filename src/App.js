@@ -101,15 +101,17 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/register' element={<Register />} />
+
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
           <Route path='address' element={<Address />} />
           <Route path='myOrders' element={<Orders />} />
         </Route>
+
         <Route path='/cart' element={<Cart />} />
         <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
 
-        <Route path='/admin' element={<Admin />}>
+        <Route path='/admin' element={<RequireAdmin><Admin /></RequireAdmin>}>
           <Route index element={<HomeAdmin />} />
           <Route path='allOrder' element={<Allorder />} />
           <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
@@ -118,6 +120,7 @@ function App() {
           <Route path='islamic/create_attar' element={<CreateAttar />} />
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
+
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/privacy_policy' element={<PrivacyPolicy />} />
         <Route path='/terms_condition' element={<TermsCondition />} />

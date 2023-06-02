@@ -18,16 +18,15 @@
     background-color: rgb(255, 135, 22);
     color: white;
     font-weight: bold;
-    margin-top: 10px;
 }
 .checkout-btn-disabled{
     border: none;
+    cursor: default;
     padding: 8px 40px;
     border-radius: 5px;
     background-color: #ffa142b2;
     color: white;
     font-weight: bold;
-    margin-top: 10px;
 }
 
 @media screen and (max-width:1000px) {

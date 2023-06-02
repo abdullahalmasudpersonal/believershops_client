@@ -9,7 +9,8 @@ const AllOrderDetail = () => {
 
     return (
         <div className='allOrderDetail'>
-            <h5 className='text-center '>Order Info</h5>
+            <h4 className='text-center '>Order Info</h4>
+            
         </div>
     );
 };
