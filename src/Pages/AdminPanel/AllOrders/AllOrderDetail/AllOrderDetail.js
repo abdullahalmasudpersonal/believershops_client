@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AllOrderDetail.css';
 import { useParams } from 'react-router-dom';
-import UseAllOrderDetail from '../../../../Hooks/UseAllOrderDetail/UseAllOrderDetail';
+import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail';
 
 const AllOrderDetail = () => {
   const {allOrderId} = useParams();
@@ -9,7 +9,7 @@ const AllOrderDetail = () => {
 
     return (
         <div className='allOrderDetail'>
-            <h4 className='text-center '>Order Info</h4>
+            <h4 className='text-center '>Order Info {allOrder._id}</h4>
             
         </div>
     );

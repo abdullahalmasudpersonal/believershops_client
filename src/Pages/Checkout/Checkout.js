@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './Checkout.css';
 import bkash from '../../Assets/img/payment/bkash.png';
 import nagod from '../../Assets/img/payment/nagod.png';
@@ -12,10 +12,13 @@ import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { deleteShoppingCart } from '../../utilities/fakedb';
+import UseAllOrders from '../../Hooks/UseAllOrders/UseAllOrders';
 
 const Checkout = () => {
     const [cart, setCart] = UseCart();
     const [shipping, setShipping] = useState();
+    const [allorders] = UseAllOrders([]);
+    const navigate = useNavigate();
     const [paymentType, setPaymentType] = useState('cashOnDelivery');
     const [selected, setSelected] = useState("males");
     const changeHandler = e => {
@@ -33,9 +36,18 @@ const Checkout = () => {
     // console.log(cart.map(product => product.quantity * product.regularPrice ))
     const myArray = ['apple', 'banana', 'orange'];
 
+    /* navigate to order view */
+    const navigateToOrderView = _id => {
+        navigate(`/dashboard/myOrders`);
+    }
+
+    /* Create Order Number */
+    const orderNumber =  + 1 + allorders.length;
+    /* ----------- handle place order ------------- */
     const handlePlaceOrder = event => {
         event.preventDefault();
         const allOrder = {
+            orderNo: orderNumber,
             coustomerName: user.displayName,
             email: user.email,
             phoneNumber: event.target.phoneNumber.value,
@@ -64,10 +76,11 @@ const Checkout = () => {
 
                         event.target.reset();
                         deleteShoppingCart();
+                        navigateToOrderView();
                     }
-                })
-        }
-    }
+                });
+        };
+    };
 
     /* load cart */
     let deliveryCharge = 60;
@@ -93,7 +106,8 @@ const Checkout = () => {
     /* date width month */
     var today = new Date();
     var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    var cDate = today.toLocaleString('en-US', options);
+    var cDates = today.toLocaleString('en-US', options);
+    const cDate = cDates;
 
     /*  Importent --- week name with date
     var today = new Date();
@@ -103,7 +117,6 @@ const Checkout = () => {
     var now = today.toLocaleString('en-US', options);
     console.log(now);
     */
-
 
     return (
         <div className='container-xxl my-5'>
@@ -268,11 +281,13 @@ const Checkout = () => {
                                     {shipping}
 
                                     <p>
-
                                         {cTime}__
                                         {cDate}
-
                                     </p>
+                                    <p>
+                                        {orderNumber}
+                                    </p>
+
 
                                     {/* <div className="form-check">
                                         <input className="form-check-input" type="radio" name="shipping" id="flexRadioDefault1" defaultValue='checked' onChange={e=>setShipping(e.target.value)} value='Outside of Dhaka 100৳' />

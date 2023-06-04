@@ -172,7 +172,7 @@ const AttarDetail = () => {
             </div>
             <AttarDesWR />
 
-            <Slider {...settings}>
+           {/*  <Slider {...settings}>
                 <div>
                     <img src={attar.image1} />
                 </div>
@@ -182,7 +182,7 @@ const AttarDetail = () => {
                 <div>
                     <img src={attar.image3} />
                 </div>
-            </Slider>
+            </Slider> */}
 
         </div>
     );

@@ -14,28 +14,6 @@ const Allorder = () => {
             .then(data => setAllOrders(data))
     }, []);
 
-    const productsName = (allOrders.map(allorder => allorder.productsName))
-    console.log('productsName', productsName)
-
-    // console.log(map)
-
-    var array = [["A1", "B1", "C1"],
-    ["A2", "B2", "C2"],
-    ["A3", "B3", "C3"],
-    ["A4", "B4", "C4"],
-    ["A5", "B5", "C5"],
-    ["A1", "B1", "C1"],
-    ["A2", "B2", "C2"],
-    ["A3", "B3", "C3"],
-    ["A4", "B4", "C4"],
-    ["A5", "B5", "C5"]];
-    //  table = document.getElementById("table");
-
-    const myArray = ['apple', 'banana', 'orange'];
-
-    const myList = myArray.map((item) => <p>*{item}</p>)
-    console.log(myList)
-
     const navigateToOrderDetail = _id => {
         navigate(`/admin/allOrder/${_id}`);
     }
@@ -44,14 +22,14 @@ const Allorder = () => {
     return (
         <div className='allorders mx-3'>
             <div className='pt-4 ps-4'>
-                <h4 className='fw-bold side-header'>All Orders {allOrders.length}</h4>
+                <h4 className='fw-bold side-header'>All Orders ({allOrders.length})</h4>
             </div>
             <hr />
             <div className='px-3 table-responsive' >
                 <table className="table">
                     <thead>
                         <tr>
-                            <th scope="col">Sl</th>
+                            <th scope="col">Order_No</th>
                             <th scope="col">Coustomer</th>
                             <th scope="col">Email</th>
                             <th scope="col">Time</th>
@@ -68,7 +46,7 @@ const Allorder = () => {
                     <tbody>
                         {allOrders.reverse().map((allOrder, index) =>
                             <tr key={allOrder._id}>
-                                <th scope="row">{index + 1}</th>
+                                <th scope="row">{allOrder.orderNo}</th>
                                 <td>{allOrder.coustomerName}</td>
                                 <td>{allOrder.email}</td>
                                 <td>{allOrder.orderTime}{allOrder.orderDate}</td>

@@ -22,7 +22,6 @@ import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/Islami
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
 import Address from './Pages/Dashboards/Address/Address';
 import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
-import Orders from './Pages/Dashboards/Orders/Orders';
 import Profile from './Pages/Dashboards/Profile/Profile';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Logins/Login/Login';
@@ -41,10 +40,11 @@ import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
 import AllOrderDetail from './Pages/AdminPanel/AllOrders/AllOrderDetail/AllOrderDetail';
 import Blogs from './Pages/Blogs/Blogs';
-import Offers from './Pages/Offers/Offers';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import TermsCondition from './Pages/Terms&Condition/Terms&Condition';
-
+import Orders from './Pages/Dashboards/Orders/Orders/Orders';
+import Offers from './Pages/Offers/Offers';
+import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
 function App() {
 
   /*   const url = 'https://mahsez-server.onrender.com/attars';
@@ -106,6 +106,7 @@ function App() {
           <Route index element={<Profile />} />
           <Route path='address' element={<Address />} />
           <Route path='myOrders' element={<Orders />} />
+          <Route path='myOrder/:myOrderId' element={<OrderDetails />} />
         </Route>
 
         <Route path='/cart' element={<Cart />} />
@@ -121,6 +122,7 @@ function App() {
           <Route path='islamic/delete_attar' element={<DeleteAttars />} />
         </Route>
 
+        <Route path='/offers' element={<Offers />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/privacy_policy' element={<PrivacyPolicy />} />
         <Route path='/terms_condition' element={<TermsCondition />} />
