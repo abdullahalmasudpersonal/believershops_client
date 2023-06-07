@@ -4,13 +4,79 @@ import { useParams } from 'react-router-dom';
 import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail';
 
 const AllOrderDetail = () => {
-  const {allOrderId} = useParams();
-  const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
+    const { allOrderId } = useParams();
+    const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
+
 
     return (
         <div className='allOrderDetail'>
-            <h4 className='text-center '>Order Info {allOrder._id}</h4>
-            
+            <div className='allOrderDetail-part1'>
+                <h4 className='text-center mt-3 m-0'>Order Information</h4>
+                <div className='order-status'>
+                    <p className='order-status-p mt-2'>Pending order</p>
+                </div>
+                <div className='shipping-summary'>
+                    <div className='order-shipping-dev'>
+                        <h6 className='mb-1'>Shipping Address</h6>
+                        <p className='mb-0'>Name: {allOrder.coustomerName}</p>
+                        <p className='mb-0'>District: {allOrder.districtName}</p>
+                        <p className='mb-0'>Address: {allOrder.address}</p>
+                        <p className='mb-0'>Comments: {allOrder.comments}</p>
+                        <p className='mb-0'>Phone: {allOrder.phoneNumber}</p>
+                    </div>
+                    <div className='order-summary-dev'>
+                        <h6>Order Summary</h6>
+                        <p className='mb-0'>Sub Total: {allOrder.productsTotalPrice}</p>
+                        <p className='mb-0'>Delivery charge: {allOrder.shippingCharge}</p>
+                        <p className='mb-0'>Total: {allOrder.grandTotal}<span className='fw-bold h4'>৳</span></p>
+                        <p className='mb-0'>Paid: {allOrder.grandTotal}<span className='fw-bold h4'>৳</span></p>
+                        <p className='mb-0'>Deu: {allOrder.grandTotal}<span className='fw-bold h4'>৳</span></p>
+                    </div>
+                </div>
+
+                <div className='mt-4'>
+                    <h6 className='fw-bold'>Order Products</h6>
+                    <div>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Quantity  </th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr key={allOrder._id}>
+                                    <th scope="row">{allOrder.index + 1}</th>
+                                    <td>{allOrder.productsName}</td>
+                                    <td>{allOrder.productsQuantity} Ps</td>
+                                    <td>{allOrder.productPrice} $</td>
+                                </tr>
+
+
+                                {/* {
+                                    allOrder.map((order, index) =>
+                                        <tr key={order._id}>
+                                            <th scope="row">{index + 1}</th>
+                                            <td>{order.productsName}</td>
+                                            <td>{order.productsQuantity} Ps</td>
+                                            <td>{order.productPrice} $</td>
+                                        </tr>
+                                    )
+                                } */}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div className='allOrderDetail-part2 '>
+                <h5 className='text-center mt-3'>Order History</h5>
+            </div>
+
         </div>
     );
 };

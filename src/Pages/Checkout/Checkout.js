@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './Checkout.css';
 import bkash from '../../Assets/img/payment/bkash.png';
@@ -13,28 +13,20 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { deleteShoppingCart } from '../../utilities/fakedb';
 import UseAllOrders from '../../Hooks/UseAllOrders/UseAllOrders';
+import District from './District';
 
-const Checkout = () => {
+const Checkout = (allOrderId) => {
+    const [user] = useAuthState(auth);
     const [cart, setCart] = UseCart();
     const [shipping, setShipping] = useState();
     const [allorders] = UseAllOrders([]);
     const navigate = useNavigate();
     const [paymentType, setPaymentType] = useState('cashOnDelivery');
     const [selected, setSelected] = useState("males");
+
     const changeHandler = e => {
         setSelected(e.target.value);
     };
-    // console.log(selected)
-    //   const { productsId } = useParams();
-    //  const [products] = UseProductDetails(productsId);
-    const [user] = useAuthState(auth);
-    const name = (cart.map(porduct => porduct.name))
-    // console.log('email', user.email)
-    // console.log('name', name.toString())
-    // console.log(cart.map(product=>product.assign({},product.name)))
-    //  console.log('order', {cart.map(porduct => <td>{product.name}</td>)})
-    // console.log(cart.map(product => product.quantity * product.regularPrice ))
-    const myArray = ['apple', 'banana', 'orange'];
 
     /* navigate to order view */
     const navigateToOrderView = _id => {
@@ -42,7 +34,7 @@ const Checkout = () => {
     }
 
     /* Create Order Number */
-    const orderNumber =  + 1 + allorders.length;
+    const orderNumber = allorders.length;
     /* ----------- handle place order ------------- */
     const handlePlaceOrder = event => {
         event.preventDefault();
@@ -51,6 +43,7 @@ const Checkout = () => {
             coustomerName: user.displayName,
             email: user.email,
             phoneNumber: event.target.phoneNumber.value,
+            districtName: event.target.district_name.value,
             address: event.target.address.value,
             comment: event.target.comment.value,
             shippingCharge: shipping,
@@ -105,8 +98,8 @@ const Checkout = () => {
     setInterval(updateTime, 1000);
     /* date width month */
     var today = new Date();
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    var cDates = today.toLocaleString('en-US', options);
+    var optionss = { year: 'numeric', month: 'long', day: 'numeric' };
+    var cDates = today.toLocaleString('en-US', optionss);
     const cDate = cDates;
 
     /*  Importent --- week name with date
@@ -117,6 +110,7 @@ const Checkout = () => {
     var now = today.toLocaleString('en-US', options);
     console.log(now);
     */
+
 
     return (
         <div className='container-xxl my-5'>
@@ -139,6 +133,10 @@ const Checkout = () => {
                         <div>
                             <p className='mb-0'><small>Phone Number*</small></p>
                             <input type='number' name='phoneNumber' required />
+                        </div>
+                        <div>
+                            <p className='mb-0'><small>Select District*</small></p>
+                            <input type='text' name='district_name' required />
                         </div>
                         <div>
                             <p className='mb-0'><small>Full  Address*</small></p>
@@ -285,7 +283,7 @@ const Checkout = () => {
                                         {cDate}
                                     </p>
                                     <p>
-                                        {orderNumber}
+                                        orderNumber {orderNumber}
                                     </p>
 
 

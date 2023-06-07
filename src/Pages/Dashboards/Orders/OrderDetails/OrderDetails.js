@@ -4,12 +4,14 @@ import { useParams } from 'react-router-dom';
 import UseOrderDetails from '../../../../Hooks/UseOrders/UseOrderDetails';
 
 const OrderDetails = () => {
-    const {myOrderId} = useParams();
+    const { myOrderId } = useParams();
     const [orderDetails, setOrderDetails] = UseOrderDetails(myOrderId);
 
     return (
-        <div>
+        <div className='dashboard-dev2'>
             <h4>Order details {orderDetails._id}</h4>
+
+            
         </div>
     );
 };
