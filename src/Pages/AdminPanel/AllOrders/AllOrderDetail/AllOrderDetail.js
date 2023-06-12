@@ -6,6 +6,67 @@ import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail'
 const AllOrderDetail = () => {
     const { allOrderId } = useParams();
     const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
+    const id = allOrder._id;
+    const orderNo = allOrder.orderNo;
+    // console.log('id', id)
+
+    const confirmOrderStatus = () => {
+        fetch(`http://localhost:5000/user/confirmOrderStatus/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    };
+
+    const cancelOrderStatus = () => {
+        fetch(`http://localhost:5000/user/cancelOrderStatus/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    };
+
+    const deliveredOrderStatus = event => {
+        event.preventDefault();
+        const proceed = window.confirm('Are you sure?')
+        if (proceed) {
+            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
+                method: 'PUT',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+        }
+    };
+
+    /*     const deliveredOrderStatus = () => {
+            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
+                method: 'PUT',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+        };
+     */
+
 
 
     return (
@@ -14,6 +75,10 @@ const AllOrderDetail = () => {
                 <h4 className='text-center mt-3 m-0'>Order Information</h4>
                 <div className='order-status'>
                     <p className='order-status-p mt-2'>Pending order</p>
+                </div>
+                <div>
+                    <p className='text-center m-0'>Order# &nbsp;0000{allOrder.orderNo}</p>
+                    <p className='text-center'>{allOrder.email}</p>
                 </div>
                 <div className='shipping-summary'>
                     <div className='order-shipping-dev'>
@@ -53,6 +118,7 @@ const AllOrderDetail = () => {
                                     <td>{allOrder.productsName}</td>
                                     <td>{allOrder.productsQuantity} Ps</td>
                                     <td>{allOrder.productPrice} $</td>
+
                                 </tr>
 
 
@@ -73,8 +139,72 @@ const AllOrderDetail = () => {
 
             </div>
 
-            <div className='allOrderDetail-part2 '>
-                <h5 className='text-center mt-3'>Order History</h5>
+            <div className='allOrderDetail-part2 p-4'>
+                <div className='text-center'>
+
+                    {
+                        allOrder.confirmOrderStatus ?
+                            ''
+                            :
+                            <button type="button" class="btn btn-info" onClick={confirmOrderStatus}>Comfirm Order</button>
+                    }
+                    <br /><br />
+                    {
+                        allOrder.confirmOrderStatus ?
+                            ''
+                            :
+                            <button type="button" class="btn btn-warning" onClick={cancelOrderStatus}>Cancel Order</button>
+                    }
+                    <br /><br />
+                    {
+                        allOrder.confirmOrderStatus ?
+                            ''
+                            :
+                            <button type="button" class="btn btn-success" onClick={deliveredOrderStatus}>Delivered Order</button>
+                    }
+                </div>
+
+                <h5 className='text-center mt-4'>Order History</h5>
+
+                <div className='mt-4'>
+                    {
+                        allOrder.deliveredOrderStatus ?
+                            <div className='order-status-graph'>
+                                <h6>{allOrder.deliveredOrderStatus}</h6>
+                                <p className='m-0'>{allOrder.deliveredOrderDate}&nbsp;{allOrder.deliveredOrderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                    {
+                        allOrder.confirmOrderStatus ?
+                            <div className='order-status-graph'>
+                                <h6>{allOrder.confirmOrderStatus}</h6>
+                                <p className='m-0'>{allOrder.confirmOrderDate}&nbsp;{allOrder.confirmorderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                    {
+                        allOrder.cancelOrderStatus ?
+                            <div className='order-status-graph'>
+                                <h6>{allOrder.cancelOrderStatus}</h6>
+                                <p className='m-0'>{allOrder.cancelOrderDate}&nbsp;{allOrder.cancelOrderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                    {
+                        allOrder.status ?
+                            <div className='order-status-graph'>
+                                <h6>{allOrder.status}</h6>
+                                <p className='m-0'>{allOrder.orderDate}&nbsp;{allOrder.orderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                </div>
+
             </div>
 
         </div>

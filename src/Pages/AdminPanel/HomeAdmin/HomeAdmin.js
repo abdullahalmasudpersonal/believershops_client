@@ -3,7 +3,7 @@ import './HomeAdmin.css';
 
 const HomeAdmin = () => {
     return (
-        <div>
+        <div className='dashboard-dev2' style={{background:'white'}}>
             Home Admin
         </div>
     );

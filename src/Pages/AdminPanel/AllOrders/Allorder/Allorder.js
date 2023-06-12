@@ -10,14 +10,13 @@ const Allorder = () => {
     const [allOrder, setAllOrder] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`https://mahsez-server.onrender.com/allOrder?email=${user.email}`, {
+        fetch(`http://localhost:5000/allOrder?email=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => {
-                console.log('res', res);
                 if (res.status === 401 || res.status === 403) {
                     signOut(auth);
                     navigate('/');
@@ -37,7 +36,7 @@ const Allorder = () => {
 
 
     return (
-        <div className='allorders mx-3'>
+        <div className='allorders' style={{background:'white'}}>
             <div className='pt-4 ps-4'>
                 <h4 className='fw-bold side-header'>All Orders ({allOrder.length})</h4>
             </div>
@@ -63,7 +62,7 @@ const Allorder = () => {
                                     <th scope="row">{allOrder.orderNo}</th>
                                     <td>{allOrder.coustomerName}</td>
                                     <td>{allOrder.email}</td>
-                                    <td>{allOrder.orderTime}{allOrder.orderDate}</td>
+                                    <td>{allOrder.orderTime}&nbsp;{allOrder.orderDate}</td>
                                     <td>{allOrder.productsName}</td>
                                     <td>{allOrder.grandTotal}</td>
                                     <td className='text-end'>Cash</td>

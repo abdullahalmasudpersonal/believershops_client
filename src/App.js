@@ -47,7 +47,7 @@ import Offers from './Pages/Offers/Offers';
 import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
 function App() {
 
-  /*   const url = 'https://mahsez-server.onrender.com/attars';
+  /*   const url = 'http://localhost:5000/attars';
   
     const [CartItem, setCartItem] = useState([]);
   
@@ -70,7 +70,7 @@ function App() {
     } */
 
   /* const [products, setProducts] = useState([url]);
-  const url = 'https://mahsez-server.onrender.com/attars';
+  const url = 'http://localhost:5000/attars';
   const [cart, setCart] = useState([])
   const [showCart, setShowCart] = useState(false)
   

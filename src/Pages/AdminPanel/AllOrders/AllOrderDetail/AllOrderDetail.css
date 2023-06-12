@@ -9,11 +9,12 @@
     justify-content: center;
     grid-template-columns: repeat(900px, 200px) !important;
     grid-gap: 20px;
+    background-color: white;
 }
 .allOrderDetail-part1{
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     padding: 10px;
-    width: 700px;
+    width: 650px;
 }
 .order-status{
     display: flex;
@@ -54,6 +55,23 @@
     padding: 10px;
     width: 300px;
 }
+.order-status-graph {
+    padding: 0 0 25px 20px;
+    margin-top: -2px;
+    border-left: 2px solid #b0bac4;
+    position: relative;
+}
+.order-status-graph::before {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    border-radius: 50px;
+    left: -9px;
+    top: 4px;
+    background: rgba(0, 34, 85, 0.932);
+}
+
 @media screen and (min-width:1200px) {
     
 }

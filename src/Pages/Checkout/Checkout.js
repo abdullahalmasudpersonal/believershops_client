@@ -33,6 +33,8 @@ const Checkout = (allOrderId) => {
         navigate(`/dashboard/myOrders`);
     }
 
+    /* Order status */
+    const orderStatus = 'Pending';
     /* Create Order Number */
     const orderNumber = allorders.length;
     /* ----------- handle place order ------------- */
@@ -49,6 +51,7 @@ const Checkout = (allOrderId) => {
             shippingCharge: shipping,
             orderTime: cTime,
             orderDate: cDate,
+            status: orderStatus,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),
@@ -60,9 +63,8 @@ const Checkout = (allOrderId) => {
 
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
+            axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
-                    console.log('response', response)
                     const { data } = response;
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
@@ -96,6 +98,7 @@ const Checkout = (allOrderId) => {
         setCTime(time);
     };
     setInterval(updateTime, 1000);
+
     /* date width month */
     var today = new Date();
     var optionss = { year: 'numeric', month: 'long', day: 'numeric' };
