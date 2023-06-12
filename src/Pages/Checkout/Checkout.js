@@ -31,7 +31,9 @@ const Checkout = (allOrderId) => {
     /* navigate to order view */
     const navigateToOrderView = _id => {
         navigate(`/dashboard/myOrders`);
-    }
+    };
+
+    console.log('cart', cart.map(product => product))
 
     /* Order status */
     const orderStatus = 'Pending';
@@ -52,6 +54,7 @@ const Checkout = (allOrderId) => {
             orderTime: cTime,
             orderDate: cDate,
             status: orderStatus,
+            cart:(cart),
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),

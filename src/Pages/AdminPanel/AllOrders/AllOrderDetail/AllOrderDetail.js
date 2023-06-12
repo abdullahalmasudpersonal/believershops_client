@@ -86,7 +86,7 @@ const AllOrderDetail = () => {
                         <p className='mb-0'>Name: {allOrder.coustomerName}</p>
                         <p className='mb-0'>District: {allOrder.districtName}</p>
                         <p className='mb-0'>Address: {allOrder.address}</p>
-                        <p className='mb-0'>Comments: {allOrder.comments}</p>
+                        <p className='mb-0'>Comments: {allOrder.comment}</p>
                         <p className='mb-0'>Phone: {allOrder.phoneNumber}</p>
                     </div>
                     <div className='order-summary-dev'>

@@ -1,0 +1,59 @@
+.orderDetail{
+    display: flex;
+    grid-gap: 15px;
+    padding: 15px;
+}
+.orderDetail-dev1 {
+    width: 70%;
+    padding: 15px;
+    border-radius: 3px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+.orderDetail-shipping-orderSummary{
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: rgb(238, 246, 255);
+    display: flex;
+    grid-template-columns: repeat(50% 50%);
+}
+.orderDetail-shipping-address{
+    width: 50%;
+    margin-right: 10px;
+}
+.orderDetail-order-summary{
+    width: 50%;
+}
+
+.orderDetail-dev2 {
+    width: 30%;
+    padding: 15px;
+    border-radius: 3px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+@media screen and (max-width:750px) {
+    .orderDetail-shipping-orderSummary{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .orderDetail-shipping-address{
+        width: 100%;
+        margin-right: 10px;
+    }
+    .orderDetail-order-summary{
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+ @media screen and (max-width:1000px) {
+    .orderDetail{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .orderDetail-dev1{
+        width: 100%;
+    }
+    .orderDetail-dev2{
+        width: 100%;
+    }
+} 
