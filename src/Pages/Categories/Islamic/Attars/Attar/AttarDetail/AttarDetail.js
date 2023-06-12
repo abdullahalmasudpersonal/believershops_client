@@ -5,11 +5,11 @@ import React, { useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
-import UseProductDetails from '../../../../../Hooks/UseProductDetails/UseProductDetails';
 import { toast } from 'react-toastify';
-import { addToDb } from '../../../../../utilities/fakedb';
-import UseCart from '../../../../Cart/UseCart';
 import Slider from 'react-slick';
+import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
+import { addToDb } from '../../../../../../utilities/fakedb';
+import UseCart from '../../../../../Cart/UseCart';
 
 
 const AttarDetail = () => {

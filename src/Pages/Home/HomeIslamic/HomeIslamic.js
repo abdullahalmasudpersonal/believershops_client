@@ -1,7 +1,7 @@
 import React from 'react';
 import UseAttars from '../../../Hooks/UseAttars/UseAttars';
 import '../Home/HomeProduct.css';
-import Attar from '../../Categories/Islamic/Attar/Attar';
+import Attar from '../../Categories/Islamic/Attars/Attar/Attar';
 
 const HomeIslamic = () => {
     const [attars, setAttars] = UseAttars([]);

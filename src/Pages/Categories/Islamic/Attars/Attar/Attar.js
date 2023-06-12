@@ -3,9 +3,11 @@ import { } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { removeFromDb } from '../../../../utilities/fakedb';
-import UseCart from '../../../Cart/UseCart';
-import '../AllIslamicsCss/AllIslamic.css';
+import UseCart from '../../../../Cart/UseCart';
+import { removeFromDb } from '../../../../../utilities/fakedb';
+import '../../AllIslamicsCss/AllIslamic.css';
+import './Attar.css';
+
 
 const Attar = ({ handleAddToCard, attar }) => {
     const [cart, setCart] = UseCart();

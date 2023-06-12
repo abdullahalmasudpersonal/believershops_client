@@ -14,8 +14,6 @@ import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
 import Datess from './Pages/Categories/Foods/Datess/Datess/Datess';
 import Foods from './Pages/Categories/Foods/Foods/Foods';
-import AttarDetail from './Pages/Categories/Islamic/Attar/AttarDetail/AttarDetail';
-import Attars from './Pages/Categories/Islamic/Attar/Attars';
 import Caps from './Pages/Categories/Islamic/Caps/Caps/Caps';
 import Jainamazs from './Pages/Categories/Islamic/Jainamazs/Jainamazs/Jainamazs';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
@@ -45,6 +43,8 @@ import TermsCondition from './Pages/Terms&Condition/Terms&Condition';
 import Orders from './Pages/Dashboards/Orders/Orders/Orders';
 import Offers from './Pages/Offers/Offers';
 import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
+import Attars from './Pages/Categories/Islamic/Attars/Attar/Attars';
+import AttarDetail from './Pages/Categories/Islamic/Attars/Attar/AttarDetail/AttarDetail';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';

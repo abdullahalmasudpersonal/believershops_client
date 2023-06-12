@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
+import React from 'react';
 import Attar from './Attar';
-import '../AllIslamicsCss/AllIslamics.css';
-import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
-import UseCart from '../../../Cart/UseCart';
+import '../../AllIslamicsCss/AllIslamic.css';
 import { toast } from 'react-toastify';
-import { useParams } from 'react-router-dom';
-import UseAttarDetail from '../../../../Hooks/UseAttars/UseAttarDetail';
-import UseProduct from '../../../../Hooks/UseProduct/UseProduct';
+import UseAttars from '../../../../../Hooks/UseAttars/UseAttars';
+import UseCart from '../../../../Cart/UseCart';
+import { addToDb } from '../../../../../utilities/fakedb';
 
 const Attars = () => {
     const [attars, setAttars] = UseAttars([]);
