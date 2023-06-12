@@ -6,6 +6,7 @@ import UseOrderDetails from '../../../../Hooks/UseOrders/UseOrderDetails';
 const OrderDetails = () => {
     const { myOrderId } = useParams();
     const [orderDetails, setOrderDetails] = UseOrderDetails(myOrderId);
+    const { productsName, status, productsQuantity, productsTotalPrice, productsImage } = orderDetails;
 
     return (
         <div className='dashboard-dev2 orderDetail'>
@@ -13,7 +14,7 @@ const OrderDetails = () => {
             <div className='orderDetail-dev1'>
                 <h5 className='text-center mb-1'>Order Information</h5>
                 <div className='order-status'>
-                    <p className='order-status-p'>{orderDetails.status}</p>
+                    <p className='order-status-p'>{status}</p>
                 </div>
                 <p className='text-center m-0'>Order# &nbsp;0000{orderDetails.orderNo}</p>
 
@@ -71,18 +72,34 @@ const OrderDetails = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    {/* {
-                                        orderDetails.productName.map(orderDetail =>
-                                            <td>{orderDetail.productName}</td>
-                                        )
-                                    } */}
-                                    <td>{orderDetails.productsName}</td>
-                                    <td>Otto</td>
-                                    <td className='text-end'>@mdo</td>
-                                    <td className='text-end'>@mdo</td>
+                                    {/*              { 
+                      productsName.map(productName => <p>{productName}</p>)
+                      
+                        } */}
+                                    <td>
+                                        {productsImage.map(productImage => <div><img width='60px' src={productImage} /></div>)}
+                                    </td>
+                                    <td>
+                                        {productsName.map(productName => <p className='mt-4 mb-4'>{productName}</p>)}
+                                    </td>
+                                    <td className='text-end'>
+                                        {productsQuantity.map(productQuantity => <p>{productQuantity}</p>)}
+                                    </td>
+                                    <td className='text-end'>
+                                        {productsTotalPrice.map(productTotalPrice => <p>{productTotalPrice}</p>)}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div>
+
+                            {/*  { 
+                      productsName.map(productName => <p>{productName}</p>)
+                      
+                        } */}
+
+                        </div>
+                        {/* productsName.map(productName=><p>{productName}<p>) */}
                     </div>
                 </div>
 
