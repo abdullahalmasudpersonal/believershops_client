@@ -120,8 +120,8 @@ function App() {
           <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
           <Route path='allAdmin' element={<AllAdmins />} />
           <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-          <Route path='islamic/create_attar' element={<CreateAttar />} />
-          <Route path='islamic/delete_attar' element={<DeleteAttars />} />
+          <Route path='create_product' element={<CreateAttar />} />
+          <Route path='delete_product' element={<DeleteAttars />} />
         </Route>
 
         <Route path='/offers' element={<Offers />} />

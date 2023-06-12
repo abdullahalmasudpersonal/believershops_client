@@ -23,10 +23,12 @@ const Admin = () => {
                         <Link to='/admin/allAdmin'>
                             <button>All Admin</button>
                         </Link>
-
-                        <button>View Cart</button>
-                        <button>My Reviews</button>
-                        <button>Transactions</button>
+                        <Link to='/admin/create_product'>
+                            <button>Ad Product</button>
+                        </Link>
+                        <Link to='/admin/delete_product'>
+                            <button>All Products</button>
+                        </Link>
 
                     </div>
 

@@ -66,10 +66,10 @@ const CreateAttar = () => {
     };
 
     return (
-        <div className='m-5 create-product'>
-            <div className='create-product-dev pb-2'>
+        <div className='dashboard-dev2 py-5' style={{background:'white'}}>
+            <div className='create-product-dev'>
                 <h4 className='text-center mb-4 pt-4'>Create Attar</h4>
-                <div>
+                <div className='pb-4'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input type='text' placeholder='Enter Product Name' {...register("name", { required: true })} />
 

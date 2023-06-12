@@ -25,20 +25,21 @@ const DeleteAttars = () => {
 
 
     return (
-        <div className='m-4 col'>
-            <table className="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">SL</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div className='dashboard-dev2' style={{background:'white'}}>
+            <div className='m-4 col'>
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">SL</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                        <Loading />
-                    {/* {
+                        {/*    <Loading /> */}
+                        {/* {
                         attars.map((attar, index) =>
                             <tr key={attar._id}>
                                 <th scope="row">{index + 1}</th>
@@ -47,8 +48,9 @@ const DeleteAttars = () => {
                                 <td><button onClick={() => handleDelete(attar._id)} className=' order-calcel-btn'>Delete</button></td>
                             </tr>)
                     }  */}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
