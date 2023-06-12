@@ -97,7 +97,7 @@ const HomeHeader = () => {
                                         <ul className='p-0'>
                                             <Link to='/categore/islamic/jainamazs' style={{ textDecoration: 'none' }}><li>Populer Attar</li>
                                             </Link>
-                                            <Link to='/categore/islamic/tazbeehs' style={{ textDecoration: 'none' }}><li>Combo Offer</li>
+                                            <Link to='/categore/islamic/attars/combo_offer' style={{ textDecoration: 'none' }}><li>Combo Offer</li>
                                             </Link>
                                             <Link to='/categore/islamic/caps' style={{ textDecoration: 'none' }}><li>Alif Attar</li>
                                             </Link>

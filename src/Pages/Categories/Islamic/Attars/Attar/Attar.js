@@ -1,5 +1,4 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';

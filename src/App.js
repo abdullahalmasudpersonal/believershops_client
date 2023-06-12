@@ -45,6 +45,7 @@ import Offers from './Pages/Offers/Offers';
 import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
 import Attars from './Pages/Categories/Islamic/Attars/Attar/Attars';
 import AttarDetail from './Pages/Categories/Islamic/Attars/Attar/AttarDetail/AttarDetail';
+import AttarComboOffers from './Pages/Categories/Islamic/Attars/ComboOffer/AttarComboOffers/AttarComboOffers';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -95,6 +96,7 @@ function App() {
           <Route path='islamic/jainamazs' element={<Jainamazs />} />
           <Route path='islamic/tazbeehs' element={<Tazbeehs />} />
           <Route path='islamic/caps' element={<Caps />} />
+          <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
           <Route path='islamic/attars' element={<Attars />} />
           <Route path='islamic/attar/:productId' element={<AttarDetail />} />
         </Route>

@@ -10,7 +10,6 @@ const Attars = () => {
     const [attars, setAttars] = UseAttars([]);
      const [cart, setCart] = UseCart();
     
-
  /*      useEffect( () =>{
          const storedCart = getStoredCart();
          const savedCart = [];
@@ -46,10 +45,6 @@ const Attars = () => {
 
     return (
         <div className='islamics-attars'>
-            {/*  <div className='cartlength'>
-                <CartQuantity cart={cart} />
-            </div>   */}
-            <>{cart.length}</>
             <div className='islamics-attars-dev'>
                 {
                     attars.filter(categore => categore.category === 'attar').map(attar => <Attar key={attar._id} attar={attar} handleAddToCard={handleAddToCard} />)
