@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import { toast } from 'react-toastify';
-import UseAttars from '../../../../../../Hooks/UseAttars/UseAttars';
-import Loading from '../../../../../Shared/Loading/Loading';
-import './DeleteAttars.css';
+import './DeleteProduct.css';
+import UseAttars from '../../../Hooks/UseAttars/UseAttars';
 
-const DeleteAttars = () => {
+const DeleteProduct = () => {
     const [attars, setAttars] = UseAttars();
 
     const handleDelete = _id => {
@@ -25,7 +24,7 @@ const DeleteAttars = () => {
 
 
     return (
-        <div className='dashboard-dev2' style={{background:'white'}}>
+        <div className='dashboard-dev2' style={{ background: 'white' }}>
             <div className='m-4 col'>
                 <table className="table table-hover">
                     <thead>
@@ -39,15 +38,15 @@ const DeleteAttars = () => {
                     <tbody>
 
                         {/*    <Loading /> */}
-                        {/* {
-                        attars.map((attar, index) =>
-                            <tr key={attar._id}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{attar.name}</td>
-                                <td><img width='50px' src={attar.img} alt='' /></td>
-                                <td><button onClick={() => handleDelete(attar._id)} className=' order-calcel-btn'>Delete</button></td>
-                            </tr>)
-                    }  */}
+                        {
+                            attars.map((attar, index) =>
+                                <tr key={attar._id}>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{attar.name}</td>
+                                    <td><img width='50px' src={attar.img} alt='' /></td>
+                                    <td><button onClick={() => handleDelete(attar._id)} className=' order-calcel-btn'>Delete</button></td>
+                                </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
@@ -55,4 +54,4 @@ const DeleteAttars = () => {
     );
 };
 
-export default DeleteAttars;
+export default DeleteProduct;

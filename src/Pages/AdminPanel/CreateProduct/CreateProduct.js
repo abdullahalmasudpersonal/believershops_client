@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import '../../../../CreateProductCSS/CreateProductCSS.css';
+import './CreateProduct.css'
 
-const CreateAttar = () => {
+const CreateProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const imageStorageKey = process.env.REACT_APP_imgbb_key;
@@ -99,4 +99,4 @@ const CreateAttar = () => {
     );
 };
 
-export default CreateAttar;
+export default CreateProduct;

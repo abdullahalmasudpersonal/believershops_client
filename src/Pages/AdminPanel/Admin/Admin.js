@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import AdminSideber from '../AdminSideber/AdminSideber';
-import '../AdminSideber/AdminSideber.css'
+import './Admin.css'
 
 const Admin = () => {
     return (

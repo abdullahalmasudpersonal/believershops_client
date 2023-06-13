@@ -8,8 +8,6 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Admin from './Pages/AdminPanel/Admin/Admin';
-import CreateAttar from './Pages/AdminPanel/AdminCategories/Islamics/ManageAttars/CreateAttars/CreateAttar';
-import DeleteAttars from './Pages/AdminPanel/AdminCategories/Islamics/ManageAttars/DeleteAttars/DeleteAttars';
 import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
 import Datess from './Pages/Categories/Foods/Datess/Datess/Datess';
@@ -46,6 +44,8 @@ import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
 import Attars from './Pages/Categories/Islamic/Attars/Attar/Attars';
 import AttarDetail from './Pages/Categories/Islamic/Attars/Attar/AttarDetail/AttarDetail';
 import AttarComboOffers from './Pages/Categories/Islamic/Attars/ComboOffer/AttarComboOffers/AttarComboOffers';
+import CreateProduct from './Pages/AdminPanel/CreateProduct/CreateProduct';
+import DeleteProduct from './Pages/AdminPanel/DeleteProduct/DeleteProduct';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -120,8 +120,8 @@ function App() {
           <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
           <Route path='allAdmin' element={<AllAdmins />} />
           <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-          <Route path='create_product' element={<CreateAttar />} />
-          <Route path='delete_product' element={<DeleteAttars />} />
+          <Route path='create_product' element={<CreateProduct />} />
+          <Route path='delete_product' element={<DeleteProduct />} />
         </Route>
 
         <Route path='/offers' element={<Offers />} />
