@@ -6,10 +6,10 @@ import './CreateProduct.css'
 const CreateProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
-    const imageStorageKey = process.env.REACT_APP_imgbb_key;
+    const imageStorageKey = 'a3d4bff21c6d258146feb02c43808485';
 
-    const onSubmit = (data) => {
-        const image = data.image[0];
+    const onSubmit = async data => {
+        const image = data.image1[0];
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
@@ -20,57 +20,48 @@ const CreateProduct = () => {
             .then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
-                    // const img = imgData.data.url;
-                    const newAttar = {
+                    //  const img = imgData.data.url;
+                    const newPorduct = {
+                        category: data.category,
                         name: data.name,
                         brand: data.brand,
                         availability: data.availability,
                         ragularPrice: data.ragularPrice,
                         offerPrice: data.offerPrice,
                         description: data.description,
-                        img: imgData.data.url
+                        image1: imgData.data.url
                     }
-                    fetch('http://localhost:5000/attars', {
+                    fetch('http://localhost:5000/products', {
                         method: "POST",
                         headers: {
-                            'content-type': 'application/json'
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         },
-                        body: JSON.stringify(newAttar)
+                        body: JSON.stringify(newPorduct)
                     })
                         .then(res => res.json())
                         .then(inserted => {
+                            console.log('inser',inserted)
                             if (inserted.insertedId) {
-                                toast.success('Added New Attar');
+                                toast.success('Added New Product');
                                 reset();
                             }
                             else {
-                                toast.error('Faield to Added New Attar')
+                                toast.error('Faield to Added New Product')
                             }
                         })
                 }
-            })
-
-        /*         const url = `http://localhost:5000/attars`;
-                fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then(result => {
-                    toast.success('Added Attar')
-                    e.target.reset();
-                }) */
+            });
     };
 
     return (
-        <div className='dashboard-dev2 py-5' style={{background:'white'}}>
+        <div className='dashboard-dev2 py-5' style={{ background: 'white' }}>
             <div className='create-product-dev'>
                 <h4 className='text-center mb-4 pt-4'>Create Attar</h4>
                 <div className='pb-4'>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <input type='text' placeholder='Enter Product Category' {...register("category", { required: true })} />
+
                         <input type='text' placeholder='Enter Product Name' {...register("name", { required: true })} />
 
                         <input type='text' placeholder='Enter Product Brand' {...register("brand", { required: true })} />
@@ -83,11 +74,11 @@ const CreateProduct = () => {
 
                         <input type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} />
 
-                        <input type='text' placeholder='Enter Product Description-2' {...register("description", { required: true })} />
+                        {/*                         <input type='text' placeholder='Enter Product Description-2' {...register("description", { required: true })} />
 
-                        <input type='text' placeholder='Enter Product Description-3' {...register("description", { required: true })} />
+                        <input type='text' placeholder='Enter Product Description-3' {...register("description", { required: true })} /> */}
 
-                        <input className='' type="file" {...register("image", {
+                        <input className='' type="file" {...register("image1", {
                             required: "Photo is Required"
                         })} />
 
