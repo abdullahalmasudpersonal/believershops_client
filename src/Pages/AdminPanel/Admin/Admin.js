@@ -25,8 +25,11 @@ const Admin = () => {
                         <Link to='/admin/create_product'>
                             <button>Ad Product</button>
                         </Link>
+                        <Link to='/admin/update_product'>
+                            <button>Update Product</button>
+                        </Link>
                         <Link to='/admin/delete_product'>
-                            <button>All Products</button>
+                            <button>Delete Products</button>
                         </Link>
 
                     </div>
