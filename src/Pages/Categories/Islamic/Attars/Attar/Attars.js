@@ -8,21 +8,21 @@ import { addToDb } from '../../../../../utilities/fakedb';
 
 const Attars = () => {
     const [attars, setAttars] = UseAttars([]);
-     const [cart, setCart] = UseCart();
-    
- /*      useEffect( () =>{
-         const storedCart = getStoredCart();
-         const savedCart = [];
-         for(const _id in storedCart){
-             const addedProduct = attars.find(product => product._id === _id);
-             if(addedProduct){
-                 const quantity = storedCart[_id];
-                 addedProduct.quantity = quantity;
-                 savedCart.push(addedProduct);
-             }
-         }
-         setCart(savedCart);
-     }, [attars])   */
+    const [cart, setCart] = UseCart();
+
+    /*      useEffect( () =>{
+            const storedCart = getStoredCart();
+            const savedCart = [];
+            for(const _id in storedCart){
+                const addedProduct = attars.find(product => product._id === _id);
+                if(addedProduct){
+                    const quantity = storedCart[_id];
+                    addedProduct.quantity = quantity;
+                    savedCart.push(addedProduct);
+                }
+            }
+            setCart(savedCart);
+        }, [attars])   */
 
     const handleAddToCard = (selectedAttar) => {
         let newCart = [];

@@ -8,7 +8,6 @@ import sureCash from '../../Assets/img/payment/sureCash.png';
 import UseCart from '../Cart/UseCart';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import UseProductDetails from '../../Hooks/UseProductDetails/UseProductDetails';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { deleteShoppingCart } from '../../utilities/fakedb';

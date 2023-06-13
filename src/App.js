@@ -47,6 +47,7 @@ import AttarComboOffers from './Pages/Categories/Islamic/Attars/ComboOffer/Attar
 import CreateProduct from './Pages/AdminPanel/CreateProduct/CreateProduct';
 import DeleteProduct from './Pages/AdminPanel/DeleteProduct/DeleteProduct';
 import UpdateProducts from './Pages/AdminPanel/UpdateProducts/UpdateProducts/UpdateProducts';
+import UpdateProductInfo from './Pages/AdminPanel/UpdateProducts/UpdateProductInfo/UpdateProductInfo';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -123,6 +124,7 @@ function App() {
           <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
           <Route path='create_product' element={<CreateProduct />} />
           <Route path='update_product' element={<UpdateProducts />} />
+          <Route path='update_product/:productId' element={<UpdateProductInfo />} />
           <Route path='delete_product' element={<DeleteProduct />} />
         </Route>
 

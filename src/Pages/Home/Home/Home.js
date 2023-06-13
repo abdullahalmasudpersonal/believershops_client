@@ -11,7 +11,7 @@ const Home = () => {
     const changeHandler = e => {
         setSelected(e.target.value);
     };
-    console.log(selected)
+  //  console.log(selected)
 
 
     return (

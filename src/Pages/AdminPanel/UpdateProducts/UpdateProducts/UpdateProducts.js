@@ -1,8 +1,14 @@
 import React from 'react';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
+import { useNavigate } from 'react-router-dom';
 
 const UpdateProducts = () => {
     const [products, setProducts] = UseProducts([]);
+    const navigate = useNavigate();
+
+    const navigateToUpdateProduct = _id => {
+        navigate(`/admin/update_product/${_id}`);
+    }
 
     return (
         <div className='dashboard-dev2' style={{ background: 'white' }}>
@@ -24,14 +30,14 @@ const UpdateProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((product,index) =>
+                            products.map((product, index) =>
                                 <tr>
                                     <th scope="row" className='ps-0'>{index + 1}</th>
                                     <td>{product.name}</td>
                                     <td className='text-center'><img src={product.img} width='37px' height='37px' /></td>
                                     <td className='text-center'>{product.category}</td>
                                     <td className='text-center'>{product.availableQuantity}</td>
-                                    <td className='text-end pe-0'><button className='btn btn-warning'>Update</button></td>
+                                    <td className='text-end pe-0'><button className='btn btn-warning' onClick={() => navigateToUpdateProduct(product._id)}>Update</button></td>
                                 </tr>)
                         }
                     </tbody>

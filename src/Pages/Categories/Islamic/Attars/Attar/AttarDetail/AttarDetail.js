@@ -1,25 +1,23 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
-import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
 import { addToDb } from '../../../../../../utilities/fakedb';
 import UseCart from '../../../../../Cart/UseCart';
+import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
 
 
 const AttarDetail = () => {
     const [cart, setCart] = UseCart();
     const { productId } = useParams();
-    const [attar] = UseProductDetails(productId);
+    const [productDetails] = UseProductDetails(productId);
     const [count, setCount] = useState(1);
     const [imgSlide, setImgSlide] = useState();
-
-
 
     function increment() {
         //setCount(prevCount => prevCount+=1);
@@ -78,14 +76,14 @@ const AttarDetail = () => {
         slidesToScroll: 1
     };
 
-   // console.log(value.count)
+    // console.log(value.count)
 
     return (
         <div className='attar-detail px-2'>
             <div className='attar-detail-first-part'>
                 <div className='attar-detail-first-part-dev1'>
                     <div className='attar-detail-first-part-dev1-big-img-dev'>
-                        <img className='attar-detail-first-part-dev1-big-img' src={attar.image1} alt='' />
+                        <img className='attar-detail-first-part-dev1-big-img' src={productDetails.image1} alt='' />
                     </div>
                     <div className='d-flex justify-content-center'>
                         <p className='attar-detail-first-part-dev1-p'>
@@ -95,14 +93,14 @@ const AttarDetail = () => {
                     </div>
 
                     <div className='attar-detail-first-part-dev1-img'>
-                        <img height='100px' name='imgSlide' width='100px' src={attar.image1} alt='' />
-                        <img height='100px' width='100px' src={attar.image2} alt='' name='imgSlide' />
-                        <img height='100px' width='100px' src={attar.image3} alt='' name='imgSlide' />
+                        <img height='100px' name='imgSlide' width='100px' src={productDetails.image1} alt='' />
+                        <img height='100px' width='100px' src={productDetails.image2} alt='' name='imgSlide' />
+                        <img height='100px' width='100px' src={productDetails.image3} alt='' name='imgSlide' />
                     </div>
                 </div>
 
                 <div className='attar-detail-first-part-dev2'>
-                    <h4 className='mb-2'>{attar.name}</h4>
+                    <h4 className='mb-2'>{productDetails.name}</h4>
                     <p className=' mb-0'>
                         <small>4.5 </small>
                         <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
@@ -115,15 +113,15 @@ const AttarDetail = () => {
                     </p>
                     <p className=' product-dev-p pt-2'>
                         {
-                            attar.offerPrice ?
+                            productDetails.offerPrice ?
                                 <h4>
                                     <span style={{ fontSize: '14px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>
-                                    <span>{attar.offerPrice}.00 &nbsp;</span>
+                                    <span>{productDetails.offerPrice}.00 &nbsp;</span>
 
-                                    <span style={{ fontSize: '13px', fontFamily: "Optima", fontWeight: 'bold', color: 'gray', textDecoration: 'line-through 1px' }}>৳ {attar.ragularPrice}.00</span>
+                                    <span style={{ fontSize: '13px', fontFamily: "Optima", fontWeight: 'bold', color: 'gray', textDecoration: 'line-through 1px' }}>৳ {productDetails.ragularPrice}.00</span>
                                 </h4>
                                 :
-                                <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{attar.ragularPrice}.00</span>
+                                <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{productDetails.ragularPrice}.00</span>
                         }
                     </p>
 
@@ -132,15 +130,15 @@ const AttarDetail = () => {
                             <tbody>
                                 <tr>
                                     <td>Brand:</td>
-                                    <td>{attar.brand}</td>
+                                    <td>{productDetails.brand}</td>
                                 </tr>
                                 <tr>
                                     <td>Weight:</td>
-                                    <td>{attar.weight1} ML</td>
+                                    <td>{productDetails.weight1} ML</td>
                                 </tr>
                                 <tr>
                                     <td>Availability:</td>
-                                    <td>{attar.availability} Pcs</td>
+                                    <td>{productDetails.availability} Pcs</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -162,28 +160,14 @@ const AttarDetail = () => {
                             </div>
                         </div>
                     </div>
-                    {/*   onClick={()=>props.handleAddToCard(props.attar)} */}
+
                     <div className='mt-4'>
-                        <Link to='/cart'  onClick={() => handleAddToCard(attar)}  ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
-                        <button className='add-to-cart' onClick={() => handleAddToCard(attar)}  >Add to Cart</button>
-                        {/* <button>Add to Wishlist</button> */}
+                        <Link to='/cart' onClick={() => handleAddToCard(productDetails)}  ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
+                        <button className='add-to-cart' onClick={() => handleAddToCard(productDetails)}  >Add to Cart</button>
                     </div>
                 </div>
             </div>
             <AttarDesWR />
-
-           {/*  <Slider {...settings}>
-                <div>
-                    <img src={attar.image1} />
-                </div>
-                <div>
-                    <img src={attar.image2} />
-                </div>
-                <div>
-                    <img src={attar.image3} />
-                </div>
-            </Slider> */}
-
         </div>
     );
 };
@@ -191,7 +175,7 @@ const AttarDetail = () => {
 
 export default AttarDetail;
 
-
+{/*   onClick={()=>props.handleAddToCard(props.attar)} */ }
 /* 
 import React, { Component } from "react";
 import Slider from "react-slick";
