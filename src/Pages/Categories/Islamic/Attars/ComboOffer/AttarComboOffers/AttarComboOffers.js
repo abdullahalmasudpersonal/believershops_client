@@ -9,7 +9,7 @@ const AttarComboOffers = () => {
         <div className='islamics-attars'>
             <div className='islamics-attars-dev'>
                 {
-                    attarComboOffers.filter(categore => categore.category === 'attar').map(attarComboOffer => <AttarComboOffer key={attarComboOffer._id} attarComboOffer={attarComboOffer} />)
+                    attarComboOffers.filter(categore => categore.category === 'AttarComboOffer').map(attarComboOffer => <AttarComboOffer key={attarComboOffer._id} attarComboOffer={attarComboOffer} />)
                 }
             </div>
         </div>

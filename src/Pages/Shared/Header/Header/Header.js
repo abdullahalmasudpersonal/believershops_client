@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch, faUser, faClose } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link } from 'react-router-dom';
@@ -30,9 +30,9 @@ const Header = () => {
     window.addEventListener('scroll', changeShadow);
 
     /* ----------- mobile catagore ------------- */
-    const [show, setShow] = useState(false);
+ /*    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => setShow(true); */
 
 
     return (
@@ -84,19 +84,23 @@ const Header = () => {
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
 
                             <div>
-                                <Button style={{background:'none', color:'black', border:'none', outline:'none'}}  onClick={handleShow}>
-                                    <FontAwesomeIcon icon={faAlignJustify} fontSize="20px" />
-                                </Button>
+                                <button style={{background:'none', color:'black', border:'none', outline:'none'}} className=" mobile-collapse-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                <FontAwesomeIcon icon={faAlignJustify} fontSize="20px" style={{padding:'0'}} />
+                                </button>
 
-                                <Offcanvas show={show} onHide={handleClose} style={{width:'280px'}}>
-                                    <Offcanvas.Header closeButton>
-                                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-                                    </Offcanvas.Header>
-                                    <Offcanvas.Body>
-                                        Some text as placeholder. In real life you can have the elements you
-                                        have chosen. Like, text, images, lists, etc.
-                                    </Offcanvas.Body>
-                                </Offcanvas>
+                                <div style={{width:'300px'}} class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                     {/*    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5> */}
+                                        <button type="button" className='mobile-collapse-close-btn'  /* class="btn-close" */ data-bs-dismiss="offcanvas" aria-label="Close">
+                                            <FontAwesomeIcon icon={faClose} />
+                                        </button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div>
+                                            Some text as placeholder.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div>

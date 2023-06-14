@@ -20,6 +20,16 @@
     color: rgb(107, 94, 94);
 }
 
+.mobile-collapse-close-btn{
+    width: 100%;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
 @media screen and (min-width:8px) and (max-width:930px) {
     .responsive-header {
         display: none !important;
