@@ -6,10 +6,10 @@
     content: "";
     position: absolute;
     width: 97px;
-    height: 3px;
+    height: 2.5px;
     left: 0px;
     top: 33px;
-    background: rgb(255, 123, 0);
+    background: rgb(255, 115, 0);
 }
 .homefeaturedCategore-name{
     height: 270px;

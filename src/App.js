@@ -35,7 +35,6 @@ import AllAdmins from './Pages/AdminPanel/AllAdmins/AllAdmins';
 import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
 import AllOrderDetail from './Pages/AdminPanel/AllOrders/AllOrderDetail/AllOrderDetail';
-import Blogs from './Pages/Blogs/Blogs';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import TermsCondition from './Pages/Terms&Condition/Terms&Condition';
 import Orders from './Pages/Dashboards/Orders/Orders/Orders';
@@ -48,6 +47,7 @@ import CreateProduct from './Pages/AdminPanel/CreateProduct/CreateProduct';
 import DeleteProduct from './Pages/AdminPanel/DeleteProduct/DeleteProduct';
 import UpdateProducts from './Pages/AdminPanel/UpdateProducts/UpdateProducts/UpdateProducts';
 import UpdateProductInfo from './Pages/AdminPanel/UpdateProducts/UpdateProductInfo/UpdateProductInfo';
+import Blogs from './Pages/Blogs/Blogs/Blogs';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';

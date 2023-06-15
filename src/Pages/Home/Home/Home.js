@@ -7,6 +7,7 @@ import HomeIslamic from '../HomeIslamic/HomeIslamic';
 import './HomeProduct.css'
 import './home.module.css'
 import HomeFeaturedCategory from '../HomeFeaturedCategory/HomeFeaturedCategory';
+import HomeBlogs from '../HomeBlogs/HomeBlogs';
 const Home = () => {
     const [selected, setSelected] = useState("males");
     const changeHandler = e => {
@@ -25,9 +26,11 @@ const Home = () => {
             {/*     <HomeFeaturedCategory /> */}
             </div>
             <div className='container-xxl mb-5 mt-4 p-0'>
-
                 <Banner2 />
                 <HomeIslamic />
+            </div>
+            <div className='container-xxl my-5'>
+                <HomeBlogs/>
             </div>
 
 
