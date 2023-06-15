@@ -1,0 +1,35 @@
+.sideber-mobile {}
+
+.sideber-mobile>ul {
+    padding: 0 16px;
+}
+
+.sideber-mobile>ul>li {
+    list-style-type: none;
+    padding: 5px 0;
+    border-bottom: 1px solid gray;
+}
+
+.sideber-mobile>ul>li>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sideber-mobile>ul>li>div>ul>li {
+    list-style-type: none;
+    padding: 5px 0;
+    border-bottom: 1px solid gray;
+}
+.sideber-mobile-child-dev .sideber-mobile-child-dev-btn{
+    transition: transform .3s;
+}
+
+.sideber-mobile-child.open>.sideber-mobile-child-dev .sideber-mobile-child-dev-btn {
+    transform: rotate(180deg);
+}
+.sideber-mobile-child-content{
+    padding-top: .25em;
+    height: 0;
+    overflow: hidden;
+}

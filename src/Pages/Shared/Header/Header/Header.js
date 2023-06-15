@@ -11,6 +11,8 @@ import auth from '../../../../firebase.init';
 import { getStoredCart } from '../../../../utilities/fakedb';
 import UseCart from '../../../Cart/UseCart';
 import { Button, Offcanvas } from 'react-bootstrap';
+import MobileSideber from '../MobileSideber/MobileSideber';
+import SideberMobile from '../SideberMobile/SideberMobile';
 
 
 const Header = () => {
@@ -30,9 +32,9 @@ const Header = () => {
     window.addEventListener('scroll', changeShadow);
 
     /* ----------- mobile catagore ------------- */
- /*    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true); */
+    /*    const [show, setShow] = useState(false);
+       const handleClose = () => setShow(false);
+       const handleShow = () => setShow(true); */
 
 
     return (
@@ -84,22 +86,22 @@ const Header = () => {
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
 
                             <div>
-                                <button style={{background:'none', color:'black', border:'none', outline:'none'}} className=" mobile-collapse-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                                <FontAwesomeIcon icon={faAlignJustify} fontSize="20px" style={{padding:'0'}} />
+                                <button style={{ background: 'none', color: 'black', border: 'none', outline: 'none' }} className=" mobile-collapse-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                    <FontAwesomeIcon icon={faAlignJustify} fontSize="20px" style={{ padding: '0' }} />
                                 </button>
 
-                                <div style={{width:'300px'}} class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                                    <div class="offcanvas-header">
-                                     {/*    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5> */}
-                                        <button type="button" className='mobile-collapse-close-btn'  /* class="btn-close" */ data-bs-dismiss="offcanvas" aria-label="Close">
+                                <div style={{ width: '300px' }} class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header pb-0">
+                                        <button type="button" className='mobile-collapse-close-btn' data-bs-dismiss="offcanvas" aria-label="Close">
                                             <FontAwesomeIcon icon={faClose} />
                                         </button>
                                     </div>
-                                    <div class="offcanvas-body">
-                                        <div>
-                                            Some text as placeholder.
-                                        </div>
-                                    </div>
+                                 {/*    <div className=''>
+                                        <SideberMobile />
+                                    </div> */}
+                                     <div class="offcanvas-body py-0 px-0">
+                                        <MobileSideber/>
+                                    </div> 
                                 </div>
                             </div>
 

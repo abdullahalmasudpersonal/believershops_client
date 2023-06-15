@@ -1,0 +1,17 @@
+
+.homefeaturedCategore-title{
+    position: relative;
+}
+.homefeaturedCategore-title::before{
+    content: "";
+    position: absolute;
+    width: 97px;
+    height: 3px;
+    left: 0px;
+    top: 33px;
+    background: rgb(255, 123, 0);
+}
+.homefeaturedCategore-name{
+    height: 270px;
+    border: 1px solid rebeccapurple;
+}
