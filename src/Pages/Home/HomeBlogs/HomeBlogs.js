@@ -29,7 +29,7 @@ const HomeBlogs = () => {
     }
 
    var settings = {
-        autoplay: true,
+        autoplay: false,
         infinite: true,
         speed: 300,
         slidesToShow: 3,
@@ -44,13 +44,13 @@ const HomeBlogs = () => {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
-                    autoplay: true,
+                    autoplay: false,
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                    autoplay: true,
+                    autoplay: false,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     initialSlide: 1
@@ -59,7 +59,7 @@ const HomeBlogs = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    autoplay: true,
+                    autoplay: false,
                     slidesToShow: 1,
                     slidesToScroll: 1
                 }

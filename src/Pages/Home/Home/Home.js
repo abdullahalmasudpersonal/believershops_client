@@ -4,8 +4,8 @@ import HeaderCatagore from '../../Shared/Header/HomeHeader/HomeHeader';
 import Banner2 from '../Banner/Banner2';
 import Brands from '../Brands/Brands';
 import HomeIslamic from '../HomeIslamic/HomeIslamic';
-import './HomeProduct.css'
-import './home.module.css'
+import './HomeProduct.css';
+import './home.css';
 import HomeFeaturedCategory from '../HomeFeaturedCategory/HomeFeaturedCategory';
 import HomeBlogs from '../HomeBlogs/HomeBlogs';
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
 
 
     return (
-        <>
+        <div className='home-bg pb-5'>
             <div className='container-xxl d-flex p-0'>
                 <HeaderCatagore />
                 <Banner />
@@ -29,7 +29,7 @@ const Home = () => {
                 <Banner2 />
                 <HomeIslamic />
             </div>
-            <div className='container-xxl my-5 px-1'>
+            <div className='container-xxl px-1'>
                 <HomeBlogs/>
             </div>
 
@@ -38,7 +38,7 @@ const Home = () => {
 
 
 
-        </>
+        </div>
     );
 };
 
