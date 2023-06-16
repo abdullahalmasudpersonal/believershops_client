@@ -6,19 +6,43 @@ import Blog from '../../Blogs/Blog/Blog';
 const HomeBlogs = () => {
     const [blogs, setBlogs] = UseBlgos([]);
 
-    var settings = {
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "none", background: "red" }}
+                onClick={onClick}
+            />
+        );
+    }
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "none", background: "green" }}
+                onClick={onClick}
+            />
+        );
+    }
+
+   var settings = {
         autoplay: true,
         infinite: true,
-        speed: 500,
+        speed: 300,
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 870,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
                     infinite: true,
                     autoplay: true,
                 }
@@ -27,9 +51,9 @@ const HomeBlogs = () => {
                 breakpoint: 600,
                 settings: {
                     autoplay: true,
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
                 }
             },
             {
@@ -43,15 +67,15 @@ const HomeBlogs = () => {
         ]
     };
 
+
     return (
         <div>
             <h5 className="homefeaturedCategore-title">FROM OUR BLOG</h5>
             <hr style={{ marginTop: '10px' }}></hr>
             <Slider {...settings}>
-                {
-                    blogs.map(blog => <Blog key={blog._id} blog={blog} />)
-                }
-            
+                    {
+                        blogs.map(blog => <Blog key={blog._id} blog={blog} />)
+                    }
             </Slider>
         </div>
     );

@@ -29,7 +29,7 @@ const Home = () => {
                 <Banner2 />
                 <HomeIslamic />
             </div>
-            <div className='container-xxl my-5'>
+            <div className='container-xxl my-5 px-1'>
                 <HomeBlogs/>
             </div>
 

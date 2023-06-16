@@ -7,7 +7,7 @@ const Blog = ({ blog }) => {
     const { writer, title, cDate, image } = blog;
 
     return (
-        <div className='d-flex justify-content-center py-1 mt-3 '>
+        <div className='d-flex justify-content-center py-1 mt-3'>
             <div className='blog'>
                 <img className='img-fluid' src={image} />
                 <div className='p-3'>
