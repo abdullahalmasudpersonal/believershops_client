@@ -1,6 +1,7 @@
 /* Home Porducts responsive */
 .homeProcuts{  
-    display: grid;
+    display: flex;
+    justify-content: space-between;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     row-gap: 20px;

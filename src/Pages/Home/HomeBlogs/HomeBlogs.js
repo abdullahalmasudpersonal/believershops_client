@@ -72,7 +72,7 @@ const HomeBlogs = () => {
         <div>
             <h5 className="homefeaturedCategore-title">FROM OUR BLOG</h5>
             <hr style={{ marginTop: '10px' }}></hr>
-            <Slider {...settings}>
+            <Slider {...settings} >
                     {
                         blogs.map(blog => <Blog key={blog._id} blog={blog} />)
                     }

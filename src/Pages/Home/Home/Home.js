@@ -32,7 +32,7 @@ const Home = () => {
                 <Banner2 />
                 <HomeIslamic />
             </div>
-            <div className='container-xxl px-1'>
+            <div className='container-xxl px-0'>
                 <HomeBlogs/>
             </div>
 
