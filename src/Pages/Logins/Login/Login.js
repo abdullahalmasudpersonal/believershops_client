@@ -1,15 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import './Login.css'
 import UseToken from '../../../Hooks/UseToken/UseToken';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwrodRef = useRef('');
-
+    const [passVisible, setPassVisible] = useState(false);
 
     const [
         signInWithEmailAndPassword,
@@ -45,8 +48,6 @@ const Login = () => {
             <p className='text-danger m-0 text-center'> Error: {error.message}</p>
     }
 
-    const masud = 'abdulla al masud hellow'
-
     return (
         <div className='container-xxl my-5 '>
             <div className='register'>
@@ -58,8 +59,9 @@ const Login = () => {
                                 <input type='email' placeholder='Email' ref={emailRef} required />
                             </div>
 
-                            <div>
-                                <input type='password' placeholder='Password' ref={passwrodRef} required />
+                            <div >
+                                <input type={passVisible ? 'text':'password'} placeholder='Password' ref={passwrodRef} required/>
+                                <FontAwesomeIcon icon={passVisible ? faEye: faEyeSlash} onClick={() => setPassVisible(!passVisible)} className='login-pass-show' />
                             </div>
                             <div className='pb-2'> <small className='pass-reset-btn'>Reset Password</small></div>
                             <div>
@@ -74,7 +76,6 @@ const Login = () => {
                         </Link></small></p>
                 </div>
             </div>
-            {masud.substr(masud.indexOf(" ") + 1)}
         </div>
     );
 };

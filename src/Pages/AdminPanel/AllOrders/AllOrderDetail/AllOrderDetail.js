@@ -6,12 +6,15 @@ import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail'
 const AllOrderDetail = () => {
     const { allOrderId } = useParams();
     const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
+    const cart = allOrder.cart;
+    console.log('cart', cart)
+
     const id = allOrder._id;
     const orderNo = allOrder.orderNo;
     // console.log('id', id)
 
     const confirmOrderStatus = () => {
-        fetch(`http://localhost:5000/user/confirmOrderStatus/${id}`, {
+        fetch(`https://mahsez-server.onrender.com/user/confirmOrderStatus/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,7 +27,7 @@ const AllOrderDetail = () => {
     };
 
     const cancelOrderStatus = () => {
-        fetch(`http://localhost:5000/user/cancelOrderStatus/${id}`, {
+        fetch(`https://mahsez-server.onrender.com/user/cancelOrderStatus/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +43,7 @@ const AllOrderDetail = () => {
         event.preventDefault();
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.onrender.com/user/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -54,7 +57,7 @@ const AllOrderDetail = () => {
     };
 
     /*     const deliveredOrderStatus = () => {
-            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.onrender.com/user/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -70,7 +73,7 @@ const AllOrderDetail = () => {
 
 
     return (
-        <div className='allOrderDetail'>
+        <div className='allOrderDetail dashboard-dev2'>
             <div className='allOrderDetail-part1'>
                 <h4 className='text-center mt-3 m-0'>Order Information</h4>
                 <div className='order-status'>
@@ -113,13 +116,12 @@ const AllOrderDetail = () => {
                             </thead>
                             <tbody>
 
-                                <tr key={allOrder._id}>
-                                    <th scope="row">{allOrder.index + 1}</th>
+                                {/*   <tr key={allOrder._id}>
+                                    <th scope="row">{allOrder.orderNo}</th>
                                     <td>{allOrder.productsName}</td>
                                     <td>{allOrder.productsQuantity} Ps</td>
                                     <td>{allOrder.productPrice} $</td>
-
-                                </tr>
+                                </tr> */}
 
 
                                 {/* {

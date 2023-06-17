@@ -8,3 +8,6 @@
     cursor: pointer;
     color: rgb(255, 0, 0);
 }
+.login-pass-show{
+    margin-left: -35px;
+}
