@@ -23,17 +23,18 @@ const Home = () => {
                 <HeaderCatagore />
                 <Banner />
             </div>
-       
             <div className='container-xxl p-0 mt-4'>
-            <NewArrivals/>
-            {/*     <HomeFeaturedCategory /> */}
+                <NewArrivals />
+            </div>
+            <div className='container-xxl px-0'>
+                <HomeFeaturedCategory />
             </div>
             <div className='container-xxl mb-5 mt-4 p-0'>
                 <Banner2 />
                 <HomeIslamic />
             </div>
             <div className='container-xxl px-0'>
-                <HomeBlogs/>
+                <HomeBlogs />
             </div>
 
 
