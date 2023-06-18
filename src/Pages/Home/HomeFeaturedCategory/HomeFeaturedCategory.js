@@ -10,13 +10,47 @@ const HomeFeaturedCategory = () => {
     return (
         <div className='my-5'>
             <h5 className="homefeaturedCategore-title">FEATURED CATEGORIES</h5>
-            <hr style={{ marginTop: '10px', marginBottom: '40px' }}></hr>
-            <div className='homefeaturedCategore'>
+            <hr style={{ marginTop: '10px'}}></hr>
+            <div className='homefeaturedCategore homefeaturedCategore-pc'>
                 {
                     homeFCategory.map(homeFCategore => <HomeFCategore key={homeFCategore} homeFCategore={homeFCategore} />)
                 } 
+            </div>
+            <div className='homefeaturedCategore homefeaturedCategore-mobile'>
+                {
+                    homeFCategory.slice(0,8).map(homeFCategore => <HomeFCategore key={homeFCategore} homeFCategore={homeFCategore} />)
+                } 
+            </div>
+        </div>
+    );
+};
 
-                {/*  <div className='homefeaturedCategore-dev homefeaturedCategore-dev1'>
+export default HomeFeaturedCategory;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {/*  <div className='homefeaturedCategore-dev homefeaturedCategore-dev1'>
                     <div className='d-flex justify-content-center'>
                         <img src={categore1} />
                     </div>
@@ -100,9 +134,3 @@ const HomeFeaturedCategory = () => {
                     </div>
                     <h6 className='text-center mt-2'>Beauty</h6>
                 </div> */}
-            </div>
-        </div>
-    );
-};
-
-export default HomeFeaturedCategory;

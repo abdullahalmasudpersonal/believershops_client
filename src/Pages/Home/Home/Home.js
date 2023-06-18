@@ -23,10 +23,15 @@ const Home = () => {
                 <HeaderCatagore />
                 <Banner />
             </div>
-            <div className='container-xxl p-0 mt-4'>
+            {/* ----------------- special class ----------------------------- */}
+            <div className='container-xxl px-2 mobile-responsive-featured-category'>
+                <HomeFeaturedCategory />
+            </div>
+            <div className='container-xxl p-0 mt-4' style={{marginBottom:'70px'}}>
                 <NewArrivals />
             </div>
-            <div className='container-xxl px-0'>
+            {/* ----------------- special class ----------------------------- */}
+            <div className='container-xxl px-2 pc-responsive-featured-category'>
                 <HomeFeaturedCategory />
             </div>
             <div className='container-xxl mb-5 mt-4 p-0'>

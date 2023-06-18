@@ -42,7 +42,7 @@ const Profile = () => {
                         img: imgData.data.url,
                         name: data.name
                     }
-                    fetch('https://mahsez-server.onrender.com/user', {
+                    fetch('http://localhost:5000/user', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'

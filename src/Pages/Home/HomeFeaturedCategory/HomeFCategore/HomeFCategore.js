@@ -8,7 +8,7 @@ const HomeFCategore = ({ homeFCategore }) => {
         <div className='homeFCategore'  rules="all">
             <div>
                 <img className='text-center homeFCategore-img' src={image} />
-                <h6 className='text-center mt-2'><small>{categoryName}</small></h6>
+                <h6 className='text-center categore-title'><small>{categoryName}</small></h6>
             </div>
         </div>
     );

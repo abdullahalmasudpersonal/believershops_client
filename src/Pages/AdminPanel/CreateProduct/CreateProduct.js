@@ -31,7 +31,7 @@ const CreateProduct = () => {
                         description: data.description,
                         image1: imgData.data.url
                     }
-                    fetch('https://mahsez-server.onrender.com/products', {
+                    fetch('http://localhost:5000/products', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

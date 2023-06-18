@@ -11,4 +11,4 @@ const UseBlgos = () =>{
 }
 
 export default UseBlgos;
-/* https://mahsez-server.onrender.com/blogs */
+/* http://localhost:5000/blogs */

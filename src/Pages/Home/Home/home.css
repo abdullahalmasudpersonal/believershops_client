@@ -1,3 +1,14 @@
 .home-bg{
     background: rgb(248, 255, 255);
 }
+
+@media screen and (max-width:500px) {
+    .pc-responsive-featured-category{
+        display: none;
+    }
+}
+@media screen and (min-width:500px) {
+    .mobile-responsive-featured-category{
+        display: none;
+    }
+}

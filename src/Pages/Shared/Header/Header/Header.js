@@ -84,24 +84,22 @@ const Header = () => {
                 <div className='header-small-screen'>
                     <div className={shadow ? 'sticky-top  header-shadow ' : ''}>
                         <div className='d-flex justify-content-between align-items-center' style={{ padding: '9px' }}>
-
                             <div>
                                 <button style={{ background: 'none', color: 'black', border: 'none', outline: 'none' }} className=" mobile-collapse-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                                     <FontAwesomeIcon icon={faAlignJustify} fontSize="20px" style={{ padding: '0' }} />
                                 </button>
-
                                 <div style={{ width: '300px' }} class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                                     <div class="offcanvas-header pb-0">
                                         <button type="button" className='mobile-collapse-close-btn' data-bs-dismiss="offcanvas" aria-label="Close">
                                             <FontAwesomeIcon icon={faClose} />
                                         </button>
                                     </div>
-                                 {/*    <div className=''>
+                                    {/*    <div className=''>
                                         <SideberMobile />
                                     </div> */}
-                                     <div class="offcanvas-body py-0 px-0">
-                                        <MobileSideber/>
-                                    </div> 
+                                    <div class="offcanvas-body py-0 px-0">
+                                        <MobileSideber />
+                                    </div>
                                 </div>
                             </div>
 
@@ -113,21 +111,21 @@ const Header = () => {
 
                             <div className='mobile-screen-top-part pt-1'>
                                 {/*   <FontAwesomeIcon className='top-right-btn ' icon={faSearch} /> */}
-
                                 <Link to='/cart'>
                                     <button className='position-relative p-0 pe-3' style={{ border: 'none', background: 'none' }}>
-
                                         <FontAwesomeIcon className='top-right-btn' icon={faShoppingCart} />
-
                                         <span className="position-absolute translate-middle badge rounded-pill" style={{ color: '', backgroundColor: 'orangered' }}>
                                             {cart.length}
                                         </span>
-
                                     </button>
-
                                 </Link>
                             </div>
-
+                        </div>
+                        <div className='header2-part-2'>
+                            <div className='header2-part-2-search'>
+                                <input className='header2-part2-search-ber' placeholder='Looking your products' />
+                                <FontAwesomeIcon className='header2-part-2-search-icon-mobile' icon={faSearch} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,12 +187,12 @@ const Header = () => {
             {/* ---------------- Header part 2 end ---------------- */}
 
             {/* ---------------- Header part 2 responsive start ---------------- */}
-            <div className='header2-part-2'>
+           {/*  <div className='header2-part-2'>
                 <div className='header2-part-2-search'>
                     <input className='header2-part2-search-ber' placeholder='Looking your products' />
                     <FontAwesomeIcon className='header2-part-2-search-icon-mobile' icon={faSearch} />
                 </div>
-            </div>
+            </div> */}
             {/* ---------------- Header part 2 responsive end ---------------- */}
         </>
     );
