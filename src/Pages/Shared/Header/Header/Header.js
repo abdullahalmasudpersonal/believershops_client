@@ -13,6 +13,8 @@ import UseCart from '../../../Cart/UseCart';
 import { Button, Offcanvas } from 'react-bootstrap';
 import MobileSideber from '../MobileSideber/MobileSideber';
 import SideberMobile from '../SideberMobile/SideberMobile';
+import PcSearchber from '../PcSearchber/PcSearchber';
+import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
 
 
 const Header = () => {
@@ -35,6 +37,19 @@ const Header = () => {
     /*    const [show, setShow] = useState(false);
        const handleClose = () => setShow(false);
        const handleShow = () => setShow(true); */
+
+    /* --------------------- start pc search ber ---------------------- */
+    const [products, setProducts] = UseProducts([]);
+    const [searchValuse, setSearchValue] = useState('');
+    const onChange = (event) => {
+        setSearchValue(event.target.value);
+    };
+
+    const onSearch = (searchTerm) => {
+        setSearchValue(searchTerm);
+        console.log('search', searchTerm)
+    };
+    /* --------------------- end pc search ber ------------------------- */
 
 
     return (
@@ -145,10 +160,14 @@ const Header = () => {
                         </div>
                     </div>
 
+                    {/* ------------------ start pc search ber  ------------------------------ */}
                     <div className='search d-flex'>
-                        <input className='search-ber' placeholder='Looking your products' type='search' />
-                        <FontAwesomeIcon className='header2-part-2-search-icon-pc' icon={faSearch} />
+                        <input className='search-ber' placeholder='Looking your products' type='text' value={searchValuse} onChange={onChange} />
+
+                        <FontAwesomeIcon onClick={() => onSearch(searchValuse)} className='header2-part-2-search-icon-pc' icon={faSearch} />
                     </div>
+                    {/* ------------------ end pc search ber  ------------------------------ */}
+
 
                     <div className='header2-lust-part pe-2'>
                         <FontAwesomeIcon className='heart-cart' icon={faHeart} />
@@ -184,10 +203,25 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <div className='bg-success container-xxl'>
+                        {
+                            products.filter(item => {
+                                const searchTerm = searchValuse.toLowerCase();
+                                const name = item.name.toLowerCase();
+
+                                return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
+                            }).slice(0, 10)
+                                .map((item) =>
+                                    <p className='mb-0' onClick={() => onSearch(item.name)}>
+                                        {item.name}
+                                    </p>
+                                )
+                        }
+                    </div>
             {/* ---------------- Header part 2 end ---------------- */}
 
             {/* ---------------- Header part 2 responsive start ---------------- */}
-           {/*  <div className='header2-part-2'>
+            {/*  <div className='header2-part-2'>
                 <div className='header2-part-2-search'>
                     <input className='header2-part2-search-ber' placeholder='Looking your products' />
                     <FontAwesomeIcon className='header2-part-2-search-icon-mobile' icon={faSearch} />

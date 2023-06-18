@@ -19,6 +19,26 @@ const AttarDetail = () => {
     const [count, setCount] = useState(1);
     const [imgSlide, setImgSlide] = useState();
 
+    const addToDb = _id => {
+        let shoppingCart = {};
+        //get the shopping cart from local storage
+        const storedCart = localStorage.getItem('shopping-cart');
+        if (storedCart) {
+            shoppingCart = JSON.parse(storedCart);
+        }
+        // add quantity
+        const quantity = shoppingCart[_id];
+        if (quantity) {
+            const newQuantity = quantity + count;
+            shoppingCart[_id] = newQuantity;
+        }
+        else {
+            shoppingCart[_id] = count;
+        }
+        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    }
+
+
     function increment() {
         //setCount(prevCount => prevCount+=1);
         setCount(function (prevCount) {
@@ -162,7 +182,7 @@ const AttarDetail = () => {
                     </div>
 
                     <div className='mt-4'>
-                        <Link to='/cart' onClick={() => handleAddToCard(productDetails)}  ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
+                        <Link to='/cart' onClick={() => handleAddToCard(productDetails)} ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
                         <button className='add-to-cart' onClick={() => handleAddToCard(productDetails)}  >Add to Cart</button>
                     </div>
                 </div>

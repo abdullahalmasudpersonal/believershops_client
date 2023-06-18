@@ -1,4 +1,14 @@
+.cart-bg{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
 
+.cart-table-head{
+    background-color: rgb(243, 246, 255);
+}
+.cart-table-head>tr>th{
+    border-bottom: none; 
+}
 .cart-product-remove{
     padding: 8px;
     border-radius: 4px;
