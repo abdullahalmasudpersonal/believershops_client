@@ -8,6 +8,7 @@ import UseToken from '../../../Hooks/UseToken/UseToken';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -50,6 +51,7 @@ const Login = () => {
 
     return (
         <div className='container-xxl my-5 '>
+            <PageTitle pageTitle='Login' />
             <div className='register'>
                 <div className='register-dev'>
                     <h4 className='text-center pt-4' style={{ fontFamily: 'Algerian' }}>Login</h4>
@@ -61,7 +63,9 @@ const Login = () => {
 
                             <div >
                                 <input type={passVisible ? 'text':'password'} placeholder='Password' ref={passwrodRef} required/>
-                                <FontAwesomeIcon icon={passVisible ? faEye: faEyeSlash} onClick={() => setPassVisible(!passVisible)} className='login-pass-show' />
+                               {/*  <FontAwesomeIcon icon={passVisible ? 'Hide': 'show'} onClick={() => setPassVisible(!passVisible)} 
+                                className='login-pass-show' /> */}
+                                <span className='login-pass-show' onClick={() => setPassVisible(!passVisible)} ><small>{passVisible ? 'Hide': 'Show'}</small></span>
                             </div>
                             <div className='pb-2'> <small className='pass-reset-btn'>Reset Password</small></div>
                             <div>

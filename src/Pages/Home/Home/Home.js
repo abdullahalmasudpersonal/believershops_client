@@ -9,6 +9,7 @@ import './home.css';
 import HomeFeaturedCategory from '../HomeFeaturedCategory/HomeFeaturedCategory';
 import HomeBlogs from '../HomeBlogs/HomeBlogs';
 import NewArrivals from '../NewArrivals/NewArrivals';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 const Home = () => {
     const [selected, setSelected] = useState("males");
     const changeHandler = e => {
@@ -19,6 +20,7 @@ const Home = () => {
 
     return (
         <div className='home-bg pb-5 px-0'>
+            <PageTitle pageTitle='Home' />
             <div className='container-xxl d-flex p-0'>
                 <HeaderCatagore />
                 <Banner />

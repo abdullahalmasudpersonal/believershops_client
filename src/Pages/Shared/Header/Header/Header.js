@@ -172,8 +172,8 @@ const Header = () => {
                     <div className='header2-lust-part pe-2'>
                         <FontAwesomeIcon className='heart-cart' icon={faHeart} />
 
-                        <Link to='/cart'>
-                            <FontAwesomeIcon className='shopping-cart ms-3' icon={faShoppingCart} />
+                        <Link to='/cart' className='ms-3'>
+                            <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
                             <span className="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
                                 {cart.length}
                             </span>
@@ -192,12 +192,12 @@ const Header = () => {
 
                         {
                             user ?
-                                <Link to='/dashboard'>
-                                    <img width='32px' src={profileImg} alt='' className='ms-3' />
+                                <Link to='/dashboard'  className='ms-3'>
+                                    <img width='32px' src={profileImg} alt='' />
                                 </Link>
                                 :
-                                <Link to='/login'>
-                                    <FontAwesomeIcon className='shopping-cart ms-3' icon={faUserAlt} />
+                                <Link to='/login' className='ms-3'>
+                                    <FontAwesomeIcon className='shopping-cart' icon={faUserAlt} />
                                 </Link>
                         }
                     </div>

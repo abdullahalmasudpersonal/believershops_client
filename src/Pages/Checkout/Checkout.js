@@ -53,7 +53,7 @@ const Checkout = (allOrderId) => {
             orderTime: cTime,
             orderDate: cDate,
             status: orderStatus,
-            cart:(cart),
+            cart: (cart),
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),
@@ -115,7 +115,7 @@ const Checkout = (allOrderId) => {
     var now = today.toLocaleString('en-US', options);
     console.log(now);
     */
-
+    const [district, setDistrict] = useState();
 
     return (
         <div className='container-xxl my-5'>
@@ -142,6 +142,12 @@ const Checkout = (allOrderId) => {
                         <div>
                             <p className='mb-0'><small>Select District*</small></p>
                             <input type='text' name='district_name' required />
+                        </div>
+                        <div>
+                            <p className='mb-0'><small>Select District*</small></p>
+                            <select value={district} onChange={e => setDistrict(e.target.value)}>
+                                <District />
+                            </select>
                         </div>
                         <div>
                             <p className='mb-0'><small>Full  Address*</small></p>
@@ -191,8 +197,6 @@ const Checkout = (allOrderId) => {
                                         <input />
                                     </div>
 
-
-
                                     <input
                                         type="radio"
                                         value="female"
@@ -203,67 +207,29 @@ const Checkout = (allOrderId) => {
                                     />
                                     <label htmlFor="female">Female</label>
 
-                                    <div tabIndex="0" aria-hidden={selected !== "female" ? true : false}>
+                                    {/* <div tabIndex="0" aria-hidden={selected !== "female" ? true : false}>
                                         This is female Div
                                     </div>
-
-
                                     <ul style={{ listStyleType: 'none' }} className="  mb-3" id="pills-tab" role="tablist">
-
-                                        {/*   <li className="nav-item" role="presentation">
-                                            <input style={{display:'inline'}} className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="radio" role="tab" aria-controls="pills-home" aria-selected="true" />
-                                            <label>Cash on Delivery</label>
-                                        </li> */}
-
                                         <li className="nav-item" role="presentation">
-                                            {/* <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button> */}
-
                                             <input style={{ display: 'inline' }} type='radio' name='paymentType' className="nav-link active" id="cashOnDelivery" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" checked={paymentType === 'cashOnDelivery'} value='cashOnDelivery' />
                                             <label>&nbsp;Cash on Delivery</label>
                                         </li>
-
                                         <li className="nav-item" role="presentation">
-                                            {/*    <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button> */}
 
                                             <input style={{ display: 'inline-block' }} type='radio' name='paymentType' className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" value='Bkash' />
                                             <label>&nbsp;Bkash</label>
                                         </li>
-
                                         <li className="nav-item" role="presentation">
-                                            {/* <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button> */}
-
                                             <input style={{ display: 'inline-block' }} type='radio' name='paymentType' className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" value='Nagod' />
                                             <label>&nbsp;Nagod</label>
                                         </li>
-                                    </ul>
-
+                                    </ul> 
                                     <div className="tab-content" id="pills-tabContent">
                                         <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="cashOnDelivery">aaaa</div>
                                         <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">bbb</div>
                                         <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ccc</div>
-                                    </div>
-
-                                    {/*  <div>
-                                        <input type='radio' name='paymentType' value='পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করতে হবে।' onChange={e => setPaymentType(e.target.value)} required />
-                                        <label>&nbsp;Cash on Delivery</label>
-                                    </div>
-
-                                    <div>
-                                        <input type='radio' name='paymentType' value="  বিকাশে টাকা প্রদান করার জন্য বিকাশ App এর মাধ্যমে অথবা সরাসরি *247# ডায়াল করে 'Send Money (সেন্ড মানি)' অপশনটি সিলেক্ট করুন। আমাদের বিকাশ নাম্বার '01737906772' এ আপনার মোট বিল প্রদান করুন। বিঃদ্রঃ শুধুমাত্র 'সেন্ড মানি' অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে। <br /> bKash Personal Number : 01737906772" onChange={e => setPaymentType(e.target.value)} required />
-                                        <label>&nbsp;Bkash</label>
-                                        <label>Bkash Number </label>
-                                        <input type='number' placeholder='' />
-                                    </div>
-
-                                    <div>
-                                        <input type='radio' name='paymentType' value='নগদে টাকা প্রদান করার জন্য নগদ App এর মাধ্যমে অথবা সরাসরি *167# ডায়াল করে "Send Money (সেন্ড মানি)" অপশনটি সিলেক্ট করুন।
-                                        আমাদের নগদ নাম্বার "01737906772" এ আপনার মোট বিল প্রদান করুন।
-                                        বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে। 
-                                        Nagad Personal Number : 01737906772' onChange={e => setPaymentType(e.target.value)} required />
-                                        <label>&nbsp;Nagod</label>
-                                    </div>
-
-                                    {paymentType} */}
+                                    </div>*/}
                                 </div>
                             </div>
 
@@ -271,7 +237,6 @@ const Checkout = (allOrderId) => {
                                 <h5><span>3</span> Shipping Charge</h5>
                                 <hr />
                                 <h6>Select shipping area</h6>
-
                                 <div>
                                     <div>
                                         <input type='radio' name='shipping' value='Outside of Dhaka 100৳' onChange={e => setShipping(e.target.value)} required />
@@ -282,28 +247,8 @@ const Checkout = (allOrderId) => {
                                         <label>&nbsp;OInside of Dhaka 60৳</label>
                                     </div>
                                     {shipping}
-
-                                    <p>
-                                        {cTime}__
-                                        {cDate}
-                                    </p>
-                                    <p>
-                                        orderNumber {orderNumber}
-                                    </p>
-
-
-                                    {/* <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="shipping" id="flexRadioDefault1" defaultValue='checked' onChange={e=>setShipping(e.target.value)} value='Outside of Dhaka 100৳' />
-                                        <label className="form-check-label" for="flexRadioDefault1">
-                                            Outside of Dhaka 100৳
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="shipping" id="flexRadioDefault2" onChange={e=>setShipping(e.target.value)} value='Inside of Dhaka 60৳' />
-                                        <label className="form-check-label" for="flexRadioDefault2">
-                                            Inside of Dhaka 60৳
-                                        </label>
-                                    </div> */}
+                                    <p>{cTime}__ {cDate}</p>
+                                    <p>orderNumber {orderNumber}</p>
                                 </div>
 
                             </div>
@@ -328,7 +273,6 @@ const Checkout = (allOrderId) => {
 
                                             <tr key={product._id}>
                                                 <td>{product.name}</td>
-                                                {/*  <td><img src={product.image1} width='100px' alt='' /></td> */}
                                                 <td className='text-center'>
                                                     {product.quantity}
                                                 </td>
@@ -358,14 +302,3 @@ const Checkout = (allOrderId) => {
 };
 
 export default Checkout;
-
-
-/*   <div className='mt-3'>
-                            <h6>We Accept</h6>
-                            <div className='footer-payment-cart'>
-                                <img src={bkash} alt='' />
-                                <img src={nagod} alt='' />
-                                <img src={rocket} alt='' />
-                                <img src={sureCash} alt='' />
-                            </div>
-                        </div> */

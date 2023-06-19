@@ -10,12 +10,14 @@ import Slider from 'react-slick';
 import { addToDb } from '../../../../../../utilities/fakedb';
 import UseCart from '../../../../../Cart/UseCart';
 import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
+import PageTitle from '../../../../../Shared/PageTitle/PageTitle';
 
 
 const AttarDetail = () => {
     const [cart, setCart] = UseCart();
     const { productId } = useParams();
     const [productDetails] = UseProductDetails(productId);
+    const {name, availability, offerPrice, weight1} = productDetails;
     const [count, setCount] = useState(1);
     const [imgSlide, setImgSlide] = useState();
 
@@ -100,6 +102,7 @@ const AttarDetail = () => {
 
     return (
         <div className='attar-detail px-2'>
+               <PageTitle pageTitle={`${name}`} />
             <div className='attar-detail-first-part'>
                 <div className='attar-detail-first-part-dev1'>
                     <div className='attar-detail-first-part-dev1-big-img-dev'>
@@ -120,7 +123,7 @@ const AttarDetail = () => {
                 </div>
 
                 <div className='attar-detail-first-part-dev2'>
-                    <h4 className='mb-2'>{productDetails.name}</h4>
+                    <h4 className='mb-2'>{name}</h4>
                     <p className=' mb-0'>
                         <small>4.5 </small>
                         <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
@@ -136,7 +139,7 @@ const AttarDetail = () => {
                             productDetails.offerPrice ?
                                 <h4>
                                     <span style={{ fontSize: '14px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>
-                                    <span>{productDetails.offerPrice}.00 &nbsp;</span>
+                                    <span>{offerPrice}.00 &nbsp;</span>
 
                                     <span style={{ fontSize: '13px', fontFamily: "Optima", fontWeight: 'bold', color: 'gray', textDecoration: 'line-through 1px' }}>৳ {productDetails.ragularPrice}.00</span>
                                 </h4>
@@ -154,11 +157,11 @@ const AttarDetail = () => {
                                 </tr>
                                 <tr>
                                     <td>Weight:</td>
-                                    <td>{productDetails.weight1} ML</td>
+                                    <td>{weight1} ML</td>
                                 </tr>
                                 <tr>
                                     <td>Availability:</td>
-                                    <td>{productDetails.availability} Pcs</td>
+                                    <td>{availability} Pcs</td>
                                 </tr>
                             </tbody>
                         </table>

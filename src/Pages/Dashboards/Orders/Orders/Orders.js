@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../../../Shared/PageTitle/PageTitle';
 
 const Orders = () => {
     const [user] = useAuthState(auth);
@@ -59,6 +60,7 @@ const Orders = () => {
 
     return (
         <div className='dashboard-dev2'>
+            <PageTitle pageTitle='My Order' />
             <div className='pt-4 ps-4'>
                 <h4 className='fw-bold side-header'>My Orders ({orders.length})</h4>
             </div>

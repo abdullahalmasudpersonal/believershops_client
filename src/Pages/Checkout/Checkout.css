@@ -6,22 +6,26 @@
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+    -moz-appearance: textfield;
+    /* Firefox */
 }
+
 /* checkout  */
-.checkout{
+.checkout {
     display: flex;
     justify-content: center;
     gap: 25px;
 }
-.checkout h5{
+
+.checkout h5 {
     font-size: large;
 }
+
 /* checkout-user-info */
 .checkout-user-info {
     width: 400px;
@@ -43,12 +47,23 @@ input[type=number] {
     margin-bottom: 10px;
 }
 
-.checkout-user-info input {
+.checkout-user-info>div>input {
     width: 100%;
     height: 35px;
     margin-top: 2px;
     border: .5px solid gray;
     border-radius: 4px;
+}
+
+.checkout-user-info>div>select {
+    width: 100%;
+    height: 35px;
+    margin-top: 2px;
+    border: .5px solid gray;
+    border-radius: 4px;
+}
+.checkout-user-info>div>select>{
+    height: 200px !important;
 }
 
 .checkout-user-info textarea {
@@ -60,7 +75,7 @@ input[type=number] {
 }
 
 /* cehckout-payment-delivery */
-.cehckout-payment-delivery{
+.cehckout-payment-delivery {
     display: flex;
 }
 
@@ -82,14 +97,14 @@ input[type=number] {
 }
 
 /* checkout-order-info */
-.checkout-order-info{
+.checkout-order-info {
     max-width: 1200px;
     margin: auto;
     min-height: 250px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
-.checkout-order-info h5 span{
+.checkout-order-info h5 span {
     background-color: rgb(166, 177, 192);
     padding: 4px 11px;
     border-radius: 50px;
@@ -98,11 +113,12 @@ input[type=number] {
 
 /* place order btn */
 
-.place-order-btn{
+.place-order-btn {
     display: flex;
     justify-content: end;
 }
-.place-order-btn button{
+
+.place-order-btn button {
     color: rgb(244, 240, 255);
     background-color: rgb(255, 135, 22);
     padding: 8px;
@@ -114,26 +130,31 @@ input[type=number] {
     border: none;
     transition: .3s;
 }
-.place-order-btn button:hover{
+
+.place-order-btn button:hover {
     background-color: rgb(255, 123, 0);
 }
+
 @media screen and (max-width:990px) {
-    .cehckout-payment-delivery{
+    .cehckout-payment-delivery {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
 @media screen and (max-width:640px) {
-    .checkout{
+    .checkout {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
 @media screen and (max-width:430px) {
     .checkout-user-info {
         width: 350px;
     }
 }
+
 @media screen and (max-width:380px) {
     .checkout-user-info {
         max-width: 320px;

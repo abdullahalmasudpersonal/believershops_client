@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import UseAdmin from '../../../Hooks/UseAdmin/UseAdmin';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -19,7 +20,8 @@ const Dashboard = () => {
 
   return (
     <div className='container-xxl mt-4 mb-5 p-0'>
-      <h4 className='mb-3'>Dashboard</h4>
+      <PageTitle pageTitle="My Profile" />
+      {/* <h4 className='mb-3'>Dashboard</h4> */}
       <div className='dashboard'>
         <div className='dashboard-dev1'>
           <img width='60px' src={profileImg} alt='' />

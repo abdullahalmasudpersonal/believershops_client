@@ -5,6 +5,7 @@ import UseCart from './UseCart';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 const Cart = () => {
     const [cart, setCart] = UseCart();
     const [count, setCount] = useState(1);
@@ -54,6 +55,14 @@ const Cart = () => {
 
     return (
         <div className='home-bg py-4'>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
+            <PageTitle pageTitle='Cart'></PageTitle>
             <div className='container-xxl cart-bg p-3'>
                 <h4 className='mb-4'>Shopping Cart</h4>
                 <div className='table-responsive-sm'>
@@ -78,10 +87,10 @@ const Cart = () => {
                                         <th scope="row" className='mobile-cart'>
                                             <img src={product.image1} alt='' width='50px' height='50px' />
                                         </th>
-                                        <td>{product.name}</td>
+                                        <td className='align-middle'>{product.name}</td>
                                         <td className='mobile-cart'>{product.model}</td>
 
-                                        <td className=''>
+                                        <td className='align-middle'>
                                             <div className='d-flex justify-content-center'>
                                                 <div className='attar-detail-quantity-counter'>
                                                     <div className='attar-detail-quantity-counter-p'>
@@ -101,11 +110,11 @@ const Cart = () => {
                                             </div>
                                         </td>
 
-                                        <td className='text-center'>
-                                            <button style={{ border: 'none', background: 'none' }} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
+                                        <td className='text-center align-middle'>
+                                            <button style={{ border: 'none', background: 'none', padding: '0' }} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
                                         </td>
-                                        <td className='text-end mobile-cart'>{product.regularPrice}</td>
-                                        <td className='text-end'>{product.quantity * product.regularPrice}</td>
+                                        <td className='text-end mobile-cart align-middle'>{product.regularPrice}</td>
+                                        <td className='text-end align-middle'>{product.quantity * product.regularPrice}</td>
                                     </tr>
                                 )
                             }
@@ -114,9 +123,9 @@ const Cart = () => {
                 </div>
 
                 <div className=''>
-                    <h6 className='justify-content-end h5 d-flex'> Sub Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{subTotal}<span style={{fontFamily:"Sans-Serif", fontWeight:'bold',fontSize:'17px'}}>৳</span></article></h6>
-                    <h6 className='justify-content-end h5 d-flex'> Condition Charge: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{conditionCharge}<span style={{fontFamily:"Sans-Serif", fontWeight:'bold',fontSize:'17px'}}>৳</span></article></h6>
-                    <h6 className='justify-content-end h5 d-flex'>  Grand Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{grandTotal}<span style={{fontFamily:"Sans-Serif", fontWeight:'bold',fontSize:'17px'}}>৳</span></article></h6>
+                    <h6 className='justify-content-end h5 d-flex'> Sub Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{subTotal}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
+                    <h6 className='justify-content-end h5 d-flex'> Condition Charge: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{conditionCharge}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
+                    <h6 className='justify-content-end h5 d-flex'>  Grand Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{grandTotal}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
                 </div>
 
                 <div className='d-flex flex-row-reverse mt-4'>
