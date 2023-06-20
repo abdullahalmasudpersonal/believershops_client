@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import UserRow from './UserRow';
 
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://mahsez-server.onrender.com/allUsers', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

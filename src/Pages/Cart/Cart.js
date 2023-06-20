@@ -80,7 +80,7 @@ const Cart = () => {
             </div>
             
             <div className='home-bg py-3'>
-                <PageTitle pageTitle='Cart'></PageTitle>
+                <PageTitle pageTitle='Shopping Cart'></PageTitle>
                 <div className='container-xxl cart-bg p-3'>
                     <h4 className='mb-4'>Shopping Cart</h4>
                     <div className='table-responsive-sm'>

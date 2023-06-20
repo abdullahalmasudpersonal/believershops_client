@@ -3,7 +3,7 @@ import React from 'react';
 const District = () => {
     return (
         <>
-            <option>Select</option>
+            <option value='default' hidden disabled>Select</option>
             <option>Dhaka</option>
             <option>Faridpur</option>
             <option>Gazipur</option>

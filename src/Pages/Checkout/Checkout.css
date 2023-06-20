@@ -16,10 +16,13 @@ input[type=number] {
 }
 
 /* checkout  */
+.checkout-top{
+    padding: 15px 0;
+}
 .checkout {
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .checkout h5 {
@@ -31,7 +34,6 @@ input[type=number] {
     width: 400px;
     min-width: 280px;
     height: 100%;
-    margin: 0 auto;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     background-color: white;
@@ -54,6 +56,8 @@ input[type=number] {
     margin-top: 2px;
     border: .5px solid gray;
     border-radius: 4px;
+    outline: none;
+    padding: 5px;
 }
 
 .checkout-user-info>div>select {
@@ -62,6 +66,7 @@ input[type=number] {
     margin-top: 2px;
     border: .5px solid gray;
     border-radius: 4px;
+    outline: none;
 }
 .checkout-user-info>div>select>{
     height: 200px !important;
@@ -73,6 +78,8 @@ input[type=number] {
     margin-top: 2px;
     border: .5px solid gray;
     border-radius: 4px;
+    outline: none;
+    padding: 5px;
 }
 
 /* cehckout-payment-delivery */
@@ -85,19 +92,32 @@ input[type=number] {
     max-width: 500px;
     min-width: 300px;
     min-height: 250px;
-    margin: auto;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     background-color: white;
 }
 
-.checkout-payment-method h5 span {
+.checkout-payment-method >h5 >span {
     background-color: rgb(166, 177, 192);
     padding: 4px 11.5px;
     border-radius: 50px;
     color: white;
 }
-
+/* -------checkout-shipping-method------ */
+.checkout-shipping-method{
+    max-width: 500px;
+    min-width: 370px;
+    min-height: 250px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: white;
+}
+.checkout-shipping-method >h5 >span {
+    background-color: rgb(166, 177, 192);
+    padding: 4px 11.5px;
+    border-radius: 50px;
+    color: white;
+}
 /* checkout-order-info */
 .checkout-order-info {
     max-width: 1200px;
@@ -116,7 +136,6 @@ input[type=number] {
 }
 
 /* place order btn */
-
 .place-order-btn {
     display: flex;
     justify-content: end;
@@ -138,7 +157,21 @@ input[type=number] {
 .place-order-btn button:hover {
     background-color: rgb(255, 123, 0);
 }
-
+@media screen and (max-width:1399px) {
+    .checkout-top{
+        padding: 15px;
+    }
+}
+@media screen and (max-width:1130px) {
+    .checkout-shipping-method{
+        min-width: 330px;
+    }
+}
+@media screen and (max-width:1070px) {
+    .checkout-shipping-method{
+        min-width: 300px;
+    }
+}
 @media screen and (max-width:990px) {
     .cehckout-payment-delivery {
         display: grid;

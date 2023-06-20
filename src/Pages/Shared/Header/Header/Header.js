@@ -163,9 +163,9 @@ const Header = () => {
                     {/* ------------------ start pc search ber  ------------------------------ */}
                     <div className='search d-flex'>
                         <input className='search-ber' placeholder='Looking your products' type='text' value={searchValuse} onChange={onChange} />
-
                         <FontAwesomeIcon onClick={() => onSearch(searchValuse)} className='header2-part-2-search-icon-pc' icon={faSearch} />
                     </div>
+                  {/*   <PcSearchber/> */}
                     {/* ------------------ end pc search ber  ------------------------------ */}
 
 
@@ -192,7 +192,7 @@ const Header = () => {
 
                         {
                             user ?
-                                <Link to='/dashboard'  className='ms-3'>
+                                <Link to='/dashboard' className='ms-3'>
                                     <img width='32px' src={profileImg} alt='' />
                                 </Link>
                                 :
@@ -203,21 +203,22 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            {/*------------------- search Result---------------- */}
             <div className='bg-success container-xxl'>
-                        {
-                            products.filter(item => {
-                                const searchTerm = searchValuse.toLowerCase();
-                                const name = item.name.toLowerCase();
+                {
+                    products.filter(item => {
+                        const searchTerm = searchValuse.toLowerCase();
+                        const name = item.name.toLowerCase();
 
-                                return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
-                            }).slice(0, 10)
-                                .map((item) =>
-                                    <p className='mb-0' onClick={() => onSearch(item.name)}>
-                                        {item.name}
-                                    </p>
-                                )
-                        }
-                    </div>
+                        return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
+                    }).slice(0, 10)
+                        .map((item) =>
+                            <p className='mb-0' onClick={() => onSearch(item.name)}>
+                                {item.name}
+                            </p>
+                        )
+                }
+            </div>
             {/* ---------------- Header part 2 end ---------------- */}
 
             {/* ---------------- Header part 2 responsive start ---------------- */}
