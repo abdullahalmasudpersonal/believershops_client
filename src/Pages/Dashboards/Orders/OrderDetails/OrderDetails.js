@@ -76,7 +76,7 @@ const OrderDetails = () => {
                       productsName.map(productName => <p>{productName}</p>)
                       
                         } */}
-                                    <td>
+                                   {/*  <td>
                                         {productsImage.map(productImage => <div><img width='60px' src={productImage} /></div>)}
                                     </td>
                                     <td>
@@ -87,7 +87,7 @@ const OrderDetails = () => {
                                     </td>
                                     <td className='text-end'>
                                         {productsTotalPrice.map(productTotalPrice => <p>{productTotalPrice}</p>)}
-                                    </td>
+                                    </td> */}
                                 </tr>
                             </tbody>
                         </table>

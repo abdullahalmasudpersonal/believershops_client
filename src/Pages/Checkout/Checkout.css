@@ -34,6 +34,7 @@ input[type=number] {
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: white;
 }
 
 .checkout-user-info h5 span {
@@ -87,6 +88,7 @@ input[type=number] {
     margin: auto;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: white;
 }
 
 .checkout-payment-method h5 span {
@@ -101,7 +103,9 @@ input[type=number] {
     max-width: 1200px;
     margin: auto;
     min-height: 250px;
+    border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: white;
 }
 
 .checkout-order-info h5 span {

@@ -3,45 +3,41 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+/* --------------Breadcrumb css --------------------- */
+.breadcrumb-bg{
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.breadcrumb-bg > div{
+    padding: 13px 0;
 }
-.left {
-    display: flex;
-    height: 50vh;
+.breadcrumb-home-btn {
+    color: gray;
+    font-size: 15px;
 }
-.left_1 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+.breadcrumb-home:active {
+    color: rgb(4, 0, 106);
 }
-.img_wrap {
-    width: 80px;
-    height: 80px;
-    border: 1px solid #eee;
-    cursor: pointer;
+.breadcrumbItem{
+    color: rgb(18, 18, 18);
+    text-decoration: none;
 }
-.img_wrap img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
+@media screen and (max-width:1399px) {
+    .breadcrumb-bg >div{
+        padding: 13px 16px;
+    }
 }
-.left_2 {
-}
-.left_2 img {
-    width: 500px;
-    height: 100%;
-    object-fit: contain;
-}
-.active {
-    border: 2px solid #e77600;
+@media screen and (max-width:500px) {
+    .breadcrumb-bg > div{
+        padding: 6px 16px;
+        font-size: 14px;
+    }
+    .breadcrumb-home-btn {
+        color: gray;
+        font-size: 13px;
+    }
+    .breadcrumbItem{
+        font-size: 14px;
+    }
 }
