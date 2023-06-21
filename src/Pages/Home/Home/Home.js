@@ -20,7 +20,7 @@ const Home = () => {
 
     return (
         <div className='home-bg pb-5 px-0'>
-            <PageTitle pageTitle='Home' />
+            <PageTitle pageTitle='' />
             <div className='container-xxl d-flex p-0'>
                 <HeaderCatagore />
                 <Banner />

@@ -7,7 +7,6 @@ import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
-import { addToDb } from '../../../../../../utilities/fakedb';
 import UseCart from '../../../../../Cart/UseCart';
 import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
 import PageTitle from '../../../../../Shared/PageTitle/PageTitle';
@@ -31,8 +30,9 @@ const AttarDetail = () => {
         // add quantity
         const quantity = shoppingCart[_id];
         if (quantity) {
-            const newQuantity = quantity + count;
-            shoppingCart[_id] = newQuantity;
+            /*  toast.success(`Alrady Added To Cart`);  */
+         /*  const newQuantity = quantity + count;
+            shoppingCart[_id] = newQuantity;  */
         }
         else {
             shoppingCart[_id] = count;
@@ -72,9 +72,9 @@ const AttarDetail = () => {
         }
         else {
             const rest = cart.filter(attar => attar._id !== selectedAttar._id);
-            exists.quantity = exists.quantity + count;
+            /* exists.quantity = exists.quantity + count; */
             newCart = [...rest, exists];
-            toast.success(`Added To Cart ${count}`);
+            toast.warning(`Alrady Added To Cart`);
         }
         setCart(newCart);
         addToDb(selectedAttar._id);
@@ -88,17 +88,6 @@ const AttarDetail = () => {
             total = total + product.price * product.quantity;
             shipping = shipping + product.shipping;
         }  */
-
-    const settings = {
-        dots: true,
-        fade: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
-
-    // console.log(value.count)
 
     return (
         <div className='attar-detail px-2'>
@@ -199,49 +188,3 @@ const AttarDetail = () => {
 export default AttarDetail;
 
 {/*   onClick={()=>props.handleAddToCard(props.attar)} */ }
-/* 
-import React, { Component } from "react";
-import Slider from "react-slick";
-import { baseUrl } from "./config";
-
-export default className CenterMode extends Component {
-  render() {
-    const settings = {
-      customPaging: function(i) {
-        return (
-          <a>
-            <img src={`${baseUrl}/abstract0${i + 1}.jpg`} />
-          </a>
-        );
-      },
-      dots: true,
-      dotsclassName: "slick-dots slick-thumb",
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-    return (
-      <div>
-        <h2>Custom Paging</h2>
-        <Slider {...settings}>
-          <div>
-            <img src={baseUrl + "/abstract01.jpg"} />
-          </div>
-          <div>
-            <img src={baseUrl + "/abstract02.jpg"} />
-          </div>
-          <div>
-            <img src={baseUrl + "/abstract03.jpg"} />
-          </div>
-          <div>
-            <img src={baseUrl + "/abstract04.jpg"} />
-          </div>
-        </Slider>
-      </div>
-    );
-  }
-}
-
-
-*/

@@ -4,13 +4,15 @@ import auth from '../../../firebase.init';
 import './Profile.css';
 import profile from '../../../Assets/img/profile/profile.png';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Profile = () => {
+    const { register, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
-    const imageStorageKey = process.env.REACT_APP_imgbb_key;
+    const [edit, setEdit] = useState(true);
+    const imageStorageKey = 'a3d4bff21c6d258146feb02c43808485';
 
     const [userInfo, setuserInfo] = useState({
         file: [],
@@ -24,11 +26,11 @@ const Profile = () => {
         });
     };
 
-    const handleUserProfileSubmit = async (data, event) => {
+    const onSubmit = async (data, event) => {
         event.preventDefault();
         const profileImg = data.profileImg[0];
         const formData = new FormData();
-        formData.append('profileImg', profileImg);
+        formData.append('Image', profileImg);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         fetch(url, {
             method: 'POST',
@@ -39,10 +41,10 @@ const Profile = () => {
                 if (imgData.success) {
                     // const img = imgData.data.url;
                     const updateUserProfileInfo = {
-                        img: imgData.data.url,
+                        profileImg: imgData.data.url,
                         name: data.name
                     }
-                    fetch('https://mahsez-server.onrender.com/user', {
+                    fetch('http://localhost:5000/user', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'
@@ -64,38 +66,60 @@ const Profile = () => {
 
     return (
         <div className='dashboard-dev2'>
+            <PageTitle pageTitle="My Profile |" />
             <div className='pt-4 px-4 profile-top-part'>
                 <h4 className='fw-bold side-header'>My Profile</h4>
-                <button className='profile-edit-btn'>
+                <button className='profile-edit-btn' onClick={() => setEdit(!edit)}>
                     <FontAwesomeIcon icon={faEdit} />
                     <span>&nbsp;Edit</span>
                 </button>
             </div>
             <hr />
-            <form onSubmit={handleUserProfileSubmit} >
-                <div className="my-profile px-4 py-2">
-                    <div className='my-profile-img'>
-                        {userInfo.filepreview !== null ? <img width='170px' height='170px' src={userInfo.filepreview} alt='' /> : <img width='170px' height='170px' src={profile} alt='' />}
+            <div className='p-2'>
+                {
+                    edit ?
+                        <form onSubmit={handleSubmit(onSubmit)} >
+                            <div className="my-profile py-4">
+                                <div className='my-profile-img'>
+                                    {userInfo.filepreview !== null ? <img width='170px' height='170px' src={userInfo.filepreview} alt='' /> : <img width='170px' height='170px' src={profile} alt='' />}
+                                    <input className='custom-file-input' type="file" name='profileImg' required onChange={handleInputChange} {...register("profileImg",{required:false})}  />
+                                </div>
 
-                        <input className='custom-file-input' type="file" name='profileImg' required onChange={handleInputChange} />
-                        <input type='Submit' value='Add Product' />
-                    </div>
+                                <div className='edit-user-profile-info'>
+                                    <label className=''><small>Full Name</small></label><br />
+                                    <input type='text' placeholder='Enter Full Name' name='userName' defaultValue={user.displayName} {...register("userName",{required:false})} /><br />
+                                    <label className=''><small>Email Address</small></label><br />
+                                    <input type='email' placeholder='Enter Email' defaultValue={user.email} {...register("userEmail",{required:false})}  /><br />
+                                    <label className=''><small>Phone Number </small></label><br />
+                                    <input type='number' placeholder='Enter Phone Number' onInput={(e) => e.target.value = e.target.value.slice(0, 11)} {...register("phoneNumber",{required:false})}  />
+                                    <br />
+                                </div>
+                            </div>
+                            <div className='d-flex justify-content-center mb-3'>
+                                <input type='Submit' value='Save Change' className='change-profile-save' />
+                            </div>
+                        </form>
+                        :
+                        <div>
+                            <div className="my-profile py-4">
+                                <div className='my-profile-img'>
+                                    {userInfo.filepreview !== null ? <img width='170px' height='170px' src={userInfo.filepreview} alt='' /> : <img width='170px' height='170px' src={profile} alt='' />}
+                                   {/*  <input className='custom-file-input' type="file" name='profileImg' required onChange={handleInputChange} /> */}
+                                </div>
 
-                    <div className='ps-5 pt-3'>
-                        <p className='p-0 m-0'><small>Full Name</small></p>
-                        <h5 className='pt-1 '>{user?.displayName}</h5>
-                        <input type='text' placeholder='name' name='name' />
-
-                        <p className='p-0 m-0 pt-1'><small>Email Address</small></p>
-                        <h6 className='pt-1'>{user?.email}</h6>
-
-                        <p className='p-0 m-0 pt-1'><small>Phone Number </small></p>
-                        <h5 className='pt-1'>{/* {user?.phoneNumber} */} 01737906772</h5>
-
-                    </div>
-                </div>
-
-            </form>
+                                <div className='edit-user-profile-info'>
+                                    <label className=''><small>Full Name</small></label><br />
+                                    <h6 className='mb-0'> {user.displayName}</h6>
+                                    <label className=''><small>Email Address</small></label>
+                                    <h6 className='mb-0'>{user.email}</h6>
+                                    <label className=''><small>Phone Number </small></label><br />
+                                    <h6 className='mb-0'>01737906772</h6>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                }
+            </div>
         </div>
     );
 };

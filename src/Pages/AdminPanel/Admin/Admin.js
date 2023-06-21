@@ -33,7 +33,9 @@ const Admin = () => {
                         <Link to='/admin/delete_product'>
                             <button>Delete Products</button>
                         </Link>
-
+                        <Link to='/admin/allUser'>
+                            <button>All User</button>
+                        </Link>
                     </div>
 
                     <Outlet />

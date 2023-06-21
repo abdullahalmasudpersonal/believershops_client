@@ -63,7 +63,7 @@ const Checkout = (allOrderId) => {
 
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
+            axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
                     if (data.insertedId) {
@@ -177,19 +177,19 @@ const Checkout = (allOrderId) => {
                                         <h6>Select one payment method</h6>
                                         <div>
                                             <div>
-                                                <input type='radio' name='payment' value='Outside of Dhaka 100৳' onChange={e => setPayment(e.target.value)} required />
+                                                <input type='radio' name='payment' value='Cash On Delivery' onChange={e => setPayment(e.target.value)} required />
                                                 <label>&nbsp;Cash On Delivery</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
+                                                <input type='radio' name='payment' value='Bkash' onChange={e => setShipping(e.target.value)} />
                                                 <label>&nbsp;Bkash</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Inside of Dhaka 150৳' onChange={e => setShipping(e.target.value)} />
+                                                <input type='radio' name='payment' value='Nagod' onChange={e => setShipping(e.target.value)} />
                                                 <label>&nbsp;Nagod</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Inside of Dhaka 150৳' onChange={e => setShipping(e.target.value)} />
+                                                <input type='radio' name='payment' value='Rocket' onChange={e => setShipping(e.target.value)} />
                                                 <label>&nbsp;Rocket</label>
                                             </div>
                                             <div>

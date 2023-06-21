@@ -96,7 +96,9 @@ input[type=number] {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     background-color: white;
 }
-
+.checkout-payment-method >div>div> input{
+    margin-bottom: 12px;
+}
 .checkout-payment-method >h5 >span {
     background-color: rgb(166, 177, 192);
     padding: 4px 11.5px;

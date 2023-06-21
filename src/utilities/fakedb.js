@@ -61,6 +61,7 @@ const removeFromDb = _id => {
     }
 }
 
+
 const deleteShoppingCart = () => {
     localStorage.removeItem('shopping-cart');
 }

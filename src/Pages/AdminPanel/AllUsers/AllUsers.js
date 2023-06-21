@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import UserRow from './UserRow';
 
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://mahsez-server.onrender.com/allUsers', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const AllUsers = () => {
     }
 
     return (
-        <div className='allUsers'>
+        <div className='dashboard-dev2'>
             <div className='pt-4 ps-4'>
                 <h4 className='fw-bold side-header'>All Users ({users.length})</h4>
             </div>

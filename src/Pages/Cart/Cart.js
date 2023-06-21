@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import PageTitle from '../Shared/PageTitle/PageTitle';
+import { toast } from 'react-toastify';
 const Cart = () => {
     const [cart, setCart] = UseCart();
     const [count, setCount] = useState(1);
@@ -16,6 +17,26 @@ const Cart = () => {
     console.log(cart.map(product => product.quantity.toString()))
     // const prevCount =  cart.map(product => product.quantity)
     /* console.log('cart',quantitys, cart.map(product => product.quantity)) */
+
+    const addToDb = _id => {
+        let shoppingCart = {};
+        //get the shopping cart from local storage
+        const storedCart = localStorage.getItem('shopping-cart');
+        if (storedCart) {
+            shoppingCart = JSON.parse(storedCart);
+        }
+        // add quantity
+        const quantity = shoppingCart[_id];
+        if (quantity <= 9) {
+            const newQuantity = quantity + 1;
+            shoppingCart[_id] = newQuantity;
+        }
+        else {
+            shoppingCart[_id] = 1;
+            
+        }
+        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    }
 
     const handleRemoveProduct = product => {
         const rest = cart.filter(pd => pd._id !== product._id);
@@ -42,12 +63,12 @@ const Cart = () => {
     const prevCount = 1;
     function increment() {
         //setCount(prevCount => prevCount+=1);
-        setCount(function () {
-            if (5 < 10) {
-                return (5 + 1);
+        setCount(function (prevCount) {
+            if (prevCount < 10) {
+                return (prevCount + 1);
             }
             else {
-                return (5 + 10);
+                return (prevCount = 10);
             }
         });
     }
@@ -61,9 +82,23 @@ const Cart = () => {
         });
     };
 
-    /* const navigateToProduct = _id =>{
-        navigate(`/${_id}`)
-    } */
+    const handleAddToCard = (selectedAttar) => {
+        let newCart = [];
+        const exists = cart.find(attar => attar._id === selectedAttar._id);
+        if (!exists) {
+            selectedAttar.quantity = 1;
+            newCart = [...cart, selectedAttar];
+            /*        toast.success(`Added To Cart ${count}`); */
+        }
+        else {
+            const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+            /*  toast.warning(`Alrady Added To Cart`); */
+        }
+        setCart(newCart);
+        addToDb(selectedAttar._id);
+    }
 
     return (
         <>
@@ -72,13 +107,13 @@ const Cart = () => {
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 ">
                             <li class="breadcrumb-item"><Link to="/"><FontAwesomeIcon icon={faHome} className='breadcrumb-home-btn' /></Link></li>
-                            <li class="breadcrumb-item active"  aria-current="page">Shopping Cart</li>
-                        {/*     <li class="breadcrumb-item active" aria-current="page">Data</li> */}
+                            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                            {/*     <li class="breadcrumb-item active" aria-current="page">Data</li> */}
                         </ol>
                     </nav>
                 </div>
             </div>
-            
+
             <div className='home-bg py-3'>
                 <PageTitle pageTitle='Shopping Cart'></PageTitle>
                 <div className='container-xxl cart-bg p-3'>
@@ -113,14 +148,14 @@ const Cart = () => {
                                                     <div className='attar-detail-quantity-counter'>
                                                         <div className='attar-detail-quantity-counter-p'>
                                                             <p style={{ color: 'gray' }} className='m-0 fw-bold'>
-                                                                {product.quantity}
+                                                                {count}
                                                             </p>
                                                         </div>
                                                         <div className='d-grid attar-detail-quantity-counter-dev'>
                                                             <button onClick={increment} className='p-0'>
-                                                                <i style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
+                                                                <i onClick={() => handleAddToCard(product)} style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
                                                             </button>
-                                                            <button onClick={decrement} classnamep='p-0'>
+                                                            <button onClick={decrement} classnamep='p-0' >
                                                                 <i style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
                                                             </button>
                                                         </div>
