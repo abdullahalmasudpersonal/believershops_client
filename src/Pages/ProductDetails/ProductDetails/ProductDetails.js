@@ -3,16 +3,16 @@ import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import AttarDesWR from './AttarDesWR/AttarDesWR';
-import './AttarDetail.css';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
-import UseCart from '../../../../../Cart/UseCart';
-import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
-import PageTitle from '../../../../../Shared/PageTitle/PageTitle';
+import './ProductDetails.css';
+import UseCart from '../../Cart/UseCart';
+import UseProductDetails from '../../../Hooks/UseProductDetails/UseProductDetails';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
+import AttarDesWR from '../../Categories/Islamic/Attars/Attar/AttarDetail/AttarDesWR/AttarDesWR';
 
 
-const AttarDetail = () => {
+const ProductDetails = () => {
     const [cart, setCart] = UseCart();
     const { productId } = useParams();
     const [productDetails] = UseProductDetails(productId);
@@ -113,7 +113,7 @@ const AttarDetail = () => {
                     </div>
 
                     <div className='attar-detail-first-part-dev2'>
-                        <h4 className='mb-2'>{name}</h4>
+                        <h4 className='mb-2'>{name} masud</h4>
                         <p className=' mb-0'>
                             <small>4.5 </small>
                             <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
@@ -187,6 +187,6 @@ const AttarDetail = () => {
 };
 
 
-export default AttarDetail;
+export default ProductDetails;
 
 {/*   onClick={()=>props.handleAddToCard(props.attar)} */ }

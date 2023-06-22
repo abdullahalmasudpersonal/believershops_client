@@ -50,6 +50,7 @@ import UpdateProducts from './Pages/AdminPanel/UpdateProducts/UpdateProducts/Upd
 import UpdateProductInfo from './Pages/AdminPanel/UpdateProducts/UpdateProductInfo/UpdateProductInfo';
 import Blogs from './Pages/Blogs/Blogs/Blogs';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import ProductDetails from './Pages/ProductDetails/ProductDetails/ProductDetails';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -102,7 +103,8 @@ function App() {
           <Route path='islamic/caps' element={<Caps />} />
           <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
           <Route path='islamic/attars' element={<Attars />} />
-          <Route path='islamic/attar/:productId' element={<AttarDetail />} />
+          <Route path='products/:productId' element={<ProductDetails />} />
+          <Route path='products/:productId' element={<AttarDetail />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

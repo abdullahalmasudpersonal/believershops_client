@@ -1,0 +1,23 @@
+
+
+.updateProductInfo > form >div > label{
+  font-weight: bold;
+  font-size: 17px;
+}
+.updateProductInfo > form >div > label > span{
+  font-size: 18px;
+  color: rgb(160, 67, 0);
+}
+.updateProductInfo > form >div > input{
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 6%;
+}
+.updateProductInfo > form >div > textarea{
+    width: 90%;
+    min-height: 120px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 6%;
+}

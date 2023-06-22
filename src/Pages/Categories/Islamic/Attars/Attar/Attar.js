@@ -20,7 +20,7 @@ const Attar = ({ handleAddToCard, attar }) => {
     }
 
     const navigateToProductDetails = _id => {
-        navigate(`/categore/islamic/attar/${_id}`);
+        navigate(`/categore/products/${_id}`);
     }
 
 

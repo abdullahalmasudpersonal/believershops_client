@@ -181,15 +181,15 @@ const Checkout = (allOrderId) => {
                                                 <label>&nbsp;Cash On Delivery</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Bkash' onChange={e => setShipping(e.target.value)} />
+                                                <input type='radio' name='payment' value='Bkash' onChange={e => setPayment(e.target.value)} />
                                                 <label>&nbsp;Bkash</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Nagod' onChange={e => setShipping(e.target.value)} />
+                                                <input type='radio' name='payment' value='Nagod' onChange={e => setPayment(e.target.value)} />
                                                 <label>&nbsp;Nagod</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Rocket' onChange={e => setShipping(e.target.value)} />
+                                                <input type='radio' name='payment' value='Rocket' onChange={e => setPayment(e.target.value)} />
                                                 <label>&nbsp;Rocket</label>
                                             </div>
                                             <div>
@@ -221,6 +221,7 @@ const Checkout = (allOrderId) => {
                                                 <input type='radio' name='shipping' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
                                                 <label>&nbsp;OInside of Dhaka 60৳</label>
                                             </div>
+                                            {shipping} <p>{cTime}__ {cDate}</p> <p>orderNumber {orderNumber}</p>
                                         </div>
                                         {/* <div className='shipping-hidden'>
                                             <div>

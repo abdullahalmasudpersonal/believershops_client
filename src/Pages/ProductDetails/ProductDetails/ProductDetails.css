@@ -1,0 +1,320 @@
+/*----------------- attar detail start---------- */
+.attar-detail {
+    width: 100vw;
+    overflow: hidden;
+}
+
+/*----------------- attar detail end---------- */
+
+
+
+/*--------------- attar-detail  first-part start ---------------- */
+
+/* ------------- attar-detail  first-part dev1 start */
+.attar-detail-first-part {
+    margin-bottom: 30px;
+    display: flex;
+    grid-gap: 25px;
+}
+
+.attar-detail-first-part-dev1-big-img-dev {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attar-detail-first-part-dev1-big-img {
+    max-width: 390px;
+    max-height: 390px;
+    margin: auto;
+}
+
+/* ------------------------------------------------- */
+.attar-detail-first-part-dev1-p {
+    display: block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(184, 184, 184);
+    margin: 25px 0;
+    transition: .4s;
+    font-size: 13px;
+}
+
+.attar-detail-first-part-dev1-p:hover {
+    color: white;
+    background-color: rgb(110, 111, 112);
+}
+
+/* ------------------------------------------------- */
+.attar-detail-first-part-dev1-img{
+    display: flex;
+    justify-content: center;
+    grid-gap: 15px;
+}
+
+.attar-detail-first-part-dev1-img img {
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 3px;
+}
+
+/* ------------- attar-detail  first-part dev1 end---------- */
+
+
+/* ------------- attar-detail  first-part dev-2 start ------------*/
+.attar-detail-first-part-dev2 {}
+
+.attar-detail-dev-table {
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.attar-detail-table td {
+    padding: 2px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.attar-detail-quantity-counter {
+    display: flex;
+}
+
+.attar-detail-quantity-counter-p {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 7px;
+    width: 60px;
+    border: 1px solid rgb(207, 207, 207);
+    margin: 0;
+}
+
+.attar-detail-quantity-counter-dev {
+    font-size: 12px;
+    border-style: solid;
+    color: rgb(173, 173, 173);
+    border-color: rgb(207, 207, 207);
+    border-width: 1px 1px 1px 0px;
+}
+
+.attar-detail-quantity-counter-dev button {
+    border: none;
+    background: none;
+}
+
+.add-to-cart {
+    background: none;
+    border: none;
+    padding: 7px 28px;
+    border-radius: 3px;
+    color: white;
+    background-color: rgb(255, 129, 26);
+    transition: .4s;
+}
+
+.add-to-cart:hover {
+    color: white;
+    background-color: rgb(255, 94, 0);
+}
+
+/* ------------- attar-detail  first-part dev-2 end ---------- */
+
+/*--------------- attar-detail  first-part end ---------------- */
+
+
+
+
+/*--------------- attar-detail  second-part start ---------------- */
+.attar-detail-d-w-r {
+    display: block;
+    max-width: 100% !important;
+    border: 1px solid rgb(184, 184, 184);
+}
+
+.attar-detail-d-w-r-head {
+    background-color: aliceblue;
+}
+
+.attar-detail-d-w-r-head li {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: rgb(77, 77, 77);
+}
+
+.attar-detail-d-w-r-head li:hover {
+    background: rgba(255, 128, 23, 0.863);
+}
+
+/*--------------- attar-detail  second-part end ---------------- */
+
+
+
+/*   body {
+    padding : 10px ;
+    
+  } */
+
+/*   #exTab1 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  } */
+
+/*   #exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  } */
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills>li>a {
+    border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills>li>a {
+    border-radius: 4px 4px 0 0;
+}
+
+#exTab3 .tab-content {
+    color: white;
+    background-color: #428bca;
+    padding: 5px 15px;
+}
+
+@media screen and (max-width:700px) {
+    .attar-detail-first-part {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* big img responsive */
+@media screen and (max-width:410px) {
+    .attar-detail-first-part-dev1-big-img{
+        width: 390px;
+        height: 390px;
+    }
+}
+@media screen and (max-width:400px) {
+    .attar-detail-first-part-dev1-big-img{
+        width: 380px;
+        height: 380px;
+    }
+}
+@media screen and (max-width:390px) {
+    .attar-detail-first-part-dev1-big-img{
+        width: 370px;
+        height: 370px;
+    }
+}
+@media screen and (max-width:380px) {
+    .attar-detail-first-part-dev1-big-img{
+        width: 360px;
+        height: 360px;
+    }
+}
+@media screen and (max-width:370px) {
+    .attar-detail-first-part-dev1-big-img{
+        width: 350px;
+        height: 350px;
+    }
+}
+@media screen and (max-width:360px) {
+    .attar-detail-first-part-dev1-big-img{
+        width: 340px;
+        height: 340px;
+    }
+}
+
+
+img {
+    vertical-align: middle;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
