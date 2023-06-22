@@ -1,13 +1,13 @@
 import React from 'react';
 import UseAttars from '../../../Hooks/UseAttars/UseAttars';
-import '../Home/HomeProduct.css';
+import '../Home/HomeProducts.css';
 import Attar from '../../Categories/Islamic/Attars/Attar/Attar';
 
 const HomeIslamic = () => {
     const [attars, setAttars] = UseAttars([]);
 
     return (
-        <div className='homeProcuts'>
+        <div className='homeProducts'>
             {
                 attars.filter(categore => categore.category === 'attar').map(attar => <Attar key={attar._id} attar={attar} />)
             }

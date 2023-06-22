@@ -49,6 +49,7 @@ import DeleteProduct from './Pages/AdminPanel/DeleteProduct/DeleteProduct';
 import UpdateProducts from './Pages/AdminPanel/UpdateProducts/UpdateProducts/UpdateProducts';
 import UpdateProductInfo from './Pages/AdminPanel/UpdateProducts/UpdateProductInfo/UpdateProductInfo';
 import Blogs from './Pages/Blogs/Blogs/Blogs';
+import AboutUs from './Pages/AboutUs/AboutUs';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -131,13 +132,13 @@ function App() {
 
         <Route path='/offers' element={<Offers />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/aboutUs' element={<AboutUs />} />
         <Route path='/privacy_policy' element={<PrivacyPolicy />} />
         <Route path='/terms_condition' element={<TermsCondition />} />
         <Route path='*' element={<Notfound />} />
       </Routes>
       <Footer/>
       <BottemHeader/>
-      {/* <ToastContainer />  */}
       <ToastContainer
         position="top-center"
         autoClose={5000}

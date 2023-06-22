@@ -29,14 +29,6 @@ const Attar = ({ handleAddToCard, attar }) => {
         <div className='islamic-product-dev cart1'>
            <div className='p-3 pb-2'> <img src={image1} alt='' className='img-fluid' /></div>
             <h6 className='text-center islamic-product-dev-h6 mb-1' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
-
-            {/*  <a href='' >  <button onClick={() => handleAddToCard(attar)} >
-                At To Cart
-            </button> </a>  */}
-
-            {/*  <button onClick={()=>addItem(attar)}>
-                At To Cart
-            </button>   */}
             <p className='text-center m-0'>
                 <small>4.5 </small>
                 <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
@@ -59,18 +51,6 @@ const Attar = ({ handleAddToCard, attar }) => {
                         <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{regularPrice}.00</span>
                 }
             </p>
-           {/*  <div className='d-flex justify-content-center'>
-                {
-                     cart.some((p) => p._id === attar._id) ?
-                       <div className='islamic-product-add-to-cart'>  <button  onClick={() => handleRemoveProduct(_id)} >
-                            Revove
-                        </button> </div> 
-                        :
-                         <div className='islamic-product-add-to-cart'>  <button onClick={() => handleAddToCard(attar)} >
-                            Add to Cart
-                        </button> </div> 
-                }
-            </div> */}
         </div>
     );
 };

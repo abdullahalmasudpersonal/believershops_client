@@ -3,13 +3,14 @@ import Banner from '../Banner/Banner';
 import HeaderCatagore from '../../Shared/Header/HomeHeader/HomeHeader';
 import Banner2 from '../Banner/Banner2';
 import Brands from '../Brands/Brands';
-import HomeIslamic from '../HomeIslamic/HomeIslamic';
-import './HomeProduct.css';
 import './home.css';
 import HomeFeaturedCategory from '../HomeFeaturedCategory/HomeFeaturedCategory';
 import HomeBlogs from '../HomeBlogs/HomeBlogs';
 import NewArrivals from '../NewArrivals/NewArrivals';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import HomeFeaturedProducts from '../HomeFeaturedProducts/HomeFeaturedProducts/HomeFeaturedProducts';
+import HomeProductOnes from '../HomeProductOnes/HomeProductOnes/HomeProductOnes';
+import HomeProductTwos from '../HomeProductTwos/HomeProductTwos/HomeProductTwos';
 const Home = () => {
     const [selected, setSelected] = useState("males");
     const changeHandler = e => {
@@ -26,29 +27,42 @@ const Home = () => {
                 <Banner />
             </div>
             {/* ----------------- special class ----------------------------- */}
-            <div className='container-xxl px-2 mobile-responsive-featured-category'>
+            <div className='container-xxl home-div-responsive mobile-responsive-featured-category my-5'>
                 <HomeFeaturedCategory />
             </div>
-            <div className='container-xxl p-0 mt-4' style={{marginBottom:'70px'}}>
+            <div className='container-xxl home-div-responsive mt-4 mb-5'>
                 <NewArrivals />
             </div>
             {/* ----------------- special class ----------------------------- */}
-            <div className='container-xxl px-2 pc-responsive-featured-category'>
+            <div className='container-xxl home-div-responsive pc-responsive-featured-category'>
                 <HomeFeaturedCategory />
             </div>
-            <div className='container-xxl mb-5 mt-4 p-0'>
-                <Banner2 />
-                <HomeIslamic />
+            <div className='container-xxl home-div-responsive mt-5'>
+                <HomeProductOnes />
             </div>
-            <div className='container-xxl px-0'>
+            <div className='container-xxl home-div-responsive mb-5 mt-5'>
+                <Banner2 />
+            </div>
+            <div className='container-xxl home-div-responsive my-5'>
+                <HomeProductTwos />
+            </div>
+            <div className='container-xxl home-div-responsive my-5'>
+                <HomeFeaturedProducts />
+            </div>
+
+            <div className='container-xxl home-div-responsive mb-5 mt-4'>
+                <Banner2 />
+            </div>
+
+
+
+
+
+
+
+            <div className='container-xxl home-div-responsive'>
                 <HomeBlogs />
             </div>
-
-
-
-
-
-
         </div>
     );
 };

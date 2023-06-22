@@ -1,7 +1,20 @@
 .home-bg{
     background: #f2f4f8;
 }
-
+.home-div-responsive{
+    padding: 0;
+}
+@media screen and (max-width:1399px) {
+    .home-div-responsive{
+        padding: 0 10px;
+    }
+}
+@media screen and (max-width:500px) {
+    .home-div-responsive{
+        padding: 0 7px;
+    }
+}
+/* -------------------- start home responsiv featured categore---------------------- */
 @media screen and (max-width:500px) {
     .pc-responsive-featured-category{
         display: none;
@@ -12,3 +25,4 @@
         display: none;
     }
 }
+/* -------------------- end home responsiv featured categore---------------------- */

@@ -8,7 +8,7 @@ const HomeFeaturedCategory = () => {
     const [homeFCategory, setHomeFCategory] = UseHomeFeaturedCategory([]);
 
     return (
-        <div className='my-5'>
+        <div className='my-2'>
             <h5 className="homefeaturedCategore-title">FEATURED CATEGORIES</h5>
             <hr style={{ marginTop: '10px'}}></hr>
             <div className='homefeaturedCategore homefeaturedCategore-pc'>
