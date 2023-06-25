@@ -1,25 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faEllipsisV, faHome, faSearch, faUser, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import profileImg from '../../../../Assets/img/profile/profile.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
-import { getStoredCart } from '../../../../utilities/fakedb';
 import UseCart from '../../../Cart/UseCart';
-import { Button, Offcanvas } from 'react-bootstrap';
 import MobileSideber from '../MobileSideber/MobileSideber';
-import SideberMobile from '../SideberMobile/SideberMobile';
-import PcSearchber from '../PcSearchber/PcSearchber';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
+import { signOut } from 'firebase/auth';
 
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const [cart, setCart] = UseCart();
+    const navigate = useNavigate();
+    const logout = () => {
+        signOut(auth);
+        navigate('/');
+        localStorage.removeItem('accessToken');
+    };
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
@@ -79,9 +82,14 @@ const Header = () => {
                             <Link to='/blogs' style={{ textDecoration: 'none' }}>
                                 <li>BLOGS</li>
                             </Link>
-                            <Link to='/login' style={{ textDecoration: 'none' }}>
-                                <li>SIGN IN</li>
-                            </Link>
+                            {
+                                user ?
+                                    <li style={{ cursor: 'pointer' }} onClick={logout}>SIGN OUT</li>
+                                    :
+                                    <Link to='/login' style={{ textDecoration: 'none' }}>
+                                        <li>SIGN IN</li>
+                                    </Link>
+                            }
                         </ul>
                     </div>
 
@@ -165,7 +173,7 @@ const Header = () => {
                         <input className='search-ber' placeholder='Looking your products' type='text' value={searchValuse} onChange={onChange} />
                         <FontAwesomeIcon onClick={() => onSearch(searchValuse)} className='header2-part-2-search-icon-pc' icon={faSearch} />
                     </div>
-                  {/*   <PcSearchber/> */}
+                    {/*   <PcSearchber/> */}
                     {/* ------------------ end pc search ber  ------------------------------ */}
 
 
@@ -204,7 +212,7 @@ const Header = () => {
                 </div>
             </div>
             {/*------------------- search Result---------------- */}
-            <div className='bg-success container-xxl'>
+            <div className='search-ber-result container-xxl'>
                 {
                     products.filter(item => {
                         const searchTerm = searchValuse.toLowerCase();
@@ -213,9 +221,9 @@ const Header = () => {
                         return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
                     }).slice(0, 10)
                         .map((item) =>
-                            <p className='mb-0' onClick={() => onSearch(item.name)}>
-                                {item.name}
-                            </p>
+                                <p className='mb-0' onClick={() => onSearch(item.name)}>
+                                    {item.name}
+                                </p>
                         )
                 }
             </div>

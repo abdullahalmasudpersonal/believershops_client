@@ -5,7 +5,7 @@ const HomeFCategore = ({ homeFCategore }) => {
     const { categoryName, image } = homeFCategore;
 
     return (
-        <div className='homeFCategore'  rules="all">
+        <div className='homeFCategore' rules="all">
             <div>
                 <img className='text-center homeFCategore-img' src={image} />
                 <h6 className='text-center categore-title'><small>{categoryName}</small></h6>

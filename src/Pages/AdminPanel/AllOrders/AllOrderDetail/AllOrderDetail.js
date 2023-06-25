@@ -6,14 +6,15 @@ import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail'
 const AllOrderDetail = () => {
     const { allOrderId } = useParams();
     const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
+    const { confirmOrderStatus, cancelOrderStatus, deliveredOrderStatus } = allOrder;
     const cart = allOrder.cart;
-    console.log('cart', cart)
+    //   console.log('cart', cart)
 
     const id = allOrder._id;
     const orderNo = allOrder.orderNo;
     // console.log('id', id)
 
-    const confirmOrderStatus = () => {
+    const handleConfirmOrderStatus = () => {
         fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
             method: 'PUT',
             headers: {
@@ -26,7 +27,7 @@ const AllOrderDetail = () => {
             })
     };
 
-    const cancelOrderStatus = () => {
+    const handleCancelOrderStatus = () => {
         fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
             method: 'PUT',
             headers: {
@@ -39,7 +40,7 @@ const AllOrderDetail = () => {
             })
     };
 
-    const deliveredOrderStatus = event => {
+    const handleDeliveredOrderStatus = event => {
         event.preventDefault();
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
@@ -143,34 +144,31 @@ const AllOrderDetail = () => {
 
             <div className='allOrderDetail-part2 p-4'>
                 <div className='text-center'>
-
-                    {
-                        allOrder.confirmOrderStatus ?
-                            ''
-                            :
-                            <button type="button" class="btn btn-info" onClick={confirmOrderStatus}>Comfirm Order</button>
-                    }
-                    <br /><br />
-                    {
-                        allOrder.confirmOrderStatus ?
-                            ''
-                            :
-                            <button type="button" class="btn btn-warning" onClick={cancelOrderStatus}>Cancel Order</button>
-                    }
-                    <br /><br />
-                    {
-                        allOrder.confirmOrderStatus ?
-                            ''
-                            :
-                            <button type="button" class="btn btn-success" onClick={deliveredOrderStatus}>Delivered Order</button>
-                    }
+                    <div className='mb-3'>
+                        {(!confirmOrderStatus && !cancelOrderStatus) && <> <button type="button" class="btn btn-info" onClick={handleConfirmOrderStatus}>Comfirm Order</button></>}
+                    </div>
+                    <div className='mb-3'>
+                        {(!cancelOrderStatus && !deliveredOrderStatus) && <> <button type="button" class="btn btn-warning" onClick={handleCancelOrderStatus}>Cancel Order</button></>}
+                    </div>
+                    <div>
+                        {(confirmOrderStatus && !deliveredOrderStatus && !cancelOrderStatus) && <> <button type="button" class="btn btn-success" onClick={handleDeliveredOrderStatus}>Delivered Order</button></>}
+                    </div>
                 </div>
 
                 <h5 className='text-center mt-4'>Order History</h5>
 
                 <div className='mt-4'>
                     {
-                        allOrder.deliveredOrderStatus ?
+                        cancelOrderStatus ?
+                            <div className='order-status-graph'>
+                                <h6>{allOrder.cancelOrderStatus}</h6>
+                                <p className='m-0'>{allOrder.cancelOrderDate}&nbsp;{allOrder.cancelOrderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                    {
+                        deliveredOrderStatus ?
                             <div className='order-status-graph'>
                                 <h6>{allOrder.deliveredOrderStatus}</h6>
                                 <p className='m-0'>{allOrder.deliveredOrderDate}&nbsp;{allOrder.deliveredOrderTime}</p>
@@ -179,19 +177,10 @@ const AllOrderDetail = () => {
                             ""
                     }
                     {
-                        allOrder.confirmOrderStatus ?
+                        confirmOrderStatus ?
                             <div className='order-status-graph'>
                                 <h6>{allOrder.confirmOrderStatus}</h6>
                                 <p className='m-0'>{allOrder.confirmOrderDate}&nbsp;{allOrder.confirmorderTime}</p>
-                            </div>
-                            :
-                            ""
-                    }
-                    {
-                        allOrder.cancelOrderStatus ?
-                            <div className='order-status-graph'>
-                                <h6>{allOrder.cancelOrderStatus}</h6>
-                                <p className='m-0'>{allOrder.cancelOrderDate}&nbsp;{allOrder.cancelOrderTime}</p>
                             </div>
                             :
                             ""

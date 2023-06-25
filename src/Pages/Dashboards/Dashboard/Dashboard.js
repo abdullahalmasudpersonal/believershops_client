@@ -3,7 +3,7 @@ import './Dashboard.css';
 import profileImg from '../../../Assets/img/profile/profile.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import UseAdmin from '../../../Hooks/UseAdmin/UseAdmin';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

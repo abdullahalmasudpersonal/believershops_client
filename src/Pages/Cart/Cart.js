@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Cart.css';
 import '../../App.css';
-import { deleteToDb, removeFromDb } from '../../utilities/fakedb';
+import { removeFromDb } from '../../utilities/fakedb';
 import UseCart from './UseCart';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,27 +27,46 @@ const Cart = () => {
         }
         // add quantity
         const quantity = shoppingCart[_id];
-        if (quantity <= 9) {
+        if (quantity) {
             const newQuantity = quantity + 1;
             shoppingCart[_id] = newQuantity;
         }
         else {
             shoppingCart[_id] = 1;
-            
+
         }
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-    }
+    };
+
+    const deleteToDb = _id => {
+        let shoppingCart = {};
+
+        //delete the shopping cart from local storage
+        const storedCart = localStorage.getItem('shopping-cart');
+        if (storedCart) {
+            shoppingCart = JSON.parse(storedCart);
+        }
+
+        // add quantity
+        const quantity = shoppingCart[_id];
+        if (quantity >1) {
+            const deleteQuantity = quantity - 1;
+            shoppingCart[_id] = deleteQuantity;
+        }
+        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    };
+
 
     const handleRemoveProduct = product => {
         const rest = cart.filter(pd => pd._id !== product._id);
         setCart(rest);
         removeFromDb(product._id);
     }
-    const handleRemoveProductQuantity = product => {
-        const rest = cart.filter(pd => pd._id !== product._id);
-        setCart(rest);
-        deleteToDb(product._id);
-    }
+    /*     const handleRemoveProductQuantity = product => {
+            const rest = cart.filter(pd => pd._id !== product._id);
+            setCart(rest);
+            deleteToDb(product._id);
+        } */
 
     let quantity = 0;
     let subTotal = 0;
@@ -60,7 +79,6 @@ const Cart = () => {
     /* checkout cart disable */
     const disabled = quantity < 1;
 
-    const prevCount = 1;
     function increment() {
         //setCount(prevCount => prevCount+=1);
         setCount(function (prevCount) {
@@ -98,7 +116,20 @@ const Cart = () => {
         }
         setCart(newCart);
         addToDb(selectedAttar._id);
-    }
+    };
+
+    const handleDeleteToCard = (selectedAttar) => {
+        let newCart = [];
+        const exists = cart.find(attar => attar._id === selectedAttar._id);
+            const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+            exists.quantity = 1 && exists.quantity - 1;
+            newCart = [...rest, exists];
+            /*  toast.warning(`Alrady Added To Cart`); */
+    
+        setCart(newCart);
+        deleteToDb(selectedAttar._id);
+    };
+
 
     return (
         <>
@@ -156,7 +187,7 @@ const Cart = () => {
                                                                 <i onClick={() => handleAddToCard(product)} style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
                                                             </button>
                                                             <button onClick={decrement} classnamep='p-0' >
-                                                                <i style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
+                                                                <i onClick={() => handleDeleteToCard(product)} style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -164,7 +195,7 @@ const Cart = () => {
                                             </td>
 
                                             <td className='text-center align-middle'>
-                                                <button style={{ border: 'none', background: 'none', padding: '0' }} onClick={() => handleRemoveProductQuantity(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
+                                                <button style={{ border: 'none', background: 'none', padding: '0' }} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
                                             </td>
                                             <td className='text-end mobile-cart align-middle'>{product.regularPrice}</td>
                                             <td className='text-end align-middle'>{product.quantity * product.regularPrice}</td>

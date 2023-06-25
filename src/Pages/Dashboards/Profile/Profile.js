@@ -82,7 +82,7 @@ const Profile = () => {
                             <div className="my-profile py-4">
                                 <div className='my-profile-img'>
                                     {userInfo.filepreview !== null ? <img width='170px' height='170px' src={userInfo.filepreview} alt='' /> : <img width='170px' height='170px' src={profile} alt='' />}
-                                    <input className='custom-file-input' type="file" name='profileImg' required onChange={handleInputChange} {...register("profileImg",{required:false})}  />
+                                    <input className='custom-file-input' type="file" name='profileImg' required onChange={handleInputChange} /* {...register("profileImg",{required:false})} */  />
                                 </div>
 
                                 <div className='edit-user-profile-info'>

@@ -1,5 +1,9 @@
+.banner {
+
+}
+
 /* banner 2 */
-.banner2 img{
+.banner2 img {
     width: 100%;
 }
 
@@ -69,8 +73,9 @@
         height: 300px;
         width: 100%;
     }
-    .banner-right-child-dev-img{
-        height:130px;
+
+    .banner-right-child-dev-img {
+        height: 130px;
     }
 
 }

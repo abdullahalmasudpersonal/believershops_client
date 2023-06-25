@@ -222,7 +222,13 @@
     border-radius: 0 5px 5px 0;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-
+/* ----------- start - search-ber-result ------------------ */
+.search-ber-result{
+    background-color: aliceblue;
+    opacity: .4;
+    color: black;
+}
+/* ----------- end - search-ber-result ------------------ */
 /* @media screen and (min-width:100px) and (max-width:800px) {
     .header2-part2-search-ber {
         width: 600px;

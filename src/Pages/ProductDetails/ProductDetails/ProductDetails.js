@@ -10,15 +10,19 @@ import UseCart from '../../Cart/UseCart';
 import UseProductDetails from '../../../Hooks/UseProductDetails/UseProductDetails';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import AttarDesWR from '../../Categories/Islamic/Attars/Attar/AttarDetail/AttarDesWR/AttarDesWR';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const ProductDetails = () => {
+    const [user] = useAuthState(auth);
     const [cart, setCart] = UseCart();
     const { productId } = useParams();
     const [productDetails] = UseProductDetails(productId);
-    const { name, availability, offerPrice, weight1 } = productDetails;
+    const { name, image1, category, availability, offerPrice, weight1 } = productDetails;
     const [count, setCount] = useState(1);
     const [imgSlide, setImgSlide] = useState();
+    const [review, setReview] = useState();
+    console.log('review', review)
 
     const addToDb = _id => {
         let shoppingCart = {};
@@ -105,6 +109,7 @@ const ProductDetails = () => {
                             </p>
                         </div>
 
+
                         <div className='attar-detail-first-part-dev1-img'>
                             <img height='100px' name='imgSlide' width='100px' src={productDetails.image1} alt='' />
                             <img height='100px' width='100px' src={productDetails.image2} alt='' name='imgSlide' />
@@ -113,6 +118,7 @@ const ProductDetails = () => {
                     </div>
 
                     <div className='attar-detail-first-part-dev2'>
+                        <p className='mb-0'>{category}</p>
                         <h4 className='mb-2'>{name} masud</h4>
                         <p className=' mb-0'>
                             <small>4.5 </small>
@@ -122,7 +128,63 @@ const ProductDetails = () => {
                             <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                             <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                             <small> (27) </small>
-                            <small>&nbsp; Write a review</small>
+                            <small>&nbsp; <span data-bs-toggle="modal" data-bs-target="#exampleModal" className='review-btn'>Write a review</span></small>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class=" modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                Write a Review</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div className='d-flex'>
+                                                <div>
+                                                    <img src={image1} />
+                                                </div>
+                                                <div className='review-dev2'>
+                                                    <div>
+                                                        <div className='d-flex justify-content-between'>
+                                                            <label><small>Ragging</small></label> <label><small>Requird</small></label>
+                                                        </div>
+                                                        <select aria-label="Default select example" value={review} onChange={e => setReview(e.target.value)} >
+                                                            <option selected>Open this select menu</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <div className='d-flex justify-content-between'>
+                                                            <label><small>Email</small></label> <label><small>Requird</small></label>
+                                                        </div>
+                                                        <input />
+                                                    </div>
+                                                    <div>
+                                                        <div className='d-flex justify-content-between'>
+                                                            <label><small>Email</small></label> <label><small>Requird</small></label>
+                                                        </div>
+                                                        <input />
+                                                    </div>
+                                                    <div>
+                                                        <div className='d-flex justify-content-between'>
+                                                            <label><small>Review Subject</small></label> <label><small>Requird</small></label>
+                                                        </div>
+                                                        <input />
+                                                    </div>
+                                                    <div>
+                                                        <div className='d-flex justify-content-between'>
+                                                            <label><small>Ragging</small></label> <label><small>Requird</small></label>
+                                                        </div>
+                                                        <input />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </p>
                         <p className=' product-dev-p pt-2'>
                             {

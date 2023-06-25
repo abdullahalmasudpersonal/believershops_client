@@ -8,6 +8,37 @@ const UpdateProductInfo = () => {
   const [productDetails] = UseProductDetails(productId);
   const { _id, name, category, brand, stockStatus, availableQuantity, price, regularPrice, offerPrice, description, size, image1 } = productDetails;
 
+  const handleUpdateProduct = event => {
+    event.preventDefault();
+    const updateproduct = {
+      
+    }
+    fetch(`http://localhost:5000/products/${_id}`, {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+  }
+
+
+  /*   const cancelOrderStatus = () => {
+      fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
+        method: 'PUT',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+           console.log(data);
+        })
+    };
+   */
 
   return (
     <div className='dashboard-dev2 p-2'>
@@ -16,7 +47,7 @@ const UpdateProductInfo = () => {
         <div>
           <img src={image1} width='200px' height='200px' />
         </div>
-        <form>
+        <form onSubmit={handleUpdateProduct}>
           <div>
             <label>Name : <span>{name}</span></label>&nbsp;
             <input type='text' placeholder='Name' name='name' defaultValue={name} />
@@ -59,7 +90,8 @@ const UpdateProductInfo = () => {
           </div>
 
           <div>
-            <input type='submit' value='Update Prodcut' />
+            {/*  <input type='submit' value='Update Prodcut' /> */}
+            <button type='submit'>Update Prodcut</button>
           </div>
         </form>
       </div>

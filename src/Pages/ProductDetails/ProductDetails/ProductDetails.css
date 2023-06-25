@@ -64,7 +64,19 @@
 
 /* ------------- attar-detail  first-part dev-2 start ------------*/
 .attar-detail-first-part-dev2 {}
-
+.review-btn{
+    cursor: pointer;
+    transition:.3s;
+}
+.review-btn:hover{
+    color: rgb(255, 149, 0);
+}
+.review-btn:active{
+    color: rgb(89, 0, 255);
+}
+.review-dev2 input{
+    width: 100%;
+}
 .attar-detail-dev-table {
     border-bottom: 1px solid rgb(224, 224, 224);
 }
