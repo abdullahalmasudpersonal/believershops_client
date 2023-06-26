@@ -185,19 +185,7 @@ const Header = () => {
                             <span className="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
                                 {cart.length}
                             </span>
-
-                            {/* <span style={{ marginRight: '10px' }} className="position-absolute translate-middle badge rounded-pill bg-dark">
-                                {cart.length} 
-                            </span> */}
                         </Link>
-                        {/* <button type="button" className="btn btn-primary position-relative">
-                            Inbox
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                99+
-                                <span className="visually-hidden">unread messages</span>
-                            </span>
-                        </button> */}
-
                         {
                             user ?
                                 <Link to='/dashboard' className='ms-3'>
@@ -221,9 +209,9 @@ const Header = () => {
                         return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
                     }).slice(0, 10)
                         .map((item) =>
-                                <p className='mb-0' onClick={() => onSearch(item.name)}>
-                                    {item.name}
-                                </p>
+                            <p className='mb-0' onClick={() => onSearch(item.name)}>
+                                {item.name}
+                            </p>
                         )
                 }
             </div>

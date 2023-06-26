@@ -6,3 +6,11 @@
     border-radius: 5px;
     overflow: hidden;
 }
+.allorder-search-ber{
+    padding: 5px;
+    width: 70%;
+   border-radius: 5px;
+   border: 1px solid gray;
+   outline: none;
+   background-color: rgb(240, 240, 240);
+}

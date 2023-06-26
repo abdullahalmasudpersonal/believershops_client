@@ -1,0 +1,20 @@
+.create-address-button {
+    width: 350px;
+    height: 250px;
+    border-radius: 4px;
+    border: 1px solid rgb(209, 209, 209);
+    background: none;
+    transition: .4s;
+    color: rgb(159, 159, 159);
+    font-weight: 600;
+}
+
+.create-address-button:hover {
+    color: rebeccapurple !important;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.add-address-icon {
+    color: rgb(255, 111, 0);
+    font-size: 19px;
+}

@@ -23,6 +23,9 @@
     color: rgb(18, 18, 18);
     text-decoration: none;
 }
+.breadcrumbItem:hover{
+    color: rgb(0, 2, 128);
+}
 @media screen and (max-width:1399px) {
     .breadcrumb-bg >div{
         padding: 13px 16px;

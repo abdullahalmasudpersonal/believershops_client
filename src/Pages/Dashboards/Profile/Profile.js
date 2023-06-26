@@ -11,7 +11,7 @@ import PageTitle from '../../Shared/PageTitle/PageTitle';
 const Profile = () => {
     const { register, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
-    const [edit, setEdit] = useState(true);
+    const [edit, setEdit] = useState(false);
     const imageStorageKey = 'a3d4bff21c6d258146feb02c43808485';
 
     const [userInfo, setuserInfo] = useState({

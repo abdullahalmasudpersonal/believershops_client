@@ -2,12 +2,25 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './Admin.css'
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const Admin = () => {
     return (
         <>
+           <div className='breadcrumb-bg'>
+                <div className='container-xxl'>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 ">
+                            <li class="breadcrumb-item"><Link to="/"><FontAwesomeIcon icon={faHome} className='breadcrumb-home-btn' /></Link></li>
+                            <li class="breadcrumb-item"><Link to='/dashboard' className='breadcrumbItem'>Dashboard</Link></li>
+                            <li class="breadcrumb-item active" aria-current="page">Admin</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
             <div className='admin-bg-color'>
-                <PageTitle pageTitle='Admin' />
+                <PageTitle pageTitle='Admin |' />
                 <div className='container-xxl py-4 p-0 '>
                     <h1 className='p-0 text-center ' style={{ fontFamily: "𝕿𝖞𝖕𝖊 𝖘𝖔𝖒𝖊𝖙𝖍𝖎𝖓𝖌 𝖙𝖔 𝖘𝖙𝖆𝖗𝖙", color: 'rgb(233, 93, 0)' }}>Admin Panel</h1>
                 </div>
@@ -25,7 +38,7 @@ const Admin = () => {
                             <button>All Admin</button>
                         </Link>
                         <Link to='/admin/create_product'>
-                            <button>Ad Product</button>
+                            <button>Create Product</button>
                         </Link>
                         <Link to='/admin/update_product'>
                             <button>Update Product</button>

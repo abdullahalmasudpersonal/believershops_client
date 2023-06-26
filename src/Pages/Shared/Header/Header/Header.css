@@ -224,9 +224,14 @@
 }
 /* ----------- start - search-ber-result ------------------ */
 .search-ber-result{
+}
+.search-ber-result>p{
+   padding: 3px 0;
+}
+.search-ber-result>p:hover{
     background-color: aliceblue;
-    opacity: .4;
-    color: black;
+    color: green;
+    cursor: pointer;
 }
 /* ----------- end - search-ber-result ------------------ */
 /* @media screen and (min-width:100px) and (max-width:800px) {

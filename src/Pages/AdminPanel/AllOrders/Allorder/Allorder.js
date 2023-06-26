@@ -4,11 +4,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import './Allorder.css'
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import PageTitle from '../../../Shared/PageTitle/PageTitle';
 
 const Allorder = () => {
     const [user] = useAuthState(auth);
     const [allOrder, setAllOrder] = useState([]);
     const navigate = useNavigate();
+    const [orderSearch, setOrderSearch] = useState("");
+
+
     useEffect(() => {
         fetch(`http://localhost:5000/allOrder?email=${user.email}`, {
             method: 'GET',
@@ -32,13 +36,25 @@ const Allorder = () => {
 
     const navigateToOrderDetail = _id => {
         navigate(`/admin/allOrder/${_id}`);
-    }
+    };
 
+    /* start search order */
+    const search = (event) => {
+        setOrderSearch(event.target.value);
+    };
+    let dataSearch = allOrder.filter(order => {
+        return Object.keys(order).some(key =>
+            order[key].toString().toLowerCase().includes(orderSearch.toString().toLowerCase()));
+    });
+    /* end search order */
 
     return (
-        <div className='allorders' style={{background:'white'}}>
-            <div className='pt-4 ps-4'>
+        <div className='allorders' style={{ background: 'white' }}>
+            <PageTitle pageTitle='AllOrder |' />
+            <div className='pt-4 px-4 d-flex justify-content-between'>
                 <h4 className='fw-bold side-header'>All Orders ({allOrder.length})</h4>
+                <input className='allorder-search-ber' placeholder='Search Order' value={orderSearch}
+                    onChange={search.bind(this)} />
             </div>
             <hr />
             <div className='px-3 table-responsive' >
@@ -57,7 +73,7 @@ const Allorder = () => {
                     </thead>
                     <tbody>
                         {
-                            allOrder.map((allOrder, index) =>
+                            dataSearch.map((allOrder) =>
                                 <tr key={allOrder._id}>
                                     <th scope="row">{allOrder.orderNo}</th>
                                     <td>{allOrder.coustomerName}</td>

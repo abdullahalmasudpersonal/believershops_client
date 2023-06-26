@@ -2,6 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import './CreateProduct.css'
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const CreateProduct = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -41,7 +45,7 @@ const CreateProduct = () => {
                     })
                         .then(res => res.json())
                         .then(inserted => {
-                            console.log('inser',inserted)
+                            console.log('inser', inserted)
                             if (inserted.insertedId) {
                                 toast.success('Added New Product');
                                 reset();
@@ -55,38 +59,45 @@ const CreateProduct = () => {
     };
 
     return (
-        <div className='dashboard-dev2 py-5' style={{ background: 'white' }}>
-            <div className='create-product-dev'>
-                <h4 className='text-center mb-4 pt-4'>Create Attar</h4>
-                <div className='pb-4'>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <input type='text' placeholder='Enter Product Category' {...register("category", { required: true })} />
+        <>
+            <div className='dashboard-dev2'>
+                <PageTitle pageTitle='Create Product |' />
+                <div className='pt-4 ps-4'>
+                    <h4 className='fw-bold side-header'>Create Product</h4>
+                </div>
+                <hr />
+                <div className='create-product-dev mt-5 mb-5'>
+                    <h4 className='text-center mb-4 pt-4'>Create Product</h4>
+                    <div className='pb-4'>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input type='text' placeholder='Enter Product Category' {...register("category", { required: true })} />
 
-                        <input type='text' placeholder='Enter Product Name' {...register("name", { required: true })} />
+                            <input type='text' placeholder='Enter Product Name' {...register("name", { required: true })} />
 
-                        <input type='text' placeholder='Enter Product Brand' {...register("brand", { required: true })} />
+                            <input type='text' placeholder='Enter Product Brand' {...register("brand", { required: true })} />
 
-                        <input type='number' placeholder='Enter Product Available Quantity' {...register("availability", { required: true })} />
+                            <input type='number' placeholder='Enter Product Available Quantity' {...register("availability", { required: true })} />
 
-                        <input type='number' placeholder='Enter Product Regular Price' {...register("ragularPrice", { required: true })} />
+                            <input type='number' placeholder='Enter Product Regular Price' {...register("ragularPrice", { required: true })} />
 
-                        <input type='number' placeholder='Enter Product Offer Price' {...register("offerPrice", { required: true })} />
+                            <input type='number' placeholder='Enter Product Offer Price' {...register("offerPrice", { required: true })} />
 
-                        <input type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} />
+                            <input type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} />
 
-                        {/*                         <input type='text' placeholder='Enter Product Description-2' {...register("description", { required: true })} />
+                            {/*                         <input type='text' placeholder='Enter Product Description-2' {...register("description", { required: true })} />
 
                         <input type='text' placeholder='Enter Product Description-3' {...register("description", { required: true })} /> */}
 
-                        <input className='' type="file" {...register("image1", {
-                            required: "Photo is Required"
-                        })} />
+                            <input className='' type="file" {...register("image1", {
+                                required: "Photo is Required"
+                            })} />
 
-                        <input type='Submit' value='Add Product' />
-                    </form>
+                            <input type='Submit' value='Add Product' />
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

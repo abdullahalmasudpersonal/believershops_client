@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import './DeleteProduct.css';
 import UseProducts from '../../../Hooks/UseProducts/UseProducts';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const DeleteProduct = () => {
     const [products, setProducts] = UseProducts();
+    const [deleteProduct, setDeeleteProduct] = useState('');
 
     const handleDelete = _id => {
         const proceed = window.confirm('Are you sure?');
@@ -20,12 +22,29 @@ const DeleteProduct = () => {
                     setProducts(remaining);
                 })
         }
-    }
+    };
+
+      /* start search product */
+      const search = (event) => {
+        setDeeleteProduct(event.target.value);
+    };
+    let productSearch = products.filter(order => {
+        return Object.keys(order).some(key =>
+            order[key].toString().toLowerCase().includes(deleteProduct.toString().toLowerCase()));
+    });
+    /* end search product */
 
 
     return (
-        <div className='dashboard-dev2' style={{ background: 'white' }}>
-            <div className='m-4 col'>
+        <div className='dashboard-dev2'>
+            <PageTitle pageTitle='Delete Product |' />
+            <div className='pt-4 px-4 d-flex justify-content-between'>
+                <h4 className='fw-bold side-header'>Delete Product ({products.length})</h4>
+                <input className='allorder-search-ber' placeholder='Search Order' value={deleteProduct}
+                    onChange={search.bind(this)} />
+            </div>
+            <hr />
+            <div className='px-3 pb-3 col'>
                 <table className="table table-hover">
                     <thead>
                         <tr>
@@ -36,10 +55,8 @@ const DeleteProduct = () => {
                         </tr>
                     </thead>
                     <tbody>
-
-                        {/*    <Loading /> */}
                         {
-                            products.map((attar, index) =>
+                            productSearch.map((attar, index) =>
                                 <tr key={attar._id}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{attar.name}</td>

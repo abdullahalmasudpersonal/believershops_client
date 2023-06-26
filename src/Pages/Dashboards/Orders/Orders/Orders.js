@@ -60,7 +60,7 @@ const Orders = () => {
 
     return (
         <div className='dashboard-dev2'>
-            <PageTitle pageTitle='My Order' />
+            <PageTitle pageTitle='My Order |' />
             <div className='pt-4 ps-4'>
                 <h4 className='fw-bold side-header'>My Orders ({orders.length})</h4>
             </div>

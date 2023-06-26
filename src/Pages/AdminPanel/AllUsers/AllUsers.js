@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AllUsers.css';
 import Loading from '../../Shared/Loading/Loading';
 import { useQuery } from 'react-query';
 import UserRow from './UserRow';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const AllUsers = () => {
+    const [searchUser, setSearchUser] = useState('');
+
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
         method: 'GET',
         headers: {
@@ -13,12 +16,25 @@ const AllUsers = () => {
     }).then(res => res.json()));
     if (isLoading) {
         return <Loading />
-    }
+    };
+
+    /* start search order */
+    const search = (event) => {
+        setSearchUser(event.target.value);
+    };
+    let userSearch = users.filter(order => {
+        return Object.keys(order).some(key =>
+            order[key].toString().toLowerCase().includes(searchUser.toString().toLowerCase()));
+    });
+    /* end search order */
 
     return (
         <div className='dashboard-dev2'>
-            <div className='pt-4 ps-4'>
+            <PageTitle pageTitle='All User |' />
+            <div className='pt-4 px-4 d-flex justify-content-between'>
                 <h4 className='fw-bold side-header'>All Users ({users.length})</h4>
+                <input className='allorder-search-ber' placeholder='Search Order' value={searchUser}
+                    onChange={search.bind(this)} />
             </div>
             <hr />
             <div className='px-3 table-responsive-lg'>
@@ -34,7 +50,7 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <UserRow key={user._id} user={user} index={index}
+                            userSearch.map((user, index) => <UserRow key={user._id} user={user} index={index}
                                 refetch={refetch} />)
                         }
                     </tbody>

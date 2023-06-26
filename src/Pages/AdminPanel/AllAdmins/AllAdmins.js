@@ -1,11 +1,13 @@
 import React from 'react';
 import './AllAdmin.css';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const AllAdmins = () => {
     
 
     return (
-        <div className='allAdmins'>
+        <div className='dashboard-dev2'>
+            <PageTitle pageTitle='All Admin |' />
             <div className='pt-4 ps-4'>
                 <h4 className='fw-bold side-header'>All Admin ()</h4>
             </div>
