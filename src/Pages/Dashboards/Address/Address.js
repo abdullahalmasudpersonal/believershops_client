@@ -1,10 +1,90 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import './Address.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const Address = () => {
+    const [user] = useAuthState(auth);
+    //  const [addresses, setAddresses] = useState([]);
+    const navigate = useNavigate();
+
+    const navigateToAddshippingAddress = () => {
+        navigate('/dashboard/address/add_shipping_address')
+    };
+
+    const { data: addresses, isLoading, refetch } = useQuery('addresses',
+        () => fetch(`http://localhost:5000/myAddress?email=${user.email}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res => res.json()));
+    if (isLoading) {
+        return <Loading />
+    };
+
+    /*     useEffect(() => {
+            fetch(`http://localhost:5000/myAddress?email=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        navigate('/');
+                        localStorage.removeItem('accessToken');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setAddresses(data);
+                });
+        }, [user]); */
+
+    const deleteAddress = _id => {
+        const proceed = window.confirm('Are you sure you want to delete this address?');
+        if (proceed) {
+            fetch(`http://localhost:5000/myAddress/${_id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success(`Successfully delete your address !!! `)
+                        refetch();
+                    }
+
+                })
+        }
+    };
+
+
+    /*     const deleteAddress = _id =>{
+            const proceed = window.confirm('Are you sure you want to delete this address?');
+            if(proceed){
+                const url =  `http://localhost:5000/myAddress/${_id}`;
+                fetch(url, {
+                    method: 'DELETE'
+                })
+                .then(res => res.json())
+                .then()
+            }
+        } */
+
+
     return (
         <div className='dashboard-dev2'>
             <PageTitle pageTitle='Address |' />
@@ -12,9 +92,29 @@ const Address = () => {
                 <h4 className='fw-bold side-header'>Address</h4>
             </div>
             <hr />
-            <div className='px-4 py-2 create-addres'>
+            <div className='px-4 py-2 myAddress'>
+                {
+                    addresses.map((address) =>
+                        <div className='myAddress-dev'>
+                            <h6>{address.coustomerName}</h6>
+                            {
+                                address.companyName ?
+                                    <p>Company: {address.companyName}</p>
+                                    : ''
+                            }
+                            <p>{address.address1},&nbsp;{address.address2}</p>
+                            <p>{address.city} -&nbsp;{address.postCode}</p>
+                            <p>{address.state}</p>
+                            <h6 className='mt-2'>Phone: {address.phoneNumber}</h6>
+                            <div className='d-flex gap-3 mt-4 '>
+                                <button className='address-edit-btn'>Edit</button>
+                                <button onClick={() => deleteAddress(address._id)} className='address-delete-btn'>Delete</button>
+                            </div>
+                        </div>
+                    )
+                }
                 <div>
-                    <button className='create-address-button'>
+                    <button className='create-address-button' onClick={navigateToAddshippingAddress}>
                         <FontAwesomeIcon className='add-address-icon' icon={faPlus} />
                         <p>New Address</p>
                     </button>

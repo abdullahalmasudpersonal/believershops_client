@@ -45,7 +45,7 @@ const CreateProduct = () => {
                     })
                         .then(res => res.json())
                         .then(inserted => {
-                            console.log('inser', inserted)
+                         //   console.log('inser', inserted)
                             if (inserted.insertedId) {
                                 toast.success('Added New Product');
                                 reset();

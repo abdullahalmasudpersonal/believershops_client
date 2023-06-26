@@ -66,6 +66,7 @@ const Checkout = (allOrderId) => {
             axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
+                    console.log(data.insertedId)
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
                         event.target.reset();

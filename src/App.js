@@ -51,6 +51,7 @@ import UpdateProductInfo from './Pages/AdminPanel/UpdateProducts/UpdateProductIn
 import Blogs from './Pages/Blogs/Blogs/Blogs';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import ProductDetails from './Pages/ProductDetails/ProductDetails/ProductDetails';
+import AddShippingAddress from './Pages/Dashboards/Address/AddShippingAddress/AddShippingAddress';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -113,6 +114,7 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
           <Route path='address' element={<Address />} />
+          <Route path='address/add_shipping_address' element={<AddShippingAddress />} />
           <Route path='myOrders' element={<Orders />} />
           <Route path='myOrder/:myOrderId' element={<OrderDetails />} />
         </Route>
