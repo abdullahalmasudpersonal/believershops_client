@@ -61,7 +61,6 @@ const Header = () => {
                 <p className='m-0 p-0'>The website is a work in progress. It is not in service yet.</p>
             </div> */}
             {/* ---------Part 1 ----------- */}
-
             <div className={shadow ? 'sticky-top  header-shadow ' : 'header-bg-color'}>
                 <div className='container-xxl d-flex justify-content-between align-items-center responsive-header' style={{ padding: '5px ' }}>
                     <div>
@@ -69,7 +68,6 @@ const Header = () => {
                             <img width='130px' src={logo} alt='' />
                         </Link>
                     </div>
-
                     <div>
                         <ul className='header-p1-ul m-0 p-0' style={{ listStyleType: 'none' }}>
                             <Link to='/' style={{ textDecoration: 'none' }}>
@@ -92,7 +90,6 @@ const Header = () => {
                             }
                         </ul>
                     </div>
-
                     <div className='d-flex justify-content-center align-items-center' style={{}}>
                         <div>
                             <FontAwesomeIcon style={{ height: '48px', width: '30px', marginRight: '10px', color: '#FF5733' }} icon={faHeadset} />
@@ -157,7 +154,6 @@ const Header = () => {
             {/* ---------------- Header part 2 start ---------------- */}
             <div className='header-part2'>
                 <div className='container-xxl header-part2-dev'>
-
                     <div className='header2-catagories'>
                         <div className='d-flex align-items-center'>
                             <FontAwesomeIcon className='' icon={faAlignJustify} />

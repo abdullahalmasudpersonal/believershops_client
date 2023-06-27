@@ -104,8 +104,8 @@ function App() {
           <Route path='islamic/caps' element={<Caps />} />
           <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
           <Route path='islamic/attars' element={<Attars />} />
-          <Route path='products/:productId' element={<ProductDetails />} />
           <Route path='products/:productId' element={<AttarDetail />} />
+          <Route path='products/:productId' element={<ProductDetails />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

@@ -92,7 +92,7 @@ const AttarDetail = () => {
     return (
         <>
             <div className='attar-detail px-2'>
-                <PageTitle pageTitle={`${name}`} />
+                <PageTitle pageTitle={`${name} |`} />
                 <div className='attar-detail-first-part'>
                     <div className='attar-detail-first-part-dev1'>
                         <div className='attar-detail-first-part-dev1-big-img-dev'>

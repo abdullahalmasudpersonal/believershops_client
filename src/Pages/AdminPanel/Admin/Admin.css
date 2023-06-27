@@ -4,8 +4,3 @@
   .admin-dev1-bg-color{
     background-color: white;
   }
-  .admin-sideber-main{
-    display: flex;
-    grid-template-columns: 350px auto;
-    grid-gap: 20px;
-  }

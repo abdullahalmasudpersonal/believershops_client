@@ -32,8 +32,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className='home-bg'>
-        <div className='container-xxl pt-4 pb-5 p-0'>
-          {/* <h4 className='mb-3'>Dashboard</h4> */}
+        <div className='container-xxl px-0 py-4'>
           <div className='dashboard'>
             <div className='dashboard-dev1'>
               <img width='60px' src={profileImg} alt='' />
@@ -57,9 +56,7 @@ const Dashboard = () => {
               <button>Transactions</button>
               <button onClick={logout}>Logout</button>
             </div>
-            <Outlet />
-            {/* <div className='dashboard-dev2'>
-        </div> */}
+             <Outlet />
           </div>
         </div>
       </div>

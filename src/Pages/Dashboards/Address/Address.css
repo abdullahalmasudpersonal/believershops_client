@@ -1,13 +1,15 @@
-
-.myAddress{
+.myAddress {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     justify-content: start;
     gap: 20px;
+    width: 100%;
+    padding: 0 20px;
 }
-.myAddress-dev{
+
+.myAddress-dev {
     position: relative;
-    width: 350px;
+    width: 310px;
     height: 250px;
     border-radius: 4px;
     border: 1px solid rgb(209, 209, 209);
@@ -16,10 +18,12 @@
     transition: .4s;
     color: rgb(63, 63, 63);
 }
-.myAddress-dev>p{
+
+.myAddress-dev>p {
     margin-bottom: 2px;
 }
-.address-edit-btn{
+
+.address-edit-btn {
     position: absolute;
     bottom: 15px;
     left: 18px;
@@ -30,13 +34,15 @@
     padding: 3px 20px;
     transition: .4s;
 }
-.address-edit-btn:hover{
+
+.address-edit-btn:hover {
     border: 1px solid rgb(69, 69, 69);
     color: white;
     border-radius: 2px;
     background: rgb(69, 69, 69);
 }
-.address-delete-btn{
+
+.address-delete-btn {
     position: absolute;
     bottom: 15px;
     left: 100px;
@@ -47,13 +53,15 @@
     padding: 3px 20px;
     transition: .4s;
 }
-.address-delete-btn:hover{
+
+.address-delete-btn:hover {
     border: 1px solid rgb(141, 141, 141);
     color: rgb(255, 255, 255);
     background: rgb(155, 155, 155);
 }
+
 .create-address-button {
-    width: 350px;
+    width: 310px;
     height: 250px;
     border-radius: 4px;
     border: 1px solid rgb(209, 209, 209);
@@ -71,4 +79,237 @@
 .add-address-icon {
     color: rgb(255, 111, 0);
     font-size: 19px;
+}
+
+@media screen and (max-width:1330px) {
+    .myAddress {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .myAddress-dev {
+        width: 400px;
+    }
+
+    .create-address-button {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:1180px) {
+    .myAddress-dev {
+        width: 350px;
+    }
+    .create-address-button {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width:1080px) {
+    .myAddress-dev {
+        width: 320px;
+    }
+    .create-address-button {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width:1020px) {
+    .myAddress {
+        gap: 15px;
+    }
+    .myAddress-dev {
+        width: 300px;
+    }
+    .create-address-button {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 550px;
+    }
+    .create-address-button {
+        width: 550px;
+    }
+}
+@media screen and (max-width:910px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 500px;
+    }
+    .create-address-button {
+        width: 500px;
+    }
+}
+@media screen and (max-width:860px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 450px;
+    }
+    .create-address-button {
+        width: 450px;
+    }
+}
+@media screen and (max-width:810px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 400px;
+    }
+    .create-address-button {
+        width: 400px;
+    }
+}
+@media screen and (max-width:810px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 400px;
+    }
+    .create-address-button {
+        width: 400px;
+    }
+}
+@media screen and (max-width:760px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 350px;
+    }
+    .create-address-button {
+        width: 350px;
+    }
+}
+@media screen and (max-width:710px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 300px;
+    }
+    .create-address-button {
+        width: 300px;
+    }
+}
+@media screen and (max-width:650px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 500px;
+    }
+    .create-address-button {
+        width: 500px;
+    }
+}
+@media screen and (max-width:560px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 400px;
+    }
+    .create-address-button {
+        width: 400px;
+    }
+}
+@media screen and (max-width:460px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+    }
+    .myAddress-dev {
+        width: 350px;
+    }
+    .create-address-button {
+        width: 350px;
+    }
+}
+@media screen and (max-width:410px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    .myAddress-dev {
+        width: 320px;
+    }
+    .create-address-button {
+        width: 320px;
+    }
+}
+@media screen and (max-width:370px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    .myAddress-dev {
+        width: 300px;
+    }
+    .create-address-button {
+        width: 300px;
+    }
+}
+@media screen and (max-width:350px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    .myAddress-dev {
+        width: 280px;
+    }
+    .create-address-button {
+        width: 280px;
+    }
+}
+@media screen and (max-width:330px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    .myAddress-dev {
+        width: 260px;
+    }
+    .create-address-button {
+        width: 260px;
+    }
+}
+@media screen and (max-width:310px) {
+    .myAddress {
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    .myAddress-dev {
+        width: 240px;
+    }
+    .create-address-button {
+        width: 240px;
+    }
 }

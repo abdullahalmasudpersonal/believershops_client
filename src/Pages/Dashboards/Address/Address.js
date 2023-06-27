@@ -31,25 +31,25 @@ const Address = () => {
         return <Loading />
     };
 
-    /*     useEffect(() => {
-            fetch(`http://localhost:5000/myAddress?email=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    /* useEffect(() => {
+        fetch(`http://localhost:5000/myAddress?email=${user.email}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    navigate('/');
+                    localStorage.removeItem('accessToken');
                 }
+                return res.json()
             })
-                .then(res => {
-                    if (res.status === 401 || res.status === 403) {
-                        signOut(auth);
-                        navigate('/');
-                        localStorage.removeItem('accessToken');
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    setAddresses(data);
-                });
-        }, [user]); */
+            .then(data => {
+                setAddresses(data);
+            });
+    }, [user]); */
 
     const deleteAddress = _id => {
         const proceed = window.confirm('Are you sure you want to delete this address?');
@@ -66,24 +66,9 @@ const Address = () => {
                         toast.success(`Successfully delete your address !!! `)
                         refetch();
                     }
-
                 })
         }
     };
-
-
-    /*     const deleteAddress = _id =>{
-            const proceed = window.confirm('Are you sure you want to delete this address?');
-            if(proceed){
-                const url =  `http://localhost:5000/myAddress/${_id}`;
-                fetch(url, {
-                    method: 'DELETE'
-                })
-                .then(res => res.json())
-                .then()
-            }
-        } */
-
 
     return (
         <div className='dashboard-dev2'>
@@ -92,7 +77,7 @@ const Address = () => {
                 <h4 className='fw-bold side-header'>Address</h4>
             </div>
             <hr />
-            <div className='px-4 py-2 myAddress'>
+            <div className='py-3 myAddress'>
                 {
                     addresses.map((address) =>
                         <div className='myAddress-dev'>

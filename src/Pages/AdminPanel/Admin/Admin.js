@@ -25,7 +25,7 @@ const Admin = () => {
                     <h1 className='p-0 text-center ' style={{ fontFamily: "𝕿𝖞𝖕𝖊 𝖘𝖔𝖒𝖊𝖙𝖍𝖎𝖓𝖌 𝖙𝖔 𝖘𝖙𝖆𝖗𝖙", color: 'rgb(233, 93, 0)' }}>Admin Panel</h1>
                 </div>
 
-                <div className="admin-sideber-main container-xxl p-0 pb-5">
+                <div className="dashboard container-xxl p-0 pb-5">
                     <div className='dashboard-dev1 admin-dev1-bg-color'>
 
                         <Link to='/admin' >
