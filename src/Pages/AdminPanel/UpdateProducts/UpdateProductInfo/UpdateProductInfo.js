@@ -15,7 +15,7 @@ const UpdateProductInfo = () => {
   const handleUpdateProduct = async data => {
     const updateproduct = {
       availableQuantity: data.availableQuantity,
-      price:data.price
+      price: data.price
     }
     fetch(`http://localhost:5000/products/${_id}`, {
       method: 'PUT',
@@ -26,17 +26,30 @@ const UpdateProductInfo = () => {
       body: JSON.stringify(updateproduct)
     })
       .then(res => res.json())
-      .then(upserted => {
-       console.log(upserted)
-       if (upserted.upsertedId) {
-        toast.success(`Successfully Updated '${name}'`);
-        reset();
-    }
-    else {
-        toast.error(`Faield to update '${name}'`);
-    }
+      .then(data => {
+        console.log(data)
+        if (data) {
+          toast.success(`Successfully Updated '${name}'`);
+          reset();
+        }
+        else {
+          toast.error(`Faield to update '${name}'`);
+        }
       })
   };
+
+  /*   const handleConfirmOrderStatus = () => {
+      fetch(`http://localhost:5000/products/${_id}`, {
+        method: 'PUT',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        })
+    }; */
 
   return (
     <div className='dashboard-dev2 p-2'>
@@ -46,6 +59,8 @@ const UpdateProductInfo = () => {
         <div>
           <img src={image1} width='200px' height='200px' />
         </div>
+        {/*       <button onClick={handleConfirmOrderStatus}>masud</button> */}
+
         <form onSubmit={handleSubmit(handleUpdateProduct)}>
           <div>
             <label>Name : <span>{name}</span></label>&nbsp;
@@ -87,9 +102,7 @@ const UpdateProductInfo = () => {
             <label>Size : <span>{size}</span></label>&nbsp;
             <input type='text' placeholder='Name' name='' defaultValue={size} />
           </div>
-
           <div>
-            {/*  <input type='submit' value='Update Prodcut' /> */}
             <button type='submit'>Update Prodcut</button>
           </div>
         </form>

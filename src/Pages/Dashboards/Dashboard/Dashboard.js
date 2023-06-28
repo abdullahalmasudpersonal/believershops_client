@@ -54,6 +54,8 @@ const Dashboard = () => {
               <button>View Cart</button>
               <button>My Reviews</button>
               <button>Transactions</button>
+              <button>Your Messages</button>
+              <button>Accounts Settings</button>
               <button onClick={logout}>Logout</button>
             </div>
              <Outlet />
