@@ -12,15 +12,15 @@ const UpdateProducts = () => {
         navigate(`/admin/update_product/${_id}`);
     };
 
-          /* start search product */
-          const search = (event) => {
-            setSearchUProduct(event.target.value);
-        };
-        let productSearch = products.filter(order => {
-            return Object.keys(order).some(key =>
-                order[key].toString().toLowerCase().includes(searchUProduct.toString().toLowerCase()));
-        });
-        /* end search product */
+    /* start search product */
+    const search = (event) => {
+        setSearchUProduct(event.target.value);
+    };
+    let productSearch = products.filter(order => {
+        return Object.keys(order).some(key =>
+            order[key].toString().toLowerCase().includes(searchUProduct.toString().toLowerCase()));
+    });
+    /* end search product */
 
     return (
         <div className='dashboard-dev2' style={{ background: 'white' }}>

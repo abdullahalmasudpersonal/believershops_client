@@ -34,7 +34,7 @@ const Orders = () => {
     }, [user]);
 
     const navigateToOrderDetail = _id => {
-        navigate(`/dashboard/myOrder/${_id}`);
+      navigate(`/dashboard/myOrder/${_id}`)
     }
 
     return (

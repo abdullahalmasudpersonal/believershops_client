@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import PageTitle from '../../Shared/PageTitle/PageTitle';
+import PageTitle from '../../../Shared/PageTitle/PageTitle';
 import './Address.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
+import auth from '../../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { useQuery } from 'react-query';
-import Loading from '../../Shared/Loading/Loading';
+import Loading from '../../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
 
 const Address = () => {
@@ -29,6 +29,10 @@ const Address = () => {
         }).then(res => res.json()));
     if (isLoading) {
         return <Loading />
+    };
+
+    const navigateToOrderDetail = _id => {
+        navigate(`/dashboard/address/update_shipping_address/${_id}`);
     };
 
     /* useEffect(() => {
@@ -92,7 +96,7 @@ const Address = () => {
                             <p>{address.state}</p>
                             <h6 className='mt-2'>Phone: {address.phoneNumber}</h6>
                             <div className='d-flex gap-3 mt-4 '>
-                                <button className='address-edit-btn'>Edit</button>
+                                <button onClick={()=>navigateToOrderDetail(address._id)} className='address-edit-btn'>Edit</button>
                                 <button onClick={() => deleteAddress(address._id)} className='address-delete-btn'>Delete</button>
                             </div>
                         </div>

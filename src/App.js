@@ -17,7 +17,7 @@ import Caps from './Pages/Categories/Islamic/Caps/Caps/Caps';
 import Jainamazs from './Pages/Categories/Islamic/Jainamazs/Jainamazs/Jainamazs';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
-import Address from './Pages/Dashboards/Address/Address';
+import Address from './Pages/Dashboards/Address/Address/Address';
 import Dashboard from './Pages/Dashboards/Dashboard/Dashboard';
 import Profile from './Pages/Dashboards/Profile/Profile';
 import Home from './Pages/Home/Home/Home';
@@ -52,6 +52,7 @@ import Blogs from './Pages/Blogs/Blogs/Blogs';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import ProductDetails from './Pages/ProductDetails/ProductDetails/ProductDetails';
 import AddShippingAddress from './Pages/Dashboards/Address/AddShippingAddress/AddShippingAddress';
+import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddress/UpdateShippingAddress';
 function App() {
 
   /*   const url = 'http://localhost:5000/attars';
@@ -115,8 +116,9 @@ function App() {
           <Route index element={<Profile />} />
           <Route path='address' element={<Address />} />
           <Route path='address/add_shipping_address' element={<AddShippingAddress />} />
+         <Route path='address/update_shipping_address/:addressId' element={<UpdateShippingAddress />} /> 
           <Route path='myOrders' element={<Orders />} />
-          <Route path='myOrder/:myOrderId' element={<OrderDetails />} />
+        <Route path='myOrder/:myOrderId' element={<OrderDetails />} /> 
         </Route>
 
         <Route path='/cart' element={<Cart />} />
