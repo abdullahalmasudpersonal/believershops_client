@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import { useForm } from 'react-hook-form';
@@ -9,15 +9,44 @@ import Loading from '../../../Shared/Loading/Loading';
 import UseAddressDetail from '../../../../Hooks/UseAddressDetail/UseAddressDetail';
 
 const UpdateShippingAddress = () => {
-    const { productId } = useParams();
-    const [addressDetail] = UseAddressDetail(productId);
-    const {coustomerName, companyName, address1, address2, city, postCode, state, phoneNumber} = addressDetail;
-    const { register, handleSubmit, reset } = useForm();
-    const navigate = useNavigate();
+ /*   const {addressDetailId} = useParams();
+   const [addressDetail, setAddressDetail] = UseAddressDetail(addressDetailId);
+   console.log('address',addressDetail) */
+ 
+    //  const [addressDetail] = UseAddressDetail(productId);
+    /*   const {coustomerName, companyName, address1, address2, city, postCode, state, phoneNumber} = addressDetail; */
 
-    const navigateToAddress = () => {
-        navigate(`/dashboard/address`)
-    };
+  //  const [addressDetail, setAddressDetail] = useState([]);
+    /* useEffect(() => {
+        const url = `http://localhost:5000/myAddress/${addressId}`;
+        fetch(url, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+        })
+            .then(res => res.json())
+            .then(data => setAddressDetail(data));
+    }, [addressId]);
+    console.log('address',addressDetail)  */
+
+    /*  const { data: addresses, isLoading, refetch } = useQuery('addresses',
+         () => fetch(`http://localhost:5000/myAddress/${addressId}`, {
+             method: 'GET',
+             headers: {
+                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
+             }
+         }).then(res => res.json()));
+     if (isLoading) {
+         return <Loading />
+     };
+     console.log() */
+    /* 
+        const { register, handleSubmit, reset } = useForm();
+        const navigate = useNavigate();
+        const navigateToAddress = () => {
+            navigate(`/dashboard/address`)
+        }; */
 
 
 
@@ -28,12 +57,12 @@ const UpdateShippingAddress = () => {
                 <h4 className='fw-bold side-header'>Update Shipping Address</h4>
             </div>
             <hr />
-         {/*    <form onSubmit={handleSubmit(handleSubmitAddress)}>
+            <form /* onSubmit={handleSubmit(handleSubmitAddress)} */>
 
-                <div className='addShippingAddress'>
+                {/*   <div className='addShippingAddress'>
                     <div>
                         <div className='d-flex justify-content-between'><label><small>Full Name</small></label><label><small style={{ fontSize: '11px' }}>REQUIRED</small></label></div>
-                        <input type='text' defaultValue={coustomerName}  {...register("name", { required: true })} required />
+                        <input type='text'  {...register("name", { required: true })} required />
                     </div>
                     <div>
                         <div className='d-flex justify-content-between'><label><small>Company</small></label><label><small style={{ fontSize: '11px' }}></small></label></div>
@@ -79,8 +108,8 @@ const UpdateShippingAddress = () => {
                 <div className='addShippingAddress-button'>
                     <button type='Submit' className='addShippingAddress-button-save'>Save Address</button>
                     <button onClick={navigateToAddress} className='addShippingAddress-button-cancel'>Cancel</button>
-                </div>
-            </form> */}
+                </div> */}
+            </form>
         </div>
     );
 };

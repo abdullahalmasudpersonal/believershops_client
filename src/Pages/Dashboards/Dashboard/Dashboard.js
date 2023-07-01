@@ -51,7 +51,9 @@ const Dashboard = () => {
                   <button>Admin Panel</button>
                 </Link>
               }
-              <button>View Cart</button>
+              <Link to='/shopping_Cart'>
+                <button>View Cart</button>
+              </Link>
               <button>My Reviews</button>
               <button>Transactions</button>
               <button>Your Messages</button>

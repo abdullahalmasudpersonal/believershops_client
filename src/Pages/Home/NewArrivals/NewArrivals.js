@@ -12,7 +12,7 @@ const NewArrivals = () => {
             <hr style={{ marginTop: '10px' }}></hr>
             <div className='homeProducts newArrival-dev'>
                 {
-                    products.filter(categore => categore.category === 'attar').map(attar => <Attar key={attar._id} attar={attar} />)
+                    products /* .filter(categore => categore.category === 'attar') */.slice(-7,-1).reverse().map(attar => <Attar key={attar._id} attar={attar} />)
                 }
             </div>
         </div>

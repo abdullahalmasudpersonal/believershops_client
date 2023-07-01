@@ -1,56 +1,34 @@
 [
     {
         "_id":"111",
+        "index": 0,
         "name":"Dreel Matching",
         "price":"149",
         "minOrder":"500",
         "available":"15000",
         "dec":"China Factory Price 13mm Cheapest power tools electric corded impact drill machine",
-        "img": "https://s.alicdn.com/@sc04/kf/H18eba55ca309476ca403454269f52124Q.jpg_300x300.jpg"
+        "img": 
+          [ 
+            "https://s.alicdn.com/@sc04/kf/H18eba55ca309476ca403454269f52124Q.jpg_300x300.jpg",
+            "https://s.alicdn.com/@sc04/kf/H18eba55ca309476ca403454269f52124Q.jpg_300x300.jpg",
+            "https://m.media-amazon.com/images/I/71TPrh4okNL._AC_SX466_.jpg",
+            "https://static.aadi.com.bd/__sized__/products/31888-208599-cap-aarong-744435-1-thumbnail-1080x1080-70.jpg"
+        ]
     },
     {
-        "_id":"222",
-        "name":"DEWALT Sliding Matching",
-        "price":"1000",
-        "minOrder":"100",
-        "available":"10000",
-        "dec":"Stainless steel miter detent plate of the 12-inch miter saw blade comes with 10 positive stops.",
-        "img": "https://m.media-amazon.com/images/I/71TPrh4okNL._AC_SX466_.jpg"
-    },
-    {
-        "_id":"333",
-        "name":"DEWALT 20V MAX XR Jig Saw",
-        "price":"799",
-        "minOrder":"100",
-        "available":"23000",
-        "dec":"All-metal, lever-action keyless blade change allows for quick and easy t-shank blade changes",
-        "img": "https://images-na.ssl-images-amazon.com/images/I/61lXEsGQgcL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
-    },
-    {
-        "_id":"444",
-        "name":"Household repair Kits",
-        "price":"199",
-        "minOrder":"300",
-        "available":"10000",
-        "dec":"Household repair Kits electronic tools electric 700w angle grinder hot air gun power Combination tool sets",
-        "img": "https://s.alicdn.com/@sc04/kf/Hfa55af2b82164ccda2720b91d71bfacfU.jpg_300x300.jpg"
-    }, 
-    {
-        "_id":"555",
-        "name":"Adjustable Snap",
-        "price":"49",
+        "_id":"111",
+        "index": 0,
+        "name":"Dreel Matching",
+        "price":"149",
         "minOrder":"500",
-        "available":"30000",
-        "dec":"Snap and grip tool, universal socket wrench, adjustable spanner normal random tool supports adapt to all kinds.",
-        "img": "https://www.bdstall.com/asset/product-image/giant_140672.jpg"
-    },
-    {
-        "_id":"555",
-        "name":"POPOMAN Cordless Saw",
-        "price":"299",
-        "minOrder":"500",
-        "available":"25000",
-        "dec":"The ergonomically designed rubber-covered handle and 9.5” long metal blade plate largely reduces vibration and make cutting more stable and precise",
-        "img": "https://images-na.ssl-images-amazon.com/images/I/71Ba8xAR57L.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+        "available":"15000",
+        "dec":"China Factory Price 13mm Cheapest power tools electric corded impact drill machine",
+        "img": 
+          [ 
+            "https://s.alicdn.com/@sc04/kf/H18eba55ca309476ca403454269f52124Q.jpg_300x300.jpg",
+            "https://s.alicdn.com/@sc04/kf/H18eba55ca309476ca403454269f52124Q.jpg_300x300.jpg",
+            "https://m.media-amazon.com/images/I/71TPrh4okNL._AC_SX466_.jpg",
+            "https://static.aadi.com.bd/__sized__/products/31888-208599-cap-aarong-744435-1-thumbnail-1080x1080-70.jpg"
+        ]
     }
 ]
