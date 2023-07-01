@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import UseCaps from '../../../../../Hooks/UseCaps/UseCaps';
 import { addToDb, getStoredCart } from '../../../../../utilities/fakedb';
-import CartQuantity from '../../../../Cart/CartQuantity';
 import '../../AllIslamicsCss/AllIslamics.css';
 import Cap from '../Cap/Cap';
 
@@ -46,7 +45,6 @@ const Caps = () => {
 
     return (
         <div className='islamics-attars'>
-             <CartQuantity cart={cart} />
        <div className='islamics-attars-dev'>
            {
                caps.filter(categore => categore.category === 'cap').map(cap => <Cap key={cap._id} cap={cap}  handleAddToCard={handleAddToCard} />)

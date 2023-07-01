@@ -6,12 +6,12 @@ import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
 import './ProductDetails.css';
-import UseCart from '../../Cart/UseCart';
 import UseProductDetails from '../../../Hooks/UseProductDetails/UseProductDetails';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import AttarDesWR from '../../Categories/Islamic/Attars/Attar/AttarDetail/AttarDesWR/AttarDesWR';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import UseCart from '../../../Hooks/UseCarts/UseCart';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth);

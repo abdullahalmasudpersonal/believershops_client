@@ -55,7 +55,7 @@ import AddShippingAddress from './Pages/Dashboards/Address/AddShippingAddress/Ad
 import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddress/UpdateShippingAddress';
 function App() {
 
-  /*   const url = 'http://localhost:5000/attars';
+  /*   const url = 'https://mahsez-server.onrender.com/attars';
   
     const [CartItem, setCartItem] = useState([]);
   
@@ -78,7 +78,7 @@ function App() {
     } */
 
   /* const [products, setProducts] = useState([url]);
-  const url = 'http://localhost:5000/attars';
+  const url = 'https://mahsez-server.onrender.com/attars';
   const [cart, setCart] = useState([])
   const [showCart, setShowCart] = useState(false)
   

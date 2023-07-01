@@ -8,10 +8,10 @@ import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
-import UseCart from '../../../Cart/UseCart';
 import MobileSideber from '../MobileSideber/MobileSideber';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
 import { signOut } from 'firebase/auth';
+import UseCart from '../../../../Hooks/UseCarts/UseCart';
 
 
 const Header = () => {

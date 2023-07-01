@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import './Cart.css';
 import '../../App.css';
 import { removeFromDb } from '../../utilities/fakedb';
-import UseCart from './UseCart';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import PageTitle from '../Shared/PageTitle/PageTitle';
-import { toast } from 'react-toastify';
+import UseCart from '../../Hooks/UseCarts/UseCart';
 const Cart = () => {
     const [cart, setCart] = UseCart();
     const [count, setCount] = useState(1);

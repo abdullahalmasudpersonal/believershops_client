@@ -3,8 +3,8 @@ import Attar from './Attar';
 import '../../AllIslamicsCss/AllIslamic.css';
 import { toast } from 'react-toastify';
 import UseAttars from '../../../../../Hooks/UseAttars/UseAttars';
-import UseCart from '../../../../Cart/UseCart';
 import { addToDb } from '../../../../../utilities/fakedb';
+import UseCart from '../../../../../Hooks/UseCarts/UseCart';
 
 const Attars = () => {
     const [attars, setAttars] = UseAttars([]);

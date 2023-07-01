@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import profileImg from '../../../Assets/img/profile/profile.png';
-import UseCart from '../../Cart/UseCart';
+import UseCart from '../../../Hooks/UseCarts/UseCart';
 
 const BottemHeader = () => {
     const [user] = useAuthState(auth);

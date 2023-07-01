@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './Checkout.css';
-import UseCart from '../Cart/UseCart';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import axios from 'axios';
@@ -13,6 +12,7 @@ import PageTitle from '../Shared/PageTitle/PageTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
+import UseCart from '../../Hooks/UseCarts/UseCart';
 
 const Checkout = (allOrderId) => {
     const { register, handleSubmit, reset } = useForm();
@@ -63,7 +63,7 @@ const Checkout = (allOrderId) => {
 
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            axios.post('http://localhost:5000/allOrder', allOrder)
+            axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
                     console.log(data.insertedId)

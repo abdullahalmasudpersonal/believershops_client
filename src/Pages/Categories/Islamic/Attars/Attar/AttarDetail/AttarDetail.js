@@ -7,9 +7,9 @@ import AttarDesWR from './AttarDesWR/AttarDesWR';
 import './AttarDetail.css';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
-import UseCart from '../../../../../Cart/UseCart';
 import UseProductDetails from '../../../../../../Hooks/UseProductDetails/UseProductDetails';
 import PageTitle from '../../../../../Shared/PageTitle/PageTitle';
+import UseCart from '../../../../../../Hooks/UseCarts/UseCart';
 
 
 const AttarDetail = () => {

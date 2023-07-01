@@ -2,13 +2,13 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import UseCart from '../../../../Cart/UseCart';
 import { removeFromDb } from '../../../../../utilities/fakedb';
 import '../../AllIslamicsCss/AllIslamic.css';
 import './Attar.css';
+import UseCart from '../../../../../Hooks/UseCarts/UseCart';
 
 
-const Attar = ({ handleAddToCard, attar }) => {
+const Attar = ({ attar }) => {
     const [cart, setCart] = UseCart();
     const { _id, brand, name, image1, regularPrice, offerPrice } = attar;
     const navigate = useNavigate();
