@@ -1,17 +1,26 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import './CreateProduct.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import Select from 'react-select'
+
 
 const CreateProduct = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, control, errors } = useForm();
+    //  const [category, setCategory] = useState('default');
+
+    let options = [
+        { label: "Bangladesh", value: "Bangladesh" },
+        { label: "India", value: "India" },
+        { label: "China", value: "China" },
+        { label: "Finland", value: "Finland" }
+    ];
 
     const imageStorageKey = 'a3d4bff21c6d258146feb02c43808485';
-
     const onSubmit = async data => {
         const image = data.image1[0];
         const formData = new FormData();
@@ -35,7 +44,7 @@ const CreateProduct = () => {
                         description: data.description,
                         image1: imgData.data.url
                     }
-                    fetch('https://mahsez-server.onrender.com/products', {
+                    fetch('http://localhost:5000/products', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',
@@ -45,7 +54,7 @@ const CreateProduct = () => {
                     })
                         .then(res => res.json())
                         .then(inserted => {
-                         //   console.log('inser', inserted)
+                            //   console.log('inser', inserted)
                             if (inserted.insertedId) {
                                 toast.success('Added New Product');
                                 reset();
@@ -70,7 +79,14 @@ const CreateProduct = () => {
                     <h4 className='text-center mb-4 pt-4'>Create Product</h4>
                     <div className='pb-4'>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input type='text' placeholder='Enter Product Category' {...register("category", { required: true })} />
+                            <select {...register("category", { required: true })} placeholder='masdu' >
+                                <option value='' hidden>Select Category---</option>
+                                <option value='Attar'>Attar</option>
+                                <option value='Tupis'>Tupis</option>
+                                <option value='Jainamaz'>Jainamaz</option>
+                                <option value='Tazbeeh'>Tazbeeh</option>
+                            </select>
+                            {/* <input type='text' placeholder='Enter Product Category' {...register("category", { required: true })} /> */}
 
                             <input type='text' placeholder='Enter Product Name' {...register("name", { required: true })} />
 

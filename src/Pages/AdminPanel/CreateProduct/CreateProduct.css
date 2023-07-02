@@ -9,12 +9,21 @@
     margin: auto;
     border-radius: 4px;
 }
-.create-product-dev input{
+.create-product-dev>div>form>select{
     display: flex;
     justify-content: center;
     align-content: center;
     min-width: 300px;
     height: 35px;
     margin: 20px auto;
-
+    padding: 0 10px;
+}
+.create-product-dev>div>form>input{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-width: 300px;
+    height: 35px;
+    margin: 20px auto;
+    padding: 0 10px;
 }

@@ -12,8 +12,8 @@ const UseCart = () => {
         /*       async function init() {
                   try {
                       const results = await Promise.all([
-                          fetch('https://mahsez-server.onrender.com/attarsByKeys').then(response => response.json()),
-                          fetch('https://mahsez-server.onrender.com/capsByKeys').then(response => response.json())
+                          fetch('http://localhost:5000/attarsByKeys').then(response => response.json()),
+                          fetch('http://localhost:5000/capsByKeys').then(response => response.json())
                       ].map(promise => promise.catch(error => error)));
                       console.log('masud',results);
                   } catch (error) {
@@ -22,8 +22,8 @@ const UseCart = () => {
               }
               init(); */
 
-        /*    const url1 = fetch('https://mahsez-server.onrender.com/attarsByKeys');
-           const url2 = fetch('https://mahsez-server.onrender.com/attarsByKeys');
+        /*    const url1 = fetch('http://localhost:5000/attarsByKeys');
+           const url2 = fetch('http://localhost:5000/attarsByKeys');
            Promise.all([url1, url2]).then(values =>{
                console.log('masuds',values)
                return Promise.all(values.map(r => r.json()));
@@ -32,11 +32,11 @@ const UseCart = () => {
            });
     */
         /*   const url = [
-              'https://mahsez-server.onrender.com/attarsByKeys',
-              'https://mahsez-server.onrender.com/capsByKeys',
+              'http://localhost:5000/attarsByKeys',
+              'http://localhost:5000/capsByKeys',
           ]; */
 
-        fetch('https://mahsez-server.onrender.com/productsByKeys', {
+        fetch('http://localhost:5000/productsByKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

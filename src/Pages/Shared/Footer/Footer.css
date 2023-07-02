@@ -10,10 +10,14 @@
     background-color: rgba(30, 33, 88, 0.918);
    /* background-image: linear-gradient(rgb(28, 28, 143)); */
 }
-.footer-socila-media a{
+.footer-socila-media > a{
     color: rgb(255, 255, 255);
-    border-radius: 3px;
+    border-radius: 2px;
 }
+.footer-socila-media>a:not(:first-child){
+    margin-left: 15px;
+}
+
 .instagram-footer-bd-color{
         background: #f09433; 
       background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 

@@ -18,7 +18,7 @@ const UpdateShippingAddress = () => {
 
   //  const [addressDetail, setAddressDetail] = useState([]);
     /* useEffect(() => {
-        const url = `https://mahsez-server.onrender.com/myAddress/${addressId}`;
+        const url = `http://localhost:5000/myAddress/${addressId}`;
         fetch(url, {
             method: "GET",
             headers: {
@@ -31,7 +31,7 @@ const UpdateShippingAddress = () => {
     console.log('address',addressDetail)  */
 
     /*  const { data: addresses, isLoading, refetch } = useQuery('addresses',
-         () => fetch(`https://mahsez-server.onrender.com/myAddress/${addressId}`, {
+         () => fetch(`http://localhost:5000/myAddress/${addressId}`, {
              method: 'GET',
              headers: {
                  authorization: `Bearer ${localStorage.getItem('accessToken')}`

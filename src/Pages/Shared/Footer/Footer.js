@@ -16,22 +16,19 @@ const Footer = () => {
                         <span>Get connected with us on social networks:</span>
                     </div>
                     <div className='footer-socila-media'>
-                        <a href="https://www.facebook.com/m.mahsezs" target='noopener' className="me-4 text-reset" style={{ padding: '6px 13px', backgroundColor: '	#4267B2' }}>
+                        <a href="https://www.facebook.com/m.mahsezs" target='noopener' className=" text-reset" style={{ padding: '6px 13px', backgroundColor: '	#4267B2' }}>
                             <i className="fab fa-facebook-f" ></i>
                         </a>
-                        <a href="https://www.youtube.com/@Mahsez" target='noopener' className="me-4 text-reset" style={{ padding: '6px 9px', backgroundColor: '	#FF0000' }}>
+                        <a href="https://www.youtube.com/@Mahsez" target='noopener' className=" text-reset" style={{ padding: '6px 9px', backgroundColor: '	#FF0000' }}>
                             <i className="fa-brands fa-youtube"></i>
                         </a>
-                        <a href="https://twitter.com/m_mahsez" target='noopener' className="me-4 text-reset" style={{ padding: '6px 10px', backgroundColor: '#1DA1F2' }}>
+                        <a href="https://twitter.com/m_mahsez" target='noopener' className=" text-reset" style={{ padding: '6px 10px', backgroundColor: '#1DA1F2' }}>
                             <i className="fab fa-twitter"></i>
                         </a>
-                        <a href="googleplus.com" target='noopener' className="me-4 text-reset" style={{ padding: '6px 8px', backgroundColor: '	#db4a39 ' }}>
-                            <i className="fa-brands fa-google-plus-g"></i>
-                        </a>
-                        <a href="https://www.instagram.com/m.mahsez" target='noopener' className="me-4 text-reset instagram-footer-bd-color" style={{ padding: '6px 11px', backgroundColor: '	#feda75 ' }}>
+                        <a href="https://www.instagram.com/m.mahsez" target='noopener' className=" text-reset instagram-footer-bd-color" style={{ padding: '6px 11px', backgroundColor: '	#feda75 ' }}>
                             <i className="fab fa-instagram"></i>
                         </a>
-                        <a href="linkedIn.com" className="me-4 text-reset" target='noopener' style={{ padding: '6px 11px', backgroundColor: '	#0072b1 ' }}>
+                        <a href="linkedIn.com" className=" text-reset" target='noopener' style={{ padding: '6px 11px', backgroundColor: '	#0072b1 ' }}>
                             <i className="fab fa-linkedin"></i>
                         </a>
                         {/* <a href="" className=" text-reset">

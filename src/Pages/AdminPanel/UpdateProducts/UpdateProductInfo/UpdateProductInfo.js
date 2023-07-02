@@ -17,7 +17,7 @@ const UpdateProductInfo = () => {
       availableQuantity: data.availableQuantity,
       price: data.price
     }
-    fetch(`https://mahsez-server.onrender.com/products/${_id}`, {
+    fetch(`http://localhost:5000/products/${_id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -39,7 +39,7 @@ const UpdateProductInfo = () => {
   };
 
   /*   const handleConfirmOrderStatus = () => {
-      fetch(`https://mahsez-server.onrender.com/products/${_id}`, {
+      fetch(`http://localhost:5000/products/${_id}`, {
         method: 'PUT',
         headers: {
           authorization: `Bearer ${localStorage.getItem('accessToken')}`

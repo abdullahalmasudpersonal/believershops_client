@@ -55,7 +55,7 @@ import AddShippingAddress from './Pages/Dashboards/Address/AddShippingAddress/Ad
 import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddress/UpdateShippingAddress';
 function App() {
 
-  /*   const url = 'https://mahsez-server.onrender.com/attars';
+  /*   const url = 'http://localhost:5000/attars';
   
     const [CartItem, setCartItem] = useState([]);
   
@@ -78,7 +78,7 @@ function App() {
     } */
 
   /* const [products, setProducts] = useState([url]);
-  const url = 'https://mahsez-server.onrender.com/attars';
+  const url = 'http://localhost:5000/attars';
   const [cart, setCart] = useState([])
   const [showCart, setShowCart] = useState(false)
   
@@ -105,8 +105,8 @@ function App() {
           <Route path='islamic/caps' element={<Caps />} />
           <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
           <Route path='islamic/attars' element={<Attars />} />
-          <Route path='products/:productId' element={<AttarDetail />} />
           <Route path='products/:productId' element={<ProductDetails />} />
+          <Route path='products/:productId' element={<AttarDetail />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

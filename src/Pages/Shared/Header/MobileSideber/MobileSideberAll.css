@@ -6,6 +6,8 @@
     color: #000000;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    margin-top: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .mobile-sideber::-webkit-scrollbar {

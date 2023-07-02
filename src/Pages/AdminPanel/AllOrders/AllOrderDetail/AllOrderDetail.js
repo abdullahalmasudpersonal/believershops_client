@@ -15,7 +15,7 @@ const AllOrderDetail = () => {
     // console.log('id', id)
 
     const handleConfirmOrderStatus = () => {
-        fetch(`https://mahsez-server.onrender.com/confirmOrderStatus/${id}`, {
+        fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -28,7 +28,7 @@ const AllOrderDetail = () => {
     };
 
     const handleCancelOrderStatus = () => {
-        fetch(`https://mahsez-server.onrender.com/cancelOrderStatus/${id}`, {
+        fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -44,7 +44,7 @@ const AllOrderDetail = () => {
         event.preventDefault();
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/deliveredOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -58,7 +58,7 @@ const AllOrderDetail = () => {
     };
 
     /*     const deliveredOrderStatus = () => {
-            fetch(`https://mahsez-server.onrender.com/user/deliveredOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`

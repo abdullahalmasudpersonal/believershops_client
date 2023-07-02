@@ -1,6 +1,6 @@
 [
     {
-        "title": "General",
+        "title": "Beauty",
         "icon": "bi-gear-fill",
         "childrens": [
             {
@@ -38,7 +38,7 @@
         ]
     },
     {
-        "title": "Account",
+        "title": "Bags",
         "icon": "bi-info-circle-fill",
         "childrens": [
             {
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "title": "Profile",
+        "title": "Computer",
         "icon": "bi-person-fill",
         "childrens": [
             {
@@ -100,7 +100,7 @@
         ]
     },
     {
-        "title": "Advance",
+        "title": "Dresses",
         "icon": "bi-view-list",
         "childrens": [
             {
@@ -114,13 +114,85 @@
         ]
     },
     {
-        "title": "Support",
-        "icon": "bi-question-circle-fill",
-        "path": "/support"
+        "title": "Electronic",
+        "icon": "bi-view-list",
+        "childrens": [
+            {
+                "title": "Search",
+                "path": "/search"
+            },
+            {
+                "title": "History",
+                "path": "/history"   
+            }
+        ]
     },
     {
-        "title": "Report Bug",
-        "icon": "bi-bug",
-        "path": "/report-bug"
+        "title": "Foods",
+        "icon": "bi-view-list",
+        "childrens": [
+            {
+                "title": "Search",
+                "path": "/search"
+            },
+            {
+                "title": "History",
+                "path": "/history"   
+            }
+        ]
+    },
+    {
+        "title": "Islamic",
+        "icon": "bi-view-list",
+        "childrens": [
+            {
+                "title": "Attar",
+                "path": "/search",
+                "childrens": [
+                    {
+                        "title": "Popular Attar",
+                        "path": "/settings/account"
+                    },
+                    {
+                        "title": "Combo Offer",
+                        "path": "/settings/account"
+                    },
+                    {
+                        "title": "Mahsez Attar",
+                        "path": "/settings/account"
+                    },
+                    {
+                        "title": "Alif Attar",
+                        "path": "/settings/account"
+                    }
+                ]
+            },
+            {
+                "title": "Tupis",
+                "path": "/search"
+            },
+            {
+                "title": "Burqa",
+                "path": "/search"
+            },
+            {
+                "title": "Hijab",
+                "path": "/history"   
+            }
+        ]
+    },
+    {
+        "title": "Sports",
+        "icon": "bi-view-list",
+        "childrens": [
+            {
+                "title": "Search",
+                "path": "/search"
+            },
+            {
+                "title": "History",
+                "path": "/history"   
+            }
+        ]
     }
 ]

@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import UseCart from '../../Hooks/UseCarts/UseCart';
+import { Form } from 'react-bootstrap';
 
 const Checkout = (allOrderId) => {
     const { register, handleSubmit, reset } = useForm();
@@ -23,6 +24,8 @@ const Checkout = (allOrderId) => {
     const [district, setDistrict] = useState('default');
     const [allorders] = UseAllOrders([]);
     const navigate = useNavigate();
+
+
 
     /* navigate to order view */
     const navigateToOrderView = _id => {
@@ -63,7 +66,7 @@ const Checkout = (allOrderId) => {
 
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
+            axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
                     console.log(data.insertedId)
@@ -104,16 +107,6 @@ const Checkout = (allOrderId) => {
     var optionss = { year: 'numeric', month: 'long', day: 'numeric' };
     var cDates = today.toLocaleString('en-US', optionss);
     const cDate = cDates;
-
-    /*  Importent --- week name with date
-    var today = new Date();
-    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    options.timeZone = 'UTC';
-    options.timeZoneName = 'short';
-    var now = today.toLocaleString('en-US', options);
-    console.log(now);
-    */
-
 
     return (
         <>
@@ -165,7 +158,6 @@ const Checkout = (allOrderId) => {
                                     <p className='mb-0'><small>Commects</small></p>
                                     <textarea type='text' maxLength='200' name='comment' />
                                 </div>
-
                             </div>
 
                             <div>
@@ -175,22 +167,22 @@ const Checkout = (allOrderId) => {
                                         <h5><span>2</span> Payment Method</h5>
                                         <hr />
                                         <h6>Select one payment method</h6>
-                                        <div>
+                                           <div>
                                             <div>
-                                                <input type='radio' name='payment' value='Cash On Delivery' onChange={e => setPayment(e.target.value)} required />
-                                                <label>&nbsp;Cash On Delivery</label>
+                                                <input id='cashDelivery' type='radio' name='payment' value='Cash On Delivery' onChange={e => setPayment(e.target.value)} required />
+                                                <label for='cashDelivery'>&nbsp;Cash On Delivery</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Bkash' onChange={e => setPayment(e.target.value)} />
-                                                <label>&nbsp;Bkash</label>
+                                                <input id='bkash' type='radio' name='payment' value='Bkash' onChange={e => setPayment(e.target.value)} />
+                                                <label for='bkash'>&nbsp;Bkash</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Nagod' onChange={e => setPayment(e.target.value)} />
-                                                <label>&nbsp;Nagod</label>
+                                                <input id='nagod' type='radio' name='payment' value='Nagod' onChange={e => setPayment(e.target.value)} />
+                                                <label for='nagod'>&nbsp;Nagod</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='payment' value='Rocket' onChange={e => setPayment(e.target.value)} />
-                                                <label>&nbsp;Rocket</label>
+                                                <input id='rocket' type='radio' name='payment' value='Rocket' onChange={e => setPayment(e.target.value)} />
+                                                <label for='rocket'>&nbsp;Rocket</label>
                                             </div>
                                             <div>
                                                 <p className='lh-lg m-1'>বিকাশ/নগদ/রকেট থেকে টাকা প্রদান করার জন্য বিকাশ/নগদ/রকেটের App এর মাধ্যমে অথবা সরাসরি বিকাশ এর জন্য *247#, নগদ এর জন্য *167#, রকেট এর জন্য *322# ডায়াল করে "Send Money" অপশনটি সিলেক্ট করুন। আমাদের বিকাশ/নগদ/রকেট পার্সোনাল নাম্বার "01737906772" এ আপনার মোট বিল প্রদান করুন। <br /> বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে</p>
@@ -206,76 +198,47 @@ const Checkout = (allOrderId) => {
                                         </div>
                                     </div>
 
-
-
                                     <div className='checkout-shipping-method p-3'>
                                         <h5><span>3</span> Shipping Charge</h5>
                                         <hr />
                                         <h6>Select shipping area</h6>
                                         <div>
                                             <div>
-                                                <input type='radio' name='shipping' value='Outside of Dhaka 100৳' onChange={e => setShipping(e.target.value)} required />
-                                                <label>&nbsp;Outside of Dhaka 100৳</label>
+                                                <input id='outside-dhaka' type='radio' name='shipping' value='Outside of Dhaka 100৳' onChange={e => setShipping(e.target.value)} required />
+                                                <label for='outside-dhaka'>&nbsp;Outside of Dhaka 100৳</label>
                                             </div>
                                             <div>
-                                                <input type='radio' name='shipping' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;OInside of Dhaka 60৳</label>
+                                                <input id='inside-dhaka' type='radio' name='shipping' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
+                                                <label for='inside-dhaka'>&nbsp;OInside of Dhaka 60৳</label>
                                             </div>
                                             {shipping} <p>{cTime}__ {cDate}</p> <p>orderNumber {orderNumber}</p>
+
+                                            {/*     <div>
+                                                <input name='masud' type='radio' label='lksbfxcd' />
+                                               <label>lksdjl</label> 
+                                            </div>
+                                            <div>
+                                                <input name='masud' type='radio' />
+                                                <label>lksdjl</label>
+                                            </div>
+                                            <div>
+                                                <input name='masud' type='radio' value='lkdsklf' />
+                                                <label>lksdjl</label>
+                                            </div> */}
+
+                                            {/*   <input type="radio" id="html" name="fav_language" value="HTML" />
+                                            <label for="html">HTML</label><br />
+                                            <input type="radio" id="css" name="fav_language" value="CSS" />
+                                            <label for="css">CSS</label><br />
+                                            <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+                                            <label for="javascript">JavaScript</label> */}
+
+
+
+
                                         </div>
-                                        {/* <div className='shipping-hidden'>
-                                            <div>
-                                                <input type='radio' name='shipping' value='Inside of Dhaka 150৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;OInside of Dhaka 60৳</label>
-                                            </div>
-                                            <div>
-                                                <input type='radio' name='payment' value='Outside of Dhaka 100৳' onChange={e => setPayment(e.target.value)} required />
-                                                <label>&nbsp;Cash On Delivery</label>
-                                            </div>
-                                            <div>
-                                                <input type='radio' name='payment' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;Bkash</label>
-                                            </div>
-                                            <div>
-                                                <input type='radio' name='payment' value='Inside of Dhaka 150৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;Nagod</label>
-                                            </div>
-                                            <div>
-                                                <input type='radio' name='payment' value='Inside of Dhaka 150৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;Rocket</label>
-                                            </div>
-                                            <div>
-                                                <p className='lh-lg'>বিকাশ/নগদ/রকেট থেকে টাকা প্রদান করার জন্য বিকাশ/নগদ/রকেটের App এর মাধ্যমে অথবা সরাসরি বিকাশ এর জন্য *247#, নগদ এর জন্য *167#, রকেট এর জন্য *322# ডায়াল করে "Send Money" অপশনটি সিলেক্ট করুন। আমাদের বিকাশ/নগদ/রকেট পার্সোনাল নাম্বার "01737906772" এ আপনার মোট বিল প্রদান করুন। <br /> বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন <br /> এর মাধ্যমে বিল পরিশোধ করতে হবে </p>
-                                                <div className='mb-2'>
-                                                    <input placeholder='Payment Number 01XXXXXXXXX' className='mt-1 p-1' style={{ outline: 'none', width: '250px' }} />
-                                                </div>
-                                            </div>
-                                        </div> */}
                                     </div>
-
-                                    {/* <div className='checkout-payment-method p-3'>
-                                        <h5><span>3</span> Shipping Charge</h5>
-                                        <hr />
-                                        <h6>Select shipping area</h6>
-                                        <div>
-                                            <div>
-                                                <input type='radio' name='shipping' value='Outside of Dhaka 100৳' onChange={e => setShipping(e.target.value)} required />
-                                                <label>&nbsp;Outside of Dhaka 100৳</label>
-                                            </div>
-                                            <div>
-                                                <input type='radio' name='shipping' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;OInside of Dhaka 60৳</label>
-                                            </div>
-                                            <div>
-                                                <input type='radio' name='shipping' value='Inside of Dhaka 150৳' onChange={e => setShipping(e.target.value)} />
-                                                <label>&nbsp;OInside of Dhaka 60৳</label>
-                                            </div>
-                                           {shipping} <p>{cTime}__ {cDate}</p> <p>orderNumber {orderNumber}</p>
-                                        </div>
-                                    </div> */}
-
                                 </div>
-
 
                                 <div className='mt-4 p-3 checkout-order-info'>
                                     <h5><span>4</span> Order Overview</h5>
@@ -290,19 +253,15 @@ const Checkout = (allOrderId) => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {
-                                                cart.map(product =>
-
-                                                    <tr key={product._id}>
-                                                        <td>{product.name}</td>
-                                                        <td className='text-center'>
-                                                            {product.quantity}
-                                                        </td>
-                                                        <td className='text-end'>{product.regularPrice}</td>
-                                                        <td className='text-end'>{product.quantity * product.regularPrice}</td>
-                                                    </tr>
-                                                )
-                                            }
+                                            {cart.map(product =>
+                                                <tr key={product._id}>
+                                                    <td>{product.name}</td>
+                                                    <td className='text-center'>
+                                                        {product.quantity}
+                                                    </td>
+                                                    <td className='text-end'>{product.regularPrice}</td>
+                                                    <td className='text-end'>{product.quantity * product.regularPrice}</td>
+                                                </tr>)}
                                         </tbody>
                                     </table>
                                     <div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const UseAddressDetail = addressId => {
     const [addressDetail, setAddressDetail] = useState({});
     useEffect(() => {
-        fetch(`https://mahsez-server.onrender.com/address/${addressId}`, {
+        fetch(`http://localhost:5000/address/${addressId}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

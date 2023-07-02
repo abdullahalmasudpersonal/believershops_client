@@ -47,7 +47,7 @@ input[type=number] {
 }
 
 .checkout-user-info div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .checkout-user-info>div>input {
@@ -188,14 +188,19 @@ input[type=number] {
     }
 }
 
+@media screen and (max-width:630px) {
+    .checkout-user-info {
+        max-width: 500px;
+    }
+}
 @media screen and (max-width:430px) {
     .checkout-user-info {
-        width: 350px;
+        width: 380px;
     }
 }
 
 @media screen and (max-width:380px) {
     .checkout-user-info {
-        max-width: 320px;
+        max-width: 330px;
     }
 }

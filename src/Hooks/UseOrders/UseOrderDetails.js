@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const UseOrderDetails = myOrderId =>{
     const [orderDetails, setOrderDetails] = useState({});
     useEffect( () =>{
-        const url = `https://mahsez-server.onrender.com/myOrder/${myOrderId}`;
+        const url = `http://localhost:5000/${myOrderId}`;
         fetch(url, {
             method:'GET',
             headers: {
