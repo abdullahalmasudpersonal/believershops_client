@@ -49,7 +49,7 @@ const UpdateProducts = () => {
                                 <tr>
                                     <th scope="row" className='ps-0'>{index + 1}</th>
                                     <td>{product.name}</td>
-                                    <td className='text-center'><img src={product.img} width='37px' height='37px' /></td>
+                                    <td className='text-center'><img src={product.image1} width='37px' height='37px' /></td>
                                     <td className='text-center'>{product.category}</td>
                                     <td className='text-center'>{product.availableQuantity}</td>
                                     <td className='text-end pe-0'><button className='btn btn-warning' onClick={() => navigateToUpdateProduct(product._id)}>Update</button></td>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './AttarDesWR.css';
 
-const AttarDesWR = () => {
+const AttarDesWR = ({productDetails}) => {
     return (
         <div id="exTab2" className='attar-detail-desWR'>
 
@@ -20,11 +20,11 @@ const AttarDesWR = () => {
             <div className="tab-content attar-detail-desWR-content">
 
                 <div className="tab-pane active" id="1">
-                    <h3>Standard tab panel created on bootstrap using nav-tabs</h3>
+                    <p>{productDetails.description}</p>
                 </div>
 
                 <div className="tab-pane" id="2">
-                    <h3>Notice the gap between the content and tab after applying a background color</h3>
+                    <h5>0 Reviews</h5>
                 </div>
 
                 <div className="tab-pane" id="3">

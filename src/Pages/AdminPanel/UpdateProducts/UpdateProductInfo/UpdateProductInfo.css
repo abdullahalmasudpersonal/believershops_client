@@ -9,10 +9,11 @@
   color: rgb(160, 67, 0);
 }
 .updateProductInfo > form >div > input{
-    width: 90%;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    margin-left: 6%;
+    width: 30%;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    padding: 5px;
+    outline: none;
 }
 .updateProductInfo > form >div > textarea{
     width: 90%;
@@ -20,4 +21,5 @@
     margin-top: 5px;
     margin-bottom: 15px;
     margin-left: 6%;
+    padding: 10px;
 }

@@ -10,7 +10,7 @@ import Select from 'react-select'
 
 
 const CreateProduct = () => {
-    const { register, handleSubmit, reset, control, errors } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     //  const [category, setCategory] = useState('default');
 
     let options = [
@@ -98,7 +98,7 @@ const CreateProduct = () => {
 
                             <input type='number' placeholder='Enter Product Offer Price' {...register("offerPrice", { required: true })} />
 
-                            <input type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} />
+                            <textarea type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} />
 
                             {/*                         <input type='text' placeholder='Enter Product Description-2' {...register("description", { required: true })} />
 

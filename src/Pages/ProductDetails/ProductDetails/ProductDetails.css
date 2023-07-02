@@ -6,8 +6,6 @@
 
 /*----------------- attar detail end---------- */
 
-
-
 /*--------------- attar-detail  first-part start ---------------- */
 
 /* ------------- attar-detail  first-part dev1 start */
@@ -48,7 +46,7 @@
 }
 
 /* ------------------------------------------------- */
-.attar-detail-first-part-dev1-img{
+.attar-detail-first-part-dev1-img {
     display: flex;
     justify-content: center;
     grid-gap: 15px;
@@ -64,18 +62,65 @@
 
 /* ------------- attar-detail  first-part dev-2 start ------------*/
 .attar-detail-first-part-dev2 {}
-.review-btn{
+
+.review-btn {
     cursor: pointer;
-    transition:.3s;
+    transition: .3s;
 }
-.review-btn:hover{
+
+.review-btn:hover {
     color: rgb(255, 149, 0);
 }
-.review-btn:active{
+
+.review-btn:active {
     color: rgb(89, 0, 255);
 }
-.review-dev2 input{
+.review-main{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    min-height: 400px;
+    padding: 30px;
+    font-family: Georgia, serif;
+}
+.review-dev1{
     width: 100%;
+}
+.review-dev2{
+    width: 100%;
+}
+.review-dev2>select{
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+    margin-bottom: 15px;
+    outline: none;
+} 
+.review-dev2>input{
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+    margin-bottom: 15px;
+    outline: none;
+} 
+.review-dev2>textarea{
+    width: 350px;
+    height: 120px;
+    padding: 5px;
+    margin-bottom: 15px;
+    outline: none;
+} 
+.submit-review-btn{
+    padding: 6px 16px;
+    border: none;
+    border-radius:2px;
+    font-size: 15px;
+    color: rgb(240, 252, 255);
+    background: rgb(255, 128, 0);
+    transition: .4s;
+}
+.submit-review-btn:hover{
+    background: rgb(255, 81, 0);
 }
 .attar-detail-dev-table {
     border-bottom: 1px solid rgb(224, 224, 224);
@@ -114,6 +159,16 @@
     background: none;
 }
 
+.outOfStock-btn {
+    padding: 7px 28px;
+    border-radius: 3px;
+    font-weight: 700;
+    color: gray;
+    border: none;
+    background: rgb(231, 233, 234);
+
+}
+
 .add-to-cart {
     background: none;
     border: none;
@@ -127,6 +182,16 @@
 .add-to-cart:hover {
     color: white;
     background-color: rgb(255, 94, 0);
+}
+
+.add-to-cart-disabled {
+    background: none;
+    border: none;
+    padding: 7px 28px;
+    border-radius: 3px;
+    color: white;
+    background-color: rgb(255, 183, 124);
+    transition: .4s;
 }
 
 /* ------------- attar-detail  first-part dev-2 end ---------- */
@@ -207,37 +272,42 @@
 
 /* big img responsive */
 @media screen and (max-width:410px) {
-    .attar-detail-first-part-dev1-big-img{
+    .attar-detail-first-part-dev1-big-img {
         width: 390px;
         height: 390px;
     }
 }
+
 @media screen and (max-width:400px) {
-    .attar-detail-first-part-dev1-big-img{
+    .attar-detail-first-part-dev1-big-img {
         width: 380px;
         height: 380px;
     }
 }
+
 @media screen and (max-width:390px) {
-    .attar-detail-first-part-dev1-big-img{
+    .attar-detail-first-part-dev1-big-img {
         width: 370px;
         height: 370px;
     }
 }
+
 @media screen and (max-width:380px) {
-    .attar-detail-first-part-dev1-big-img{
+    .attar-detail-first-part-dev1-big-img {
         width: 360px;
         height: 360px;
     }
 }
+
 @media screen and (max-width:370px) {
-    .attar-detail-first-part-dev1-big-img{
+    .attar-detail-first-part-dev1-big-img {
         width: 350px;
         height: 350px;
     }
 }
+
 @media screen and (max-width:360px) {
-    .attar-detail-first-part-dev1-big-img{
+    .attar-detail-first-part-dev1-big-img {
         width: 340px;
         height: 340px;
     }
@@ -246,26 +316,26 @@
 
 img {
     vertical-align: middle;
-  }
-  
-  /* Position the image container (needed to position the left and right arrows) */
-  .container {
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
     position: relative;
-  }
-  
-  /* Hide the images by default */
-  .mySlides {
+}
+
+/* Hide the images by default */
+.mySlides {
     display: none;
-  }
-  
-  /* Add a pointer when hovering over the thumbnail images */
-  .cursor {
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
     cursor: pointer;
-  }
-  
-  /* Next & previous buttons */
-  .prev,
-  .next {
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 40%;
@@ -278,55 +348,55 @@ img {
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
+}
+
+/* Position the "next button" to the right */
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
     background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
     top: 0;
-  }
-  
-  /* Container for image text */
-  .caption-container {
+}
+
+/* Container for image text */
+.caption-container {
     text-align: center;
     background-color: #222;
     padding: 2px 16px;
     color: white;
-  }
-  
-  .row:after {
+}
+
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
-  
-  /* Six columns side by side */
-  .column {
+}
+
+/* Six columns side by side */
+.column {
     float: left;
     width: 16.66%;
-  }
-  
-  /* Add a transparency effect for thumnbail images */
-  .demo {
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
     opacity: 0.6;
-  }
-  
-  .active,
-  .demo:hover {
+}
+
+.active,
+.demo:hover {
     opacity: 1;
-  }
+}

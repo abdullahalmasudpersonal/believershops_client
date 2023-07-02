@@ -22,6 +22,7 @@ const ProductDetails = () => {
     const [count, setCount] = useState(1);
     const [imgSlide, setImgSlide] = useState();
     const [review, setReview] = useState();
+    const disabled = availability < 1;
     console.log('review', review)
 
     const addToDb = _id => {
@@ -82,16 +83,7 @@ const ProductDetails = () => {
         }
         setCart(newCart);
         addToDb(selectedAttar._id);
-    }
-
-    /*     let total = 0;
-        let shipping = 0;
-        let quantity = 0;
-        for (const product of cart) {
-            quantity = quantity + product.quantity;
-            total = total + product.price * product.quantity;
-            shipping = shipping + product.shipping;
-        }  */
+    };
 
     return (
         <>
@@ -108,8 +100,6 @@ const ProductDetails = () => {
                                 <span> Click to zoom in</span>
                             </p>
                         </div>
-
-
                         <div className='attar-detail-first-part-dev1-img'>
                             <img height='100px' name='imgSlide' width='100px' src={productDetails.image1} alt='' />
                             <img height='100px' width='100px' src={productDetails.image2} alt='' name='imgSlide' />
@@ -138,10 +128,43 @@ const ProductDetails = () => {
                                                 Write a Review</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
-                                            <div className='d-flex'>
+                                        <div class="modal-body review-main">
+                                            <div className='review-dev1'>
+                                                <img src={image1} alt='' className='img-fluid' />
+                                            </div>
+                                            <div className='review-dev2'>
+                                                <div className='d-flex justify-content-between pb-1'>
+                                                    <label><small>Rating</small></label> <label><small>Requird</small></label>
+                                                </div>
+                                                <select aria-label="Default select example" value={review} onChange={e => setReview(e.target.value)} >
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                                <div className='d-flex justify-content-between pb-1'>
+                                                    <label><small>Name</small></label> <label><small>Requird</small></label>
+                                                </div>
+                                                <input />
+                                                <div className='d-flex justify-content-between pb-1'>
+                                                    <label><small>Email</small></label> <label><small>Requird</small></label>
+                                                </div>
+                                                <input />
+                                                <div className='d-flex justify-content-between pb-1'>
+                                                    <label><small>Review Subject</small></label> <label><small>Requird</small></label>
+                                                </div>
+                                                <input />
+                                                <div className='d-flex justify-content-between pb-1'>
+                                                    <label><small>Comments</small></label> <label><small>Requird</small></label>
+                                                </div>
+                                                <textarea />
                                                 <div>
-                                                    <img src={image1} />
+                                                    <button className='submit-review-btn'>Submit Review</button>
+                                                </div>
+                                            </div>
+                                            {/*   <div className='review-main'>
+                                                <div className='review-dev1'>
+                                                    <img src={image1} alt='' className='img-fluid' />
                                                 </div>
                                                 <div className='review-dev2'>
                                                     <div>
@@ -180,7 +203,7 @@ const ProductDetails = () => {
                                                         <input />
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -201,22 +224,19 @@ const ProductDetails = () => {
                         </p>
 
                         <div className='attar-detail-dev-table'>
-                            <table className="table table-borderless attar-detail-table mb-2">
-                                <tbody>
-                                    <tr>
-                                        <td>Brand:</td>
-                                        <td>{productDetails.brand}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Weight:</td>
-                                        <td>{weight1} ML</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Availability:</td>
-                                        <td>{availability} Pcs</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div className='d-flex '>
+                                <div className="">
+                                    <p>Brand:</p>
+                                    <p>Weight:</p>
+                                    <p>Availability:</p>
+                                </div>
+                                <div style={{ marginLeft: '120px' }}>
+                                    <p>{productDetails.brand}</p>
+                                    <p>{weight1} ML</p>
+                                    <p>{availability} Pcs</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div className='mt-3'>
@@ -235,14 +255,18 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className='mt-4'>
-                            <Link to='/cart' onClick={() => handleAddToCard(productDetails)} ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
-                            <button className='add-to-cart' onClick={() => handleAddToCard(productDetails)}  >Add to Cart</button>
-                        </div>
+                        {
+                            availability < 1 ?
+                                <div className='mt-4'><button className='outOfStock-btn' disabled>Out Of Stock</button></div>
+                                :
+                                <div className='mt-4' >
+                                    <Link to='/cart' onClick={() => handleAddToCard(productDetails)} ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
+                                    <button className='add-to-cart' onClick={() => handleAddToCard(productDetails)}>Add to Cart</button>
+                                </div>
+                        }
                     </div>
                 </div>
-                <AttarDesWR />
+                <AttarDesWR productDetails={productDetails} />
             </div>
         </>
     );
