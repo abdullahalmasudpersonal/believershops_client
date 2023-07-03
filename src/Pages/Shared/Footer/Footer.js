@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='footer2-bg '>
-            <footer className="text-center text-lg-start container-xxl">
+            <footer className="text-center text-lg-start container-xxl home-div-responsive">
                 <section className="d-flex justify-content-center justify-content-lg-between py-4 border-bottom">
                     <div className=" d-none d-lg-block d-flex align-items-center">
                         <span>Get connected with us on social networks:</span>

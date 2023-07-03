@@ -12,6 +12,7 @@ import AttarDesWR from '../../Categories/Islamic/Attars/Attar/AttarDetail/AttarD
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import UseCart from '../../../Hooks/UseCarts/UseCart';
+import ProductDetailReVe from '../ProductDetailReVe/ProductDetailReVe';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth);
@@ -260,13 +261,14 @@ const ProductDetails = () => {
                                 <div className='mt-4'><button className='outOfStock-btn' disabled>Out Of Stock</button></div>
                                 :
                                 <div className='mt-4' >
-                                    <Link to='/cart' onClick={() => handleAddToCard(productDetails)} ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
+                                    <Link to='/shopping_cart' onClick={() => handleAddToCard(productDetails)} ><button className='add-to-cart mb-3'>Buy Now</button></Link> &nbsp; &nbsp; &nbsp;
                                     <button className='add-to-cart' onClick={() => handleAddToCard(productDetails)}>Add to Cart</button>
                                 </div>
                         }
                     </div>
                 </div>
                 <AttarDesWR productDetails={productDetails} />
+                <ProductDetailReVe />
             </div>
         </>
     );

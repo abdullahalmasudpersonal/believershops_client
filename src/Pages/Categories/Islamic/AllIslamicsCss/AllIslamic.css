@@ -2,7 +2,7 @@
     max-width: 200px;
     height: 310px;
     padding: 10px;
-  /*   margin: auto !important;  */
+    /*   margin: auto !important;  */
     position: relative;
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -11,14 +11,16 @@
     background-color: white;
 }
 
-.islamic-product-dev img {
-    transition: .6s;
+
+.islamic-product-dev>div>img {
+    transition: .3s;
 }
 
 .islamic-product-dev:hover {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     transform: scale(1.001);
 }
+
 /* ripple out hover effect */
 
 
@@ -62,8 +64,9 @@
     display: block;
     transition: .4s;
 }
+
 @media screen and (max-width:500px) {
-    .islamic-product-dev{
+    .islamic-product-dev {
         max-width: 177px;
         height: 295px;
         padding: 10px;

@@ -10,7 +10,7 @@ const HomeProductOnes = () => {
             <hr style={{ marginTop: '10px' }}></hr>
             <div className='homeProducts'>
                 {
-                    products.filter(categore => categore.category === 'attar').slice(0, 24).map(attar => <Attar key={attar._id} attar={attar} />)
+                    products.filter(categore => categore.category === 'attar').slice(0, 12).map(attar => <Attar key={attar._id} attar={attar} />)
                 }
             </div>
         </div>

@@ -15,7 +15,7 @@
     border-radius: 3px 3px 0 0;
     background-clip: border-box; 
 }
-.attar-detail-desWR-head li {
+.attar-detail-desWR-head >li {
     padding: 12px 0px;
     font-weight: 600;
     text-decoration: none;
@@ -26,7 +26,7 @@
     text-decoration: none;
     color: rgb(87, 87, 87);
 }
-.nav-tabs li.active {
+.attar-detail-desWR-head>li.active {
     background: rgba(255, 102, 0, 0.863);
 }
 /* ----------- attar-detail-desWR-content --------- */
@@ -39,7 +39,7 @@
         display: block;
         text-align: center;
     }
-    .attar-detail-desWR-head li:not(:last-child){
+    .attar-detail-desWR-head>li:not(:last-child){
         border-bottom: .5px solid rgb(233, 233, 233);
     }
     .attar-detail-desWR-head li a{

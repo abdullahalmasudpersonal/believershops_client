@@ -121,7 +121,7 @@ function App() {
         <Route path='myOrder/:myOrderId' element={<OrderDetails />} /> 
         </Route>
 
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/shopping_cart' element={<Cart />} />
         <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
 
         <Route path='/admin' element={<RequireAdmin><Admin /></RequireAdmin>}>

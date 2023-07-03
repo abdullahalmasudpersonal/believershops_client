@@ -1,6 +1,41 @@
 
-
-.updateProductInfo > form >div > label{
+.updateProductInfo-form{
+  display: flex;
+  justify-content: center;
+}
+.updateProductInfo-form{
+  width: 100%;
+}
+.updateProductInfo{
+  margin: 25px 0;
+  padding: 25px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+.updateProductInfo >div > label{
+  font-weight: bold;
+  font-size: 17px;
+  padding-bottom: 3px;
+}
+.updateProductInfo >div > label > span{
+  font-size: 18px;
+  color: rgb(160, 67, 0);
+}
+.updateProductInfo >div > input{
+  width: 600px;
+  margin-top: 3px;
+  margin-bottom: 20px;
+  padding: 5px;
+  outline: none;
+}
+.updateProductInfo >div > textarea{
+  width: 600px;
+  min-height: 120px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+} 
+/* .updateProductInfo > form >div > label{
   font-weight: bold;
   font-size: 17px;
 }
@@ -22,4 +57,12 @@
     margin-bottom: 15px;
     margin-left: 6%;
     padding: 10px;
+} */
+
+.updateProductBtn{
+  border: none;
+  background: rgb(255, 119, 0);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 2px;
 }

@@ -13,22 +13,15 @@ const Attar = ({ attar }) => {
     const { _id, brand, name, image1, regularPrice, offerPrice } = attar;
     const navigate = useNavigate();
 
-    const handleRemoveProduct = product => {
-        const rest = cart.filter(pd => pd._id !== product._id);
-        setCart(rest);
-        removeFromDb(product._id);
-    }
-
     const navigateToProductDetails = _id => {
         navigate(`/categore/products/${_id}`);
     }
 
-
     return (
 
-        <div className='islamic-product-dev cart1'>
-           <div className='p-3 pb-2'> <img src={image1} alt='' className='img-fluid' /></div>
-            <h6 className='text-center islamic-product-dev-h6 mb-1' onClick={() => navigateToProductDetails(_id)}>{name}</h6>
+        <div className='islamic-product-dev'>
+            <div className='p-3 pb-2 products-imgae'> <img src={image1} alt='' className='img-fluid' /></div>
+            <h6 className='text-center islamic-product-dev-h6 mb-1' onClick={() => navigateToProductDetails(_id)} data-toggle="tooltip" data-placement="right" title={name}>{name.length > 35 ? name.slice(0, 40) + '...' : name}</h6>
             <p className='text-center m-0'>
                 <small>4.5 </small>
                 <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />

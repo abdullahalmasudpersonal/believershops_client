@@ -12,6 +12,10 @@ const Cart = () => {
     const [count, setCount] = useState(1);
     const navigate = useNavigate();
 
+    const navigateToProductDetali = _id =>{
+        navigate(`/categore/products/${_id}`)
+    }
+
     /*  const counts = product.quantity; */
     console.log(cart.map(product => product.quantity.toString()))
     // const prevCount =  cart.map(product => product.quantity)
@@ -170,7 +174,7 @@ const Cart = () => {
                                             <th scope="row" className='mobile-cart'>
                                                 <img src={product.image1} alt='' width='50px' height='50px' />
                                             </th>
-                                            <td className='align-middle'>{product.name}</td>
+                                            <td className='align-middle'><span style={{cursor:'pointer'}} onClick={() => navigateToProductDetali(product._id)} >{product.name}</span></td>
                                             <td className='mobile-cart'>{product.model}</td>
 
                                             <td className='align-middle'>

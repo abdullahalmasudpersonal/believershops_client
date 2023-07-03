@@ -12,7 +12,7 @@ const DeleteProduct = () => {
     const handleDelete = _id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/attars/${_id}`;
+            const url = `http://localhost:5000/products/${_id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -24,8 +24,8 @@ const DeleteProduct = () => {
         }
     };
 
-      /* start search product */
-      const search = (event) => {
+    /* start search product */
+    const search = (event) => {
         setDeeleteProduct(event.target.value);
     };
     let productSearch = products.filter(order => {
@@ -51,7 +51,7 @@ const DeleteProduct = () => {
                             <th scope="col">SL</th>
                             <th scope="col">Name</th>
                             <th scope="col">Image</th>
-                            <th scope="col">Remove</th>
+                            <th scope="col" className='text-end'>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,7 +61,7 @@ const DeleteProduct = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>{attar.name}</td>
                                     <td><img width='50px' src={attar.img} alt='' /></td>
-                                    <td><button onClick={() => handleDelete(attar._id)} className=' order-calcel-btn'>Delete</button></td>
+                                    <td className='text-end'><button onClick={() => handleDelete(attar._id)} className='deletePorductBtn'>Delete</button></td>
                                 </tr>)
                         }
                     </tbody>

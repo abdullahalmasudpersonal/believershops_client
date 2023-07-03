@@ -2,32 +2,37 @@ import React from 'react';
 import './AttarDesWR.css';
 
 const AttarDesWR = ({productDetails}) => {
+    const {name,description} = productDetails;
+
     return (
         <div id="exTab2" className='attar-detail-desWR'>
 
             <ul className="attar-detail-desWR-head nav nav-tabs">
                 <li className="active"  >
-                    <a href="#1" data-toggle="tab">DESCRIPTION</a>
+                    <a href="#description" data-toggle="tab">DESCRIPTION</a>
                 </li>
 
-                <li><a href="#2" data-toggle="tab">REVIEWS</a>
+                <li><a href="#reviews" data-toggle="tab">REVIEWS</a>
                 </li>
 
-                <li><a href="#3" data-toggle="tab">Solution</a>
+                <li><a href="#solution" data-toggle="tab">Questions</a>
                 </li>
             </ul>
 
             <div className="tab-content attar-detail-desWR-content">
 
-                <div className="tab-pane active" id="1">
-                    <p>{productDetails.description}</p>
+                <div className="tab-pane active" id="description">
+                    ----------------
+                    <h6 className='m-0 p-0'>{name}</h6>
+                    ----------------
+                    <p>{description}</p>
                 </div>
 
-                <div className="tab-pane" id="2">
+                <div className="tab-pane" id="reviews">
                     <h5>0 Reviews</h5>
                 </div>
 
-                <div className="tab-pane" id="3">
+                <div className="tab-pane" id="solution">
                     <h3>add clearfix to tab-content (see the css)</h3>
                 </div>
 

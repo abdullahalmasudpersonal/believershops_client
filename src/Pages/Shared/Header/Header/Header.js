@@ -131,7 +131,7 @@ const Header = () => {
 
                             <div className='mobile-screen-top-part pt-1'>
                                 {/*   <FontAwesomeIcon className='top-right-btn ' icon={faSearch} /> */}
-                                <Link to='/cart'>
+                                <Link to='/shopping_cart'>
                                     <button className='position-relative p-0 pe-3' style={{ border: 'none', background: 'none' }}>
                                         <FontAwesomeIcon className='top-right-btn' icon={faShoppingCart} />
                                         <span className="position-absolute translate-middle badge rounded-pill" style={{ color: '', backgroundColor: 'orangered' }}>
@@ -176,7 +176,7 @@ const Header = () => {
                     <div className='header2-lust-part pe-2'>
                         <FontAwesomeIcon className='heart-cart' icon={faHeart} />
 
-                        <Link to='/cart' className='ms-3'>
+                        <Link to='/shopping_cart' className='ms-3'>
                             <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
                             <span className="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
                                 {cart.length}

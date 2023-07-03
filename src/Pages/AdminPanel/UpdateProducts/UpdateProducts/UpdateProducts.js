@@ -11,6 +11,9 @@ const UpdateProducts = () => {
     const navigateToUpdateProduct = _id => {
         navigate(`/admin/update_product/${_id}`);
     };
+    const navigateToProductDetali = _id => {
+        navigate(`/categore/products/${_id}`)
+    }
 
     /* start search product */
     const search = (event) => {
@@ -48,7 +51,7 @@ const UpdateProducts = () => {
                             productSearch.map((product, index) =>
                                 <tr>
                                     <th scope="row" className='ps-0'>{index + 1}</th>
-                                    <td>{product.name}</td>
+                                    <td><span style={{cursor:'pointer'}} onClick={() => navigateToProductDetali(product._id)}>{product.name}</span></td>
                                     <td className='text-center'><img src={product.image1} width='37px' height='37px' /></td>
                                     <td className='text-center'>{product.category}</td>
                                     <td className='text-center'>{product.availableQuantity}</td>
