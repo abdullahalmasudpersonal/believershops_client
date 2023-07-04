@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
@@ -13,42 +13,32 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import UseCart from '../../../Hooks/UseCarts/UseCart';
 import ProductDetailReVe from '../ProductDetailReVe/ProductDetailReVe';
+import { ProductContext } from '../../../App';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth);
-    const [cart, setCart] = UseCart();
     const { productId } = useParams();
     const [productDetails] = UseProductDetails(productId);
     const { name, image1, category, availability, offerPrice, weight1 } = productDetails;
-    const [count, setCount] = useState(1);
-    const [imgSlide, setImgSlide] = useState();
     const [review, setReview] = useState();
-    const disabled = availability < 1;
     console.log('review', review)
+    const [products, cart, handleAddToCard] = useContext(ProductContext);
 
-    const addToDb = _id => {
+/*     const addToDb = _id => {
         let shoppingCart = {};
-        //get the shopping cart from local storage
         const storedCart = localStorage.getItem('shopping-cart');
         if (storedCart) {
             shoppingCart = JSON.parse(storedCart);
         }
-        // add quantity
         const quantity = shoppingCart[_id];
         if (quantity) {
-            /*  toast.success(`Alrady Added To Cart`);  */
-            /*  const newQuantity = quantity + count;
-               shoppingCart[_id] = newQuantity;  */
         }
         else {
             shoppingCart[_id] = count;
         }
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-    }
-
-
-    function increment() {
-        //setCount(prevCount => prevCount+=1);
+    } */
+/*     function increment() {
         setCount(function (prevCount) {
             if (prevCount < 10) {
                 return (prevCount += 1);
@@ -66,9 +56,8 @@ const ProductDetails = () => {
                 return (prevCount = 1);
             }
         });
-    };
-
-    const handleAddToCard = (selectedAttar) => {
+    }; */
+/*     const handleAddToCard = (selectedAttar) => {
         let newCart = [];
         const exists = cart.find(attar => attar._id === selectedAttar._id);
         if (!exists) {
@@ -78,13 +67,12 @@ const ProductDetails = () => {
         }
         else {
             const rest = cart.filter(attar => attar._id !== selectedAttar._id);
-            /* exists.quantity = exists.quantity + count; */
             newCart = [...rest, exists];
             toast.warning(`Alrady Added To Cart`);
         }
         setCart(newCart);
         addToDb(selectedAttar._id);
-    };
+    }; */
 
     return (
         <>
@@ -244,13 +232,13 @@ const ProductDetails = () => {
                             <p className='mb-2'>Quantity:</p>
                             <div className='attar-detail-quantity-counter'>
                                 <div className='attar-detail-quantity-counter-p'>
-                                    <p style={{ color: 'gray' }} className='m-0 fw-bold'>{count}</p>
+                                    <p style={{ color: 'gray' }} className='m-0 fw-bold'>{/* {count} */}</p>
                                 </div>
                                 <div className='d-grid attar-detail-quantity-counter-dev'>
-                                    <button onClick={increment} className='p-0'>
+                                    <button /* onClick={increment} */ className='p-0'>
                                         <i style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
                                     </button>
-                                    <button onClick={decrement} classnamep='p-0'>
+                                    <button /* onClick={decrement} */ classnamep='p-0'>
                                         <i style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
                                     </button>
                                 </div>

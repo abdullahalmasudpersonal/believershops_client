@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Cart.css';
 import '../../App.css';
 import { removeFromDb } from '../../utilities/fakedb';
@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import UseCart from '../../Hooks/UseCarts/UseCart';
+import { ProductContext } from '../../App';
 const Cart = () => {
-    const [cart, setCart] = UseCart();
+    /* const [cart, setCart] = UseCart(); */
     const [count, setCount] = useState(1);
+    const [products, cart, handleAddToCard, handleRemoveProduct] = useContext(ProductContext);
     const navigate = useNavigate();
 
     const navigateToProductDetali = _id =>{
@@ -60,11 +62,11 @@ const Cart = () => {
     };
 
 
-    const handleRemoveProduct = product => {
+/*     const handleRemoveProduct = product => {
         const rest = cart.filter(pd => pd._id !== product._id);
         setCart(rest);
         removeFromDb(product._id);
-    }
+    } */
     /*     const handleRemoveProductQuantity = product => {
             const rest = cart.filter(pd => pd._id !== product._id);
             setCart(rest);
@@ -103,35 +105,35 @@ const Cart = () => {
         });
     };
 
-    const handleAddToCard = (selectedAttar) => {
+/*     const handleAddToCard = (selectedAttar) => {
         let newCart = [];
         const exists = cart.find(attar => attar._id === selectedAttar._id);
         if (!exists) {
             selectedAttar.quantity = 1;
             newCart = [...cart, selectedAttar];
-            /*        toast.success(`Added To Cart ${count}`); */
+               toast.success(`Added To Cart ${count}`);
         }
         else {
             const rest = cart.filter(attar => attar._id !== selectedAttar._id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
-            /*  toast.warning(`Alrady Added To Cart`); */
+         toast.warning(`Alrady Added To Cart`); 
         }
         setCart(newCart);
         addToDb(selectedAttar._id);
-    };
+    }; */
 
-    const handleDeleteToCard = (selectedAttar) => {
+/*     const handleDeleteToCard = (selectedAttar) => {
         let newCart = [];
         const exists = cart.find(attar => attar._id === selectedAttar._id);
             const rest = cart.filter(attar => attar._id !== selectedAttar._id);
             exists.quantity = 1 && exists.quantity - 1;
             newCart = [...rest, exists];
-            /*  toast.warning(`Alrady Added To Cart`); */
+             toast.warning(`Alrady Added To Cart`); 
     
         setCart(newCart);
         deleteToDb(selectedAttar._id);
-    };
+    }; */
 
 
     return (
@@ -190,7 +192,7 @@ const Cart = () => {
                                                                 <i onClick={() => handleAddToCard(product)} style={{ color: 'gray' }} className="fa fa-angle-up px-2 "></i>
                                                             </button>
                                                             <button onClick={decrement} classnamep='p-0' >
-                                                                <i onClick={() => handleDeleteToCard(product)} style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
+                                                                <i /* onClick={() => handleDeleteToCard(product)} */ style={{ color: 'gray' }} className="fa fa-angle-down px-2"></i>
                                                             </button>
                                                         </div>
                                                     </div>

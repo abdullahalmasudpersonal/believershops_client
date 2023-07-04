@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
@@ -53,111 +53,132 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import ProductDetails from './Pages/ProductDetails/ProductDetails/ProductDetails';
 import AddShippingAddress from './Pages/Dashboards/Address/AddShippingAddress/AddShippingAddress';
 import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddress/UpdateShippingAddress';
+import UseProducts from './Hooks/UseProducts/UseProducts';
+import UseCart from './Hooks/UseCarts/UseCart';
+import { removeFromDb } from './utilities/fakedb';
+
+export const ProductContext = createContext('');
+
 function App() {
+  const [products, setProducts] = UseProducts([]);
+  const [cart, setCart] = UseCart([]);
+  const [count, setCount] = useState(1);
 
-  /*   const url = 'http://localhost:5000/attars';
-  
-    const [CartItem, setCartItem] = useState([]);
-  
-    const addToCart = (product) => {
-      const productExit = CartItem.find((item) => item._id === product._id)
-      if (productExit) {
-        setCartItem(CartItem.map((item) => (item._id === product._id ? { ...productExit, qty: productExit.qty + 1 } : item)))
-      } else {
-        setCartItem([...CartItem, { ...product, qty: 1 }])
-      }
+  const addToDb = _id => {
+    let shoppingCart = {};
+    //get the shopping cart from local storage
+    const storedCart = localStorage.getItem('shopping-cart');
+    if (storedCart) {
+      shoppingCart = JSON.parse(storedCart);
     }
-  
-    const decreaseQty = (product) => {
-      const productExit = CartItem.find((item) => item.id === product.id)
-      if (productExit.qty === 1) {
-        setCartItem(CartItem.filter((item) => item.id !== product.id))
-      } else {
-        setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty - 1 } : item)))
-      }
-    } */
+    // add quantity
+    const quantity = shoppingCart[_id];
+    if (quantity) {
+      /*  toast.success(`Alrady Added To Cart`);  */
+      /*  const newQuantity = quantity + count;
+         shoppingCart[_id] = newQuantity;  */
+    }
+    else {
+      shoppingCart[_id] = count;
+    }
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+  };
 
-  /* const [products, setProducts] = useState([url]);
-  const url = 'http://localhost:5000/attars';
-  const [cart, setCart] = useState([])
-  const [showCart, setShowCart] = useState(false)
-  
-  const addToCart = (data) => {
-    setCart([...cart, { ...data, quantity: 1 }])
-  }
-  
-  const handleShow = (value) => {
-    setShowCart(value)
-  } */
+  const handleAddToCard = (selectedAttar) => {
+    let newCart = [];
+    const exists = cart.find(attar => attar._id === selectedAttar._id);
+    if (!exists) {
+      selectedAttar.quantity = count;
+      newCart = [...cart, selectedAttar];
+      toast.success(`Added To Cart ${count}`);
+    }
+    else {
+      const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+      /* exists.quantity = exists.quantity + count; */
+      newCart = [...rest, exists];
+      toast.warning(`Alrady Added To Cart`);
+    }
+    setCart(newCart);
+    addToDb(selectedAttar._id);
+  };
+
+  /* Cart Product Remove */
+  const handleRemoveProduct = product => {
+    const rest = cart.filter(pd => pd._id !== product._id);
+    setCart(rest);
+    removeFromDb(product._id);
+}
 
   return (
-    <div style={{backgroundColor:''}}>
-      <ScrollingBtn />
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/categore' element={<Categore />}>
-          <Route path='foods' element={<Foods />} />
-          <Route path='foods/datess' element={<Datess />} />
-          <Route path='islamic' element={<IslamicCategore />} />
-          <Route path='islamic/jainamazs' element={<Jainamazs />} />
-          <Route path='islamic/tazbeehs' element={<Tazbeehs />} />
-          <Route path='islamic/caps' element={<Caps />} />
-          <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
-          <Route path='islamic/attars' element={<Attars />} />
-          <Route path='products/:productId' element={<ProductDetails />} />
-          <Route path='products/:productId' element={<AttarDetail />} />
-        </Route>
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/register' element={<Register />} />
+    <ProductContext.Provider value={[products, cart, handleAddToCard, handleRemoveProduct]}>
+      <div>
+        <ScrollingBtn />
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/categore' element={<Categore />}>
+            <Route path='foods' element={<Foods />} />
+            <Route path='foods/datess' element={<Datess />} />
+            <Route path='islamic' element={<IslamicCategore />} />
+            <Route path='islamic/jainamazs' element={<Jainamazs />} />
+            <Route path='islamic/tazbeehs' element={<Tazbeehs />} />
+            <Route path='islamic/caps' element={<Caps />} />
+            <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
+            <Route path='islamic/attars' element={<Attars />} />
+            <Route path='products/:productId' element={<ProductDetails />} />
+            <Route path='products/:productId' element={<AttarDetail />} />
+          </Route>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/register' element={<Register />} />
 
-        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
-          <Route index element={<Profile />} />
-          <Route path='address' element={<Address />} />
-          <Route path='address/add_shipping_address' element={<AddShippingAddress />} />
-         <Route path='address/update_shipping_address/:addressId' element={<UpdateShippingAddress />} /> 
-          <Route path='myOrders' element={<Orders />} />
-        <Route path='myOrder/:myOrderId' element={<OrderDetails />} /> 
-        </Route>
+          <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+            <Route index element={<Profile />} />
+            <Route path='address' element={<Address />} />
+            <Route path='address/add_shipping_address' element={<AddShippingAddress />} />
+            <Route path='address/update_shipping_address/:addressId' element={<UpdateShippingAddress />} />
+            <Route path='myOrders' element={<Orders />} />
+            <Route path='myOrder/:myOrderId' element={<OrderDetails />} />
+          </Route>
 
-        <Route path='/shopping_cart' element={<Cart />} />
-        <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
+          <Route path='/shopping_cart' element={<Cart />} />
+          <Route path='/checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
 
-        <Route path='/admin' element={<RequireAdmin><Admin /></RequireAdmin>}>
-          <Route index element={<HomeAdmin />} />
-          <Route path='allOrder' element={<Allorder />} />
-          <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
-          <Route path='allAdmin' element={<AllAdmins />} />
-          <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
-          <Route path='create_product' element={<CreateProduct />} />
-          <Route path='update_product' element={<UpdateProducts />} />
-          <Route path='update_product/:productId' element={<UpdateProductInfo />} />
-          <Route path='delete_product' element={<DeleteProduct />} />
-        </Route>
+          <Route path='/admin' element={<RequireAdmin><Admin /></RequireAdmin>}>
+            <Route index element={<HomeAdmin />} />
+            <Route path='allOrder' element={<Allorder />} />
+            <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
+            <Route path='allAdmin' element={<AllAdmins />} />
+            <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+            <Route path='create_product' element={<CreateProduct />} />
+            <Route path='update_product' element={<UpdateProducts />} />
+            <Route path='update_product/:productId' element={<UpdateProductInfo />} />
+            <Route path='delete_product' element={<DeleteProduct />} />
+          </Route>
 
-        <Route path='/offers' element={<Offers />} />
-        <Route path='/blogs' element={<Blogs />} />
-        <Route path='/aboutUs' element={<AboutUs />} />
-        <Route path='/privacy_policy' element={<PrivacyPolicy />} />
-        <Route path='/terms_condition' element={<TermsCondition />} />
-        <Route path='*' element={<Notfound />} />
-      </Routes>
-      <Footer/>
-      <BottemHeader/>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </div>
+          <Route path='/offers' element={<Offers />} />
+          <Route path='/blogs' element={<Blogs />} />
+          <Route path='/aboutUs' element={<AboutUs />} />
+          <Route path='/privacy_policy' element={<PrivacyPolicy />} />
+          <Route path='/terms_condition' element={<TermsCondition />} />
+          <Route path='*' element={<Notfound />} />
+        </Routes>
+        <Footer />
+        <BottemHeader />
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
+    </ProductContext.Provider>
   );
 }
 

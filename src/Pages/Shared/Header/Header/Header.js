@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,14 +9,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import MobileSideber from '../MobileSideber/MobileSideber';
-import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
 import { signOut } from 'firebase/auth';
-import UseCart from '../../../../Hooks/UseCarts/UseCart';
+import { ProductContext } from '../../../../App';
 
 
 const Header = () => {
     const [user] = useAuthState(auth);
-    const [cart, setCart] = UseCart();
+    const [products, cart] = useContext(ProductContext);
     const navigate = useNavigate();
     const logout = () => {
         signOut(auth);
@@ -42,7 +41,7 @@ const Header = () => {
        const handleShow = () => setShow(true); */
 
     /* --------------------- start pc search ber ---------------------- */
-    const [products, setProducts] = UseProducts([]);
+    /* const [products, setProducts] = UseProducts([]); */
     const [searchValuse, setSearchValue] = useState('');
     const onChange = (event) => {
         setSearchValue(event.target.value);
