@@ -21,6 +21,13 @@
   font-size: 18px;
   color: rgb(160, 67, 0);
 }
+.updateProductInfo >div > select{
+  width: 600px;
+  margin-top: 3px;
+  margin-bottom: 20px;
+  padding: 5px;
+  outline: none;
+}
 .updateProductInfo >div > input{
   width: 600px;
   margin-top: 3px;

@@ -10,13 +10,14 @@ const UpdateProductInfo = () => {
   const { productId } = useParams();
   const { register, handleSubmit, reset } = useForm();
   const [productDetails, setProductDetails] = UseProductDetails(productId);
-  const { _id, name, category, brand, stockStatus, availableQuantity, ragularPrice, offerPrice, description, size, image1 } = productDetails;
+  const { _id, name, category, subCategory, brand, stockStatus, availableQuantity, ragularPrice, offerPrice, description, size, image1 } = productDetails;
 
   const handleUpdateProduct = async data => {
     const proceed = window.confirm('Are you sure?');
     if (proceed) {
       const updateproduct = {
         category: data.category,
+        subCategory: data.subCategory,
         name: data.name,
         brand: data.brand,
         stockStatus: data.stockStatus,
@@ -63,16 +64,48 @@ const UpdateProductInfo = () => {
           </div>
           <div>
             <label>Category : <span>{category}</span></label>&nbsp;<br />
-            <input type='text' defaultValue={category}  {...register("category", { required: false })} />
+            <select {...register("category", { required: false })}>
+              <option value='' hidden>Select Category ---</option>
+              <option value="Attar">Attar</option>
+              <option value="Tupis">Tupis</option>
+              <option value="Jainamaz">Jainamaz</option>
+            </select>
+          </div>
+          <div>
+            <label>Sub Category : <span>{subCategory}</span></label>&nbsp;<br />
+            <select {...register("subCategory", { required: false })}>
+              <option value='' hidden>Select Sub Category ---</option>
+              <option value="Popular Attar">Popular Attar</option>
+              <option value="Mahsez Attar">Mahsez Attar</option>
+              <option value="Alif Attar">Alif Attar</option>
+              <option value="Attar Combo Offer">Attar Combo Offer</option>
+            </select>
           </div>
           <div>
             <label>Brand : <span>{brand}</span></label>&nbsp;<br />
-            <input type='text' defaultValue={brand} {...register("brand", { required: false })} />
+            <select {...register("brand", { required: false })}>
+              <option value="" hidden>Select Brand ---</option>
+              <option value="Mahsez">Mahsez</option>
+              <option value="Alif Attar">Alif Attar</option>
+              <option value=""></option>
+            </select>
           </div>
+          {/*    <div>
+            <label>Brand : <span>{brand}</span></label>&nbsp;<br />
+            <input type='text' defaultValue={brand} {...register("brand", { required: false })} />
+          </div> */}
           <div>
             <label>StockStatus : <span>{stockStatus} </span></label>&nbsp;<br />
-            <input type='text' defaultValue={stockStatus}  {...register("stockStatus", { required: false })} />
+            <select {...register("stockStatus", { required: false })}>
+              <option value="" hidden>Select Stock Status ---</option>
+              <option value="In Stock">In Stock</option>
+              <option value="Out Of Stock">Out Of Stock</option>
+            </select>
           </div>
+          {/* <div>
+            <label>StockStatus : <span>{stockStatus} </span></label>&nbsp;<br />
+            <input type='text' defaultValue={stockStatus}  {...register("stockStatus", { required: false })} />
+          </div> */}
           <div>
             <label>AvailableQuantity : <span>{availableQuantity} Pcs</span></label>&nbsp;<br />
             <input type='number' defaultValue={availableQuantity} {...register("availableQuantity", { required: false })} />

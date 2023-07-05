@@ -14,7 +14,7 @@ const BottemHeader = () => {
 
     return (
         <>
-            <div className='bottemHeader fixed-bottom'>
+            <div className='bottemHeader fixed-bottom bg-body-tertiary'>
                 <div className='bottemHeader-dev'>
                     <Link to='/' className='header-buttom-btn'>
                         <div>

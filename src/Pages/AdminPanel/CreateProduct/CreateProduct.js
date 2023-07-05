@@ -11,14 +11,23 @@ import Select from 'react-select'
 
 const CreateProduct = () => {
     const { register, handleSubmit, reset } = useForm();
-    //  const [category, setCategory] = useState('default');
-
-    let options = [
-        { label: "Bangladesh", value: "Bangladesh" },
-        { label: "India", value: "India" },
-        { label: "China", value: "China" },
-        { label: "Finland", value: "Finland" }
-    ];
+    const [val, setVal] = useState([]);
+    const handleAdd = () => {
+        const abc = [...val, []]
+        setVal(abc)
+    }
+    const handleChange = (onChangeValue, i) => {
+        const inputData = [...val]
+        inputData[i] = onChangeValue.target.value;
+        setVal(inputData)
+        console.log('data', val)
+    };
+    const handleDelete = (i) => {
+        const deleteVal = [...val]
+        deleteVal.splice(i, 1)
+        setVal(deleteVal)
+    }
+    console.log(val, 'data')
 
     const imageStorageKey = 'a3d4bff21c6d258146feb02c43808485';
     const onSubmit = async data => {
@@ -46,7 +55,8 @@ const CreateProduct = () => {
                             ragularPrice: data.ragularPrice,
                             offerPrice: data.offerPrice,
                             description: data.description,
-                            image1: imgData.data.url
+                            description2: val,
+                            image1: imgData.data.url 
                         }
                         fetch('http://localhost:5000/products', {
                             method: "POST",
@@ -95,9 +105,9 @@ const CreateProduct = () => {
                             <label>Sub Category</label>
                             <select {...register("subCategory", { required: true })} >
                                 <option value='' hidden>Select Sub Category---</option>
-                                <option value='popularAttar'>Popular Attar</option>
-                                <option value='mahsez Attar'>Mahsez Attar</option>
-                                <option value='attarComboOffer'>Attar Combo Offer</option>
+                                <option value='Popular Attar'>Popular Attar</option>
+                                <option value='Mahsez Attar'>Mahsez Attar</option>
+                                <option value='Attar Combo Offer'>Attar Combo Offer</option>
                             </select>
                             {/* <input type='text' placeholder='Enter Product Category' {...register("category", { required: true })} /> */}
                             <label>Name</label>
@@ -115,6 +125,21 @@ const CreateProduct = () => {
                             <label>Description Summary</label>
                             <textarea type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} />
 
+                            {/* <label>Add Title</label>
+                            <input type='number' placeholder='Enter Product Regular Price' {...register("ragularPrice", { required: true })} /> */}
+
+                            <div>
+                                <button onClick={() => handleAdd()}>Add</button>
+                                {
+                                    val.map((data, i) =>
+                                        <div key={i}>
+                                            <input value={data} onChange={e => handleChange(e, i)} />
+                                            <button onClick={() => handleDelete(i)}>Delete</button>
+                                        </div>
+                                    )
+                                }
+                            </div>
+
                             {/*                         <input type='text' placeholder='Enter Product Description-2' {...register("description", { required: true })} />
 
                         <input type='text' placeholder='Enter Product Description-3' {...register("description", { required: true })} /> */}
@@ -125,6 +150,7 @@ const CreateProduct = () => {
 
                             <input type='Submit' value='Add Product' />
                         </form>
+
                     </div>
                 </div>
             </div>
