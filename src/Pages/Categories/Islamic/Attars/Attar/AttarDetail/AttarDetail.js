@@ -180,7 +180,7 @@ const AttarDetail = () => {
                         </div>
                     </div>
                 </div>
-                <AttarDesWR />
+                <AttarDesWR productDetails={productDetails} />
             </div>
         </>
     );

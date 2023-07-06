@@ -163,7 +163,7 @@ function App() {
           <Route path='/terms_condition' element={<TermsCondition />} />
           <Route path='*' element={<Notfound />} />
         </Routes>
-        <Footer />
+{/*         <Footer /> */}
         <BottemHeader />
         <ToastContainer
           position="top-center"

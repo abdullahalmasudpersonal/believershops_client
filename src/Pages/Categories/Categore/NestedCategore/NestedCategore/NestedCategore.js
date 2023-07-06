@@ -8,7 +8,6 @@ import { faAlignJustify, faAlignLeft, faAlignRight } from '@fortawesome/free-sol
 const NestedCategore = () => {
     return (
         <div className="sidebar">
-
             <div className='nestedCategore-title'>
                 <FontAwesomeIcon style={{padding:"16px"}} icon={faAlignLeft} />
                 <span>ALL CATEGORIES</span>

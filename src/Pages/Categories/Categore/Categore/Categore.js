@@ -9,7 +9,7 @@ const Categore = () => {
 
     return (
         <>
-          {/*   <div className='breadcrumb-bg'>
+            {/*   <div className='breadcrumb-bg'>
                 <div className='container-xxl'>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 ">
@@ -20,9 +20,11 @@ const Categore = () => {
                     </nav>
                 </div>
             </div> */}
-            <div className='container-xxl p-0 py-5 d-flex' >
-                <NestedCategore />
-                <Outlet />
+            <div className='m-0 p-0 home-bg'>
+                <div className='container-xxl py-5 d-flex responsive-nested-page' >
+                    <NestedCategore />
+                    <Outlet />
+                </div>
             </div>
         </>
     );

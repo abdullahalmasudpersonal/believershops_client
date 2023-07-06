@@ -30,12 +30,12 @@ const AttarDesWR = ({ productDetails }) => {
                     ---------------
                     <p>{description}</p>
 
-                    {
+                   {/*  {
                         description2.map(description =>
                             <div >
                                 {description}
                             </div>)
-                    }
+                    } */}
 
                     {/*     {
                         description2.map(des=>

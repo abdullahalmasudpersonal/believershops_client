@@ -1,19 +1,18 @@
 import React from 'react';
-import UseTazbeehs from '../../../../../Hooks/UseTazbeehs/UseTazbeehs';
 import '../../AllIslamicsCss/AllIslamics.css';
 import Tazbeeh from '../Tazbeeh/Tazbeeh';
+import UseProducts from '../../../../../Hooks/UseProducts/UseProducts';
+import '../../../Categore/NestedPorductsCSS/NestedProducts.css';
 
 const Tazbeehs = () => {
-    const [tazbeehs, setTazbeehs] = UseTazbeehs([]);
+    const [tazbeehs, setTazbeehs] = UseProducts([]);
 
     return (
-        <div className='islamics-attars'>
-       <div className='islamics-attars-dev'>
-           {
-               tazbeehs.map(tazbeeh => <Tazbeeh key={tazbeeh._id} tazbeeh={tazbeeh} /* handleAddToCard={handleAddToCard} */ />)
-           }
-       </div>
-   </div>
+        <div className='nestedProducts'>
+            {
+                tazbeehs.slice(0).reverse().map(tazbeeh => <Tazbeeh key={tazbeeh._id} tazbeeh={tazbeeh} />)
+            }
+        </div>
     );
 };
 
