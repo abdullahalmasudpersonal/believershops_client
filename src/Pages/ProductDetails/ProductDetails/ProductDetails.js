@@ -14,86 +14,120 @@ import auth from '../../../firebase.init';
 import UseCart from '../../../Hooks/UseCarts/UseCart';
 import ProductDetailReVe from '../ProductDetailReVe/ProductDetailReVe';
 import { ProductContext } from '../../../App';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth);
     const { productId } = useParams();
     const [productDetails] = UseProductDetails(productId);
-    const { name, image1, category, availability, offerPrice, weight1 } = productDetails;
+    const { name, image1, image2, image3, category, availability, offerPrice, weight1 } = productDetails;
     const [review, setReview] = useState();
     console.log('review', review)
     const [products, cart, handleAddToCard] = useContext(ProductContext);
 
-/*     const addToDb = _id => {
-        let shoppingCart = {};
-        const storedCart = localStorage.getItem('shopping-cart');
-        if (storedCart) {
-            shoppingCart = JSON.parse(storedCart);
-        }
-        const quantity = shoppingCart[_id];
-        if (quantity) {
-        }
-        else {
-            shoppingCart[_id] = count;
-        }
-        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-    } */
-/*     function increment() {
-        setCount(function (prevCount) {
-            if (prevCount < 10) {
-                return (prevCount += 1);
+    /*     const addToDb = _id => {
+            let shoppingCart = {};
+            const storedCart = localStorage.getItem('shopping-cart');
+            if (storedCart) {
+                shoppingCart = JSON.parse(storedCart);
+            }
+            const quantity = shoppingCart[_id];
+            if (quantity) {
             }
             else {
-                return (prevCount = 10);
+                shoppingCart[_id] = count;
             }
-        });
+            localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+        } */
+    /*     function increment() {
+            setCount(function (prevCount) {
+                if (prevCount < 10) {
+                    return (prevCount += 1);
+                }
+                else {
+                    return (prevCount = 10);
+                }
+            });
+        }
+        function decrement() {
+            setCount(function (prevCount) {
+                if (prevCount > 1) {
+                    return (prevCount -= 1);
+                } else {
+                    return (prevCount = 1);
+                }
+            });
+        }; */
+    /*     const handleAddToCard = (selectedAttar) => {
+            let newCart = [];
+            const exists = cart.find(attar => attar._id === selectedAttar._id);
+            if (!exists) {
+                selectedAttar.quantity = count;
+                newCart = [...cart, selectedAttar];
+                toast.success(`Added To Cart ${count}`);
+            }
+            else {
+                const rest = cart.filter(attar => attar._id !== selectedAttar._id);
+                newCart = [...rest, exists];
+                toast.warning(`Alrady Added To Cart`);
+            }
+            setCart(newCart);
+            addToDb(selectedAttar._id);
+        }; */
+
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "block", background: "red" }}
+                onClick={onClick}
+            />
+        );
     }
-    function decrement() {
-        setCount(function (prevCount) {
-            if (prevCount > 1) {
-                return (prevCount -= 1);
-            } else {
-                return (prevCount = 1);
-            }
-        });
-    }; */
-/*     const handleAddToCard = (selectedAttar) => {
-        let newCart = [];
-        const exists = cart.find(attar => attar._id === selectedAttar._id);
-        if (!exists) {
-            selectedAttar.quantity = count;
-            newCart = [...cart, selectedAttar];
-            toast.success(`Added To Cart ${count}`);
-        }
-        else {
-            const rest = cart.filter(attar => attar._id !== selectedAttar._id);
-            newCart = [...rest, exists];
-            toast.warning(`Alrady Added To Cart`);
-        }
-        setCart(newCart);
-        addToDb(selectedAttar._id);
-    }; */
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: "block", background: "green" }}
+                onClick={onClick}
+            />
+        );
+    }
+
+    const settings = {
+        dots: false,
+        fade: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
+
+    };
 
     return (
         <>
             <div className='attar-detail px-2'>
                 <PageTitle pageTitle={`${name}`} />
                 <div className='attar-detail-first-part'>
+                    
                     <div className='attar-detail-first-part-dev1'>
-                        <div className='attar-detail-first-part-dev1-big-img-dev'>
-                            <img className='attar-detail-first-part-dev1-big-img' src={productDetails.image1} alt='' />
-                        </div>
-                        <div className='d-flex justify-content-center'>
-                            <p className='attar-detail-first-part-dev1-p'>
-                                <FontAwesomeIcon icon={faSearch} />
-                                <span> Click to zoom in</span>
-                            </p>
-                        </div>
-                        <div className='attar-detail-first-part-dev1-img'>
-                            <img height='100px' name='imgSlide' width='100px' src={productDetails.image1} alt='' />
-                            <img height='100px' width='100px' src={productDetails.image2} alt='' name='imgSlide' />
-                            <img height='100px' width='100px' src={productDetails.image3} alt='' name='imgSlide' />
-                        </div>
+                        <Carousel className='text-center pro-detail-casual'>
+                            <div>
+                                <img src={image1} />
+                            </div>
+                            <div>
+                                <img src={image2} />
+                            </div>
+                            <div>
+                                <img src={image3} />
+                            </div>
+                        </Carousel>
                     </div>
 
                     <div className='attar-detail-first-part-dev2'>
@@ -107,9 +141,9 @@ const ProductDetails = () => {
                             <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                             <FontAwesomeIcon icon={faStar} style={{ color: 'gray', width: '13px' }} />
                             <small> (27) </small>
-                            <small>&nbsp; <span data-bs-toggle="modal" data-bs-target="#exampleModal" className='review-btn'>Write a review</span></small>
+                            <small>&nbsp; <span data-bs-toggle="modal" data-bs-target="#writeAReview" className='review-btn'>Write a review</span></small>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="writeAReview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class=" modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -151,48 +185,6 @@ const ProductDetails = () => {
                                                     <button className='submit-review-btn'>Submit Review</button>
                                                 </div>
                                             </div>
-                                            {/*   <div className='review-main'>
-                                                <div className='review-dev1'>
-                                                    <img src={image1} alt='' className='img-fluid' />
-                                                </div>
-                                                <div className='review-dev2'>
-                                                    <div>
-                                                        <div className='d-flex justify-content-between'>
-                                                            <label><small>Ragging</small></label> <label><small>Requird</small></label>
-                                                        </div>
-                                                        <select aria-label="Default select example" value={review} onChange={e => setReview(e.target.value)} >
-                                                            <option selected>Open this select menu</option>
-                                                            <option value="1">One</option>
-                                                            <option value="2">Two</option>
-                                                            <option value="3">Three</option>
-                                                        </select>
-                                                    </div>
-                                                    <div>
-                                                        <div className='d-flex justify-content-between'>
-                                                            <label><small>Email</small></label> <label><small>Requird</small></label>
-                                                        </div>
-                                                        <input />
-                                                    </div>
-                                                    <div>
-                                                        <div className='d-flex justify-content-between'>
-                                                            <label><small>Email</small></label> <label><small>Requird</small></label>
-                                                        </div>
-                                                        <input />
-                                                    </div>
-                                                    <div>
-                                                        <div className='d-flex justify-content-between'>
-                                                            <label><small>Review Subject</small></label> <label><small>Requird</small></label>
-                                                        </div>
-                                                        <input />
-                                                    </div>
-                                                    <div>
-                                                        <div className='d-flex justify-content-between'>
-                                                            <label><small>Ragging</small></label> <label><small>Requird</small></label>
-                                                        </div>
-                                                        <input />
-                                                    </div>
-                                                </div>
-                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -265,4 +257,66 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-{/*   onClick={()=>props.handleAddToCard(props.attar)} */ }
+/* 
+
+  <div class="modal fade" id="clickToZoomIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class=" modal-dialog modal-dialog-centered modal-xl">
+                                    <div class="modal-content" style={{ background:'none', border:'none'  }}>
+                                        <div style={{marginTop:'-24 px', color:'red'}} className='d-flex justify-content-end'>
+                                            <button type="button" class="" style={{color:'white', background:'none', border:'none'}} data-bs-dismiss="modal" aria-label="Close">X</button>
+                                        </div>
+                                        <div className='modal-body abdullah p-0'>
+                                           <div>
+                                                <img className='img-fluid' src={image1} alt='' />
+                                            </div> 
+                                               <div>
+                                                <Slider {...settings}>
+                                                    <div>
+                                                        <img className='img-fluid' width='800px' height='800px' src={image1} alt='' />
+                                                    </div>
+                                                    <div>
+                                                        <img className='img-fluid' width='800px' height='800px' src={image2} alt='' />
+                                                    </div>
+                                                    <div>
+                                                        <img className='img-fluid' width='800px' height='800px' src={image3} alt='' />
+                                                    </div>
+                                                </Slider>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+<div className='d-flex justify-content-center'>
+                            <p className='attar-detail-first-part-dev1-p'>
+                                <FontAwesomeIcon icon={faSearch} />
+                                <span> Click to zoom in</span>
+                            </p>
+                        </div>
+
+
+
+                        
+
+*/
+{/* <img className='attar-detail-first-part-dev1-big-img' src={image1} alt='' /> */ }
+
+{/*  <div className='attar-detail-first-part-dev1-img'>
+                        </div> */}
+{/*  <Carousel>
+                                <div>
+                                    <img src={image1}/>
+                                    <p className="legend">Legend 1</p>
+                                </div>
+                                <div>
+                                    <img src={image2} />
+                                    <p className="legend">Legend 2</p>
+                                </div>
+                                <div>
+                                    <img src={image3} />
+                                    <p className="legend">Legend 3</p>
+                                </div>
+                            </Carousel> */}
+{/* <img height='100px' name='imgSlide' width='100px' src={image1} alt='' />
+                            <img height='100px' width='100px' src={image2} alt='' name='imgSlide' />
+                            <img height='100px' width='100px' src={image3} alt='' name='imgSlide' /> */}

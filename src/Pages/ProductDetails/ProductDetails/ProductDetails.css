@@ -11,7 +11,8 @@
 /* ------------- attar-detail  first-part dev1 start */
 .attar-detail-first-part {
     margin-bottom: 30px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% auto;
     grid-gap: 25px;
 }
 
@@ -58,6 +59,28 @@
 }
 
 /* ------------- attar-detail  first-part dev1 end---------- */
+.pro-detail-casual{
+    max-width: 500px;
+}
+.pro-detail-casual .thumbs{
+    padding: 0;
+    margin: 0;
+}
+.pro-detail-casual .thumbs .thumb{
+    border: 1px solid gray !important;
+   border-radius: 3px;
+}
+.pro-detail-casual .thumbs .selected{
+    border: 1px solid rgb(255, 119, 0) !important;
+   border-radius: 3px;
+}
+.pro-detail-casual .thumb:hover{
+    border: 1px solid rgb(255, 119, 0)  !important;
+   border-radius: 3px;
+}
+.pro-detail-casual .control-dots {
+    display: none;
+}
 
 
 /* ------------- attar-detail  first-part dev-2 start ------------*/
@@ -266,7 +289,7 @@
 @media screen and (max-width:700px) {
     .attar-detail-first-part {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: auto;
     }
 }
 

@@ -4,7 +4,12 @@ import './AttarDesWR.css';
 const AttarDesWR = ({ productDetails }) => {
     const { name, description, description2 } = productDetails;
     console.log('data', productDetails)
-    console.log('details', [description2])
+
+    console.log('details', description2)
+
+
+
+  /*   console.log(a = description2[0]) */
 
 
     return (
@@ -26,15 +31,26 @@ const AttarDesWR = ({ productDetails }) => {
 
                 <div className="tab-pane active" id="description">
                     ---------------
-                    <h6 className='m-0 p-0'>{name}</h6>
+                    {/*        <h6 className='m-0 p-0'>{name}</h6>
                     ---------------
-                    <p>{description}</p>
+                    <p>{description}</p> */}
 
-                   {/*  {
-                        description2.map(description =>
-                            <div >
+                    <p> {productDetails.description2}</p>
+                    <p>
+                        {/*  {
+                        description2.map(index=>
+                        <ul>
+                            <li>{index}</li>
+                        </ul>
+                        )
+                    }  */}
+                    </p>
+
+                    {/*     {
+                        description2.map((description, index) =>
+                            <ul key={index}>
                                 {description}
-                            </div>)
+                            </ul>)
                     } */}
 
                     {/*     {

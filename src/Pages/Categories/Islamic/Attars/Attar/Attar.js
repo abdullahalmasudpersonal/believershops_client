@@ -10,7 +10,7 @@ import UseCart from '../../../../../Hooks/UseCarts/UseCart';
 
 const Attar = ({ attar }) => {
     const [cart, setCart] = UseCart();
-    const { _id, brand, name, image1, regularPrice, offerPrice } = attar;
+    const { _id, brand, name, image1, regularPrice, offerPrice, description, description2 } = attar;
     const navigate = useNavigate();
 
     const navigateToProductDetails = _id => {
@@ -44,6 +44,15 @@ const Attar = ({ attar }) => {
                         <span><span style={{ fontSize: '15px', fontFamily: "Optima", fontWeight: 'bold' }}>৳</span>{regularPrice}.00</span>
                 }
             </p>
+         {/*    <>{description2}</>
+            <p>
+                {
+                     description2.map( index =>
+                      (  <ul>
+                            <li>{index}</li>
+                        </ul>) )
+                }
+            </p> */}
         </div>
     );
 };
