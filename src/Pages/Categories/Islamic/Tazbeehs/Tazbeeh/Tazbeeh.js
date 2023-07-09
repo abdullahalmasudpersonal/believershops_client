@@ -2,13 +2,12 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../AllIslamicsCss/AllIslamic.css';
 import '../../../Categore/NestedPorductsCSS/NestedProduct.css';
 import { ProductContext } from '../../../../../App';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Tazbeeh = ({ tazbeeh }) => {
-    const { _id, brand, name, image1, availability, ragularPrice, offerPrice, weight1 } = tazbeeh;
+    const { _id, brand, name, image1, availableQuantity, ragularPrice, offerPrice, weight1 } = tazbeeh;
     const navigate = useNavigate();
     const [products, cart, handleAddToCard] = useContext(ProductContext);
 
@@ -50,11 +49,21 @@ const Tazbeeh = ({ tazbeeh }) => {
                     }
                 </p>
             </div>
-            <div className='nestedProductAddCart'>
-                <button onClick={() => handleAddToCard(tazbeeh)}>
-                    <FontAwesomeIcon icon={faShoppingCart} />&nbsp;
-                    Add to Cart</button>
-            </div>
+            <>
+                {
+                    availableQuantity < 1 ?
+                        <div className='nestedProductOutOfCart'>
+                            <button disabled>Out Of Stock</button>
+                        </div>
+                        :
+                        <div className='nestedProductAddCart'>
+                            <button onClick={() => handleAddToCard(tazbeeh)}>
+                                <FontAwesomeIcon icon={faShoppingCart} />&nbsp;
+                                Add to Cart
+                            </button>
+                        </div>
+                }
+            </>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MobileSideberAll.css';
+import { Link } from 'react-router-dom';
 
 const MobileSideberItem = ({ sideberData }) => {
     const [mSideberOpen, setMSideberOpen] = useState(false)
@@ -7,13 +8,17 @@ const MobileSideberItem = ({ sideberData }) => {
     if (sideberData.childrens) {
         return (
             <div className={mSideberOpen ? "mobileSideberItem mSOpen" : "mobileSideberItem"}>
+
                 <div className="mobileSideber-title">
-                    <span>
-                        {/* {sideberData.icon && <i className={sideberData.icon}></i>} */}
-                        {sideberData.title}
-                    </span>
-                        <i className="bi-chevron-down mSideber-toggle-btn" onClick={() => setMSideberOpen(!mSideberOpen)}></i>
+                    <Link to={sideberData.path || "path"} className='mobileSideberCategoreName'>
+                        <span className='fw-bold'>
+                   {/*          {sideberData.icon && <i className={sideberData.icon}></i>} */}
+                            {sideberData.title}
+                        </span>
+                    </Link>
+                   <i className="bi-chevron-down mSideber-toggle-btn" onClick={() => setMSideberOpen(!mSideberOpen)}></i>
                 </div>
+
                 <div className="mobileSidebar-content pt-0">
                     {sideberData.childrens.map((child, index) => <MobileSideberItem key={index} sideberData={child} />)}
                 </div>
@@ -22,7 +27,7 @@ const MobileSideberItem = ({ sideberData }) => {
     }
     else {
         return (
-            <a href={sideberData.path || "#"} className="mobileSideberItem mSPlain">
+            <a href={sideberData.path || "path"} className="mobileSideberItem mSPlain">
                 {/*  {sideberData.icon && <i className={sideberData.icon}></i>}  */}
                 {sideberData.title}
             </a>

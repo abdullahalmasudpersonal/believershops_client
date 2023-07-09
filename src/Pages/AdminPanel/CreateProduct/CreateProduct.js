@@ -51,8 +51,9 @@ const CreateProduct = () => {
         const proseed = window.confirm(`Are you sure Create New Product ?`);
         if (proseed) {
             const image = data.image1[0];
+            const image2 = data.image2[0];
             const formData = new FormData();
-            formData.append('image', image);
+            formData.append('image', image, image2);
             const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
             fetch(url, {
                 method: 'POST',
@@ -75,7 +76,8 @@ const CreateProduct = () => {
                             offerPrice: data.offerPrice,
                             description: data.description,
                             description2: val,
-                            image1: imgData.data.url
+                            image1: imgData.data.url,
+                            image2: imgData.data.url
                         }
                         fetch('http://localhost:5000/products', {
                             method: "POST",
@@ -130,7 +132,7 @@ const CreateProduct = () => {
                                 }
                             </select>
                             <label>Sub Category</label>
-                            <select value={subCategory} onChange={handleCity} required>
+                            <select value={subCategory} onChange={handleCity}>
                                 <option value="" hidden>Sub Category--</option>
                                 {
                                     subCategories.map(city => (
@@ -181,6 +183,10 @@ const CreateProduct = () => {
                         <input type='text' placeholder='Enter Product Description-3' {...register("description", { required: true })} /> */}
 
                             <input className='' type="file" {...register("image1", {
+                                required: "Photo is Required"
+                            })} required />
+
+                            <input className='' type="file" {...register("image2", {
                                 required: "Photo is Required"
                             })} required />
 

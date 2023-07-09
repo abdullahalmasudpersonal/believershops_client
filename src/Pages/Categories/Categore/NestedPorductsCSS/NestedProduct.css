@@ -60,7 +60,27 @@
 .nestedProductPrice>p {
     color: rgb(255, 132, 0);
 }
+/* nestedProductOutOfCart Out of cart */
+.nestedProductOutOfCart {
+    position: absolute;
+    bottom: 10px;
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
+.nestedProductOutOfCart>button {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    background: rgb(180, 180, 180);
+    color: rgb(255, 255, 255);
+    font-family: serif;
+    font-weight: 600;
+    transition: .3s;
+}
+/* nestedProductAddCart Add to cart */
 .nestedProductAddCart {
     position: absolute;
     bottom: 10px;

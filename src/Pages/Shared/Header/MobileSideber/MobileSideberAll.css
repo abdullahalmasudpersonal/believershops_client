@@ -24,10 +24,15 @@
 .mobileSideberItem:hover {
     background-color: rgba(203, 227, 255, 0.171);
 }
+.mobileSideberCategoreName{
+    text-decoration: none;
+    color: rgb(80, 80, 80);
+    width: 92%;
+}
 
 .mobileSideber-title {
     display: flex;
-    font-size: 1em;
+    font-size: 17px;
     justify-content: space-between;
 }
 
@@ -38,7 +43,7 @@
 
 .mobileSideber-title .mSideber-toggle-btn {
     cursor: pointer;
-    padding: 0 3px;
+    padding: 0 4px;
     transition: transform .3s;
 }
 

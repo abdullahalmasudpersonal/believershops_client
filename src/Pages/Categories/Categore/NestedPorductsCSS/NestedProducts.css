@@ -1,3 +1,68 @@
+.nestedProductsMain {
+    width: 100%;
+}
+
+.nestedProductsBreadcrumb {
+    width: 100%;
+    height: 46px;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    font-family: serif;
+    background-color: rgb(237, 241, 246);
+    border-radius: 3px;
+}
+
+/* nestedProductsNamePart part */
+.nestedProductsNamePart {
+    width: 100%;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(237, 241, 246);
+    font-family: serif;
+    border-radius: 3px;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.nestedProductsNamePart>div>p>select {
+    outline: none;
+    width: 55px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid rgb(186, 186, 186);
+}
+
+/* nestedProductsSortByViewPart  */
+.nestedProductsSortByViewPart {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(237, 241, 246);
+    color: rgb(84, 84, 84);
+    font-family: serif;
+    border-radius: 3px;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.nestedProductsSortByViewDev {
+    display: flex;
+}
+
+.nestedProductsSortByViewDev>p>select {
+    outline: none;
+    height: 40px;
+    width: 200px;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 3px;
+
+}
+
 .nestedProducts {
     width: 100%;
     display: grid;

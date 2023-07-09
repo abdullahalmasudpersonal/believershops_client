@@ -1,33 +1,30 @@
 import React from 'react';
-import './IslamicCategore.css';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
-import NestedProduct from '../../Categore/NestedPorduct/NestedProduct';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBorderNone, faHome, faList, faShare } from '@fortawesome/free-solid-svg-icons';
-import Loading from '../../../Shared/Loading/Loading';
+import { faBorderNone, faHome, faList } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import NestedProduct from '../../Categore/NestedPorduct/NestedProduct';
 import PageTitle from '../../../Shared/PageTitle/PageTitle';
 
-const IslamicCategore = () => {
+const FoodsCategories = () => {
     const [nestedProducts, setNestedProducts] = UseProducts([]);
 
     const nestedProductsLength = nestedProducts.filter(categore => categore.mainCategory === 'Islamic').length;
-    
 
     return (
         <div className='nestedProductsMain'>
-             <PageTitle pageTitle='Islamic |' />
+             <PageTitle pageTitle='Foods |' />
             <div className='nestedProductsBreadcrumb'>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 ">
                         <li class="breadcrumb-item"><Link to="/"><FontAwesomeIcon icon={faHome} className='breadcrumb-home-btn' /></Link></li>
-                        <li class="breadcrumb-item active">Islamic</li>
+                        <li class="breadcrumb-item active">Foods</li>
                     </ol>
                 </nav>
             </div>
             <div className='nestedProductsNamePart'>
                 <div>
-                    <h5 className='m-0 fw-bold'>Islamics Products In Mahsez</h5>
+                    <h5 className='m-0 fw-bold'>Foods Products In Mahsez</h5>
                 </div>
                 <div>
                     <p className='m-0'><span>Show:</span>&nbsp;
@@ -41,7 +38,7 @@ const IslamicCategore = () => {
             </div>
             <div className='nestedProductsSortByViewPart'>
                 <div>
-                    <p className='m-0'>{nestedProductsLength} Products Found In Islamics</p>
+                    <p className='m-0'>{nestedProductsLength} Products Found In Foods</p>
                 </div>
                 <div className='nestedProductsSortByViewDev'>
                     <p className='m-0'><span>Sort By:</span>&nbsp;
@@ -55,9 +52,9 @@ const IslamicCategore = () => {
                         </select>
                     </p> &nbsp;&nbsp;&nbsp;
                     <p className='m-0 d-flex justify-content-center align-items-center'><span>View As:</span> &nbsp;&nbsp;
-                    <FontAwesomeIcon color='rgb(42, 42, 42))' fontSize='20px' style={{padding:'5px'}} icon={faBorderNone} /> &nbsp;
-                        <FontAwesomeIcon fontSize='20px' style={{padding:'5px'}} icon={faList} />
-                    </p> 
+                        <FontAwesomeIcon color='rgb(42, 42, 42))' fontSize='20px' style={{ padding: '5px' }} icon={faBorderNone} /> &nbsp;
+                        <FontAwesomeIcon fontSize='20px' style={{ padding: '5px' }} icon={faList} />
+                    </p>
                 </div>
             </div>
             <div className='nestedProducts'>
@@ -69,4 +66,4 @@ const IslamicCategore = () => {
     );
 };
 
-export default IslamicCategore;
+export default FoodsCategories;

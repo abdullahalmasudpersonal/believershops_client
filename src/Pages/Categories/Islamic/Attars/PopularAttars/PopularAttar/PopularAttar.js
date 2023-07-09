@@ -1,18 +1,18 @@
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
+import { ProductContext } from '../../../../../../App';
 import { useNavigate } from 'react-router-dom';
-import { ProductContext } from '../../../../../App';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Jainamaz = ({ jainamaz }) => {
-    const { _id, brand, name, image1, availability, ragularPrice, offerPrice, weight1 } = jainamaz;
+const PopularAttar = ({popularAttar}) => {
+    const { _id, brand, name, image1, availability, ragularPrice, offerPrice, weight1 } = popularAttar;
     const navigate = useNavigate();
     const [products, cart, handleAddToCard] = useContext(ProductContext);
 
     const navigateToProductDetails = _id => {
         navigate(`/categore/products/${_id}`);
     }
+
     return (
         <div className='nestedProduct'>
             <div className='nestedProductImg'>
@@ -48,7 +48,7 @@ const Jainamaz = ({ jainamaz }) => {
                 </p>
             </div>
             <div className='nestedProductAddCart'>
-                <button onClick={() => handleAddToCard(jainamaz)}>
+                <button onClick={() => handleAddToCard(popularAttar)}>
                     <FontAwesomeIcon icon={faShoppingCart} />&nbsp;
                     Add to Cart</button>
             </div>
@@ -56,4 +56,4 @@ const Jainamaz = ({ jainamaz }) => {
     );
 };
 
-export default Jainamaz;
+export default PopularAttar;

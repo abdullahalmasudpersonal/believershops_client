@@ -21,7 +21,7 @@ const ProductDetails = () => {
     const [user] = useAuthState(auth);
     const { productId } = useParams();
     const [productDetails] = UseProductDetails(productId);
-    const { name, image1, image2, image3, category, availability, offerPrice, weight1 } = productDetails;
+    const { name, image1, image2, image3, category, availableQuantity, offerPrice, weight1 } = productDetails;
     const [review, setReview] = useState();
     console.log('review', review)
     const [products, cart, handleAddToCard] = useContext(ProductContext);
@@ -215,7 +215,7 @@ const ProductDetails = () => {
                                 <div style={{ marginLeft: '120px' }}>
                                     <p>{productDetails.brand}</p>
                                     <p>{weight1} ML</p>
-                                    <p>{availability} Pcs</p>
+                                    <p>{availableQuantity} Pcs</p>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +237,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         {
-                            availability < 1 ?
+                            availableQuantity < 1 ?
                                 <div className='mt-4'><button className='outOfStock-btn' disabled>Out Of Stock</button></div>
                                 :
                                 <div className='mt-4' >

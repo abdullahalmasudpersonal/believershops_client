@@ -1,19 +1,16 @@
 import React from 'react';
-import UseJainamazs from '../../../../../Hooks/UseJainamazs/UseJainamazs';
-import '../../AllIslamicsCss/AllIslamics.css';
 import Jainamaz from '../Jainamaz/Jainamaz';
+import UseProducts from '../../../../../Hooks/UseProducts/UseProducts';
 
 const Jainamazs = () => {
-    const [jainamazs, setJainamazs] = UseJainamazs([]);
+    const [Jainamazs, setJainamazs] = UseProducts([]);
 
     return (
-        <div className='islamics-attars'>
-       <div className='islamics-attars-dev'>
-           {
-               jainamazs.map(jainamaz => <Jainamaz key={jainamaz._id} jainamaz={jainamaz} /* handleAddToCard={handleAddToCard} */ />)
-           }
-       </div>
-   </div>
+        <div className='nestedProducts'>
+            {
+                Jainamazs.filter(categore => categore.category === 'Jainamaz').slice(0).reverse().map(jainamaz => <Jainamaz key={jainamaz._id} jainamaz={jainamaz} />)
+            }
+        </div>
     );
 };
 

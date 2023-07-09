@@ -109,13 +109,22 @@ export const categoriesData = [
                 subCategories: ["Popular Attar", "Mahsez Attar", "Alif Attar"]
             },
             {
+                name: "Burka",
+                subCategories: ["F3 area 5", "area 6"]
+            },
+            {
+                name: "Tasbeeh",
+                subCategories: [] 
+            },
+            {
                 name: "Tupi",
                 subCategories: ["F2 area 3", "area 4"]
             },
             {
-                name: "Burka",
-                subCategories: ["F3 area 5", "area 6"]
+                name: "Jainamaz",
+                subCategories: ["F2 area 3", "area 4"]
             }
+            
         ]
     },
     {

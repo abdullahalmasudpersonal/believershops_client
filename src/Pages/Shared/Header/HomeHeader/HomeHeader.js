@@ -10,39 +10,49 @@ const HomeHeader = () => {
             <div className='header-catagore'>
                 <ul className='p-0 header-catagore-ul' >
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faSpa} className='pe-2 product-img ' />
-                            <a> Beauty</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                        <Link to='/categore/beautyes' className='text-decoration-none'>
+                            <div className='d-flex align-items-center catagore-list-apdding'>
+                                <FontAwesomeIcon icon={faSpa} className='pe-2 product-img ' />
+                                <a>Beauty</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faShoppingBag} className='pe-2 product-img ' />
-                            <a> Bags</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                        <Link to='/categore/bags' className='text-decoration-none'>
+                            <div className='d-flex align-items-center catagore-list-apdding'>
+                                <FontAwesomeIcon icon={faShoppingBag} className='pe-2 product-img ' />
+                                <a> Bags</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faComputer} className='pe-2 product-img' />
-                            <a> Computer</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                        <Link to='/categore/computers' className='text-decoration-none'>
+                            <div className='d-flex align-items-center catagore-list-apdding'>
+                                <FontAwesomeIcon icon={faComputer} className='pe-2 product-img' />
+                                <a> Computer</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faPersonDress} className='pe-2 product-img ' />
-                            <a> Dresses</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                        <Link to='/categore/dresses' className='text-decoration-none'>
+                            <div className='d-flex align-items-center catagore-list-apdding'>
+                                <FontAwesomeIcon icon={faPersonDress} className='pe-2 product-img ' />
+                                <a> Dresses</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding'>
-                            <FontAwesomeIcon icon={faMicrochip} className='pe-2 product-img' />
-                            <a> Electronic</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                        <Link to='/categore/electronics' className='text-decoration-none'>
+                            <div className='d-flex align-items-center catagore-list-apdding'>
+                                <FontAwesomeIcon icon={faMicrochip} className='pe-2 product-img' />
+                                <a> Electronic</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     <li className=''>
                         <Link to='/categore/foods' className='text-decoration-none'>
@@ -60,7 +70,7 @@ const HomeHeader = () => {
                                 </Link>
                                 <Link to='/categore/islamic/tazbeehs' style={{ textDecoration: 'none' }}><li>Tajbeeh</li>
                                 </Link>
-                                <Link to='/categore/islamic/caps' style={{ textDecoration: 'none' }}><li>Tupi</li>
+                                <Link to='/categore/islamic/tupis' style={{ textDecoration: 'none' }}><li>Tupi</li>
                                 </Link>
                                 <Link to='/categore/islamic/attars' style={{ textDecoration: 'none' }}><li>Attar</li>
                                 </Link>
@@ -83,7 +93,7 @@ const HomeHeader = () => {
                                 </Link>
                                 <Link to='/categore/islamic/tazbeehs' style={{ textDecoration: 'none' }}><li>Tajbeeh</li>
                                 </Link>
-                                <Link to='/categore/islamic/caps' style={{ textDecoration: 'none' }}><li>Tupi</li>
+                                <Link to='/categore/islamic/tupis' style={{ textDecoration: 'none' }}><li>Tupi</li>
                                 </Link>
 
                                 <li className='pe-0'>
@@ -95,7 +105,7 @@ const HomeHeader = () => {
                                     </Link>
                                     <div className='islamic-child-in-child-catagore'>
                                         <ul className='p-0'>
-                                            <Link to='/categore/islamic/jainamazs' style={{ textDecoration: 'none' }}><li>Populer Attar</li>
+                                            <Link to='/categore/islamic/attars/popular_attar' style={{ textDecoration: 'none' }}><li>Populer Attar</li>
                                             </Link>
                                             <Link to='/categore/islamic/attars/combo_offer' style={{ textDecoration: 'none' }}><li>Combo Offer</li>
                                             </Link>
@@ -120,11 +130,13 @@ const HomeHeader = () => {
                         </div>
                     </li> */}
                     <li className=''>
-                        <div className='d-flex align-items-center catagore-list-apdding underCatagoreSports'>
-                            <FontAwesomeIcon icon={faTrophy} className='pe-2 product-img' />
-                            <a>Sports</a>
-                            <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
-                        </div>
+                        <Link className='text-decoration-none' to='/categore/sports'>
+                            <div className='d-flex align-items-center catagore-list-apdding underCatagoreSports'>
+                                <FontAwesomeIcon icon={faTrophy} className='pe-2 product-img' />
+                                <a>Sports</a>
+                                <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
+                            </div>
+                        </Link>
                     </li>
                     {/*  <li className=''>
                         <div className='d-flex align-items-center catagore-list-apdding'>

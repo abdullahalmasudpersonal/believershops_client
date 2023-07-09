@@ -1,18 +1,18 @@
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProductContext } from '../../../../../App';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { ProductContext } from '../../../../App';
 
-const Jainamaz = ({ jainamaz }) => {
-    const { _id, brand, name, image1, availability, ragularPrice, offerPrice, weight1 } = jainamaz;
+const NestedProduct = ({nestedProduct}) => {
+    const { _id, brand, name, image1, availableQuantity, ragularPrice, offerPrice, weight1 } = nestedProduct;
     const navigate = useNavigate();
     const [products, cart, handleAddToCard] = useContext(ProductContext);
 
     const navigateToProductDetails = _id => {
         navigate(`/categore/products/${_id}`);
     }
+
     return (
         <div className='nestedProduct'>
             <div className='nestedProductImg'>
@@ -47,13 +47,23 @@ const Jainamaz = ({ jainamaz }) => {
                     }
                 </p>
             </div>
-            <div className='nestedProductAddCart'>
-                <button onClick={() => handleAddToCard(jainamaz)}>
-                    <FontAwesomeIcon icon={faShoppingCart} />&nbsp;
-                    Add to Cart</button>
-            </div>
+            <>
+                {
+                    availableQuantity < 1 ?
+                        <div className='nestedProductOutOfCart'>
+                            <button disabled>Out Of Stock</button>
+                        </div>
+                        :
+                        <div className='nestedProductAddCart'>
+                            <button onClick={() => handleAddToCard(nestedProduct)}>
+                                <FontAwesomeIcon icon={faShoppingCart} />&nbsp;
+                                Add to Cart
+                            </button>
+                        </div>
+                }
+            </>
         </div>
     );
 };
 
-export default Jainamaz;
+export default NestedProduct;

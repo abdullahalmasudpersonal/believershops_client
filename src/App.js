@@ -13,7 +13,6 @@ import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
 import Datess from './Pages/Categories/Foods/Datess/Datess/Datess';
 import Foods from './Pages/Categories/Foods/Foods/Foods';
-import Caps from './Pages/Categories/Islamic/Caps/Caps/Caps';
 import Jainamazs from './Pages/Categories/Islamic/Jainamazs/Jainamazs/Jainamazs';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
@@ -43,7 +42,6 @@ import Offers from './Pages/Offers/Offers';
 import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
 import Attars from './Pages/Categories/Islamic/Attars/Attar/Attars';
 import AttarDetail from './Pages/Categories/Islamic/Attars/Attar/AttarDetail/AttarDetail';
-import AttarComboOffers from './Pages/Categories/Islamic/Attars/ComboOffer/AttarComboOffers/AttarComboOffers';
 import CreateProduct from './Pages/AdminPanel/CreateProduct/CreateProduct';
 import DeleteProduct from './Pages/AdminPanel/DeleteProduct/DeleteProduct';
 import UpdateProducts from './Pages/AdminPanel/UpdateProducts/UpdateProducts/UpdateProducts';
@@ -56,6 +54,16 @@ import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddr
 import UseProducts from './Hooks/UseProducts/UseProducts';
 import UseCart from './Hooks/UseCarts/UseCart';
 import { removeFromDb } from './utilities/fakedb';
+import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars';
+import AttarComboOffers from './Pages/Categories/Islamic/Attars/AttarComboOffer/AttarComboOffers/AttarComboOffers';
+import Tupis from './Pages/Categories/Islamic/Tupis/Tupis/Tupis';
+import SportsCategories from './Pages/Categories/Sports/SportsCategories/SportsCategories';
+import FoodsCategories from './Pages/Categories/Foods/FoodsCategories/FoodsCategories';
+import ElectronicsCategories from './Pages/Categories/Electronices/ElectronicsCategories/ElectronicsCategories';
+import DressesCategories from './Pages/Categories/Dresses/DressesCategories/DressesCategories';
+import ComputersCategories from './Pages/Categories/Computers/ComputersCategories/ComputersCategories';
+import BeautyCategories from './Pages/Categories/Beauty/BeautyCategories/BeautyCategories';
+import BagsCategories from './Pages/Categories/Bags/BagsCategories/BagsCategories';
 
 export const ProductContext = createContext('');
 
@@ -107,7 +115,7 @@ function App() {
     const rest = cart.filter(pd => pd._id !== product._id);
     setCart(rest);
     removeFromDb(product._id);
-}
+  }
 
   return (
     <ProductContext.Provider value={[products, cart, handleAddToCard, handleRemoveProduct]}>
@@ -117,14 +125,46 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/categore' element={<Categore />}>
-            <Route path='foods' element={<Foods />} />
+
+            {/*--------------------- start Beauty  categories ---------------------- */}
+            <Route path='beautyes' element={<BeautyCategories />} />
+            {/*--------------------- end Beauty  categories ---------------------- */}
+
+            {/*--------------------- start Bags  categories ---------------------- */}
+            <Route path='bags' element={<BagsCategories />} />
+            {/*--------------------- end bags  categories ---------------------- */}
+
+            {/*--------------------- start computers  categories ---------------------- */}
+            <Route path='computers' element={<ComputersCategories />} />
+            {/*--------------------- end computers  categories ---------------------- */}
+
+            {/*--------------------- start dresses categories ---------------------- */}
+            <Route path='dresses' element={<DressesCategories />} />
+            {/*--------------------- end dresses  categories ---------------------- */}
+
+            {/*--------------------- start electronics categories ---------------------- */}
+            <Route path='electronics' element={<ElectronicsCategories />} />
+            {/*--------------------- end electronics  categories ---------------------- */}
+
+            {/*--------------------- start foods categories ---------------------- */}
+            <Route path='foods' element={<FoodsCategories />} />
             <Route path='foods/datess' element={<Datess />} />
+            {/*--------------------- end foods categories ---------------------- */}
+
+            {/*--------------------- start Beauty  categories ---------------------- */}
             <Route path='islamic' element={<IslamicCategore />} />
             <Route path='islamic/jainamazs' element={<Jainamazs />} />
             <Route path='islamic/tazbeehs' element={<Tazbeehs />} />
-            <Route path='islamic/caps' element={<Caps />} />
-            <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
+            <Route path='islamic/tupis' element={<Tupis />} />
             <Route path='islamic/attars' element={<Attars />} />
+            <Route path='islamic/attars/popular_attar' element={<PopularAttars />} />
+            <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
+            {/*--------------------- start Beauty  categories ---------------------- */}
+
+            {/*--------------------- start sports  categories ---------------------- */}
+            <Route path='sports' element={<SportsCategories />} />
+            {/*--------------------- end sports  categories ---------------------- */}
+
             <Route path='products/:productId' element={<ProductDetails />} />
             <Route path='products/:productId' element={<AttarDetail />} />
           </Route>
@@ -163,7 +203,7 @@ function App() {
           <Route path='/terms_condition' element={<TermsCondition />} />
           <Route path='*' element={<Notfound />} />
         </Routes>
-{/*         <Footer /> */}
+        {/*         <Footer /> */}
         <BottemHeader />
         <ToastContainer
           position="top-center"
