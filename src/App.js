@@ -40,8 +40,6 @@ import TermsCondition from './Pages/Terms&Condition/Terms&Condition';
 import Orders from './Pages/Dashboards/Orders/Orders/Orders';
 import Offers from './Pages/Offers/Offers';
 import OrderDetails from './Pages/Dashboards/Orders/OrderDetails/OrderDetails';
-import Attars from './Pages/Categories/Islamic/Attars/Attar/Attars';
-import AttarDetail from './Pages/Categories/Islamic/Attars/Attar/AttarDetail/AttarDetail';
 import CreateProduct from './Pages/AdminPanel/CreateProduct/CreateProduct';
 import DeleteProduct from './Pages/AdminPanel/DeleteProduct/DeleteProduct';
 import UpdateProducts from './Pages/AdminPanel/UpdateProducts/UpdateProducts/UpdateProducts';
@@ -54,8 +52,7 @@ import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddr
 import UseProducts from './Hooks/UseProducts/UseProducts';
 import UseCart from './Hooks/UseCarts/UseCart';
 import { removeFromDb } from './utilities/fakedb';
-import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars';
-import AttarComboOffers from './Pages/Categories/Islamic/Attars/AttarComboOffer/AttarComboOffers/AttarComboOffers';
+/* import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars'; */
 import Tupis from './Pages/Categories/Islamic/Tupis/Tupis/Tupis';
 import SportsCategories from './Pages/Categories/Sports/SportsCategories/SportsCategories';
 import FoodsCategories from './Pages/Categories/Foods/FoodsCategories/FoodsCategories';
@@ -64,6 +61,9 @@ import DressesCategories from './Pages/Categories/Dresses/DressesCategories/Dres
 import ComputersCategories from './Pages/Categories/Computers/ComputersCategories/ComputersCategories';
 import BeautyCategories from './Pages/Categories/Beauty/BeautyCategories/BeautyCategories';
 import BagsCategories from './Pages/Categories/Bags/BagsCategories/BagsCategories';
+import Attars from './Pages/Categories/Islamic/Attars/Attars/Attars';
+import AttarDetail from './Pages/Categories/Islamic/Attars/Attars/AttarDetail/AttarDetail';
+import AttarComboOffers from './Pages/Categories/Islamic/Attars/AttarsComboOffer/AttarComboOffers/AttarComboOffers';
 
 export const ProductContext = createContext('');
 
@@ -154,11 +154,11 @@ function App() {
             {/*--------------------- start Beauty  categories ---------------------- */}
             <Route path='islamic' element={<IslamicCategore />} />
             <Route path='islamic/jainamazs' element={<Jainamazs />} />
-            <Route path='islamic/tazbeehs' element={<Tazbeehs />} />
+            <Route path='islamic/tasbeehs' element={<Tazbeehs />} />
             <Route path='islamic/tupis' element={<Tupis />} />
             <Route path='islamic/attars' element={<Attars />} />
-            <Route path='islamic/attars/popular_attar' element={<PopularAttars />} />
             <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
+         {/*    <Route path='islamic/attars/popular_attar' element={<PopularAttars />} /> */}
             {/*--------------------- start Beauty  categories ---------------------- */}
 
             {/*--------------------- start sports  categories ---------------------- */}

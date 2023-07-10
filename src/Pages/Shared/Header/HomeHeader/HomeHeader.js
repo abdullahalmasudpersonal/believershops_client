@@ -91,7 +91,7 @@ const HomeHeader = () => {
                             <ul className='p-0'>
                                 <Link to='/categore/islamic/jainamazs' style={{ textDecoration: 'none' }}><li className='px-3'>Jainamaz</li>
                                 </Link>
-                                <Link to='/categore/islamic/tazbeehs' style={{ textDecoration: 'none' }}><li>Tajbeeh</li>
+                                <Link to='/categore/islamic/tasbeehs' style={{ textDecoration: 'none' }}><li>Tajbeeh</li>
                                 </Link>
                                 <Link to='/categore/islamic/tupis' style={{ textDecoration: 'none' }}><li>Tupi</li>
                                 </Link>

@@ -106,7 +106,11 @@ export const categoriesData = [
         categories: [
             {
                 name: "Attar",
-                subCategories: ["Popular Attar", "Mahsez Attar", "Alif Attar"]
+                subCategories: [
+                    "Popular Attar", 
+                    "Attar Combo Offers",
+                    "Alif Attar"
+                ]
             },
             {
                 name: "Burka",

@@ -1,65 +1,65 @@
 
-.sidebar-item{
+.nestedSidebarItem{
     padding: .60em 1em;
     display: block;
     transition: background-color .15s;
     border-top: 1px solid rgb(228, 228, 228);
   }
-  .sidebar-item:hover{
+  .nestedSidebarItem:hover{
     color: rgb(255, 102, 0) !important;
     background-color: aliceblue;
     transition: .3s;
   }
   
-  .sidebar-title{
+  .nestedSidebarTitle{
     display: flex;
     justify-content: space-between;
   }
-  .sidebar-title div{
+  .nestedSidebarTitleName{
+    width: 90%;
     color: gray;
-    width: 208px;
   }
-  .sidebar-title :hover{
-   color: orange;
+  .nestedSidebarTitle :hover{
+   color: rgb(255, 94, 0);
   }
-  .sidebar-title div i{
+  .nestedSidebarTitle div i{
     display: inline-block;
     width: 1.5em;
   }
-  .sidebar-title .toggle-btn{
+  .nestedSidebarTitle .nestedToggleBtn{
     cursor: pointer;
     transition: transform .3s;
   }
-  .sidebar-item.open > .sidebar-title .toggle-btn{
+  .nestedSidebarItem.nestedOpen > .nestedSidebarTitle .nestedToggleBtn{
     transform: rotate(90deg);
   }
-  .sidebar-content{
+  .nestedSidebarContent{
     height: 0;
     overflow: hidden;
   }
-  .sidebar-item.open > .sidebar-content{
+  .nestedSidebarItem.nestedOpen > .nestedSidebarContent{
     height: auto;
   }
   
-  .sidebar-item.plain{
-    color: #fff;
+  .nestedSidebarItem.nestedPlain{
+    color: #575757;
     text-decoration: none;
   }
-  .sidebar-item.plain:hover{
+  .nestedSidebarItem.nestedPlain:hover{
     text-decoration: underline;
   }
-  .sidebar-item.plain i{
+  .nestedSidebarItem.nestedPlain i{
     display: inline-block;
     width: 1.7em;
   }
 
   @media screen and (max-width:1399px) {
-    .sidebar-title div{
+    .nestedSidebarTitle div{
       width: 178px !important;
     }
   }
   @media screen and (max-width:1199px) {
-    .sidebar-title div{
+    .nestedSidebarTitle div{
       width: 138px !important;
     }
   }

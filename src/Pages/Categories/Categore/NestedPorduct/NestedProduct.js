@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProductContext } from '../../../../App';
+import '../NestedPorductsCSS/NestedProduct.css';
 
 const NestedProduct = ({nestedProduct}) => {
     const { _id, brand, name, image1, availableQuantity, ragularPrice, offerPrice, weight1 } = nestedProduct;

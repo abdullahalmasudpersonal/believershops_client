@@ -1,21 +1,17 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Slider from 'react-slick';
 import './ProductDetails.css';
 import UseProductDetails from '../../../Hooks/UseProductDetails/UseProductDetails';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
-import AttarDesWR from '../../Categories/Islamic/Attars/Attar/AttarDetail/AttarDesWR/AttarDesWR';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import UseCart from '../../../Hooks/UseCarts/UseCart';
 import ProductDetailReVe from '../ProductDetailReVe/ProductDetailReVe';
 import { ProductContext } from '../../../App';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import AttarDesWR from '../../Categories/Islamic/Attars/Attars/AttarDetail/AttarDesWR/AttarDesWR';
 
 const ProductDetails = () => {
     const [user] = useAuthState(auth);

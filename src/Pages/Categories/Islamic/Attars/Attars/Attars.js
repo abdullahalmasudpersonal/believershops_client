@@ -1,31 +1,32 @@
 import React from 'react';
-import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
-import NestedProduct from '../../Categore/NestedPorduct/NestedProduct';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBorderNone, faHome, faList, faShare } from '@fortawesome/free-solid-svg-icons';
-import PageTitle from '../../../Shared/PageTitle/PageTitle';
+import { faBorderNone, faHome, faList } from '@fortawesome/free-solid-svg-icons';
+import NestedProduct from '../../../Categore/NestedPorduct/NestedProduct';
+import PageTitle from '../../../../Shared/PageTitle/PageTitle';
+import { Link } from 'react-router-dom';
+import UseProducts from '../../../../../Hooks/UseProducts/UseProducts';
 
-const IslamicCategore = () => {
+const Attars = () => {
     const [nestedProducts, setNestedProducts] = UseProducts([]);
 
-    const nestedProductsLength = nestedProducts.filter(categore => categore.mainCategory === 'Islamic').length;
+    const nestedProductsLength = nestedProducts.filter(categore => categore.category === 'Attar').length;
     
 
     return (
         <div className='nestedProductsMain'>
-             <PageTitle pageTitle='Islamic |' />
+             <PageTitle pageTitle='Attar |' />
             <div className='nestedProductsBreadcrumb'>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 ">
                         <li class="breadcrumb-item"><Link to="/"><FontAwesomeIcon icon={faHome} className='breadcrumb-home-btn' /></Link></li>
-                        <li class="breadcrumb-item active" aria-current="page">Islamic</li>
+                        <li class="breadcrumb-item"><Link to='/categore/islamic' className='breadcrumbItem'>Islamic</Link></li>
+                        <li class="breadcrumb-item active" aria-current="page">Attar</li>
                     </ol>
                 </nav>
             </div>
             <div className='nestedProductsNamePart'>
                 <div>
-                    <h5 className='m-0 fw-bold'>Islamics Products In Mahsez</h5>
+                    <h5 className='m-0 fw-bold'>Attar Products In Mahsez</h5>
                 </div>
                 <div>
                     <p className='m-0'><span>Show:</span>&nbsp;
@@ -39,7 +40,7 @@ const IslamicCategore = () => {
             </div>
             <div className='nestedProductsSortByViewPart'>
                 <div>
-                    <p className='m-0'>{nestedProductsLength} Products Found In Islamics</p>
+                    <p className='m-0'>{nestedProductsLength} Products Found In Attar</p>
                 </div>
                 <div className='nestedProductsSortByViewDev'>
                     <p className='m-0'><span>Sort By:</span>&nbsp;
@@ -60,11 +61,11 @@ const IslamicCategore = () => {
             </div>
             <div className='nestedProducts'>
                 {
-                    nestedProducts.filter(categore => categore.mainCategory === 'Islamic').slice(0).reverse().map(nestedProduct => <NestedProduct key={nestedProduct._id} nestedProduct={nestedProduct}></NestedProduct>)
+                    nestedProducts.filter(categore => categore.category === 'Attar').slice(0).reverse().map(nestedProduct => <NestedProduct key={nestedProduct._id} nestedProduct={nestedProduct}></NestedProduct>)
                 }
             </div>
         </div>
     );
 };
 
-export default IslamicCategore;
+export default Attars;

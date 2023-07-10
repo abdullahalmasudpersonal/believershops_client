@@ -1,6 +1,5 @@
 import React from 'react';
 import './ProductDetailReVe.css';
-import Attars from '../../Categories/Islamic/Attars/Attar/Attars';
 
 const ProductDetailReVe = () => {
     return (
@@ -16,7 +15,7 @@ const ProductDetailReVe = () => {
 
             <div className="tab-content productDetailReVe-content">
                 <div className="tab-pane active" id="relatedProducts">
-                   <Attars/>
+                {/*    <Attars/> */}
                 </div>
 
                 <div className="tab-pane" id="customerViewed">

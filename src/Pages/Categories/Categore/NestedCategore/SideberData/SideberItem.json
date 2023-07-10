@@ -2,34 +2,67 @@
     {
         "title": "Beauty",
         "icon":"fa-sharp fa-solid fa-spa",
-        "path":""
+        "path":"/categore/beautyes",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
+        ]
     },
     {
         "title": "Bags",
         "icon":"fa-sharp fa-solid fa-bag-shopping",
-        "path":""
+        "path":"/categore/bags",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
+        ]
     },
     {
         "title": "Computer",
         "icon":"fa-sharp fa-solid fa-computer",
-        "path":""
+        "path":"/categore/computers",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
+        ]
     },
     {
         "title": "Dresses",
         "icon":"a-sharp fa-solid fa-person-dress",
-        "path":""
+        "path":"/categore/dresses",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
+        ]
     },
     {
         "title": "Electronic",
         "icon":"fa-sharp fa-solid fa-microchip",
-        "path":"/fd"
+        "path":"/categore/electronics",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
+        ]
     },
     {
         "title": "Foods",
         "icon":"fa-sharp fa-solid fa-bowl-food",
-        "path":"/",
+        "path":"/categore/foods",
         "childrens":[
-            
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
         ]
     },
     {
@@ -39,33 +72,49 @@
         "childrens":[
             {
                 "title": "Jainamaz",
-                "path":""
+                "path":"/categore/islamic/jainamazs"
             },
             {
                 "title": "Tajbeeh",
-                "path":"/"
+                "path":"/categore/islamic/tasbeehs"
             },
             {
                 "title": "Tupi",
-                "path":""
+                "path":"/categore/islamic/tupis"
             },
             {
                 "title": "Attar",
-                "path":"/categore/islamic/attars"
+                "path":"/categore/islamic/attars",
+                "childrens":[
+                    {
+                        "title": "Popular Attar",
+                        "path":"/categore/islamic/attars/popular_attar"
+                    },
+                    {
+                        "title": "Combo Offers",
+                        "path":"/categore/islamic/attars/combo_offer"
+                    }
+                ]
             },
             {
                 "title": "Hijab",
-                "path":""
+                "path":"/categore/islamic/"
             },
             {
                 "title": "burqa",
-                "path":"/"
+                "path":"/categore/islamic/"
             }
         ]
     },
     {
         "title": "Sports",
         "icon":"fa-sharp fa-solid fa-trophy",
-        "path":"/sports"
+        "path":"/categore/sports",
+        "childrens":[
+            {
+                "title": "Jainamaz",
+                "path":""
+            }
+        ]
     }
 ]

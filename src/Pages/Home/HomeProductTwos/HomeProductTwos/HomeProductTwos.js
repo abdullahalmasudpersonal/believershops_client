@@ -1,6 +1,6 @@
 import React from 'react';
-import Attar from '../../../Categories/Islamic/Attars/Attar/Attar';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
+import Attar from '../../../Categories/Islamic/Attars/Attars/Attar';
 
 const HomeProductTwos = () => {
     const [products, setProducts] = UseProducts([]);
