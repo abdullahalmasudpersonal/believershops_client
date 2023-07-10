@@ -12,7 +12,6 @@ import Admin from './Pages/AdminPanel/Admin/Admin';
 import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
 import Datess from './Pages/Categories/Foods/Datess/Datess/Datess';
-import Foods from './Pages/Categories/Foods/Foods/Foods';
 import Jainamazs from './Pages/Categories/Islamic/Jainamazs/Jainamazs/Jainamazs';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
@@ -52,7 +51,6 @@ import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddr
 import UseProducts from './Hooks/UseProducts/UseProducts';
 import UseCart from './Hooks/UseCarts/UseCart';
 import { removeFromDb } from './utilities/fakedb';
-/* import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars'; */
 import Tupis from './Pages/Categories/Islamic/Tupis/Tupis/Tupis';
 import SportsCategories from './Pages/Categories/Sports/SportsCategories/SportsCategories';
 import FoodsCategories from './Pages/Categories/Foods/FoodsCategories/FoodsCategories';
@@ -64,6 +62,9 @@ import BagsCategories from './Pages/Categories/Bags/BagsCategories/BagsCategorie
 import Attars from './Pages/Categories/Islamic/Attars/Attars/Attars';
 import AttarDetail from './Pages/Categories/Islamic/Attars/Attars/AttarDetail/AttarDetail';
 import AttarComboOffers from './Pages/Categories/Islamic/Attars/AttarsComboOffer/AttarComboOffers/AttarComboOffers';
+import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars';
+import AlifAttars from './Pages/Categories/Islamic/Attars/AlifAttars/AlifAttars/AlifAttars';
+import Messwalks from './Pages/Categories/Islamic/Messwalks/Messwalks/Messwalks';
 
 export const ProductContext = createContext('');
 
@@ -156,9 +157,11 @@ function App() {
             <Route path='islamic/jainamazs' element={<Jainamazs />} />
             <Route path='islamic/tasbeehs' element={<Tazbeehs />} />
             <Route path='islamic/tupis' element={<Tupis />} />
+            <Route path='islamic/miswaks' element={<Messwalks />} />
             <Route path='islamic/attars' element={<Attars />} />
             <Route path='islamic/attars/combo_offer' element={<AttarComboOffers />} />
-         {/*    <Route path='islamic/attars/popular_attar' element={<PopularAttars />} /> */}
+            <Route path='islamic/attars/popular_attar' element={<PopularAttars />} />
+            <Route path='islamic/attars/alifAttars' element={<AlifAttars />} />
             {/*--------------------- start Beauty  categories ---------------------- */}
 
             {/*--------------------- start sports  categories ---------------------- */}

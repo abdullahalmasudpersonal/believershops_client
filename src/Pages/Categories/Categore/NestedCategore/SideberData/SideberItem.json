@@ -93,12 +93,16 @@
                     {
                         "title": "Combo Offers",
                         "path":"/categore/islamic/attars/combo_offer"
+                    },
+                    {
+                        "title": "Alif Attar",
+                        "path":"/categore/islamic/attars/alifAttars"
                     }
                 ]
             },
             {
-                "title": "Hijab",
-                "path":"/categore/islamic/"
+                "title": "Miswak",
+                "path":"/categore/islamic/miswaks"
             },
             {
                 "title": "burqa",

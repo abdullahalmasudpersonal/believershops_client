@@ -44,6 +44,16 @@ const HomeHeader = () => {
                                 <FontAwesomeIcon icon={faChevronRight} className='catagore-faChevronRight' />
                             </div>
                         </Link>
+                        <div className='islamic-child-catagore'>
+                            <ul className='p-0'>
+                                <Link to='/categore/foods/datess' style={{ textDecoration: 'none' }}><li>Dates</li>
+                                </Link>
+                                <Link to='/categore/islamic/jainamazs' style={{ textDecoration: 'none' }}><li>Jainamaz</li>
+                                </Link>
+                                <Link to='/categore/islamic/tazbeehs' style={{ textDecoration: 'none' }}><li>Tajbeeh</li>
+                                </Link>
+                            </ul>
+                        </div>
                     </li>
                     <li className=''>
                         <Link to='/categore/electronics' className='text-decoration-none'>
@@ -109,16 +119,14 @@ const HomeHeader = () => {
                                             </Link>
                                             <Link to='/categore/islamic/attars/combo_offer' style={{ textDecoration: 'none' }}><li>Combo Offer</li>
                                             </Link>
-                                            <Link to='/categore/islamic/caps' style={{ textDecoration: 'none' }}><li>Alif Attar</li>
+                                            <Link to='/categore/islamic/attars/alifAttars' style={{ textDecoration: 'none' }}><li>Alif Attar</li>
                                             </Link>
                                         </ul>
                                     </div>
                                 </li>
-
-                                {/*       <Link to='/categore/islamic/attars' style={{ textDecoration: 'none' }}> */}
-
-                                <li>Hijab</li>
-                                <li>burqa</li>
+                                <Link to='/categore/islamic/miswaks' style={{ textDecoration: 'none' }}><li>Miswak</li>
+                                </Link>
+                                <li>Others</li>
                             </ul>
                         </div>
                     </li>

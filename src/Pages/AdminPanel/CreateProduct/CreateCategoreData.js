@@ -113,7 +113,7 @@ export const categoriesData = [
                 ]
             },
             {
-                name: "Burka",
+                name: "Miswak",
                 subCategories: ["F3 area 5", "area 6"]
             },
             {
