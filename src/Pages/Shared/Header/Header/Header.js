@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Header.css';
 import logo from '../../../../Assets/img/logo/mahsez (2).png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faAlignJustify, faHeadset, faShoppingCart, faCaretDown, faUserAlt, faSearch, faClose, faClock } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import profileImg from '../../../../Assets/img/profile/profile.png';
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,17 +11,21 @@ import auth from '../../../../firebase.init';
 import MobileSideber from '../MobileSideber/MobileSideber';
 import { signOut } from 'firebase/auth';
 import { ProductContext } from '../../../../App';
-
+import PcSearchber from '../PcSearchber/PcSearchber';
+import useAdmin from '../../../../Hooks/UseAdmin/UseAdmin';
 
 const Header = () => {
     const [user] = useAuthState(auth);
-    const [products, cart] = useContext(ProductContext);
+    const [admin] = useAdmin(user);
+    const [products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue, allOrder] = useContext(ProductContext);
     const navigate = useNavigate();
     const logout = () => {
         signOut(auth);
         navigate('/');
         localStorage.removeItem('accessToken');
     };
+
+/*     const countPendingOrder = allOrder.filter(status => status.status === 'Pending').length; */
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
@@ -35,25 +39,6 @@ const Header = () => {
     }
     window.addEventListener('scroll', changeShadow);
 
-    /* ----------- mobile catagore ------------- */
-    /*    const [show, setShow] = useState(false);
-       const handleClose = () => setShow(false);
-       const handleShow = () => setShow(true); */
-
-    /* --------------------- start pc search ber ---------------------- */
-    /* const [products, setProducts] = UseProducts([]); */
-    const [searchValuse, setSearchValue] = useState('');
-    const onChange = (event) => {
-        setSearchValue(event.target.value);
-    };
-
-    const onSearch = (searchTerm) => {
-        setSearchValue(searchTerm);
-        console.log('search', searchTerm)
-    };
-    /* --------------------- end pc search ber ------------------------- */
-
-
     return (
         <>
             {/* <div className='text-center fw-bold' style={{ background: 'red', color: 'white' }}>
@@ -61,6 +46,7 @@ const Header = () => {
             </div> */}
             {/* ---------Part 1 ----------- */}
             <div className={shadow ? 'sticky-top  header-shadow ' : 'header-bg-color'}>
+
                 <div className='container-xxl d-flex justify-content-between align-items-center responsive-header' style={{ padding: '5px ' }}>
                     <div>
                         <Link to='/'>
@@ -89,7 +75,17 @@ const Header = () => {
                             }
                         </ul>
                     </div>
-                    <div className='d-flex justify-content-center align-items-center' style={{}}>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        {
+                            admin ?
+                                <div>
+                                    <button class="adminPendingOrderHomeBtn">
+                                        Pending <span class="badge">{/* {countPendingOrder} */}</span>
+                                    </button> &nbsp;
+                                </div>
+                                :
+                                ''
+                        }
                         <div>
                             <FontAwesomeIcon style={{ height: '48px', width: '30px', marginRight: '10px', color: '#FF5733' }} icon={faHeadset} />
                         </div>
@@ -113,23 +109,17 @@ const Header = () => {
                                             <FontAwesomeIcon icon={faClose} />
                                         </button>
                                     </div>
-                                    {/*    <div className=''>
-                                        <SideberMobile />
-                                    </div> */}
                                     <div class="offcanvas-body py-0 px-0">
                                         <MobileSideber />
                                     </div>
                                 </div>
                             </div>
-
                             <div>
                                 <Link to='/'>
                                     <img width='105px' src={logo} alt='' />
                                 </Link>
                             </div>
-
                             <div className='mobile-screen-top-part pt-1'>
-                                {/*   <FontAwesomeIcon className='top-right-btn ' icon={faSearch} /> */}
                                 <Link to='/shopping_cart'>
                                     <button className='position-relative p-0 pe-3' style={{ border: 'none', background: 'none' }}>
                                         <FontAwesomeIcon className='top-right-btn' icon={faShoppingCart} />
@@ -148,6 +138,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
 
             {/* ---------------- Header part 2 start ---------------- */}
@@ -164,17 +155,11 @@ const Header = () => {
                     </div>
 
                     {/* ------------------ start pc search ber  ------------------------------ */}
-                    <div className='search d-flex'>
-                        <input className='search-ber' placeholder='Looking your products' type='text' value={searchValuse} onChange={onChange} />
-                        <FontAwesomeIcon onClick={() => onSearch(searchValuse)} className='header2-part-2-search-icon-pc' icon={faSearch} />
-                    </div>
-                    {/*   <PcSearchber/> */}
+                    <PcSearchber />
                     {/* ------------------ end pc search ber  ------------------------------ */}
-
 
                     <div className='header2-lust-part pe-2'>
                         <FontAwesomeIcon className='heart-cart' icon={faHeart} />
-
                         <Link to='/shopping_cart' className='ms-3'>
                             <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
                             <span className="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
@@ -194,23 +179,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            {/*------------------- search Result---------------- */}
-            <div className='search-ber-result container-xxl'>
-                {
-                    products.filter(item => {
-                        const searchTerm = searchValuse.toLowerCase();
-                        const name = item.name.toLowerCase();
-
-                        return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
-                    }).slice(0, 10)
-                        .map((item) =>
-                            <p className='mb-0' onClick={() => onSearch(item.name)}>
-                                {item.name}
-                            </p>
-                        )
-                }
-            </div>
-            {/* ---------------- Header part 2 end ---------------- */}
 
             {/* ---------------- Header part 2 responsive start ---------------- */}
             {/*  <div className='header2-part-2'>

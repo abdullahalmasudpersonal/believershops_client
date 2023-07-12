@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Banner from '../Banner/Banner';
-import HeaderCatagore from '../../Shared/Header/HomeHeader/HomeHeader';
 import Banner2 from '../Banner/Banner2';
-import Brands from '../Brands/Brands';
 import './home.css';
 import HomeFeaturedCategory from '../HomeFeaturedCategory/HomeFeaturedCategory';
 import HomeBlogs from '../HomeBlogs/HomeBlogs';
@@ -11,6 +9,8 @@ import PageTitle from '../../Shared/PageTitle/PageTitle';
 import HomeFeaturedProducts from '../HomeFeaturedProducts/HomeFeaturedProducts/HomeFeaturedProducts';
 import HomeProductOnes from '../HomeProductOnes/HomeProductOnes/HomeProductOnes';
 import HomeProductTwos from '../HomeProductTwos/HomeProductTwos/HomeProductTwos';
+import HomeHeader from '../../Shared/Header/HomeHeaders/HomeHeader';
+import HomeHeaders from '../../Shared/Header/HomeHeaders/HomeHeaders';
 const Home = () => {
     const [selected, setSelected] = useState("males");
     const changeHandler = e => {
@@ -23,7 +23,8 @@ const Home = () => {
         <div className='home-bg pb-5 px-0'>
             <PageTitle pageTitle='' />
             <div className='container-xxl d-flex p-0'>
-                <HeaderCatagore />
+                <HomeHeaders/>
+                <HomeHeader/>
                 <Banner />
             </div>
             {/* ----------------- special class ----------------------------- */}

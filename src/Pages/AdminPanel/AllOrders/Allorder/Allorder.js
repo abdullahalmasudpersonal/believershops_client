@@ -5,34 +5,40 @@ import './Allorder.css'
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import PageTitle from '../../../Shared/PageTitle/PageTitle';
+import { toast } from 'react-toastify';
+import UseAllOrders from '../../../../Hooks/UseAllOrders/UseAllOrders';
+import UseGetAllOrder from '../../../../Hooks/UseAdminOrders/UseGetAllOrder';
 
 const Allorder = () => {
     const [user] = useAuthState(auth);
-    const [allOrder, setAllOrder] = useState([]);
+    const [allOrder, setAllOrder] = UseGetAllOrder([]);
     const navigate = useNavigate();
     const [orderSearch, setOrderSearch] = useState("");
 
+    const countPendingOrder = allOrder.filter(status => status.status === 'Pending').length;
+    const countConfirmOrder = allOrder.filter(status => status.status === 'Confirm').length;
+    const countCancelOrder = allOrder.filter(status => status.status === 'Cancel').length;
+    const countDeliveredOrder = allOrder.filter(status => status.status === 'Delivered').length;
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/allOrder?email=${user.email}`, {
-            method: 'GET',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    signOut(auth);
-                    navigate('/');
-                    localStorage.removeItem('accessToken');
+    /* Dlete order  */
+    const deleteOrder = _id => {
+        const proceed = window.confirm(`Are you sure Delete order`);
+        if (proceed) {
+            const url = `http://localhost:5000/deleteOrder/${_id}`;
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
-                return res.json()
             })
-            .then(data => {
-                setAllOrder(data);
-            });
-
-    }, []);
+                .then(res => res.json())
+                .then(data => {
+                    toast.success('Successfully delete an order');
+                    const remaining = allOrder.filter(attar => attar._id !== _id);
+                    setAllOrder(remaining);
+                });
+        }
+    };
 
     const navigateToOrderDetail = _id => {
         navigate(`/admin/allOrder/${_id}`);
@@ -53,8 +59,17 @@ const Allorder = () => {
             <PageTitle pageTitle='AllOrder |' />
             <div className='pt-4 px-4 d-flex justify-content-between'>
                 <h4 className='fw-bold side-header'>All Orders ({allOrder.length})</h4>
+                <h5 className='fw-bold side-header'>Pending Orders <span style={{ color: 'rgb(255, 132, 0)' }}>({countPendingOrder})</span></h5>
+                <div class="spinner-grow text-warning" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
                 <input className='allorder-search-ber' placeholder='Search Order' value={orderSearch}
                     onChange={search.bind(this)} />
+            </div>
+            <div className='pt-4 px-4 d-flex justify-content-between'>
+                <h5 className='fw-bold side-header'>Confirm Orders ({countConfirmOrder})</h5>
+                <h5 className='fw-bold side-header'>Delivered Orders ({countDeliveredOrder})</h5>
+                <h5 className='fw-bold side-header'>Cancel Orders ({countCancelOrder})</h5>
             </div>
             <hr />
             <div className='px-3 table-responsive' >
@@ -63,25 +78,48 @@ const Allorder = () => {
                         <tr>
                             <th scope="col">Order_No</th>
                             <th scope="col">Coustomer</th>
-                            <th scope="col">Email</th>
+                            {/*   <th scope="col">Email</th> */}
                             <th scope="col">Time</th>
                             <th scope="col">Porduct Name</th>
                             <th scope="col">Total</th>
                             <th scope="col">Payment</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Manage</th>
                             <th scope="col">Info</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            dataSearch.map((allOrder) =>
+                            dataSearch.slice(0).reverse().map((allOrder) =>
                                 <tr key={allOrder._id}>
                                     <th scope="row">{allOrder.orderNo}</th>
                                     <td>{allOrder.coustomerName}</td>
-                                    <td>{allOrder.email}</td>
+                                    {/*   <td>{allOrder.email}</td> */}
                                     <td>{allOrder.orderTime}&nbsp;{allOrder.orderDate}</td>
                                     <td>{allOrder.productsName}</td>
                                     <td>{allOrder.grandTotal}</td>
                                     <td className='text-end'>Cash</td>
+
+
+                                    <td className='text-end'>
+                                        {
+                                            allOrder.cancelOrderStatus ?
+                                                <>
+                                                    {allOrder.cancelOrderStatus}
+                                                </>
+                                                :
+                                                <>
+                                                    {allOrder.status}
+                                                </>
+                                        }
+                                    </td>
+
+                                    <td className='text-end'>
+                                        <button type="button" class="btn btn-danger" onClick={() => deleteOrder(allOrder._id)}>
+                                            Delete
+                                        </button>
+                                    </td>
+
                                     <td className='text-end'>
                                         <button type="button" class="btn btn-info" onClick={() => navigateToOrderDetail(allOrder._id)}>
                                             View
@@ -98,20 +136,3 @@ const Allorder = () => {
 };
 
 export default Allorder;
-/* {allOrders().map((allOrder, index) =>
-                            <tr key={allOrder._id}>
-                                <th scope="row">{allOrder.orderNo}</th>
-                                <td>{allOrder.coustomerName}</td>
-                                <td>{allOrder.email}</td>
-                                <td>{allOrder.orderTime}{allOrder.orderDate}</td>
-                                <td>{allOrder.productsName.toString()}</td>
-                                <td>{allOrder.grandTotal}</td>
-                                <td className='text-end'>Cash</td>
-                                <td className='text-end'>
-                                    <button type="button" class="btn btn-info" onClick={() => navigateToOrderDetail(allOrder._id)}>
-                                        View
-                                    </button>
-                                </td>
-                            </tr>
-                        )}
-*/

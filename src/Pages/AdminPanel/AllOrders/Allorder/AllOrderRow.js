@@ -20,6 +20,7 @@ const AllOrderRow = ({allOrder}) => {
                             <th scope="col">Porduct Name</th>
                             <th scope="col">Total</th>
                             <th scope="col">Payment</th>
+                            <th scope="col">Manage</th>
                             <th scope="col">Info</th>
                         </tr>
                     </thead>
@@ -34,6 +35,11 @@ const AllOrderRow = ({allOrder}) => {
                                     <td>{allOrder.productsName}</td>
                                     <td>{allOrder.grandTotal}</td>
                                     <td className='text-end'>Cash</td>
+                                    <td className='text-end'>
+                                        <button type="button" class="btn btn-info" onClick={() => navigateToOrderDetail(allOrder._id)}>
+                                            View
+                                        </button>
+                                    </td>
                                     <td className='text-end'>
                                         <button type="button" class="btn btn-info" onClick={() => navigateToOrderDetail(allOrder._id)}>
                                             View

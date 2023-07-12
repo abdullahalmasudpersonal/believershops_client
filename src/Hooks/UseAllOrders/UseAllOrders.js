@@ -4,7 +4,7 @@ import auth from "../../firebase.init";
 
 const UseAllOrders = () => {
     const [user] = useAuthState(auth);
-    const [allOrders, setAllOrders] = useState({});
+    const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/allOrder?email=${user.email}`, {
             method: 'GET',

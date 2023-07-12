@@ -18,7 +18,7 @@ const DeleteProduct = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remaining = products.filter(attar => attar._id !== _id)
+                    const remaining = products.filter(attar => attar._id !== _id);
                     setProducts(remaining);
                 })
         }

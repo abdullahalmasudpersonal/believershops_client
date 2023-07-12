@@ -1,5 +1,5 @@
 /* -------header-bg-color ----------- */
-.header-bg-color{
+.header-bg-color {
     background-color: rgb(240, 247, 255);
 }
 
@@ -20,7 +20,7 @@
     color: rgb(107, 94, 94);
 }
 
-.mobile-collapse-close-btn{
+.mobile-collapse-close-btn {
     width: 100%;
     border: none;
     background-color: red;
@@ -28,6 +28,18 @@
     font-size: 20px;
     font-weight: bold;
     border-radius: 3px;
+}
+
+.adminPendingOrderHomeBtn{
+    border: none;
+    background-color: rgb(202, 78, 0);
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: white;
+    outline: none;
+}
+.adminPendingOrderHomeBtn>span{
+    background-color: rgb(53, 14, 182);
 }
 
 @media screen and (min-width:8px) and (max-width:930px) {
@@ -118,18 +130,6 @@
     margin-top: .4rem;
 }
 
-.search-ber {
-    border-radius: 50px 0 0 50px;
-    height: 36px;
-    width: 600px;
-    border: none;
-    outline: none;
-}
-
-.search input {
-    padding: 10px;
-}
-
 .header2-lust-part {
     width: 280px;
     display: flex;
@@ -183,6 +183,18 @@
 }
 
 /* -------------header2 part2------------------- */
+.searchBerDev {
+    position: relative;
+}
+
+.search-ber {
+    border-radius: 3px 0 0 3px;
+    height: 36px;
+    width: 600px;
+    border: none;
+    outline: none;
+    padding: 15px;
+}
 
 .header2-part-2-search {
     display: flex;
@@ -194,8 +206,7 @@
 }
 
 .header2-part2-search-ber {
-    /* border-radius: 50px 0px 0px 50px; */
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 3px 0px 0px 3px;
     border: none;
     height: 35px;
     width: 100%;
@@ -203,89 +214,89 @@
     outline: none;
     background: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  /*   background-image: linear-gradient(rgb(255, 251, 248), rgb(255, 251, 234)); */
-
 }
 
-.header2-part-2-search-icon-pc{
+.header2-part-2-search-icon-pc {
     padding: 10px 25px;
     background-color: rgba(0, 15, 66, 0.774);
     color: rgb(219, 219, 219);
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 5px 5px 0;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
 }
-.header2-part-2-search-icon-mobile{
+
+.header2-part-2-search-icon-mobile {
     padding: 9.5px 25px;
     background-color: rgba(0, 15, 66, 0.774);
     color: rgb(219, 219, 219);
     border-radius: 0 5px 5px 0;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
 /* ----------- start - search-ber-result ------------------ */
-.search-ber-result{
+.searchBerSuggestDev {
+    min-height: 0px;
+    width: 666px;
+    background: rgb(251, 251, 251);
+    position: absolute;
+    top: 36px;
+    z-index: 10;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: block;
 }
-.search-ber-result>p{
-   padding: 3px 0;
+.searchBerSuggestRemove{
+    display: none;
 }
-.search-ber-result>p:hover{
-    background-color: aliceblue;
-    color: green;
+
+.searchBerSuggestDev>P {
+    padding: 3px 15px;
+    font-weight: 600;
+    color: rgb(81, 81, 81);
+}
+.searchBerSuggestDev>p:hover{
     cursor: pointer;
+    background-color: rgb(230, 236, 238);
 }
+.searchBerSuggestDev>p:first-child {
+    margin-top: 15px;
+}
+
+.searchBerSuggestDev>p:last-child {
+    margin-bottom: 15px !important;
+}
+
+@media screen and (max-width:1399px) {
+    .searchBerSuggestDev {
+        width: 566px;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .searchBerSuggestDev {
+        width: 466px;
+    }
+}
+
 /* ----------- end - search-ber-result ------------------ */
-/* @media screen and (min-width:100px) and (max-width:800px) {
-    .header2-part2-search-ber {
-        width: 600px;
-    }
-}
-
-@media screen and (min-width:100px) and (max-width:700px) {
-    .header2-part2-search-ber {
-        width: 500px;
-    }
-}
-
-@media screen and (min-width:100px) and (max-width:600px) {
-    .header2-part2-search-ber {
-        width: 400px;
-    }
-}
-
-@media screen and (min-width:100px) and (max-width:500px) {
-    .header2-part2-search-ber {
-        width: 300px;
-    }
-}
-
-@media screen and (min-width:100px) and (max-width:400px) {
-    .header2-part2-search-ber {
-        width: 250px;
-    }
-} */
-
-/* ------------------- mobile screen ------------------------ */
-/* @media screen and (max-width:501px) {
-    .mobile-screen-top-part{
-        display: none;
-    }
-} */
 
 /* -----------websiteservicenotyet--------------- */
 @media screen and (min-width:501px) {
-    .websiteservicenotyet{
+    .websiteservicenotyet {
         display: none;
     }
 }
+
 @media screen and (max-width:500px) {
     .websiteservicenotyet {
         padding: 0 60px;
         background-color: red;
         color: white;
-        font-weight:900;
+        font-weight: 900;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-    .websiteservicenotyet p{
+
+    .websiteservicenotyet p {
         margin: 0;
     }
 }

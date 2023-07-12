@@ -45,6 +45,7 @@ const AllUsers = () => {
                             <th scope="col">Email</th>
                             <th scope="col">Make Admin</th>
                             <th scope="col">Create Date</th>
+                            <th scope="col">Status</th>
                             <th scope="col" className='text-end'>Remove</th>
                         </tr>
                     </thead>

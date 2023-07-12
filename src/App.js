@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,7 +11,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Admin from './Pages/AdminPanel/Admin/Admin';
 import Cart from './Pages/Cart/Cart';
 import Categore from './Pages/Categories/Categore/Categore/Categore';
-import Datess from './Pages/Categories/Foods/Datess/Datess/Datess';
 import Jainamazs from './Pages/Categories/Islamic/Jainamazs/Jainamazs/Jainamazs';
 import IslamicCategore from './Pages/Categories/Islamic/lslamicCategories/IslamicCategore';
 import Tazbeehs from './Pages/Categories/Islamic/Tazbeehs/Tazbeehs/Tazbeehs';
@@ -65,6 +64,7 @@ import AttarComboOffers from './Pages/Categories/Islamic/Attars/AttarsComboOffer
 import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars';
 import AlifAttars from './Pages/Categories/Islamic/Attars/AlifAttars/AlifAttars/AlifAttars';
 import Messwalks from './Pages/Categories/Islamic/Messwalks/Messwalks/Messwalks';
+import SearchBerResult from './Pages/Shared/Header/SearchBerResult/SearchBerResult';
 
 export const ProductContext = createContext('');
 
@@ -72,6 +72,8 @@ function App() {
   const [products, setProducts] = UseProducts([]);
   const [cart, setCart] = UseCart([]);
   const [count, setCount] = useState(1);
+  const [searchValuse, setSearchValue] = useState('');
+
 
   const addToDb = _id => {
     let shoppingCart = {};
@@ -119,13 +121,16 @@ function App() {
   }
 
   return (
-    <ProductContext.Provider value={[products, cart, handleAddToCard, handleRemoveProduct]}>
+    <ProductContext.Provider value={[products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue]}>
       <div>
         <ScrollingBtn />
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/categore' element={<Categore />}>
+            {/* ------------------- start search ber ---------------------- */}
+            <Route path='search' element={<SearchBerResult />} />
+            {/* ------------------- End search ber ---------------------- */}
 
             {/*--------------------- start Beauty  categories ---------------------- */}
             <Route path='beautyes' element={<BeautyCategories />} />
@@ -149,7 +154,6 @@ function App() {
 
             {/*--------------------- start foods categories ---------------------- */}
             <Route path='foods' element={<FoodsCategories />} />
-            <Route path='foods/datess' element={<Datess />} />
             {/*--------------------- end foods categories ---------------------- */}
 
             {/*--------------------- start Beauty  categories ---------------------- */}

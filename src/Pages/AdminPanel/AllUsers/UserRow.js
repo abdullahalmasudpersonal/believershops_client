@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AllUsers.css';
 import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe, faL } from '@fortawesome/free-solid-svg-icons';
 
 const UserRow = ({ user, index, refetch }) => {
     const { email, role } = user;
+    const [isOnLine, setOnline] = useState(false);
+
+     useEffect(() => {
+           function handleOnlineStatus() {
+               setOnline(true);
+           }
+           function handleOfflineStatus() {
+               setOnline(false);
+           }
+           window.addEventListener("online", handleOnlineStatus);
+           window.addEventListener("offline", handleOfflineStatus);
+   
+           return () => {
+               window.addEventListener("online", handleOnlineStatus);
+               window.addEventListener("offline", handleOfflineStatus);
+           };
+   
+       }, []); 
+
 
     const makeAdmin = () => {
         const proceed = window.confirm(`Are You Sure Create Admin ${email}`);
@@ -34,13 +55,26 @@ const UserRow = ({ user, index, refetch }) => {
             <tr>
                 <th scope="row">{index + 1}</th>
 
-                <td>{email}</td>
+                <td className='align-middle'>{email}</td>
 
                 <td> {role !== 'admin' && <button onClick={makeAdmin} className='create-admin-btn px-2 py-1'>Create Admin</button>}</td>
 
                 <td>{role === 'admin' && <p className='text-success fw-bold'></p>}7:48 PM<br />Friday, April 14, 2023 </td>
 
-                <td className='text-end '><button /* onClick={() => handleUserDelete(order._id)} */ className=' delete-user-btn px-2 py-1'>Delete</button></td>
+                {/* <td className='align-middle m-auto'>
+                    <span className='fw-bold text-success'>Online</span>
+                </td> */}
+                     {
+                    isOnLine === true ?
+
+                        (<td className='align-middle'><span className='fw-bold text-success'>Online</span></td>)
+
+                        :
+
+                       ( <td className='align-middle'><span className='fw-bold text-danger'>Offline</span> </td>)
+                }
+
+                <td className='text-end align-middle'><button /* onClick={() => handleUserDelete(order._id)} */ className=' delete-user-btn px-2 py-1'>Delete</button></td>
             </tr>
         </>
     );

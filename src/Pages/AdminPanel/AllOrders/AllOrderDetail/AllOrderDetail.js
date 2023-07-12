@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './AllOrderDetail.css';
 import { useParams } from 'react-router-dom';
 import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AllOrderDetail = () => {
     const { allOrderId } = useParams();
     const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
+    const { register, handleSubmit, reset, } = useForm();
     const { confirmOrderStatus, cancelOrderStatus, deliveredOrderStatus } = allOrder;
     const cart = allOrder.cart;
     //   console.log('cart', cart)
 
     const id = allOrder._id;
     const orderNo = allOrder.orderNo;
-    // console.log('id', id)
 
     const handleConfirmOrderStatus = () => {
         fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
@@ -71,6 +73,34 @@ const AllOrderDetail = () => {
         };
      */
 
+    const handleUpdateOrderStatus = async data => {
+        const proceed = window.confirm(`Are you sure ?`);
+        if (proceed) {
+            const updateOrderStatus = {
+                status: data.status
+            }
+            fetch(`http://localhost:5000/updateOrderStatus/${id}`, {
+                method: "PUT",
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(updateOrderStatus)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data) {
+                        toast.success(`Successfully Updated Status`);
+                        reset();
+                        window.location.reload(false);
+                    }
+                    else {
+                        toast.error(`Faield to update Status`);
+                    }
+                })
+        }
+    };
+
 
 
     return (
@@ -78,7 +108,7 @@ const AllOrderDetail = () => {
             <div className='allOrderDetail-part1'>
                 <h4 className='text-center mt-3 m-0'>Order Information</h4>
                 <div className='order-status'>
-                    <p className='order-status-p mt-2'>Pending order</p>
+                    <p className='order-status-p mt-2'>{allOrder.status} Order</p>
                 </div>
                 <div>
                     <p className='text-center m-0'>Order# &nbsp;0000{allOrder.orderNo}</p>
@@ -153,6 +183,18 @@ const AllOrderDetail = () => {
                     <div>
                         {(confirmOrderStatus && !deliveredOrderStatus && !cancelOrderStatus) && <> <button type="button" class="btn btn-success" onClick={handleDeliveredOrderStatus}>Delivered Order</button></>}
                     </div>
+                </div>
+
+                <div>
+                    <form onSubmit={handleSubmit(handleUpdateOrderStatus)}>
+                        <select  {...register("status", { required: true })}>
+                            <option value="Confirm">Confirm Order</option>
+                            <option value="Cancel">Cancel Order</option>
+                            <option value="Delivered">Delivered Order</option>
+                            <option value="Pneding">Pending Order</option>
+                        </select>
+                        <button>Submit</button>
+                    </form>
                 </div>
 
                 <h5 className='text-center mt-4'>Order History</h5>
