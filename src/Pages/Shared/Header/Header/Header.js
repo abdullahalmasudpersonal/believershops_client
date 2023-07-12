@@ -25,7 +25,7 @@ const Header = () => {
         localStorage.removeItem('accessToken');
     };
 
-/*     const countPendingOrder = allOrder.filter(status => status.status === 'Pending').length; */
+    /*     const countPendingOrder = allOrder.filter(status => status.status === 'Pending').length; */
 
     /* header scrolling */
     const [shadow, setShadow] = useState(false)
@@ -76,16 +76,6 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className='d-flex justify-content-center align-items-center'>
-                        {
-                            admin ?
-                                <div>
-                                    <button class="adminPendingOrderHomeBtn">
-                                        Pending <span class="badge">{/* {countPendingOrder} */}</span>
-                                    </button> &nbsp;
-                                </div>
-                                :
-                                ''
-                        }
                         <div>
                             <FontAwesomeIcon style={{ height: '48px', width: '30px', marginRight: '10px', color: '#FF5733' }} icon={faHeadset} />
                         </div>

@@ -1,11 +1,56 @@
 [
     {
-        "mainCategory": "",
-        "icon":"",
-        "path":"",
-        "category":[
+        "title": "Beauty",
+        "icon": "bi-gear-fill",
+        "path":"/categore/beautyes",
+        "childrens": [
             {
-                ""
+                "title": "Home",
+                "icon": "bi-house-fill",
+                "path": "/"
+            },
+            {
+                "title": "About",
+                "icon": "bi-info-circle-fill",
+                "path": "/about"
+            },
+            {
+                "title": "Contact",
+                "icon": "bi-phone-fill",
+                "childrenss": [
+                    {
+                        "title": "Facebook",
+                        "icon": "bi-facebook"
+                    },
+                    {
+                        "title": "Twitter",
+                        "icon": "bi-twitter"
+                    },
+                    {
+                        "title": "Instagram",
+                        "icon": "bi-instagram"
+                    }
+                ]
+            },
+            {
+                "title": "FAQ",
+                "icon": "bi-question-circle-fill"
+            }
+        ]
+    },
+    {
+        "title": "Beauty",
+        "icon": "bi-gear-fill",
+        "path":"/categore/beautyes"  
+    },
+    {
+        "title": "Beauty",
+        "icon": "bi-gear-fill",
+        "path":"/categore/beautyes",
+        "childrens": [
+            {
+                "title": "Facebook",
+                "icon": "bi-facebook"
             }
         ]
     }
