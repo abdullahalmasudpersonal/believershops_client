@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomeHeaders.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood, faChevronRight, faComputer, faMicrochip, faMosque, faPersonDress, faShoppingBag, faSpa, faTrophy, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const HomeHeaders = () => {
@@ -11,8 +11,8 @@ const HomeHeaders = () => {
                 <li>
                     <Link to='/categore/beautyes' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
-                            <FontAwesomeIcon icon={faSpa} className='homeHeadersMainCategoreImg' />
-                            <span>Beauty</span>
+                            <FontAwesomeIcon icon={faUserDoctor} className='homeHeadersMainCategoreImg' />
+                            <span>Health & Beauty</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -41,7 +41,7 @@ const HomeHeaders = () => {
                     <Link to='/categore/bags' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
                             <FontAwesomeIcon icon={faShoppingBag} className='homeHeadersMainCategoreImg' />
-                            <span>Bags</span>
+                            <span>Bags & Watchs</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -51,7 +51,7 @@ const HomeHeaders = () => {
                     <Link to='/categore/computers' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
                             <FontAwesomeIcon icon={faComputer} className='homeHeadersMainCategoreImg' />
-                            <span>Computers</span>
+                            <span>Computers Accessories</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -60,7 +60,7 @@ const HomeHeaders = () => {
                     <Link to='/categore/dresses' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
                             <FontAwesomeIcon icon={faPersonDress} className='homeHeadersMainCategoreImg' />
-                            <span>Dresses</span>
+                            <span>Dresses & Jewellery</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -69,7 +69,7 @@ const HomeHeaders = () => {
                     <Link to='/categore/electronics' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
                             <FontAwesomeIcon icon={faMicrochip} className='homeHeadersMainCategoreImg' />
-                            <span>Electronic</span>
+                            <span>Electronic & TV</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -78,7 +78,25 @@ const HomeHeaders = () => {
                     <Link to='/categore/foods' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
                             <FontAwesomeIcon icon={faBowlFood} className='homeHeadersMainCategoreImg' />
-                            <span>Foods</span>
+                            <span>Home Appliences</span>
+                            <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
+                        </div>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/categore/foods' className='text-decoration-none'>
+                        <div className='homeHeadersMainCategoreDev'>
+                            <FontAwesomeIcon icon={faBowlFood} className='homeHeadersMainCategoreImg' />
+                            <span>Kids Accessories</span>
+                            <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
+                        </div>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/categore/foods' className='text-decoration-none'>
+                        <div className='homeHeadersMainCategoreDev'>
+                            <FontAwesomeIcon icon={faBowlFood} className='homeHeadersMainCategoreImg' />
+                            <span>Groceries & Foods</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -87,7 +105,7 @@ const HomeHeaders = () => {
                     <Link to='/categore/islamic' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev'>
                             <FontAwesomeIcon icon={faMosque} className='homeHeadersMainCategoreImg' />
-                            <span>Islamic</span>
+                            <span>Islamic Accessories</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>
@@ -154,7 +172,7 @@ const HomeHeaders = () => {
                     <Link to='/categore/sports' className='text-decoration-none'>
                         <div className='homeHeadersMainCategoreDev mainCategoryBorderNot'>
                             <FontAwesomeIcon icon={faTrophy} className='homeHeadersMainCategoreImg' />
-                            <span>Sports</span>
+                            <span>Sports & Outdoors</span>
                             <FontAwesomeIcon icon={faChevronRight} className='homeHeadersMainCategoreFaChevronRight' />
                         </div>
                     </Link>

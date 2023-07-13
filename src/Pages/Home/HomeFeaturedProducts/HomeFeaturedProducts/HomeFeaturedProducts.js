@@ -2,6 +2,7 @@ import React from 'react';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import '../../Home/HomeProducts.css';
 import Attar from '../../../Categories/Islamic/Attars/Attars/Attar';
+import HomeProduct from '../../HomeProduct/HomeProduct';
 
 const HomeFeaturedProducts = () => {
     const [attars, setAttars] = UseAttars([]);
@@ -12,7 +13,7 @@ const HomeFeaturedProducts = () => {
             <hr style={{ marginTop: '10px' }}></hr>
             <div className='homeProducts'>
                 {
-                    attars/* .filter(categore => categore.category === 'attar') */.slice(0, 24).map(attar => <Attar key={attar._id} attar={attar} />)
+                    attars/* .filter(categore => categore.category === 'attar') */.slice(0, 24).map(product => <HomeProduct key={product._id} product={product} />)
                 }
             </div>
         </div>

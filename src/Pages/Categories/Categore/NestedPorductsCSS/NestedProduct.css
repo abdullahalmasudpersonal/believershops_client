@@ -20,7 +20,7 @@
 }
 
 .nestedProductImg>img {
-    transition: .3s;
+    transition: .5s;
 }
 
 .nestedProductImg>img:hover {
@@ -60,6 +60,7 @@
 .nestedProductPrice>p {
     color: rgb(255, 132, 0);
 }
+
 /* nestedProductOutOfCart Out of cart */
 .nestedProductOutOfCart {
     position: absolute;
@@ -80,6 +81,7 @@
     font-weight: 600;
     transition: .3s;
 }
+
 /* nestedProductAddCart Add to cart */
 .nestedProductAddCart {
     position: absolute;
@@ -105,23 +107,27 @@
     background: rgb(255, 111, 0);
     color: rgb(244, 247, 255);
 }
+
 @media screen and (max-width:450px) {
     .nestedProduct {
         height: 380px;
-    } 
+    }
 }
+
 @media screen and (max-width:420px) {
     .nestedProduct {
         height: 370px;
-    } 
+    }
 }
+
 @media screen and (max-width:400px) {
     .nestedProduct {
         height: 360px;
-    } 
+    }
 }
+
 @media screen and (max-width:310px) {
     .nestedProduct {
         height: 340px;
-    } 
+    }
 }

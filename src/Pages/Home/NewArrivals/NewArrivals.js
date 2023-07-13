@@ -1,7 +1,7 @@
 import React from 'react';
 import './NewArrivals.css';
 import UseProducts from '../../../Hooks/UseProducts/UseProducts';
-import Attar from '../../Categories/Islamic/Attars/Attars/Attar';
+import HomeProduct from '../HomeProduct/HomeProduct';
 
 const NewArrivals = () => {
     const [products, setProducts] = UseProducts([]);
@@ -12,7 +12,7 @@ const NewArrivals = () => {
             <hr style={{ marginTop: '10px' }}></hr>
             <div className='homeProducts newArrival-dev'>
                 {
-                    products /* .filter(categore => categore.category === 'attar') *//* .slice(-7,-1) */ .slice(0-6).reverse().map(attar => <Attar key={attar._id} attar={attar} />)
+                    products.slice(0-6).reverse().map(product => <HomeProduct key={product._id} product={product} />)
                 }
             </div>
         </div>

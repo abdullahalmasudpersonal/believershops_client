@@ -15,10 +15,10 @@
 .homeHeadersMainCategoreDev {
     display: flex;
     align-items: center;
-    padding: 12.5px 0;
+    padding: 7.5px 0;
     color: gray;
     transition: .3s;
-    font-weight: 600;
+    font-weight: 500;
     font-family: serif;
 }
 
@@ -65,7 +65,7 @@
 .homeHeadersCategoryDevItem {
     display: none;
     width: 250px;
-    padding: 12.5px 15px;
+    padding: 8px 15px;
     background-color: rgb(255, 255, 255);
     transition: .3s;
     cursor: pointer;
@@ -115,7 +115,7 @@
 
 .homeHeadersSubCategoryDevItem {
     width: 250px;
-    padding: 12.5px 15px;
+    padding: 8px 15px;
     background-color: rgb(255, 255, 255);
     color: gray;
     transition: .3s;

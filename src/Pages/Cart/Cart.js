@@ -6,10 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import PageTitle from '../Shared/PageTitle/PageTitle';
-import UseCart from '../../Hooks/UseCarts/UseCart';
 import { ProductContext } from '../../App';
 const Cart = () => {
-    /* const [cart, setCart] = UseCart(); */
     const [count, setCount] = useState(1);
     const [products, cart, handleAddToCard, handleRemoveProduct] = useContext(ProductContext);
     const navigate = useNavigate();
