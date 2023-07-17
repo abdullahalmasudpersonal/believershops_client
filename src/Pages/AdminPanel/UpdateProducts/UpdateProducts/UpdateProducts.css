@@ -4,3 +4,14 @@
     background-color: orange;
     color: white;
 }
+.updateProductShowDev{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+.updateProductShowDev>select{
+    width: 50px;
+    height: 35px;
+    outline: none;
+    font-size: 18px;
+}

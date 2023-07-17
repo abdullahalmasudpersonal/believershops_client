@@ -21,7 +21,7 @@ const Categore = () => {
                 </div>
             </div> */}
             <div className='m-0 p-0 home-bg'>
-                <div className='container-xxl py-5 d-flex responsive-nested-page' >
+                <div className='container-xxl py-3 d-flex responsive-nested-page' >
                     <NestedCategore />
                     <Outlet />
                 </div>

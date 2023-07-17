@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProductContext } from '../../../../App';
+import { Context } from '../../../../Context/AppContext';
 
 const PcSearchber = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue] = useContext(ProductContext);
+    const { products,setSearchValue,searchValuse } = useContext(Context);
     const navigate = useNavigate();
 
     const navigateToSearchResult = () => {
@@ -48,11 +49,11 @@ const PcSearchber = () => {
                 <FontAwesomeIcon onClick={() => onSearch(searchValuse)} className='header2-part-2-search-icon-pc' icon={faSearch} />
             </div>
             <div className={`${isOpen ? 'searchBerSuggestDev' : 'searchBerSuggestRemove'}`}>
-                { searchValuse ?
+                {searchValuse ?
                     userSearch.slice(0, 10).map((item) =>
-                    <p className='mb-0' onClick={() => onSearch(item.name)}>
-                        {item.name}
-                    </p>)
+                        <p className='mb-0' onClick={() => onSearch(item.name)}>
+                            {item.name}
+                        </p>)
                     : <></>
                 }
                 {/*      {

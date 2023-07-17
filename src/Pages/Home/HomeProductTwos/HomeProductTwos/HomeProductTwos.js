@@ -1,6 +1,5 @@
 import React from 'react';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
-import Attar from '../../../Categories/Islamic/Attars/Attars/Attar';
 import HomeProduct from '../../HomeProduct/HomeProduct';
 
 const HomeProductTwos = () => {

@@ -18,7 +18,7 @@ const HomeProduct = ({ product }) => {
                 <img src={image1} alt='' className='img-fluid' style={{ borderRadius: '2px 2px 0 0' }} />
             </div>
             <div className='px-2 pt-2'>
-                <h6 className='homeProductName text-center pb-1 pt-2 m-0 p-0' onClick={() => navigateToProductDetails(_id)} data-toggle="tooltip" data-placement="right" title={name}>{name.length > 45 ? name.slice(0, 45) + '...' : name}</h6>
+                <h6 className='homeProductName text-center mb-1 mt-2 m-0 p-0' onClick={() => navigateToProductDetails(_id)} data-toggle="tooltip" data-placement="right" title={name}>{name.length > 45 ? name.slice(0, 45) + '...' : name}</h6>
             </div>
             <div className='homeProductReview'>
                 <p className='text-center m-0'>

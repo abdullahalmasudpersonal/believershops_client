@@ -5,29 +5,12 @@ import PageTitle from '../../../Shared/PageTitle/PageTitle';
 import './UpdateProducts.css';
 
 const UpdateProducts = () => {
-   /*  const [products, setProducts] = UseProducts([]); */
+    const [products, setProducts] = UseProducts([]);
     const [searchUProduct, setSearchUProduct] = useState('');
     const navigate = useNavigate();
-    const [pageCount, setPageCount] = useState(0);
-    const [page, setPage] = useState(0);
     const [pageSize, setPageSize] = useState(10);
-    const [products, setProducts] = useState([]);
 
-    useEffect( () =>{
-        fetch(`http://localhost:5000/products?page=${page}&pageSize${pageSize}`)
-        .then(res => res.json())
-        .then(data => setProducts(data));
-    },[]);
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/productCount`)
-            .then(res => res.json())
-            .then(data => {
-                const count = data.count;
-                const pages = Math.ceil(count / 10);
-                setPageCount(pages);
-            })
-    })
 
     const navigateToUpdateProduct = _id => {
         navigate(`/admin/update_product/${_id}`);
@@ -53,28 +36,23 @@ const UpdateProducts = () => {
                 <h4 className='fw-bold'>Update Products ({products.length})</h4>
                 <input className='allorder-search-ber' placeholder='Search Order' value={searchUProduct}
                     onChange={search.bind(this)} />
+                <div className='updateProductShowDev'>
+                    <select onChange={e => setPageSize(e.target.value)}>
+                        <option value="10">10</option>
+                        <option selected value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
             </div>
             <hr className='mb-0' />
+            <div>
+                <ul>
+                    <li>1</li>
+                    <li>1</li>
+                </ul>
+            </div>
             <div class="table-responsive p-3" >
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        {
-                            [...Array(pageCount).keys()]
-                                .map(number =>
-                                    <li class="page-item"><a className={page === number ? 'page-link  selectPageBtn' : 'page-link '} href="#" onClick={() => setPage(number)} >{number + 1}</a></li>
-                                )}
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        <select onChange={e=> setPageSize(e.target.value)}>
-                            <option value="10">10</option>
-                            <option selected value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                        </select>
-                    </ul>
-                </nav>
-
                 <table class="table">
                     <thead>
                         <tr>
@@ -100,45 +78,6 @@ const UpdateProducts = () => {
                         }
                     </tbody>
                 </table>
-                <>
-                    {
-                        [...Array(pageCount).keys()]
-                            .map(number => <button className='px-2'>{number + 1}</button>)
-                    }
-                </>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        {
-                            [...Array(pageCount).keys()]
-                                .map(number =>
-                                    <li class=""><a class="page-link" href="#" onClick={() => setPage(number)} >{number + 1}</a></li>
-                                )}
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-
-                {/*    {
-                    [...Array(pageCount).keys()]
-                        .map(number =>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">{number}</a></li>
-                                </ul>
-                            </nav>
-                        )
-                }
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav> */}
-
             </div>
         </div>
     );

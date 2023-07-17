@@ -1,7 +1,7 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min';
@@ -47,9 +47,6 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import ProductDetails from './Pages/ProductDetails/ProductDetails/ProductDetails';
 import AddShippingAddress from './Pages/Dashboards/Address/AddShippingAddress/AddShippingAddress';
 import UpdateShippingAddress from './Pages/Dashboards/Address/UpdateShippingAddress/UpdateShippingAddress';
-import UseProducts from './Hooks/UseProducts/UseProducts';
-import UseCart from './Hooks/UseCarts/UseCart';
-import { removeFromDb } from './utilities/fakedb';
 import Tupis from './Pages/Categories/Islamic/Tupis/Tupis/Tupis';
 import SportsCategories from './Pages/Categories/Sports/SportsCategories/SportsCategories';
 import FoodsCategories from './Pages/Categories/Foods/FoodsCategories/FoodsCategories';
@@ -59,69 +56,19 @@ import ComputersCategories from './Pages/Categories/Computers/ComputersCategorie
 import BeautyCategories from './Pages/Categories/Beauty/BeautyCategories/BeautyCategories';
 import BagsCategories from './Pages/Categories/Bags/BagsCategories/BagsCategories';
 import Attars from './Pages/Categories/Islamic/Attars/Attars/Attars';
-import AttarDetail from './Pages/Categories/Islamic/Attars/Attars/AttarDetail/AttarDetail';
 import AttarComboOffers from './Pages/Categories/Islamic/Attars/AttarsComboOffer/AttarComboOffers/AttarComboOffers';
 import PopularAttars from './Pages/Categories/Islamic/Attars/PopularAttars/PopularAttars/PopularAttars';
 import AlifAttars from './Pages/Categories/Islamic/Attars/AlifAttars/AlifAttars/AlifAttars';
 import Messwalks from './Pages/Categories/Islamic/Messwalks/Messwalks/Messwalks';
 import SearchBerResult from './Pages/Shared/Header/SearchBerResult/SearchBerResult';
+import AppContext from './Context/AppContext';
 
 export const ProductContext = createContext('');
 
 function App() {
-  const [products, setProducts] = UseProducts([]);
-  const [cart, setCart] = UseCart([]);
-  const [count, setCount] = useState(1);
-  const [searchValuse, setSearchValue] = useState('');
-
-
-  const addToDb = _id => {
-    let shoppingCart = {};
-    //get the shopping cart from local storage
-    const storedCart = localStorage.getItem('shopping-cart');
-    if (storedCart) {
-      shoppingCart = JSON.parse(storedCart);
-    }
-    // add quantity
-    const quantity = shoppingCart[_id];
-    if (quantity) {
-      /*  toast.success(`Alrady Added To Cart`);  */
-      /*  const newQuantity = quantity + count;
-         shoppingCart[_id] = newQuantity;  */
-    }
-    else {
-      shoppingCart[_id] = count;
-    }
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-  };
-
-  const handleAddToCard = (selectedAttar) => {
-    let newCart = [];
-    const exists = cart.find(attar => attar._id === selectedAttar._id);
-    if (!exists) {
-      selectedAttar.quantity = count;
-      newCart = [...cart, selectedAttar];
-      toast.success(`Added To Cart ${count}`);
-    }
-    else {
-      const rest = cart.filter(attar => attar._id !== selectedAttar._id);
-      /* exists.quantity = exists.quantity + count; */
-      newCart = [...rest, exists];
-      toast.warning(`Alrady Added To Cart`);
-    }
-    setCart(newCart);
-    addToDb(selectedAttar._id);
-  };
-
-  /* Cart Product Remove */
-  const handleRemoveProduct = product => {
-    const rest = cart.filter(pd => pd._id !== product._id);
-    setCart(rest);
-    removeFromDb(product._id);
-  }
 
   return (
-    <ProductContext.Provider value={[products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue]}>
+    <AppContext>
       <div>
         <ScrollingBtn />
         <Header />
@@ -173,7 +120,6 @@ function App() {
             {/*--------------------- end sports  categories ---------------------- */}
 
             <Route path='products/:productId' element={<ProductDetails />} />
-            <Route path='products/:productId' element={<AttarDetail />} />
           </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
@@ -225,7 +171,7 @@ function App() {
           theme="light"
         />
       </div>
-    </ProductContext.Provider>
+    </AppContext>
   );
 }
 

@@ -13,11 +13,12 @@ import { signOut } from 'firebase/auth';
 import { ProductContext } from '../../../../App';
 import PcSearchber from '../PcSearchber/PcSearchber';
 import useAdmin from '../../../../Hooks/UseAdmin/UseAdmin';
+import { Context } from '../../../../Context/AppContext';
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
-    const [products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue, allOrder] = useContext(ProductContext);
+    const {cart, products } = useContext(Context);
     const navigate = useNavigate();
     const logout = () => {
         signOut(auth);
@@ -114,7 +115,7 @@ const Header = () => {
                                     <button className='position-relative p-0 pe-3' style={{ border: 'none', background: 'none' }}>
                                         <FontAwesomeIcon className='top-right-btn' icon={faShoppingCart} />
                                         <span className="position-absolute translate-middle badge rounded-pill" style={{ color: '', backgroundColor: 'orangered' }}>
-                                            {cart.length}
+                                          {cart.length} 
                                         </span>
                                     </button>
                                 </Link>
@@ -145,7 +146,7 @@ const Header = () => {
                     </div>
 
                     {/* ------------------ start pc search ber  ------------------------------ */}
-                    <PcSearchber />
+                   <PcSearchber />  
                     {/* ------------------ end pc search ber  ------------------------------ */}
 
                     <div className='header2-lust-part pe-2'>
@@ -153,7 +154,8 @@ const Header = () => {
                         <Link to='/shopping_cart' className='ms-3'>
                             <FontAwesomeIcon className='shopping-cart' icon={faShoppingCart} />
                             <span className="position-absolute translate-middle badge rounded-pill cart-quantity-badge py-1 px-2 mt-1 ">
-                                {cart.length}
+                                 {cart.length} 
+                                {/*  {cart.map(products=> <>{products.quantity}</>)} */} 
                             </span>
                         </Link>
                         {

@@ -1,4 +1,4 @@
-import { faBorderNone, faHome, faList } from '@fortawesome/free-solid-svg-icons';
+import { faBorderNone, faFilter, faHome, faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import PageTitle from '../../PageTitle/PageTitle';
@@ -9,22 +9,22 @@ import { ProductContext } from '../../../../App';
 
 const SearchBerResult = () => {
     const [nestedProducts, setNestedProducts] = UseProducts([]);
-    const [products, cart, handleAddToCard, handleRemoveProduct,searchValuse,setSearchValue] = useContext(ProductContext);
+    const [products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue] = useContext(ProductContext);
 
-    
+
 
     let userSearch = products.slice(0).reverse().filter(order => {
         return Object.keys(order).some(key =>
             order[key].toString().toLowerCase().includes(searchValuse.toString().toLowerCase()));
     });
-    
 
-        const nestedProductsLength =userSearch.length;
-   
+
+    const nestedProductsLength = userSearch.length;
+
 
     return (
         <div className='nestedProductsMain'>
-             <PageTitle pageTitle={`${searchValuse} |`} />
+            <PageTitle pageTitle={`${searchValuse} |`} />
             <div className='nestedProductsBreadcrumb'>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 ">
@@ -48,13 +48,26 @@ const SearchBerResult = () => {
                 </div>
             </div>
             <div className='nestedProductsSortByViewPart'>
-                <div>
+                <div className='nestedProductsSearchResult'>
                     <p className='m-0'>{
-                        searchValuse ? <>{nestedProductsLength}</>:<>0</>
-                    } Products Found In "{searchValuse}"</p>
+                        searchValuse ? <>{nestedProductsLength}</> : <>0</>
+                    } Products Found In "<span data-toggle="tooltip" data-placement="right" title={searchValuse}>{searchValuse.length > 30 ? searchValuse.slice(0, 30) + '...' : searchValuse}</span>"</p>
+                </div>
+                {/* small display show filter */}
+                <div className='nestedproductSmallScreenFilter'>
+                    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><FontAwesomeIcon icon={faFilter} />&nbsp;<span>Filter</span></button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            ...
+                        </div>
+                    </div>
                 </div>
                 <div className='nestedProductsSortByViewDev'>
-                    <p className='m-0'><span>Sort By:</span>&nbsp;
+                    <p className='m-0'><span className=''>Sort By:</span>&nbsp;
                         <select>
                             <option value="">Default</option>
                             <option value="">A TO Z</option>
@@ -65,13 +78,13 @@ const SearchBerResult = () => {
                         </select>
                     </p> &nbsp;&nbsp;&nbsp;
                     <p className='m-0 d-flex justify-content-center align-items-center'><span>View As:</span> &nbsp;&nbsp;
-                    <FontAwesomeIcon color='rgb(42, 42, 42))' fontSize='20px' style={{padding:'5px'}} icon={faBorderNone} /> &nbsp;
-                        <FontAwesomeIcon fontSize='20px' style={{padding:'5px'}} icon={faList} />
-                    </p> 
+                        <FontAwesomeIcon color='rgb(42, 42, 42))' fontSize='20px' style={{ padding: '5px' }} icon={faBorderNone} /> &nbsp;
+                        <FontAwesomeIcon fontSize='20px' style={{ padding: '5px' }} icon={faList} />
+                    </p>
                 </div>
             </div>
             <div className='nestedProducts'>
-                { searchValuse ?
+                {searchValuse ?
                     userSearch.map(nestedProduct => <NestedProduct key={nestedProduct._id} nestedProduct={nestedProduct}></NestedProduct>)
                     : <p className=''>No Porducts Found</p>
                 }

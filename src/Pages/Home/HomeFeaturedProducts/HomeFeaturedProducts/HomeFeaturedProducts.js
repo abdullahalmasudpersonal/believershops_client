@@ -1,7 +1,6 @@
 import React from 'react';
 import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import '../../Home/HomeProducts.css';
-import Attar from '../../../Categories/Islamic/Attars/Attars/Attar';
 import HomeProduct from '../../HomeProduct/HomeProduct';
 
 const HomeFeaturedProducts = () => {

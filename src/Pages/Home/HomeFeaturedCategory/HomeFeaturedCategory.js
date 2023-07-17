@@ -1,5 +1,4 @@
 import React from 'react';
-import categore1 from '../../../Assets/img/category/categore1.jpg';
 import './HomeFeaturedCategory.css';
 import UseHomeFeaturedCategory from '../../../Hooks/UseHomeFeaturedCategory/UseHomeFeaturedCategory';
 import HomeFCategore from './HomeFCategore/HomeFCategore';
