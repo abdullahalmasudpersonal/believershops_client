@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './Checkout.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { deleteShoppingCart } from '../../utilities/fakedb';
 import UseAllOrders from '../../Hooks/UseAllOrders/UseAllOrders';
 import District from './District';
 import PageTitle from '../Shared/PageTitle/PageTitle';
@@ -14,6 +13,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import UseCart from '../../Hooks/UseCarts/UseCart';
 import { Form } from 'react-bootstrap';
+import AppContext from '../../Context/AppContext';
 
 const Checkout = (allOrderId) => {
     const { register, handleSubmit, reset } = useForm();
@@ -24,6 +24,7 @@ const Checkout = (allOrderId) => {
     const [district, setDistrict] = useState('default');
     const [allorders] = UseAllOrders([]);
     const navigate = useNavigate();
+  
 
 
 
@@ -33,7 +34,7 @@ const Checkout = (allOrderId) => {
     };
 
     /* Order status */
-    const orderStatus = 'Pending';
+    const orderStatus = 'Pending Order';
     /* Create Order Number */
     const orderNumber = allorders.length;
     /* ----------- handle place order ------------- */
@@ -42,6 +43,7 @@ const Checkout = (allOrderId) => {
         const allOrder = {
             orderNo: orderNumber,
             coustomerName: event.target.fullName.value,
+            /* userEmail:user.email, */
             email: event.target.email.value,
             phoneNumber: event.target.phoneNumber.value,
             districtName: district,
@@ -54,26 +56,27 @@ const Checkout = (allOrderId) => {
             orderTime: cTime,
             orderDate: cDate,
             status: orderStatus,
-            cart: (cart),
+            pendingOrderStatus:orderStatus,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),
             productsQuantity: (cart.map(porduct => porduct.quantity)),
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
             productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity)),
+            subTotal:subTotal,
+            deliveryCharge: deliveryCharge,
             grandTotal: grandTotal
         }
 
-        const proceed = window.confirm('Are you sure?')
+        const proceed = window.confirm('Are you sure place order !!!')
         if (proceed) {
             axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
-                    console.log(data.insertedId)
+                   // console.log(data.insertedId)
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
                         event.target.reset();
-                        deleteShoppingCart();
                         navigateToOrderView();
                     }
                 });
@@ -81,15 +84,14 @@ const Checkout = (allOrderId) => {
     };
 
     /* load cart */
-    let deliveryCharge = 60;
     let quantity = 0;
     let subTotal = 0;
     for (const product of cart) {
         quantity = quantity + product.quantity;
-        subTotal = subTotal + product.regularPrice * product.quantity;
+        subTotal = subTotal + (product.offerPrice ? product.offerPrice : product.ragularPrice) * product.quantity;
     }
-    const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
-    const grandTotal = subTotal + conditionCharge + deliveryCharge;
+    const deliveryCharge = shipping * 1;
+    const grandTotal = subTotal + deliveryCharge;
 
     /* get time & date */
     let date = new Date().toLocaleDateString();
@@ -167,7 +169,7 @@ const Checkout = (allOrderId) => {
                                         <h5><span>2</span> Payment Method</h5>
                                         <hr />
                                         <h6>Select one payment method</h6>
-                                           <div>
+                                        <div>
                                             <div>
                                                 <input id='cashDelivery' type='radio' name='payment' value='Cash On Delivery' onChange={e => setPayment(e.target.value)} required />
                                                 <label for='cashDelivery'>&nbsp;Cash On Delivery</label>
@@ -204,38 +206,14 @@ const Checkout = (allOrderId) => {
                                         <h6>Select shipping area</h6>
                                         <div>
                                             <div>
-                                                <input id='outside-dhaka' type='radio' name='shipping' value='Outside of Dhaka 100৳' onChange={e => setShipping(e.target.value)} required />
-                                                <label for='outside-dhaka'>&nbsp;Outside of Dhaka 100৳</label>
+                                                <input id='inside-dhaka' type='radio' name='shipping' value='60' onChange={e => setShipping(e.target.value)} />
+                                                <label for='inside-dhaka'>&nbsp;InSide of Dhaka 60৳</label>
                                             </div>
                                             <div>
-                                                <input id='inside-dhaka' type='radio' name='shipping' value='Inside of Dhaka 60৳' onChange={e => setShipping(e.target.value)} />
-                                                <label for='inside-dhaka'>&nbsp;OInside of Dhaka 60৳</label>
+                                                <input id='outside-dhaka' type='radio' name='shipping' value='100' onChange={e => setShipping(e.target.value)} required />
+                                                <label for='outside-dhaka'>&nbsp;OutSide of Dhaka 100৳</label>
                                             </div>
                                             {shipping} <p>{cTime}__ {cDate}</p> <p>orderNumber {orderNumber}</p>
-
-                                            {/*     <div>
-                                                <input name='masud' type='radio' label='lksbfxcd' />
-                                               <label>lksdjl</label> 
-                                            </div>
-                                            <div>
-                                                <input name='masud' type='radio' />
-                                                <label>lksdjl</label>
-                                            </div>
-                                            <div>
-                                                <input name='masud' type='radio' value='lkdsklf' />
-                                                <label>lksdjl</label>
-                                            </div> */}
-
-                                            {/*   <input type="radio" id="html" name="fav_language" value="HTML" />
-                                            <label for="html">HTML</label><br />
-                                            <input type="radio" id="css" name="fav_language" value="CSS" />
-                                            <label for="css">CSS</label><br />
-                                            <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
-                                            <label for="javascript">JavaScript</label> */}
-
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -259,14 +237,13 @@ const Checkout = (allOrderId) => {
                                                     <td className='text-center'>
                                                         {product.quantity}
                                                     </td>
-                                                    <td className='text-end'>{product.regularPrice}</td>
-                                                    <td className='text-end'>{product.quantity * product.regularPrice}</td>
+                                                    <td className='text-end'>{product.offerPrice ? product.offerPrice : product.ragularPrice}</td>
+                                                    <td className='text-end'>{product.quantity * (product.offerPrice ? product.offerPrice : product.regularPrice)}</td>
                                                 </tr>)}
                                         </tbody>
                                     </table>
                                     <div>
                                         <h6 className='text-end h5'>Sub Total: {subTotal} <span>Tk</span></h6>
-                                        <h6 className='text-end h5'>Condition Charge: {conditionCharge} <span>Tk</span></h6>
                                         <h6 className='text-end h5'>Home Delivery: {deliveryCharge} <span>Tk</span></h6>
                                         <h6 className='text-end h5 fw-bold'> Grand Total: {grandTotal} Tk</h6>
                                     </div>

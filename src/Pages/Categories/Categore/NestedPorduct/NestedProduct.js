@@ -2,13 +2,13 @@ import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProductContext } from '../../../../App';
 import '../NestedPorductsCSS/NestedProduct.css';
+import AppContext from '../../../../Context/AppContext';
 
 const NestedProduct = ({nestedProduct}) => {
     const { _id, brand, name, image1, availableQuantity, ragularPrice, offerPrice, weight1 } = nestedProduct;
     const navigate = useNavigate();
-    const [products, cart, handleAddToCard] = useContext(ProductContext);
+    const [products, cart, handleAddToCard] = useContext(AppContext);
 
     const navigateToProductDetails = _id => {
         navigate(`/categore/products/${_id}`);

@@ -5,11 +5,11 @@ import PageTitle from '../../PageTitle/PageTitle';
 import { Link } from 'react-router-dom';
 import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
 import NestedProduct from '../../../Categories/Categore/NestedPorduct/NestedProduct';
-import { ProductContext } from '../../../../App';
+import AppContext from '../../../../Context/AppContext';
 
 const SearchBerResult = () => {
     const [nestedProducts, setNestedProducts] = UseProducts([]);
-    const [products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue] = useContext(ProductContext);
+    const [products, cart, handleAddToCard, handleRemoveProduct, searchValuse, setSearchValue] = useContext(AppContext);
 
 
 

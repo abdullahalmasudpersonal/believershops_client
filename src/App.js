@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -63,7 +63,6 @@ import Messwalks from './Pages/Categories/Islamic/Messwalks/Messwalks/Messwalks'
 import SearchBerResult from './Pages/Shared/Header/SearchBerResult/SearchBerResult';
 import AppContext from './Context/AppContext';
 
-export const ProductContext = createContext('');
 
 function App() {
 
@@ -129,7 +128,7 @@ function App() {
             <Route index element={<Profile />} />
             <Route path='address' element={<Address />} />
             <Route path='address/add_shipping_address' element={<AddShippingAddress />} />
-            <Route path='address/update_shipping_address/:addressId' element={<UpdateShippingAddress />} />
+            <Route path='address/:addressId' element={<UpdateShippingAddress />} />
             <Route path='myOrders' element={<Orders />} />
             <Route path='myOrder/:myOrderId' element={<OrderDetails />} />
           </Route>

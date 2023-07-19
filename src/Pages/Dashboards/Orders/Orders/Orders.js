@@ -34,7 +34,7 @@ const Orders = () => {
     }, [user]);
 
     const navigateToOrderDetail = _id => {
-      navigate(`/dashboard/myOrder/${_id}`)
+        navigate(`/dashboard/myOrder/${_id}`)
     }
 
     return (
@@ -53,7 +53,7 @@ const Orders = () => {
                         :
                         orders.map((order, index) =>
                             <div className='my-single-order mb-3'>
-                                <div className='px-3 pt-3 d-flex justify-content-between'>
+                                <div className='px-3 pt-3 pb-2 d-flex justify-content-between'>
                                     <div>
                                         <h6 className='m-0 fw-bold'>Order# {order.orderNo}</h6>
                                         <p className='m-0'>Date: {order.orderDate}</p>
@@ -61,23 +61,25 @@ const Orders = () => {
                                     <div className='d-flex justify-content-center align-items-center'>
                                         <h6 className='m-0'>
                                             <FontAwesomeIcon icon={faClock} style={{ color: 'orange' }} /> &nbsp;
-                                            <span className='' style={{ color: 'purple' }}>Pneding</span>
+                                            <span className='' style={{ color: 'purple' }}>{order.status}</span>
                                         </h6>
                                     </div>
                                 </div>
-                                <hr />
-                                <div className='px-3 pb-3'>
-                                    <table className='table m-0'>
-                                        <tbody>
-                                            <tr>
-                                                <td className='p-0 ' style={{ border: '0' }}>{order.productsName}</td>
-                                                <td className=' text-end fw-bold h5' style={{ border: '0' }}>{order.grandTotal}<span style={{ fontSize: '22px', }}>৳</span></td>
-                                                <td className='text-end p-0' style={{ border: '0' }}>
-                                                    <button type="button" className="btn btn-info" onClick={() => navigateToOrderDetail(order._id)} >View</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <hr className='m-0' />
+                                <div className='mySingleOrderInfoDev'>
+                                    <div>
+                                        {order.productsImage.slice(0 - 1).map((proImg, index) => <><img src={proImg} alt='' width='50px' /></>)}
+                                        &nbsp;&nbsp;
+                                        {
+                                            order.productsName.slice(0 - 1).map((proName, index) => <td>{proName}<br />{order.productsName.length > 1 ? <span color='purple'>{order.productsName.length}&nbsp;Items</span> : <></>}</td>)
+                                        }
+                                    </div>
+                                    <div className='mySingleOrderInfoDevSecond'>
+                                        <td className='text-end align-middle fw-bold h5 mb-0' style={{ border: '0' }}>{order.grandTotal}<span style={{ fontSize: '22px', }}>৳</span></td>
+                                        <td className='text-end p-0 align-middle' style={{ border: '0', width: '70px' }}>
+                                            <button type="button" className="btn btn-info" onClick={() => navigateToOrderDetail(order._id)} >View</button>
+                                        </td>
+                                    </div>
                                 </div>
                             </div>
                         )

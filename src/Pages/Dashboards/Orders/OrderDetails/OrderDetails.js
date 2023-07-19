@@ -6,7 +6,8 @@ import UseOrderDetails from '../../../../Hooks/UseOrders/UseOrderDetails';
 const OrderDetails = () => {
     const { myOrderId } = useParams();
     const [orderDetails, setOrderDetails] = UseOrderDetails(myOrderId);
-    const { productsName, status, productsQuantity, productsTotalPrice, productsImage } = orderDetails;
+    const { productsName, status, productsQuantity, productsTotalPrice, productsImage, cart } = orderDetails;
+
 
     return (
         <div className='dashboard-dev2 orderDetail'>
@@ -35,11 +36,11 @@ const OrderDetails = () => {
                             <tbody>
                                 <tr>
                                     <td className='ps-0 pb-0'>Sub-Total:</td>
-                                    <td className='ps-0 pb-0 text-end'>@mdo</td>
+                                    <td className='ps-0 pb-0 text-end'>{orderDetails.subTotal}<span style={{ fontSize: '15px', fontFamily: 'monospace' }}>৳</span></td>
                                 </tr>
                                 <tr>
                                     <td className='ps-0 pb-0'>Home Delivery:</td>
-                                    <td className='ps-0 pb-0 text-end'>@fat</td>
+                                    <td className='ps-0 pb-0 text-end'>{orderDetails.deliveryCharge}<span style={{ fontSize: '15px', fontFamily: 'monospace' }}>৳</span></td>
                                 </tr>
                                 <tr>
                                     <td className='ps-0 pb-0'>Total:</td>
@@ -65,42 +66,28 @@ const OrderDetails = () => {
                             <thead>
                                 <tr>
                                     <th scope="col">Image</th>
-                                    <th scope="col">Product Name</th>
-                                    <th scope="col" className='text-end'>Quantity</th>
-                                    <th scope="col" className='text-end'>Total</th>
+                                    <th scope="col">Products Name</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 <tr>
-                                    {/*              { 
-                      productsName.map(productName => <p>{productName}</p>)
-                      
-                        } */}
-                                   {/*  <td>
-                                        {productsImage.map(productImage => <div><img width='60px' src={productImage} /></div>)}
-                                    </td>
-                                    <td>
-                                        {productsName.map(productName => <p className='mt-4 mb-4'>{productName}</p>)}
-                                    </td>
-                                    <td className='text-end'>
-                                        {productsQuantity.map(productQuantity => <p>{productQuantity}</p>)}
-                                    </td>
-                                    <td className='text-end'>
-                                        {productsTotalPrice.map(productTotalPrice => <p>{productTotalPrice}</p>)}
-                                    </td> */}
+                                    {/*  <th scope="row">{orderDetails.productsImage.map()}</th> */}
+                                    {/* <td>{orderDetails.productsName.map(proname=><p>{proname}</p>)}</td> */}
+                                    {/*      <td>{orderDetails.productsQuantity.map(proQuantity=><p>{proQuantity}</p>)}</td>  */}
+                                    {/*  <td>{productsTotalPrice.map((index)=><p>{index}</p>)}</td> */}
+                                    {/* {
+                                            productsName.map((proName,index) =><p>{proName}</p>)
+                                        }  */}
                                 </tr>
                             </tbody>
                         </table>
-                        <div>
-
-                            {/*  { 
-                      productsName.map(productName => <p>{productName}</p>)
-                      
-                        } */}
-
-                        </div>
-                        {/* productsName.map(productName=><p>{productName}<p>) */}
                     </div>
+                   <div>
+                  {/*   {cart.map((product,index) =><p>{index}</p>)} */}
+                   </div>
                 </div>
 
             </div>
@@ -136,9 +123,9 @@ const OrderDetails = () => {
                             ""
                     }
                     {
-                        orderDetails.status ?
+                        orderDetails.pendingOrderStatus ?
                             <div className='order-status-graph'>
-                                <h6>{orderDetails.status}</h6>
+                                <h6>{orderDetails.pendingOrderStatus}</h6>
                                 <p className='m-0'>{orderDetails.orderDate}&nbsp;{orderDetails.orderTime}</p>
                             </div>
                             :

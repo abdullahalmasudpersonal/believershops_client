@@ -99,19 +99,8 @@ const Allorder = () => {
                                     <td>{allOrder.productsName}</td>
                                     <td>{allOrder.grandTotal}</td>
                                     <td className='text-end'>Cash</td>
-
-
                                     <td className='text-end'>
-                                        {
-                                            allOrder.cancelOrderStatus ?
-                                                <>
-                                                    {allOrder.cancelOrderStatus}
-                                                </>
-                                                :
-                                                <>
-                                                    {allOrder.status}
-                                                </>
-                                        }
+                                        {allOrder.status}
                                     </td>
 
                                     <td className='text-end'>

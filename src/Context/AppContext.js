@@ -13,6 +13,7 @@ const AppContext = ({ children }) => {
   const [count, setCount] = useState(1);
   const [searchValuse, setSearchValue] = useState('');
 
+
   const addToDb = _id => {
     let shoppingCart = {};
     //get the shopping cart from local storage

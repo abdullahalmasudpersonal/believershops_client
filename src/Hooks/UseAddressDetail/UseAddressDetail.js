@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
-const UseAddressDetail = addressId => {
-    const [addressDetail, setAddressDetail] = useState({});
+const UseAddressDetail = () => {
+    const { addressId } = useParams();
+    const [addressDetail, setAddressDetail] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/address/${addressId}`, {
+        fetch(`http://localhost:5000/myAddress/${addressId}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

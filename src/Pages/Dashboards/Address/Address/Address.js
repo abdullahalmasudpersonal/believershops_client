@@ -32,7 +32,7 @@ const Address = () => {
     };
 
     const navigateToOrderDetail = _id => {
-        navigate(`/dashboard/address/update_shipping_address/${_id}`);
+        navigate(`/dashboard/address/${_id}`);
     };
 
     /* useEffect(() => {
