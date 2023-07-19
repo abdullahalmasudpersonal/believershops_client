@@ -15,10 +15,10 @@ const Allorder = () => {
     const navigate = useNavigate();
     const [orderSearch, setOrderSearch] = useState("");
 
-    const countPendingOrder = allOrder.filter(status => status.status === 'Pending').length;
-    const countConfirmOrder = allOrder.filter(status => status.status === 'Confirm').length;
-    const countCancelOrder = allOrder.filter(status => status.status === 'Cancel').length;
-    const countDeliveredOrder = allOrder.filter(status => status.status === 'Delivered').length;
+    const countPendingOrder = allOrder.filter(status => status.status === 'Pending Order').length;
+    const countConfirmOrder = allOrder.filter(status => status.status === 'Confirm Order').length;
+    const countCancelOrder = allOrder.filter(status => status.status === 'Cancel Order').length;
+    const countDeliveredOrder = allOrder.filter(status => status.status === 'Delivered Order').length;
 
     /* Dlete order  */
     const deleteOrder = _id => {
@@ -104,9 +104,9 @@ const Allorder = () => {
                                     </td>
 
                                     <td className='text-end'>
-                                        <button type="button" class="btn btn-danger" onClick={() => deleteOrder(allOrder._id)}>
+                                        {(!allOrder.confirmOrderStatus && !allOrder.cancelOrderStatus) && <button type="button" class="btn btn-danger" onClick={() => deleteOrder(allOrder._id)}  /* disabled={allOrder.confirmOrderStatus === 'Confirm Order'} */>
                                             Delete
-                                        </button>
+                                        </button>}
                                     </td>
 
                                     <td className='text-end'>

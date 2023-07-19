@@ -9,37 +9,60 @@ const AllOrderDetail = () => {
     const { allOrderId } = useParams();
     const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
     const { register, handleSubmit, reset, } = useForm();
-    const { confirmOrderStatus, cancelOrderStatus, deliveredOrderStatus } = allOrder;
-    const cart = allOrder.cart;
-    //   console.log('cart', cart)
+    const { confirmOrderStatus, cancelOrderStatus, deliveredOrderStatus, fakeOrderStatus } = allOrder;
 
     const id = allOrder._id;
-    const orderNo = allOrder.orderNo;
-
-    const handleConfirmOrderStatus = () => {
-        fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
+    /* get time for update order status */
+    let time = new Date().toLocaleTimeString();
+    const [cTime, setCTime] = useState(time);
+    const updateTime = () => {
+        time = new Date().toLocaleTimeString();
+        setCTime(time);
+    };
+    setInterval(updateTime, 1000);
+    /* get date with month for update order status */
+    var today = new Date();
+    var optionss = { year: 'numeric', month: 'long', day: 'numeric' };
+    var cDates = today.toLocaleString('en-US', optionss);
+    const cDate = cDates;
+    const handleConfirmOrderStatus = (event) => {
+        event.preventDefault();
+        const updateConfirmOrder = {
+            confirmOrderDate: cTime,
+            confirmorderTime: cDate
+        }
+        const proceed = window.confirm('Are you sure?');
+        if (proceed) {
+            fetch(`http://localhost:5000/confirmOrderStatus/${id}`,updateConfirmOrder, {
+                method: 'PUT',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
+                .then(res => res.json())
+                .then(data => {
+                    window.location.reload(false);
+                    // console.log(data);
+                })
+        }
     };
 
-    const handleCancelOrderStatus = () => {
-        fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
+    const handleCancelOrderStatus = (event) => {
+        event.preventDefault();
+        const proceed = window.confirm('Are you sure?')
+        if (proceed) {
+            fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
+                method: 'PUT',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
+                .then(res => res.json())
+                .then(data => {
+                    window.location.reload(false);
+                    //console.log(data);
+                })
+        }
     };
 
     const handleDeliveredOrderStatus = event => {
@@ -54,7 +77,32 @@ const AllOrderDetail = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    window.location.reload(false);
+                    //console.log(data);
+                })
+        }
+    };
+
+    const handleFakeOrderStatus = event => {
+        event.preventDefault();
+        const updateFakeOrder = {
+            fakeorderTime: cTime,
+            fakeOrderDate: cDate
+        }
+        const proceed = window.confirm('Are you sure?')
+        if (proceed) {
+            fetch(`http://localhost:5000/fakeOrderStatus/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(updateFakeOrder)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    window.location.reload(false);
+                    //console.log(data);
                 })
         }
     };
@@ -96,6 +144,7 @@ const AllOrderDetail = () => {
                     }
                     else {
                         toast.error(`Faield to update Status`);
+                        window.location.reload(false);
                     }
                 })
         }
@@ -106,13 +155,15 @@ const AllOrderDetail = () => {
     return (
         <div className='allOrderDetail dashboard-dev2'>
             <div className='allOrderDetail-part1'>
-                <h4 className='text-center mt-3 m-0'>Order Information</h4>
+                <h4 className='text-center mt-3 m-0'>Order Information {cTime}-{cDate}</h4>
+                <p className='text-center mb-0'><small>Payment Type:</small> <small style={{ background: 'purple', color: 'white', padding: '0px 5px 3px 5px', borderRadius: '3px' }}>{allOrder.paymentStatus}</small></p>
                 <div className='order-status'>
-                    <p className='order-status-p mt-2'>{allOrder.status} Order</p>
+                    <p className='order-status-p mt-2'>{allOrder.status}</p>
                 </div>
                 <div>
                     <p className='text-center m-0'>Order# &nbsp;0000{allOrder.orderNo}</p>
-                    <p className='text-center'>{allOrder.email}</p>
+                    <p className='text-center mb-0' style={{ color: 'green' }}>User: {allOrder.email}</p>
+                    <p className='text-center' style={{ color: 'purple' }}>Order Email: {allOrder.orderEmail}</p>
                 </div>
                 <div className='shipping-summary'>
                     <div className='order-shipping-dev'>
@@ -173,38 +224,57 @@ const AllOrderDetail = () => {
             </div>
 
             <div className='allOrderDetail-part2 p-4'>
+                <div className='mb-3'>
+                    <p className='mb-0'><small>Payment Number:</small> <span style={{ color: 'purple' }}>{allOrder.paymentNumber}</span></p>
+                    <p className='mb-0'><small>Payment TransactionID: </small> <span style={{ color: 'purple' }}>{allOrder.paymentTransaction}</span></p>
+                </div>
+
+                {
+                    <div className='pb-3'>
+                        <form onSubmit={handleSubmit(handleUpdateOrderStatus)} className='d-flex'>
+                            <select  {...register("status", { required: true })} className='form-select'>
+                                <option value="Confirm Order">Confirm Order</option>
+                                <option value="Cancel Order">Cancel Order</option>
+                                <option value="Delivered Order">Delivered Order</option>
+                                <option value="Pneding Order">Pending Order</option>
+                                <option value="Fake Order">Fake Order</option>
+                            </select> &nbsp;&nbsp;
+                            <button className='btn btn-success'>Submit</button>
+                        </form>
+                    </div>
+                }
+
                 <div className='text-center'>
                     <div className='mb-3'>
-                        {(!confirmOrderStatus && !cancelOrderStatus) && <> <button type="button" class="btn btn-info" onClick={handleConfirmOrderStatus}>Comfirm Order</button></>}
+                        {(!confirmOrderStatus && !cancelOrderStatus  && !fakeOrderStatus) && <> <button type="button" class="btn btn-info" onClick={handleConfirmOrderStatus}>Comfirm Order</button></>}
                     </div>
                     <div className='mb-3'>
-                        {(!cancelOrderStatus && !deliveredOrderStatus) && <> <button type="button" class="btn btn-warning" onClick={handleCancelOrderStatus}>Cancel Order</button></>}
+                        {(!cancelOrderStatus && !deliveredOrderStatus && !fakeOrderStatus) && <> <button type="button" class="btn btn-warning" onClick={handleCancelOrderStatus}>Cancel Order</button></>}
                     </div>
                     <div>
                         {(confirmOrderStatus && !deliveredOrderStatus && !cancelOrderStatus) && <> <button type="button" class="btn btn-success" onClick={handleDeliveredOrderStatus}>Delivered Order</button></>}
                     </div>
+                    <div className='mb-3'>
+                        {(!fakeOrderStatus && !cancelOrderStatus && !deliveredOrderStatus) && <> <button type="button" class="btn btn-danger" onClick={handleFakeOrderStatus}>Fake Order</button></>}
+                    </div>
                 </div>
 
-                <div>
-                    <form onSubmit={handleSubmit(handleUpdateOrderStatus)}>
-                        <select  {...register("status", { required: true })}>
-                            <option value="Confirm">Confirm Order</option>
-                            <option value="Cancel">Cancel Order</option>
-                            <option value="Delivered">Delivered Order</option>
-                            <option value="Pneding">Pending Order</option>
-                        </select>
-                        <button>Submit</button>
-                    </form>
-                </div>
-
-                <h5 className='text-center mt-4'>Order History</h5>
-
+                <h5 className='text-center mt-0'>Order History</h5>
                 <div className='mt-4'>
                     {
                         cancelOrderStatus ?
                             <div className='order-status-graph'>
                                 <h6>{allOrder.cancelOrderStatus}</h6>
                                 <p className='m-0'>{allOrder.cancelOrderDate}&nbsp;{allOrder.cancelOrderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                    {
+                        fakeOrderStatus ?
+                            <div className='order-status-graph'>
+                                <h6>{allOrder.fakeOrderStatus}</h6>
+                                <p className='m-0'>{allOrder.fakeOrderDate}&nbsp;{allOrder.fakeOrderTime}</p>
                             </div>
                             :
                             ""
@@ -228,9 +298,9 @@ const AllOrderDetail = () => {
                             ""
                     }
                     {
-                        allOrder.status ?
+                        allOrder.pendingOrderStatus ?
                             <div className='order-status-graph'>
-                                <h6>{allOrder.status}</h6>
+                                <h6>{allOrder.pendingOrderStatus}</h6>
                                 <p className='m-0'>{allOrder.orderDate}&nbsp;{allOrder.orderTime}</p>
                             </div>
                             :

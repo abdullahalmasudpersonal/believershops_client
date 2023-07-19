@@ -21,12 +21,12 @@ const Checkout = (allOrderId) => {
     const [cart, setCart] = UseCart();
     const [shipping, setShipping] = useState();
     const [payment, setPayment] = useState();
+    const [paymentShow, setPaymentShow] = useState();
+
+    // console.log(payment)
     const [district, setDistrict] = useState('default');
     const [allorders] = UseAllOrders([]);
     const navigate = useNavigate();
-  
-
-
 
     /* navigate to order view */
     const navigateToOrderView = _id => {
@@ -36,15 +36,15 @@ const Checkout = (allOrderId) => {
     /* Order status */
     const orderStatus = 'Pending Order';
     /* Create Order Number */
-    const orderNumber = allorders.length;
+    const orderNumber = allorders.length + 1;
     /* ----------- handle place order ------------- */
     const handlePlaceOrder = event => {
         event.preventDefault();
         const allOrder = {
             orderNo: orderNumber,
             coustomerName: event.target.fullName.value,
-            /* userEmail:user.email, */
-            email: event.target.email.value,
+            email: user.email,
+            orderEmail: event.target.email.value,
             phoneNumber: event.target.phoneNumber.value,
             districtName: district,
             address: event.target.address.value,
@@ -56,14 +56,14 @@ const Checkout = (allOrderId) => {
             orderTime: cTime,
             orderDate: cDate,
             status: orderStatus,
-            pendingOrderStatus:orderStatus,
+            pendingOrderStatus: orderStatus,
             productsId: (cart.map(porduct => porduct._id)),
             productsName: (cart.map(porduct => porduct.name)),
             productsImage: (cart.map(porduct => porduct.image1)),
             productsQuantity: (cart.map(porduct => porduct.quantity)),
             productsPrice: (cart.map(porduct => porduct.offerPrice)),
             productsTotalPrice: (cart.map(porduct => porduct.offerPrice * porduct.quantity)),
-            subTotal:subTotal,
+            subTotal: subTotal,
             deliveryCharge: deliveryCharge,
             grandTotal: grandTotal
         }
@@ -73,7 +73,7 @@ const Checkout = (allOrderId) => {
             axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
-                   // console.log(data.insertedId)
+                    // console.log(data.insertedId)
                     if (data.insertedId) {
                         toast.success('Your order is placed !!!');
                         event.target.reset();
@@ -158,7 +158,7 @@ const Checkout = (allOrderId) => {
                                 </div>
                                 <div>
                                     <p className='mb-0'><small>Commects</small></p>
-                                    <textarea type='text' maxLength='200' name='comment' />
+                                    <textarea type='text' maxLength='120' name='comment' />
                                 </div>
                             </div>
 
@@ -186,17 +186,18 @@ const Checkout = (allOrderId) => {
                                                 <input id='rocket' type='radio' name='payment' value='Rocket' onChange={e => setPayment(e.target.value)} />
                                                 <label for='rocket'>&nbsp;Rocket</label>
                                             </div>
-                                            <div>
-                                                <p className='lh-lg m-1'>বিকাশ/নগদ/রকেট থেকে টাকা প্রদান করার জন্য বিকাশ/নগদ/রকেটের App এর মাধ্যমে অথবা সরাসরি বিকাশ এর জন্য *247#, নগদ এর জন্য *167#, রকেট এর জন্য *322# ডায়াল করে "Send Money" অপশনটি সিলেক্ট করুন। আমাদের বিকাশ/নগদ/রকেট পার্সোনাল নাম্বার "01737906772" এ আপনার মোট বিল প্রদান করুন। <br /> বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে</p>
-                                                <div className='mb-2'>
-                                                    <label><small>Enter bkash/Nagod/Rocket Number</small></label><br />
-                                                    <input type='number' placeholder='Payment Number 01XXXXXXXXX' name='paymentNumber' onInput={(e) => e.target.value = e.target.value.slice(0, 12)} className='mt-1 p-1' style={{ outline: 'none', width: '250px' }} />
+                                            
+                                                <div div >
+                                                    <p className='lh-lg m-1'>বিকাশ/নগদ/রকেট থেকে টাকা প্রদান করার জন্য বিকাশ/নগদ/রকেটের App এর মাধ্যমে অথবা সরাসরি বিকাশ এর জন্য *247#, নগদ এর জন্য *167#, রকেট এর জন্য *322# ডায়াল করে "Send Money" অপশনটি সিলেক্ট করুন। আমাদের বিকাশ/নগদ/রকেট পার্সোনাল নাম্বার "01737906772" এ আপনার মোট বিল প্রদান করুন। <br /> বিঃদ্রঃ শুধুমাত্র "সেন্ড মানি" অপশন এর মাধ্যমে বিল পরিশোধ করতে হবে</p>
+                                                    <div className='mb-2'>
+                                                        <label><small>Enter bkash/Nagod/Rocket Number</small></label><br />
+                                                        <input type='number' placeholder='Payment Number 01XXXXXXXXX' name='paymentNumber' onInput={(e) => e.target.value = e.target.value.slice(0, 11)} className='mt-1 p-1' style={{ outline: 'none', width: '250px' }} required={payment !== 'Cash On Delivery'} />
+                                                    </div>
+                                                    <div>
+                                                        <label><small>Enter Transaction ID</small></label><br />
+                                                        <input type='text' maxLength='30' placeholder='Transaction ID A86XXXXXXXX' name='paymentTransaction' className='mt-1 p-1' style={{ outline: 'none', width: '250px' }} required={payment !== 'Cash On Delivery'} />
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <label><small>Enter Transaction ID</small></label><br />
-                                                    <input type='text' maxLength='30' placeholder='Transaction ID A86XXXXXXXX' name='paymentTransaction' className='mt-1 p-1' style={{ outline: 'none', width: '250px' }} />
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -256,7 +257,7 @@ const Checkout = (allOrderId) => {
                         </div>
                     </form>
                 </div >
-            </div>
+            </div >
         </>
     );
 };

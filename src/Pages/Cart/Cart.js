@@ -22,16 +22,15 @@ const Cart = () => {
         navigate(`/categore/products/${_id}`)
     };
 
-    console.log(cart)
-
+    
     let quantity = 0;
     let subTotal = 0;
     for (const product of cart) {
         quantity = quantity + product.quantity;
-        subTotal = subTotal + product.regularPrice * product.quantity;
+        subTotal = subTotal + (product.offerPrice ? product.offerPrice:product.ragularPrice) * product.quantity;
     }
-    const conditionCharge = parseFloat((subTotal * 0.01).toFixed(2));
-    const grandTotal = subTotal + conditionCharge;
+    const delivaryCharge = 60;
+    const grandTotal = subTotal + delivaryCharge;
     /* checkout cart disable */
     const disabled = quantity < 1;
 
@@ -118,8 +117,8 @@ const Cart = () => {
                                             <td className='text-center align-middle'>
                                                 <button style={{ border: 'none', background: 'none', padding: '0' }} onClick={() => handleRemoveProduct(product)}> <FontAwesomeIcon className='cart-product-remove' icon={faTrashAlt} /></button>
                                             </td>
-                                            <td className='text-end mobile-cart align-middle'>{product.regularPrice}</td>
-                                            <td className='text-end align-middle'>{product.quantity * product.regularPrice}</td>
+                                            <td className='text-end mobile-cart align-middle'>{product.quantity}</td>
+                                            <td className='text-end align-middle'>{product.quantity * (product.offerPrice ? product.offerPrice:product.ragularPrice)}</td>
                                         </tr>
                                     )
                                 }
@@ -129,7 +128,7 @@ const Cart = () => {
 
                     <div className=''>
                         <h6 className='justify-content-end h5 d-flex'> Sub Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{subTotal}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
-                        <h6 className='justify-content-end h5 d-flex'> Condition Charge: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{conditionCharge}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
+                        <h6 className='justify-content-end h5 d-flex'> Condition Charge: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{delivaryCharge}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
                         <h6 className='justify-content-end h5 d-flex'>  Grand Total: <article className='text-end' style={{ width: '150px', color: 'rgb(13, 0, 44)' }}>{grandTotal}<span style={{ fontFamily: "Sans-Serif", fontWeight: 'bold', fontSize: '17px' }}>৳</span></article></h6>
                     </div>
 

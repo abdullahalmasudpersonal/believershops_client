@@ -51,7 +51,7 @@ const Orders = () => {
                             <h5 className='text-center'>Your order is empty</h5>
                         </div>
                         :
-                        orders.map((order, index) =>
+                        orders.slice(0).reverse().map((order, index) =>
                             <div className='my-single-order mb-3'>
                                 <div className='px-3 pt-3 pb-2 d-flex justify-content-between'>
                                     <div>

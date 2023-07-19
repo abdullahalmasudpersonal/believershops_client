@@ -18,6 +18,10 @@ const OrderDetails = () => {
                     <p className='order-status-p'>{status}</p>
                 </div>
                 <p className='text-center m-0'>Order# &nbsp;0000{orderDetails.orderNo}</p>
+                <div className='mb-3 text-center'>
+                    <p className='mb-0'><small>Payment Number:</small> <span style={{ color: 'purple' }}>{orderDetails.paymentNumber}</span></p>
+                    <p className='mb-0'><small>Payment TransactionID: </small> <span style={{ color: 'purple' }}>{orderDetails.paymentTransaction}</span></p>
+                </div>
 
                 <div className='orderDetail-shipping-orderSummary mt-4'>
 
@@ -52,7 +56,7 @@ const OrderDetails = () => {
                                 </tr>
                                 <tr style={{ borderTop: '1px solid gray' }}>
                                     <td className='ps-0 pb-0'>Deu:</td>
-                                    <td className='ps-0 pb-0 text-end' style={{ color: 'red' }}>360<span style={{ fontSize: '15px', fontFamily: 'monospace' }}>৳</span></td>
+                                    <td className='ps-0 pb-0 text-end' style={{ color: 'red' }}>{orderDetails.grandTotal}<span style={{ fontSize: '15px', fontFamily: 'monospace' }}>৳</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -72,7 +76,7 @@ const OrderDetails = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                                 <tr>
                                     {/*  <th scope="row">{orderDetails.productsImage.map()}</th> */}
                                     {/* <td>{orderDetails.productsName.map(proname=><p>{proname}</p>)}</td> */}
@@ -85,9 +89,9 @@ const OrderDetails = () => {
                             </tbody>
                         </table>
                     </div>
-                   <div>
-                  {/*   {cart.map((product,index) =><p>{index}</p>)} */}
-                   </div>
+                    <div>
+                        {/*   {cart.map((product,index) =><p>{index}</p>)} */}
+                    </div>
                 </div>
 
             </div>
@@ -109,6 +113,15 @@ const OrderDetails = () => {
                             <div className='order-status-graph'>
                                 <h6>{orderDetails.confirmOrderStatus}</h6>
                                 <p className='m-0'>{orderDetails.confirmOrderDate}&nbsp;{orderDetails.confirmorderTime}</p>
+                            </div>
+                            :
+                            ""
+                    }
+                    {
+                        orderDetails.fakeOrderStatus ?
+                            <div className='order-status-graph'>
+                                <h6>{orderDetails.fakeOrderStatus}</h6>
+                                <p className='m-0'>{orderDetails.fakeOrderDate}&nbsp;{orderDetails.fakeOrderTime}</p>
                             </div>
                             :
                             ""
