@@ -9,7 +9,7 @@ const AllOrderDetail = () => {
     const { allOrderId } = useParams();
     const [allOrder, setAllOrder] = UseAllOrderDetail(allOrderId);
     const { register, handleSubmit, reset, } = useForm();
-    const { confirmOrderStatus, cancelOrderStatus, deliveredOrderStatus, fakeOrderStatus } = allOrder;
+    const { status, confirmOrderStatus, cancelOrderStatus, deliveredOrderStatus, fakeOrderStatus } = allOrder;
 
     const id = allOrder._id;
     /* get time for update order status */
@@ -33,7 +33,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            fetch(`http://localhost:5000/confirmOrderStatus/${id}`,updateConfirmOrder, {
+            fetch(`http://localhost:5000/confirmOrderStatus/${id}`, updateConfirmOrder, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -246,7 +246,7 @@ const AllOrderDetail = () => {
 
                 <div className='text-center'>
                     <div className='mb-3'>
-                        {(!confirmOrderStatus && !cancelOrderStatus  && !fakeOrderStatus) && <> <button type="button" class="btn btn-info" onClick={handleConfirmOrderStatus}>Comfirm Order</button></>}
+                        {(!confirmOrderStatus && !cancelOrderStatus && !fakeOrderStatus) && <> <button type="button" class="btn btn-info" onClick={handleConfirmOrderStatus}>Comfirm Order</button></>}
                     </div>
                     <div className='mb-3'>
                         {(!cancelOrderStatus && !deliveredOrderStatus && !fakeOrderStatus) && <> <button type="button" class="btn btn-warning" onClick={handleCancelOrderStatus}>Cancel Order</button></>}

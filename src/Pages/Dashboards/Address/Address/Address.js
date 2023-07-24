@@ -26,7 +26,16 @@ const Address = () => {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
-        }).then(res => res.json()));
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    navigate('/');
+                    localStorage.removeItem('accessToken');
+                }
+                return res.json()
+            })
+    );
     if (isLoading) {
         return <Loading />
     };
@@ -96,7 +105,7 @@ const Address = () => {
                             <p>{address.state}</p>
                             <h6 className='mt-2'>Phone: {address.phoneNumber}</h6>
                             <div className='d-flex gap-3 mt-4 '>
-                                <button onClick={()=>navigateToOrderDetail(address._id)} className='address-edit-btn'>Edit</button>
+                                <button onClick={() => navigateToOrderDetail(address._id)} className='address-edit-btn'>Edit</button>
                                 <button onClick={() => deleteAddress(address._id)} className='address-delete-btn'>Delete</button>
                             </div>
                         </div>

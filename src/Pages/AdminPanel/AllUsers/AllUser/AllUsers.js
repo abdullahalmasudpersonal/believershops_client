@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './AllUsers.css';
-import Loading from '../../Shared/Loading/Loading';
+import Loading from '../../../Shared/Loading/Loading';
 import { useQuery } from 'react-query';
 import UserRow from './UserRow';
-import PageTitle from '../../Shared/PageTitle/PageTitle';
+import PageTitle from '../../../Shared/PageTitle/PageTitle';
 
 const AllUsers = () => {
     const [searchUser, setSearchUser] = useState('');

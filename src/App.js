@@ -28,7 +28,6 @@ import ScrollingBtn from './Pages/Shared/ScrollingBtn/ScrollingBtn';
 import Checkout from './Pages/Checkout/Checkout';
 import Allorder from './Pages/AdminPanel/AllOrders/Allorder/Allorder';
 import BottemHeader from './Pages/Shared/BottemHeader/BottemHeader';
-import AllUsers from './Pages/AdminPanel/AllUsers/AllUsers';
 import AllAdmins from './Pages/AdminPanel/AllAdmins/AllAdmins';
 import RequireAdmin from './Pages/Shared/RequireAuth/RequireAdmin';
 import HomeAdmin from './Pages/AdminPanel/HomeAdmin/HomeAdmin';
@@ -62,6 +61,8 @@ import AlifAttars from './Pages/Categories/Islamic/Attars/AlifAttars/AlifAttars/
 import Messwalks from './Pages/Categories/Islamic/Messwalks/Messwalks/Messwalks';
 import SearchBerResult from './Pages/Shared/Header/SearchBerResult/SearchBerResult';
 import AppContext from './Context/AppContext';
+import AllUsers from './Pages/AdminPanel/AllUsers/AllUser/AllUsers';
+import AllUserDetails from './Pages/AdminPanel/AllUsers/AllUserDetails/AllUserDetails';
 
 
 function App() {
@@ -142,6 +143,7 @@ function App() {
             <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
             <Route path='allAdmin' element={<AllAdmins />} />
             <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />
+            <Route path='allUser/user_details/:userId' element={<RequireAdmin><AllUserDetails /></RequireAdmin>} />
             <Route path='create_product' element={<CreateProduct />} />
             <Route path='update_product' element={<UpdateProducts />} />
             <Route path='update_product/:productId' element={<UpdateProductInfo />} />

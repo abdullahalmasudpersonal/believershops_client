@@ -3,27 +3,34 @@ import './AllUsers.css';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faL } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const UserRow = ({ user, index, refetch }) => {
-    const { email, role } = user;
+    const { _id, email, role } = user;
     const [isOnLine, setOnline] = useState(false);
+    const navigate = useNavigate();
 
-     useEffect(() => {
-           function handleOnlineStatus() {
-               setOnline(true);
-           }
-           function handleOfflineStatus() {
-               setOnline(false);
-           }
-           window.addEventListener("online", handleOnlineStatus);
-           window.addEventListener("offline", handleOfflineStatus);
-   
-           return () => {
-               window.addEventListener("online", handleOnlineStatus);
-               window.addEventListener("offline", handleOfflineStatus);
-           };
-   
-       }, []); 
+    const navigateToDetailUser = () => {
+        navigate(`/admin/allUser/user_details/${_id}`)
+    }
+
+
+    useEffect(() => {
+        function handleOnlineStatus() {
+            setOnline(true);
+        }
+        function handleOfflineStatus() {
+            setOnline(false);
+        }
+        window.addEventListener("online", handleOnlineStatus);
+        window.addEventListener("offline", handleOfflineStatus);
+
+        return () => {
+            window.addEventListener("online", handleOnlineStatus);
+            window.addEventListener("offline", handleOfflineStatus);
+        };
+
+    }, []);
 
 
     const makeAdmin = () => {
@@ -53,25 +60,25 @@ const UserRow = ({ user, index, refetch }) => {
     return (
         <>
             <tr>
-                <th scope="row">{index + 1}</th>
+                <th scope="row" className='align-middle'>{index + 1}</th>
 
-                <td className='align-middle'>{email}</td>
+                <td className='align-middle' onClick={() => navigateToDetailUser(_id)}>{email}</td>
 
-                <td> {role !== 'admin' && <button onClick={makeAdmin} className='create-admin-btn px-2 py-1'>Create Admin</button>}</td>
+                <td className='align-middle'> {role !== 'admin' && <button onClick={makeAdmin} className='create-admin-btn px-2 py-1'>Create Admin</button>}</td>
 
-                <td>{role === 'admin' && <p className='text-success fw-bold'></p>}7:48 PM<br />Friday, April 14, 2023 </td>
+                <td className='align-middle'>{role === 'admin' && <p className=' text-success fw-bold'></p>}7:48 PM<br />Friday, April 14, 2023 </td>
 
                 {/* <td className='align-middle m-auto'>
                     <span className='fw-bold text-success'>Online</span>
                 </td> */}
-                     {
+                {
                     isOnLine === true ?
 
                         (<td className='align-middle'><span className='fw-bold text-success'>Online</span></td>)
 
                         :
 
-                       ( <td className='align-middle'><span className='fw-bold text-danger'>Offline</span> </td>)
+                        (<td className='align-middle'><span className='fw-bold text-danger'>Offline</span> </td>)
                 }
 
                 <td className='text-end align-middle'><button /* onClick={() => handleUserDelete(order._id)} */ className=' delete-user-btn px-2 py-1'>Delete</button></td>
