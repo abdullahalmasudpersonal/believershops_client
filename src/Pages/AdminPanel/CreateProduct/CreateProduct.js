@@ -155,6 +155,8 @@ const CreateProduct = () => {
                             </select>
                             <label>Name</label>
                             <input type='text' placeholder='Enter Product Name' {...register("name", { required: true })} required />
+                            <label>Purchase Price</label>
+                            <input type='number' placeholder='Enter Product Available Quantity' {...register("availableQuantity", { required: true })} required />
                             <label>Available Quantity</label>
                             <input type='number' placeholder='Enter Product Available Quantity' {...register("availableQuantity", { required: true })} required />
                             <label>Price</label>
@@ -162,6 +164,8 @@ const CreateProduct = () => {
                             <label>Ragular Price</label>
                             <input type='number' placeholder='Enter Product Regular Price' {...register("ragularPrice", { required: true })} required />
                             <label>Offer Price</label>
+                            <input type='number' placeholder='Enter Product Offer Price' {...register("offerPrice", { required: true })} required />
+                            <label>Discount Percentage</label>
                             <input type='number' placeholder='Enter Product Offer Price' {...register("offerPrice", { required: true })} required />
                             <label>Description Summary</label>
                             <textarea type='text' placeholder='Enter Product Description-1' {...register("description", { required: true })} required />

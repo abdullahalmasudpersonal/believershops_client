@@ -1,20 +1,14 @@
-@media screen and (min-width:931px) {
-    .bottemHeader {
-        display: none;
-    }
-}
 
 .bottemHeader {
-    overflow: hidden;
+   overflow: hidden;
+    bottom: 0;
+    left: 0;
     height: 45px;
     width: 100%;
-    background-color: rgb(225, 240, 255);
-    bottom: 0;
-    box-shadow: rgb(5, 0, 0) 0px 1px 0px, rgba(85, 85, 85, 0.726) 10px 2px 8px;
+    background-color: rgb(229, 241, 253);
 }
 
 .bottemHeader-dev {
-    margin-top: 2px;
     height: 45px;
     display: flex;
     justify-content: space-around;
@@ -44,4 +38,10 @@
 .header-buttom-cart-quantity {
     color: rgb(230, 230, 230);
     font-size: 16px;
+}
+
+@media screen and (min-width:931px) {
+    .bottemHeader {
+        display: none;
+    }
 }

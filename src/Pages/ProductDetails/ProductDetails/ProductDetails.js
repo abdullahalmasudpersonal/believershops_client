@@ -112,7 +112,7 @@ const ProductDetails = () => {
                 </div>
             </div>
             <ProductDesWR productDetails={productDetails} />
-            <ProductDetailReVe />
+         {/*    <ProductDetailReVe /> */}
         </div>
     );
 };

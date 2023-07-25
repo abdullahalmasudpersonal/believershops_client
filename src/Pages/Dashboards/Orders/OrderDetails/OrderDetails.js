@@ -19,8 +19,12 @@ const OrderDetails = () => {
                 </div>
                 <p className='text-center m-0'>Order# &nbsp;0000{orderDetails.orderNo}</p>
                 <div className='mb-3 text-center'>
-                    <p className='mb-0'><small>Payment Number:</small> <span style={{ color: 'purple' }}>{orderDetails.paymentNumber}</span></p>
-                    <p className='mb-0'><small>Payment TransactionID: </small> <span style={{ color: 'purple' }}>{orderDetails.paymentTransaction}</span></p>
+                    { orderDetails.paymentNumber ? 
+                        <p className='mb-0'><small>Payment Number:</small> <span style={{ color: 'purple' }}>{orderDetails.paymentNumber}</span></p> :''
+                    }
+                    {orderDetails.paymentTransaction?
+                        <p className='mb-0'><small>Payment TransactionID: </small> <span style={{ color: 'purple' }}>{orderDetails.paymentTransaction}</span></p>:''
+                    }
                 </div>
 
                 <div className='orderDetail-shipping-orderSummary mt-4'>

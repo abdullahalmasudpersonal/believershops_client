@@ -69,7 +69,7 @@ function App() {
 
   return (
     <AppContext>
-      <div>
+      <div className='apps'>
         <ScrollingBtn />
         <Header />
         <Routes>
@@ -158,7 +158,7 @@ function App() {
           <Route path='/terms_condition' element={<TermsCondition />} />
           <Route path='*' element={<Notfound />} />
         </Routes>
-        {/*         <Footer /> */}
+        <Footer /> 
         <BottemHeader />
         <ToastContainer
           position="top-center"
