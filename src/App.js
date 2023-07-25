@@ -63,7 +63,7 @@ import SearchBerResult from './Pages/Shared/Header/SearchBerResult/SearchBerResu
 import AppContext from './Context/AppContext';
 import AllUsers from './Pages/AdminPanel/AllUsers/AllUser/AllUsers';
 import AllUserDetails from './Pages/AdminPanel/AllUsers/AllUserDetails/AllUserDetails';
-
+import Graphs from './Pages/AdminPanel/Graphs/Graphs';
 
 function App() {
 
@@ -140,6 +140,7 @@ function App() {
           <Route path='/admin' element={<RequireAdmin><Admin /></RequireAdmin>}>
             <Route index element={<HomeAdmin />} />
             <Route path='allOrder' element={<Allorder />} />
+            <Route path='graphs' element={<Graphs />} />
             <Route path='allOrder/:allOrderId' element={<AllOrderDetail />} />
             <Route path='allAdmin' element={<AllAdmins />} />
             <Route path='allUser' element={<RequireAdmin><AllUsers /></RequireAdmin>} />

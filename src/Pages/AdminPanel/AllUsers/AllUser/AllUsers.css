@@ -20,3 +20,13 @@
 .delete-user-btn:hover{
     background-color: rgb(255, 56, 7);
 }
+/* ----------------------cuserRow in css --------------- */
+.allUserEmail{
+    cursor: pointer;
+    color: rgb(39, 39, 39);
+    transition: .3s;
+}
+.allUserEmail:hover{
+    color: rgb(255, 106, 0);
+    text-decoration:underline;
+}

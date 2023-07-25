@@ -31,6 +31,9 @@ const Admin = () => {
                         <Link to='/admin' >
                             <button>Home</button>
                         </Link>
+                        <Link to='/admin/graphs' >
+                            <button>Graph</button>
+                        </Link>
                         <Link to='/admin/allOrder'>
                             <button>All Order</button>
                         </Link>

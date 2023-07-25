@@ -25,19 +25,22 @@ const AllOrderDetail = () => {
     var optionss = { year: 'numeric', month: 'long', day: 'numeric' };
     var cDates = today.toLocaleString('en-US', optionss);
     const cDate = cDates;
+
     const handleConfirmOrderStatus = (event) => {
         event.preventDefault();
         const updateConfirmOrder = {
-            confirmOrderDate: cTime,
-            confirmorderTime: cDate
+            confirmOrderDate: cDate,
+            confirmOrderTime: cTime
         }
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            fetch(`http://localhost:5000/confirmOrderStatus/${id}`, updateConfirmOrder, {
+            fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
+                    'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
+                },
+                body: JSON.stringify(updateConfirmOrder)
             })
                 .then(res => res.json())
                 .then(data => {
@@ -49,13 +52,19 @@ const AllOrderDetail = () => {
 
     const handleCancelOrderStatus = (event) => {
         event.preventDefault();
+        const updateCancelOrder = {
+            cancelOrderDate: cDate,
+            cancelOrderTime: cTime
+        }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
             fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
+                    'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
+                },
+                body: JSON.stringify(updateCancelOrder)
             })
                 .then(res => res.json())
                 .then(data => {
@@ -67,13 +76,19 @@ const AllOrderDetail = () => {
 
     const handleDeliveredOrderStatus = event => {
         event.preventDefault();
+        const updateDeliveredOrder = {
+            deliveredOrderTime: cTime,
+            deliveredOrderDate: cDate
+        }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
             fetch(`http://localhost:5000/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
+                    'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
+                },
+                body: JSON.stringify(updateDeliveredOrder)
             })
                 .then(res => res.json())
                 .then(data => {
@@ -86,7 +101,7 @@ const AllOrderDetail = () => {
     const handleFakeOrderStatus = event => {
         event.preventDefault();
         const updateFakeOrder = {
-            fakeorderTime: cTime,
+            fakeOrderTime: cTime,
             fakeOrderDate: cDate
         }
         const proceed = window.confirm('Are you sure?')
@@ -236,7 +251,7 @@ const AllOrderDetail = () => {
                                 <option value="Confirm Order">Confirm Order</option>
                                 <option value="Cancel Order">Cancel Order</option>
                                 <option value="Delivered Order">Delivered Order</option>
-                                <option value="Pneding Order">Pending Order</option>
+                                <option value="Pending Order">Pending Order</option>
                                 <option value="Fake Order">Fake Order</option>
                             </select> &nbsp;&nbsp;
                             <button className='btn btn-success'>Submit</button>
@@ -251,11 +266,11 @@ const AllOrderDetail = () => {
                     <div className='mb-3'>
                         {(!cancelOrderStatus && !deliveredOrderStatus && !fakeOrderStatus) && <> <button type="button" class="btn btn-warning" onClick={handleCancelOrderStatus}>Cancel Order</button></>}
                     </div>
-                    <div>
+                    <div className='mb-3'>
                         {(confirmOrderStatus && !deliveredOrderStatus && !cancelOrderStatus) && <> <button type="button" class="btn btn-success" onClick={handleDeliveredOrderStatus}>Delivered Order</button></>}
                     </div>
                     <div className='mb-3'>
-                        {(!fakeOrderStatus && !cancelOrderStatus && !deliveredOrderStatus) && <> <button type="button" class="btn btn-danger" onClick={handleFakeOrderStatus}>Fake Order</button></>}
+                        {(!fakeOrderStatus && !cancelOrderStatus && !deliveredOrderStatus && !confirmOrderStatus) && <> <button type="button" class="btn btn-danger" onClick={handleFakeOrderStatus}>Fake Order</button></>}
                     </div>
                 </div>
 
@@ -292,7 +307,7 @@ const AllOrderDetail = () => {
                         confirmOrderStatus ?
                             <div className='order-status-graph'>
                                 <h6>{allOrder.confirmOrderStatus}</h6>
-                                <p className='m-0'>{allOrder.confirmOrderDate}&nbsp;{allOrder.confirmorderTime}</p>
+                                <p className='m-0'>{allOrder.confirmOrderDate}&nbsp;{allOrder.confirmOrderTime}</p>
                             </div>
                             :
                             ""

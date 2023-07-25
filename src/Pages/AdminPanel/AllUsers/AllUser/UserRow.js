@@ -62,7 +62,7 @@ const UserRow = ({ user, index, refetch }) => {
             <tr>
                 <th scope="row" className='align-middle'>{index + 1}</th>
 
-                <td className='align-middle' onClick={() => navigateToDetailUser(_id)}>{email}</td>
+                <td className='align-middle'><span className='allUserEmail' onClick={() => navigateToDetailUser(_id)}>{email}</span></td>
 
                 <td className='align-middle'> {role !== 'admin' && <button onClick={makeAdmin} className='create-admin-btn px-2 py-1'>Create Admin</button>}</td>
 

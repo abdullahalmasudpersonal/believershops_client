@@ -18,6 +18,7 @@ const Allorder = () => {
     const countPendingOrder = allOrder.filter(status => status.status === 'Pending Order').length;
     const countConfirmOrder = allOrder.filter(status => status.status === 'Confirm Order').length;
     const countCancelOrder = allOrder.filter(status => status.status === 'Cancel Order').length;
+    const countFakeOrder = allOrder.filter(status => status.status === 'Fake Order').length;
     const countDeliveredOrder = allOrder.filter(status => status.status === 'Delivered Order').length;
 
     /* Dlete order  */
@@ -67,9 +68,19 @@ const Allorder = () => {
                     onChange={search.bind(this)} />
             </div>
             <div className='pt-4 px-4 d-flex justify-content-between'>
-                <h5 className='fw-bold side-header'>Confirm Orders ({countConfirmOrder})</h5>
+                <div className='d-flex'>
+                    <h5 className='fw-bold side-header'>Confirm Orders<span style={{ color: 'green' }}> ({countConfirmOrder})</span>
+                    </h5>
+                    {countConfirmOrder <1 ? '':
+                       <div class="spinner-grow text-success" role="status">
+                            <span class="visually-hidden"></span>
+                        </div> 
+                    }
+                </div>
+
                 <h5 className='fw-bold side-header'>Delivered Orders ({countDeliveredOrder})</h5>
                 <h5 className='fw-bold side-header'>Cancel Orders ({countCancelOrder})</h5>
+                <h5 className='fw-bold side-header'>Fake Orders ({countFakeOrder})</h5>
             </div>
             <hr />
             <div className='px-3 table-responsive' >
@@ -104,7 +115,7 @@ const Allorder = () => {
                                     </td>
 
                                     <td className='text-end'>
-                                        {(!allOrder.confirmOrderStatus && !allOrder.cancelOrderStatus) && <button type="button" class="btn btn-danger" onClick={() => deleteOrder(allOrder._id)}  /* disabled={allOrder.confirmOrderStatus === 'Confirm Order'} */>
+                                        {(!allOrder.confirmOrderStatus && !allOrder.cancelOrderStatus && !allOrder.fakeOrderStatus) && <button type="button" class="btn btn-danger" onClick={() => deleteOrder(allOrder._id)}  /* disabled={allOrder.confirmOrderStatus === 'Confirm Order'} */>
                                             Delete
                                         </button>}
                                     </td>
