@@ -6,7 +6,7 @@ const UseAllOrders = () => {
     const [user] = useAuthState(auth);
     const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allOrder?email=${user.email}`, {
+        fetch(`https://mahsez-server.onrender.com/allOrder?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

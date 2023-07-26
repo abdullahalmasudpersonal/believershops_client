@@ -5,7 +5,7 @@ const UseAddressDetail = () => {
     const { addressId } = useParams();
     const [addressDetail, setAddressDetail] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myAddress/${addressId}`, {
+        fetch(`https://mahsez-server.onrender.com/myAddress/${addressId}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

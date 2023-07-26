@@ -33,7 +33,7 @@ const UpdateShippingAddress = () => {
                 state: data.state,
                 phoneNumber: data.phoneNumber
             }
-            fetch(`http://localhost:5000/address/${_id}`, {
+            fetch(`https://mahsez-server.onrender.com/address/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

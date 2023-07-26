@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const UseBlgos = () =>{
     const [blgos, setBlogs] = useState([]);
     useEffect( () =>{
-        fetch(`http://localhost:5000/blogs`)
+        fetch(`https://mahsez-server.onrender.com/blogs`)
         .then(res => res.json())
         .then(data => setBlogs(data));
     }, []);
@@ -11,4 +11,4 @@ const UseBlgos = () =>{
 }
 
 export default UseBlgos;
-/* http://localhost:5000/blogs */
+/* https://mahsez-server.onrender.com/blogs */
