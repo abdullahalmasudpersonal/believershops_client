@@ -2,6 +2,8 @@ import React from 'react';
 import './OrderDetails.css';
 import { useParams } from 'react-router-dom';
 import UseOrderDetails from '../../../../Hooks/UseOrders/UseOrderDetails';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
 
 const OrderDetails = () => {
     const { myOrderId } = useParams();
@@ -101,7 +103,10 @@ const OrderDetails = () => {
             </div>
 
             <div className='orderDetail-dev2'>
-                <h5>Order History</h5>
+               <div className='d-flex justify-content-between align-content-center'>
+               <h5>Order History</h5>
+               <button className='orderDetail-dev2-prientBtn'> <FontAwesomeIcon icon={faPrint} /></button>
+               </div>
                 <div className='mt-4 ps-2'>
                     {
                         orderDetails.deliveredOrderStatus ?

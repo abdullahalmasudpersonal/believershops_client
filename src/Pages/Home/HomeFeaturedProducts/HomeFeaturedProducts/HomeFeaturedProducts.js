@@ -1,10 +1,10 @@
 import React from 'react';
-import UseAttars from '../../../../Hooks/UseAttars/UseAttars';
 import '../../Home/HomeProducts.css';
 import HomeProduct from '../../HomeProduct/HomeProduct';
+import UseProducts from '../../../../Hooks/UseProducts/UseProducts';
 
 const HomeFeaturedProducts = () => {
-    const [attars, setAttars] = UseAttars([]);
+    const [attars, setAttars] = UseProducts([]);
 
     return (
         <div className=''>

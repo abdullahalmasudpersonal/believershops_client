@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import UseAllOrderDetail from '../../../../Hooks/UseAllOrders/UseAllOrderDetail';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
 
 const AllOrderDetail = () => {
     const { allOrderId } = useParams();
@@ -239,6 +241,7 @@ const AllOrderDetail = () => {
             </div>
 
             <div className='allOrderDetail-part2 p-4'>
+                <button className='allOrderDetail-part2-prientBtn'><FontAwesomeIcon icon={faPrint} />&nbsp;Proview Invoice</button>
                 <div className='mb-3'>
                     <p className='mb-0'><small>Payment Number:</small> <span style={{ color: 'purple' }}>{allOrder.paymentNumber}</span></p>
                     <p className='mb-0'><small>Payment TransactionID: </small> <span style={{ color: 'purple' }}>{allOrder.paymentTransaction}</span></p>

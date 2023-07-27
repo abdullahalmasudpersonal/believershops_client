@@ -8,7 +8,8 @@ import AppContext from '../../../../Context/AppContext';
 const NestedProduct = ({nestedProduct}) => {
     const { _id, brand, name, image1, availableQuantity, ragularPrice, offerPrice, weight1 } = nestedProduct;
     const navigate = useNavigate();
-    const [products, cart, handleAddToCard] = useContext(AppContext);
+   /*  const [  
+        handleAddToCard] = useContext(AppContext); */
 
     const navigateToProductDetails = _id => {
         navigate(`/categore/products/${_id}`);
@@ -56,10 +57,10 @@ const NestedProduct = ({nestedProduct}) => {
                         </div>
                         :
                         <div className='nestedProductAddCart'>
-                            <button onClick={() => handleAddToCard(nestedProduct)}>
+                           {/*  <button onClick={() => handleAddToCard(nestedProduct)}>
                                 <FontAwesomeIcon icon={faShoppingCart} />&nbsp;
                                 Add to Cart
-                            </button>
+                            </button> */}
                         </div>
                 }
             </>
