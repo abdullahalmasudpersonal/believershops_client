@@ -25,7 +25,7 @@ const Allorder = () => {
     const deleteOrder = _id => {
         const proceed = window.confirm(`Are you sure Delete order`);
         if (proceed) {
-            const url = `https://mahsez-server.onrender.com/deleteOrder/${_id}`;
+            const url = `http://localhost:5000/deleteOrder/${_id}`;
             fetch(url, {
                 method: 'DELETE',
                 headers: {

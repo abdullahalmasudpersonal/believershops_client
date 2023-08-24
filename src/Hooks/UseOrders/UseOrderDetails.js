@@ -7,7 +7,7 @@ const UseOrderDetails = myOrderId =>{
     const [orderDetails, setOrderDetails] = useState([]);
     const navigate = useNavigate();
     useEffect( () =>{
-        const url = `https://mahsez-server.onrender.com/myOrder/${myOrderId}`;
+        const url = `http://localhost:5000/myOrder/${myOrderId}`;
         fetch(url, {
             method:'GET',
             headers: {

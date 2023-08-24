@@ -13,6 +13,7 @@ const UpdateShippingAddress = () => {
     const [addressDetails, setAddressDetaisl] = UseAddressDetail(addressId);
 
     const { _id,coustomerName, companyName, address1, address2, city, postCode, state, phoneNumber } = addressDetails;
+    console.log(addressDetails)
 
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const UpdateShippingAddress = () => {
                 state: data.state,
                 phoneNumber: data.phoneNumber
             }
-            fetch(`https://mahsez-server.onrender.com/address/${_id}`, {
+            fetch(`http://localhost:5000/api/v1/address/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

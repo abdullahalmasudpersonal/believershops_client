@@ -70,7 +70,7 @@ const Checkout = (allOrderId) => {
 
         const proceed = window.confirm('Are you sure place order !!!')
         if (proceed) {
-            axios.post('https://mahsez-server.onrender.com/allOrder', allOrder)
+            axios.post('http://localhost:5000/allOrder', allOrder)
                 .then(response => {
                     const { data } = response;
                     // console.log(data.insertedId)

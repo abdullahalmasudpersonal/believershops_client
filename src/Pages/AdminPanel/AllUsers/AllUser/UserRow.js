@@ -36,7 +36,7 @@ const UserRow = ({ user, index, refetch }) => {
     const makeAdmin = () => {
         const proceed = window.confirm(`Are You Sure Create Admin ${email}`);
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/user/admin/${email}`, {
+            fetch(`http://localhost:5000/user/admin/${email}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`

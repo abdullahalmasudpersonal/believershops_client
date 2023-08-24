@@ -36,7 +36,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/confirmOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -60,7 +60,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/cancelOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -84,7 +84,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/deliveredOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -108,7 +108,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/fakeOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/fakeOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -125,7 +125,7 @@ const AllOrderDetail = () => {
     };
 
     /*     const deliveredOrderStatus = () => {
-            fetch(`https://mahsez-server.onrender.com/user/deliveredOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -144,7 +144,7 @@ const AllOrderDetail = () => {
             const updateOrderStatus = {
                 status: data.status
             }
-            fetch(`https://mahsez-server.onrender.com/updateOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/updateOrderStatus/${id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json',

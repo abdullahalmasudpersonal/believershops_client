@@ -29,7 +29,7 @@ const Footer = () => {
                             <a href="https://www.instagram.com/m.mahsez" target='noopener' className=" text-reset instagram-footer-bd-color" style={{ padding: '6px 11px', backgroundColor: '	#feda75 ' }}>
                                 <i className="fab fa-instagram"></i>
                             </a>
-                            <a href="linkedIn.com" className=" text-reset" target='noopener' style={{ padding: '6px 11px', backgroundColor: '	#0072b1 ' }}>
+                            <a href="https://www.linkedin.com/company/mahsez" className=" text-reset" target='noopener' style={{ padding: '6px 11px', backgroundColor: '	#0072b1 ' }}>
                                 <i className="fab fa-linkedin"></i>
                             </a>
                         </div>

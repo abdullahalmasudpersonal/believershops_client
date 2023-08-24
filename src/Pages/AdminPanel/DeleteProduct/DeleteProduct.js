@@ -12,7 +12,7 @@ const DeleteProduct = () => {
     const handleDelete = _id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `https://mahsez-server.onrender.com/products/${_id}`;
+            const url = `http://localhost:5000/products/${_id}`;
             fetch(url, {
                 method: 'DELETE'
             })

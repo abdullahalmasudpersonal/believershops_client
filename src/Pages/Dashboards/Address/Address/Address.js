@@ -21,7 +21,7 @@ const Address = () => {
     };
 
     const { data: addresses, isLoading, refetch } = useQuery('addresses',
-        () => fetch(`https://mahsez-server.onrender.com/myAddress?email=${user.email}`, {
+        () => fetch(`http://localhost:5000/api/v1/address?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -45,7 +45,7 @@ const Address = () => {
     };
 
     /* useEffect(() => {
-        fetch(`https://mahsez-server.onrender.com/myAddress?email=${user.email}`, {
+        fetch(`http://localhost:5000/api/v1/address?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -67,7 +67,7 @@ const Address = () => {
     const deleteAddress = _id => {
         const proceed = window.confirm('Are you sure you want to delete this address?');
         if (proceed) {
-            fetch(`https://mahsez-server.onrender.com/myAddress/${_id}`, {
+            fetch(`http://localhost:5000/api/v1/address/${_id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
