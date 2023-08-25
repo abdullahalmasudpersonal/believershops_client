@@ -11,4 +11,3 @@ const UseBlgos = () =>{
 }
 
 export default UseBlgos;
-/* http://localhost:5000/blogs */
