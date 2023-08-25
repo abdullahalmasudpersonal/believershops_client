@@ -29,7 +29,7 @@ const AddShippingAddress = () => {
             state: data.state,
             phoneNumber: data.phoneNumber
         };
-        fetch('http://localhost:5000/address', {
+        fetch('http://localhost:5000/api/v1/address', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
