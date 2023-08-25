@@ -79,7 +79,7 @@ const CreateProduct = () => {
                             image1: imgData.data.url,
                             image2: imgData.data.url
                         }
-                        fetch('http://localhost:5000/products', {
+                        fetch('http://localhost:5000/api/v1/products', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json',

@@ -12,9 +12,13 @@ const DeleteProduct = () => {
     const handleDelete = _id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/products/${_id}`;
+            const url = `http://localhost:5000/api/v1/products/${_id}`;
             fetch(url, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
