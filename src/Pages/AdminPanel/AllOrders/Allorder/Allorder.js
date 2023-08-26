@@ -25,7 +25,7 @@ const Allorder = () => {
     const deleteOrder = _id => {
         const proceed = window.confirm(`Are you sure Delete order`);
         if (proceed) {
-            const url = `http://localhost:5000/deleteOrder/${_id}`;
+            const url = `http://localhost:5000/api/v1/allOrders/${_id}`;
             fetch(url, {
                 method: 'DELETE',
                 headers: {

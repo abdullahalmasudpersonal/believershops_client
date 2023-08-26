@@ -36,7 +36,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            fetch(`http://localhost:5000/confirmOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/api/v1/allOrders/confirmOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -131,7 +131,7 @@ const AllOrderDetail = () => {
             const updateOrderStatus = {
                 status: data.status
             }
-            fetch(`http://localhost:5000/updateOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/api/v1/allOrders/updateOrderStatus/${id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json',
