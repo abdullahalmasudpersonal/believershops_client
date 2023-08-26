@@ -8,7 +8,7 @@ import PageTitle from '../../../Shared/PageTitle/PageTitle';
 const AllUsers = () => {
     const [searchUser, setSearchUser] = useState('');
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/api/v1/users', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

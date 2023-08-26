@@ -124,19 +124,6 @@ const AllOrderDetail = () => {
         }
     };
 
-    /*     const deliveredOrderStatus = () => {
-            fetch(`http://localhost:5000/user/deliveredOrderStatus/${id}`, {
-                method: 'PUT',
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
-        };
-     */
 
     const handleUpdateOrderStatus = async data => {
         const proceed = window.confirm(`Are you sure ?`);
