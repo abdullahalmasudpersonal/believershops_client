@@ -60,7 +60,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/cancelOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/api/v1/allOrders/cancelOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -84,7 +84,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/deliveredOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/api/v1/allOrders/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -108,7 +108,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/fakeOrderStatus/${id}`, {
+            fetch(`http://localhost:5000/api/v1/allOrders/fakeOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
