@@ -7,7 +7,7 @@ const UseOrderDetails = myOrderId =>{
     const [orderDetails, setOrderDetails] = useState([]);
     const navigate = useNavigate();
     useEffect( () =>{
-        const url = `http://localhost:5000/api/v1/myOrders/${myOrderId}`;
+        const url = `https://mahsez-server.vercel.app/api/v1/myOrders/${myOrderId}`;
         fetch(url, {
             method:'GET',
             headers: {

@@ -14,7 +14,7 @@ const Orders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/myOrders?email=${user.email}`, {
+        fetch(`https://mahsez-server.vercel.app/api/v1/myOrders?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

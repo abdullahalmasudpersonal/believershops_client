@@ -9,7 +9,7 @@ const UseCart = () => {
         const savedCart = [];
         const keys = Object.keys(storedCart);
 
-        fetch('http://localhost:5000/api/v1/products/productsByKeys', {
+        fetch('https://mahsez-server.vercel.app/api/v1/products/productsByKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

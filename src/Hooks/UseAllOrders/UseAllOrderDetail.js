@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const UseAllOrderDetail = allOrderId => {
     const [allOrder, setAllOrder] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/api/v1/allOrders/${allOrderId}`;
+        const url = `https://mahsez-server.vercel.app/api/v1/allOrders/${allOrderId}`;
         fetch(url, {
             method: 'GET',
             headers: {

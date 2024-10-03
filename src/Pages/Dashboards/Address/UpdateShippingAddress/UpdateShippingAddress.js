@@ -33,7 +33,7 @@ const UpdateShippingAddress = () => {
                 state: data.state,
                 phoneNumber: data.phoneNumber
             }
-            fetch(`http://localhost:5000/api/v1/address/${_id}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/address/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

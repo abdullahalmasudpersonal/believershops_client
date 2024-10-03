@@ -36,7 +36,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            fetch(`http://localhost:5000/api/v1/allOrders/confirmOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/allOrders/confirmOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -60,7 +60,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/api/v1/allOrders/cancelOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/allOrders/cancelOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -84,7 +84,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/api/v1/allOrders/deliveredOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/allOrders/deliveredOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -108,7 +108,7 @@ const AllOrderDetail = () => {
         }
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/api/v1/allOrders/fakeOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/allOrders/fakeOrderStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -131,7 +131,7 @@ const AllOrderDetail = () => {
             const updateOrderStatus = {
                 status: data.status
             }
-            fetch(`http://localhost:5000/api/v1/allOrders/updateOrderStatus/${id}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/allOrders/updateOrderStatus/${id}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json',

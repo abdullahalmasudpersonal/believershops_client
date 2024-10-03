@@ -5,7 +5,7 @@ const UseAddressDetail = () => {
     const { addressId } = useParams();
     const [addressDetail, setAddressDetail] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/address/${addressId}`, {
+        fetch(`https://mahsez-server.vercel.app/api/v1/address/${addressId}`, {
             method: "GET",
             headers: {
                 'content-type': 'application/json',

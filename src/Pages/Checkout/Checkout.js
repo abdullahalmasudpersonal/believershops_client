@@ -70,7 +70,7 @@ const Checkout = (allOrderId) => {
 
         const proceed = window.confirm('Are you sure place order !!!')
         if (proceed) {
-            axios.post('http://localhost:5000/api/v1/myOrders', allOrder)
+            axios.post('https://mahsez-server.vercel.app/api/v1/myOrders', allOrder)
                 .then(response => {
                     const { data } = response;
                     // console.log(data.insertedId)

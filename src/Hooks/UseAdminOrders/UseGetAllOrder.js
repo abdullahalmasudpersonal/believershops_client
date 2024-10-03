@@ -8,7 +8,7 @@ const UseGetAllOrder = ()=>{
     const [user] = useAuthState(auth);
     const [allOrder, setAllOrder] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/allOrders?email=${user.email}`, {
+        fetch(`https://mahsez-server.vercel.app/api/v1/allOrders?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -45,7 +45,7 @@ const UpdateProductInfo = () => {
         ragularPrice: data.ragularPrice,
         offerPrice: data.offerPrice
       }
-      fetch(`http://localhost:5000/api/v1/products/${_id}`, {
+      fetch(`https://mahsez-server.vercel.app/api/v1/products/${_id}`, {
         method: 'PUT',
         headers: {
           'content-type': 'application/json',

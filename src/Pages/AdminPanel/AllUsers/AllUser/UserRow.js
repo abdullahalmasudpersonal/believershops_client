@@ -36,7 +36,7 @@ const UserRow = ({ user, index, refetch }) => {
     const makeAdmin = () => {
         const proceed = window.confirm(`Are You Sure Create Admin ${email}`);
         if (proceed) {
-            fetch(`http://localhost:5000/api/v1/admins/${email}`, {
+            fetch(`https://mahsez-server.vercel.app/api/v1/admins/${email}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
